@@ -1,6 +1,8 @@
 package journey.dialogs;
 
+import java.util.List;
 import journey.characters.Characters;
+import journey.enums.Warriors;
 
 public class Dialog {
     
@@ -72,7 +74,7 @@ public class Dialog {
     
     public static void printInformation(Characters c){
          System.out.println("Race: " + c.getName());
-         System.out.println("hp: " + c.getHp());
+         System.out.println("hp: " + c.getcurrentHp());
          System.out.println("Karma: " + c.getKarma());
     }
     
@@ -141,40 +143,6 @@ public class Dialog {
                    
     }
     
-    public static void printBoardFull(Characters a1){
-     System.out.println("           A                B                 C");
-     System.out.println("");
-     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-     System.out.println("   @                 @                 @                 @");
-     System.out.println(" 1 @ "+ a1.getName() +"(10) @ Sword Man  (10) @ Sword Man  (10) @");
-     System.out.println("   @                 @                 @                 @");
-     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-     System.out.println("   @                 @                 @                 @");
-     System.out.println(" 2 @ Sword Man  (10) @ Sword Man  (10) @ Sword Man  (10) @");
-     System.out.println("   @                 @                 @                 @");
-     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-     System.out.println("   @                 @                 @                 @");
-     System.out.println(" 1 @ Sword Man  (10) @ Sword Man  (10) @ Sword Man  (10) @");
-     System.out.println("   @                 @                 @                 @");
-     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-    }
     
-    public static void printBoardVoid(){
-     System.out.println("           A                B                 C");
-     System.out.println("");
-     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-     System.out.println("   @                 @                 @                 @");
-     System.out.println(" 1 @ *****EMPTY***** @ *****EMPTY***** @ *****EMPTY***** @");
-     System.out.println("   @                 @                 @                 @");
-     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-     System.out.println("   @                 @                 @                 @");
-     System.out.println(" 2 @ *****EMPTY***** @ *****EMPTY***** @ *****EMPTY***** @");
-     System.out.println("   @                 @                 @                 @");
-     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-     System.out.println("   @                 @                 @                 @");
-     System.out.println(" 1 @ *****EMPTY***** @ *****EMPTY***** @ *****EMPTY***** @");
-     System.out.println("   @                 @                 @                 @");
-     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-    }
 }
 

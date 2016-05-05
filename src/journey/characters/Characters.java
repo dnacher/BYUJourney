@@ -3,26 +3,26 @@ package journey.characters;
 public class Characters {
     
     private int id;
-    private int hp;
+    private int currentHp;
     private int karma;
     private String name;
     
     
-    public Characters(int hp, int karma,String name, int id){
+    public Characters(int currentHp, int karma,String name, int id){
         
-    this.hp=hp;
+    this.currentHp=currentHp;
     this.karma=karma;
     this.name=name;
     this.id=id;            
     }
 
    
-    public int getHp() {
-        return hp;
+    public int getcurrentHp() {
+        return currentHp;
     }
   
     public void setHp(int hp) {
-        this.hp = hp;
+        this.currentHp = hp;
     }
   
     public int getKarma() {
