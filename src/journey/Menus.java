@@ -3,7 +3,7 @@ package journey;
 import java.util.Scanner;
 import journey.characters.Characters;
 import journey.game.Game;
-import journey.game.dialogs.Dialog;
+import journey.dialogs.Dialog;
 
 public class Menus {
     

@@ -1,4 +1,4 @@
-package journey.game.dialogs;
+package journey.dialogs;
 
 import journey.characters.Characters;
 
@@ -139,6 +139,42 @@ public class Dialog {
          System.out.println("                                         ;@@@+` .;+@@@@@@+`                                                ");
          System.out.println("                                             .@@+;.                                                        ");
                    
+    }
+    
+    public static void printBoardFull(Characters a1){
+     System.out.println("           A                B                 C");
+     System.out.println("");
+     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+     System.out.println("   @                 @                 @                 @");
+     System.out.println(" 1 @ "+ a1.getName() +"(10) @ Sword Man  (10) @ Sword Man  (10) @");
+     System.out.println("   @                 @                 @                 @");
+     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+     System.out.println("   @                 @                 @                 @");
+     System.out.println(" 2 @ Sword Man  (10) @ Sword Man  (10) @ Sword Man  (10) @");
+     System.out.println("   @                 @                 @                 @");
+     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+     System.out.println("   @                 @                 @                 @");
+     System.out.println(" 1 @ Sword Man  (10) @ Sword Man  (10) @ Sword Man  (10) @");
+     System.out.println("   @                 @                 @                 @");
+     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+    }
+    
+    public static void printBoardVoid(){
+     System.out.println("           A                B                 C");
+     System.out.println("");
+     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+     System.out.println("   @                 @                 @                 @");
+     System.out.println(" 1 @ *****EMPTY***** @ *****EMPTY***** @ *****EMPTY***** @");
+     System.out.println("   @                 @                 @                 @");
+     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+     System.out.println("   @                 @                 @                 @");
+     System.out.println(" 2 @ *****EMPTY***** @ *****EMPTY***** @ *****EMPTY***** @");
+     System.out.println("   @                 @                 @                 @");
+     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+     System.out.println("   @                 @                 @                 @");
+     System.out.println(" 1 @ *****EMPTY***** @ *****EMPTY***** @ *****EMPTY***** @");
+     System.out.println("   @                 @                 @                 @");
+     System.out.println("   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
     }
 }
 

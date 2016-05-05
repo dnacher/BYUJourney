@@ -1,7 +1,7 @@
 package journey.game;
 
 import java.util.Scanner;
-import journey.game.dialogs.Dialog;
+import journey.dialogs.Dialog;
 
 public class GameHuman {
       public static void start(){
