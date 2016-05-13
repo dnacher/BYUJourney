@@ -2,11 +2,6 @@ package journey;
 
 import java.util.List;
 import journey.characters.Character;
-import journey.characters.Warrior;
-import journey.dialogs.Battle;
-import journey.enums.Warriors;
-import journey.game.Game;
-import journey.game.dice.Dice;
 
 public class Journey {
     
