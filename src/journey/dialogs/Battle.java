@@ -1,13 +1,16 @@
 
 package journey.dialogs;
 
+import static java.util.Collections.list;
 import java.util.Scanner;
+import journey.characters.Character;
 import journey.characters.Warrior;
 import journey.enums.Warriors;
+import journey.game.dice.Dice;
 
 public class Battle {
     
-    public static void printBoardFirst(Warrior a, Warrior empty){
+    public static void printBoardFirst(Warrior w[],Character c){
              
      System.out.println("            Note: Creature_Name(current HP of the creature)");
      System.out.println("");
@@ -15,15 +18,15 @@ public class Battle {
      System.out.println("");
      System.out.println("           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
      System.out.println("           @                 @                 @                 @");
-        WarriorLine(a);
+        WarriorLinefull(w[0],w[1],w[3]);
      System.out.println("           @                 @                 @                 @");
      System.out.println("           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
      System.out.println("           @                 @                 @                 @");
-        WarriorLine(empty);
+        WarriorLinefull(w[4],w[5],w[5]);
      System.out.println("           @                 @                 @                 @");
      System.out.println("           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
      System.out.println("           @                 @                 @                 @");
-        WarriorLine(empty);
+        WarriorLinefull(w[6],w[7],w[8]);
      System.out.println("           @                 @                 @                 @");
      System.out.println("           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
      System.out.println("");
@@ -32,7 +35,7 @@ public class Battle {
      Scanner inFile= new Scanner(System.in);
      choice= inFile.nextInt();
      choice=optionFirstBoard(choice, inFile);
-     afterBattleOption(choice);
+     afterBattleOption(choice,c);
     }
     
     public static void BattleDialogFirst(){
@@ -48,21 +51,21 @@ public class Battle {
     
     }
     
-    public static void printBoardFirst(Warrior a1, Warrior a2, Warrior a3,Warrior b1, Warrior b2, Warrior b3,Warrior c1, Warrior c2, Warrior c3 ){
-    
+    public static void printBoardFirst(Warrior w[] ){
+    //Warrior a1, Warrior a2, Warrior a3,Warrior b1, Warrior b2, Warrior b3,Warrior c1, Warrior c2, Warrior c3
         System.out.println("                   A                B                 C");
      System.out.println("");
      System.out.println("           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
      System.out.println("           @                 @                 @                 @");
-        WarriorLinefull(a1,a2,a3);
+        WarriorLinefull(w[0],w[1],w[3]);
      System.out.println("           @                 @                 @                 @");
      System.out.println("           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
      System.out.println("           @                 @                 @                 @");
-        WarriorLinefull(b1,b2,b3);
+        WarriorLinefull(w[4],w[5],w[5]);
      System.out.println("           @                 @                 @                 @");
      System.out.println("           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
      System.out.println("           @                 @                 @                 @");
-        WarriorLinefull(c1,c2,c3);
+        WarriorLinefull(w[6],w[7],w[8]);
      System.out.println("           @                 @                 @                 @");
      System.out.println("           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
      
@@ -78,17 +81,14 @@ public class Battle {
         System.out.println("4: Retreat. (you will lose life: total number of your creatures in the board or 50 if you haven´t)");
     }
     
-    public static void WarriorLine(Warrior w){
-        System.out.println("         1 @ " + w.getWar().getName() + "("+ w.getCurrentHp()+") @ "+ w.getWar().getName() +  "("+w.getCurrentHp()+") @ "+ w.getWar().getName() +"("+ w.getCurrentHp()+") @");
-    }
-    
+        
     public static void WarriorLinefull(Warrior w1, Warrior w2, Warrior w3){
-        System.out.println("         1 @ " + w1.getWar().getName() + "("+ w1.getCurrentHp()+") @ "+ w2.getWar().getName() +  "("+w2.getCurrentHp()+") @ "+ w3.getWar().getName() +"("+ w3.getCurrentHp()+") @");
+        System.out.println("         1 @ " + w1 + " @ "+ w2.getWar().getName() +  "("+w2.getCurrentHp()+") @ "+ w3.getWar().getName() +"("+ w3.getCurrentHp()+") @");
     }
     
-    public static void afterBattleOption(int choice){
+    public static void afterBattleOption(int choice,Character c){
         if(choice==1){
-             System.out.println("fight");
+            beginBattle(c);
         }
         else{
             System.out.println("retreat");
@@ -104,4 +104,130 @@ public class Battle {
      }
     return choice;
     }
+    
+    public static void beginBattle(Character c){
+        int i=1;
+        c.setMana(Dice.roll(i));
+        int ret=creaturesCanAfford(c);
+        Scanner inFile= new Scanner(System.in);
+        int choice= inFile.nextInt();
+        summonCreature(ret,choice,c);
+    }
+    
+    public static int creaturesCanAfford(Character c){
+        int i=1;
+        if(c.getMana()>=3){
+           firstLevelMenu(c.getId());
+           i +=1;           
+        }
+        else if(c.getMana()>=5){
+            secondLevelMenu(c.getId());
+            i +=1;            
+        }
+        else if(c.getMana()>=11){
+            thirdLevelMenu(c.getId());
+            i +=1;
+        }
+        System.out.println(i +": Keep Mana");
+        return i;
+    }
+    
+    public static void summonCreature(int ret, int choice, Character c){
+        if(ret==2){
+            while(choice!=1 && choice!=2){
+                System.out.println("you need to choose the 2 options");
+                creaturesCanAfford(c);
+                Scanner inFile= new Scanner(System.in);
+                choice= inFile.nextInt();
+            }
+        }
+        else if(ret==3){
+            while(choice!=1 && choice!=2 || choice!=3){
+                System.out.println("you need to choose the 3 options");
+                creaturesCanAfford(c);
+                Scanner inFile= new Scanner(System.in);
+                choice= inFile.nextInt();
+            }
+        }
+        else if(ret==4){
+            while(choice!=1 && choice!=2 || choice!=3){
+                System.out.println("you need to choose the 4 options");
+                creaturesCanAfford(c);
+                Scanner inFile= new Scanner(System.in);
+                choice= inFile.nextInt();
+            }
+        }
+        switch(choice){
+            case 1:
+                
+            case 2:
+                
+            case 3:
+                
+            case 4:
+                
+        }
+    }
+    
+    public static void firstLevelMenu(int id){
+        switch(id){
+            case 1:
+                System.out.println("1: " + Warriors.SWORD_MAN.getName());
+                break;
+            case 2:
+                System.out.println("1: " + Warriors.ELF_BOW.getName());
+                break;
+            case 3:
+                System.out.println("1: " + Warriors.WIZARD.getName());
+                break;
+        }
+    }
+    
+      public static void secondLevelMenu(int id){
+        switch(id){
+            case 1:
+                System.out.println("2: " + Warriors.SPEAR_MAN.getName());
+                break;
+            case 2:
+                System.out.println("2: " + Warriors.SPEAR_ELF.getName());
+                break;
+            case 3:
+                System.out.println("2: " + Warriors.GREY_WIZARD.getName());
+                break;
+        }
+    }
+      
+        public static void thirdLevelMenu(int id){
+        switch(id){
+            case 1:
+                System.out.println("3: " + Warriors.KNIGHT.getName());
+                break;
+            case 2:
+                System.out.println("3: " + Warriors.HORSE_ELF.getName());
+                break;
+            case 3:
+                System.out.println("3: " + Warriors.AIR_WIZARD.getName());
+                break;
+        }
+    }
+        
+        public static void moveAtack(int origin, int destiny){
+        
+        }
+        
+        public static Warrior[] createList(Warriors w, int quantity){
+        Warrior [ ] list = new Warrior [9];
+        Warrior enemy= new Warrior(w, 10);
+        Warrior empty= new Warrior(Warriors.EMPTY, -1);
+        for(int i=0; i<9;i++){
+            if(i<=quantity){
+                list[i]=enemy;
+            }
+            else{
+                list[i]=empty;
+            }
+            
+        }
+        return list;        
+        }
 }

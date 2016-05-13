@@ -34,6 +34,9 @@ public class Warrior {
         this.currentHp = currentHp;
     }
     
-    
-    
+    @Override
+    public String toString(){
+        return this.getWar().getName() + "(" + this.getCurrentHp() + ")";
+    }
+   
 }

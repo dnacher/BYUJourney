@@ -1,12 +1,12 @@
 package journey.game;
 
 import java.util.Scanner;
-import journey.characters.Characters;
+import journey.characters.Character;
 
 public abstract class Game {
     
     
-    public static void begin(Characters user){
+    public static void begin(Character user){
     
         switch(user.getId()){
             case 1:

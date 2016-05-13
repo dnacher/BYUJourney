@@ -1,7 +1,7 @@
 package journey;
 
 import java.util.Scanner;
-import journey.characters.Characters;
+import journey.characters.Character;
 import journey.game.Game;
 import journey.dialogs.Dialog;
 
@@ -48,15 +48,15 @@ public class Menus {
         }
         if(answer==1){
          Dialog.asterisk();
-         Characters c;
+         Character c;
          if(choice==1){
-         c= new Characters(100,0,"Human",1);
+         c= new Character(100,0,0,"Human",1);
          }
          else if(choice==2){
-         c= new Characters(150,0,"Elf",2);
+         c= new Character(150,0,0,"Elf",2);
          }
          else{
-         c= new Characters(80,0,"Wizard",3);
+         c= new Character(80,0,0,"Wizard",3);
          }  
          Dialog.printInformation(c);
          Game.begin(c);
