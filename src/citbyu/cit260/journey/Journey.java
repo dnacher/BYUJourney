@@ -22,12 +22,10 @@ public class Journey {
 
     public static void main(String[] args) {
         
-       /* for(int i=0; i<11;i++){
-        System.out.println(Dice.rollDice(0) + " -- " + Dice.rollDice(0));
-        }*/
-        
+             
        //TEST Dice Class
-        
+         testRollDice();
+         testProbability();
         
        //TEST controlPlayer Class 
          Player p= new Player();
@@ -35,8 +33,7 @@ public class Journey {
          testCalculateTime(c);
          testlookForItem(c);     
          testMove(c, p);
-         testRollDice();
-         testProbability();
+        
     }
     
     
