@@ -16,6 +16,9 @@ public class Dice {
         
     //this function roll one dice
      public static int rollDice(int level) {
+         if(level<0){
+             return -1;
+         }
        double random = Math.random()*((level + 1)*6) ;
        return (int)random + 1; 
     }

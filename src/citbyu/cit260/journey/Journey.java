@@ -24,19 +24,17 @@ public class Journey {
         
             
        //TEST Dice Class
-     //    testRollDice();
-     //    testProbability();
+         testRollDice();
+         testProbability();
         
        //TEST controlPlayer Class 
          Player p= new Player();
          controlPlayer c= new controlPlayer();
-      //  testCalculateTime(c);
-      //   testlookForItem(c);     
-      //   testMove(c, p);       
-         System.out.println(c.handleWeight(20, 0, 0));
-         System.out.println(c.handleWeight(20, 2, 1));
-          System.out.println(c.handleWeight(20, 5, 2));
-           System.out.println(c.handleWeight(20, 9, 3));
+         testCalculateTime(c);
+         testlookForItem(c);     
+         testMove(c, p);       
+         testHandleWeight(c, p);    
+           
     }
     
     
@@ -54,11 +52,11 @@ public class Journey {
         System.out.println(" expected from 1 to 24");
         System.out.println("");
         System.out.println("invalid inputs:");
-        System.out.print("return: " + Dice.rollDice(0)); 
+        System.out.print("return: " + Dice.rollDice(-5)); 
         System.out.println(" expected -1");
-        System.out.print("return: " + Dice.rollDice(0)); 
+        System.out.print("return: " + Dice.rollDice(-10)); 
         System.out.println(" expected -1");
-        System.out.print("return: " + Dice.rollDice(0)); 
+        System.out.print("return: " + Dice.rollDice(-6)); 
         System.out.println(" expected -1");    
         System.out.println("*************************************");
     }
@@ -161,4 +159,28 @@ public class Journey {
         
     }
     
+    //this function test the Move Function
+   public static void testHandleWeight(controlPlayer c, Player p){     
+        System.out.print("HandleWeight function:");
+        System.out.println("");
+        System.out.println("valid inputs:");
+         System.out.print(c.handleWeight(20, 0, 0));
+        System.out.println(" expected true");       
+         System.out.print(c.handleWeight(20, 0, 1));
+        System.out.println(" expected true");
+         System.out.print(c.handleWeight(20, 7, 2));
+        System.out.println(" expected false");
+        System.out.print(c.handleWeight(20, 0, 3));
+        System.out.println(" expected true");
+        System.out.println("");
+        System.out.println("invalid inputs:");
+         System.out.print(c.handleWeight(-2, 0, 0));
+        System.out.println(" expected false");  
+         System.out.print(c.handleWeight(20, -4, 0));
+        System.out.println(" expected false");  
+         System.out.print(c.handleWeight(20, 0, -5));
+        System.out.println(" expected false"); 
+        System.out.println("*************************************");
+        
+    }
 }
