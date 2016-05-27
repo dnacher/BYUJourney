@@ -88,6 +88,34 @@ public class controlPlayer {
         
     }
     
+    public boolean handleWeight(double totalWeight, double currentWeight, int LevelPlayer){
+        boolean enable=false;
+        int min=20;
+        double total=0;
+        if(LevelPlayer==0){
+            total= min-(totalWeight+currentWeight);            
+        }
+        else{
+            total=(min+(sumNumbers(LevelPlayer)))-(totalWeight+currentWeight);
+            System.out.println(sumNumbers(LevelPlayer));
+            System.out.println(total);
+                   
+        }
+        if(total>=0){
+                enable=true;
+            }       
+        return enable;       
+    }
     
+    public int sumNumbers(int number){
+        int total=0;
+        for(int i=0; i<number+1;i++){
+        total +=i;        
+        }
+        total+=1;
+        
+        return total;
+    
+    }
 
 }

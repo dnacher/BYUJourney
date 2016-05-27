@@ -22,18 +22,21 @@ public class Journey {
 
     public static void main(String[] args) {
         
-             
+            
        //TEST Dice Class
-         testRollDice();
-         testProbability();
+     //    testRollDice();
+     //    testProbability();
         
        //TEST controlPlayer Class 
          Player p= new Player();
          controlPlayer c= new controlPlayer();
-         testCalculateTime(c);
-         testlookForItem(c);     
-         testMove(c, p);
-        
+      //  testCalculateTime(c);
+      //   testlookForItem(c);     
+      //   testMove(c, p);       
+         System.out.println(c.handleWeight(20, 0, 0));
+         System.out.println(c.handleWeight(20, 2, 1));
+          System.out.println(c.handleWeight(20, 5, 2));
+           System.out.println(c.handleWeight(20, 9, 3));
     }
     
     
