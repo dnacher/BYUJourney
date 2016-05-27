@@ -1,8 +1,8 @@
-package journey.dialogs;
+package citbyu.cit260.journey.view.dialogs;
 
 import java.util.List;
-import journey.characters.Character;
-import journey.enums.Warriors;
+import citbyu.cit260.journey.model.characters.Character;
+import citbyu.cit260.journey.model.characters.enums.Warriors;
 
 public class Dialog {
     

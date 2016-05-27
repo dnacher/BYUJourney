@@ -1,7 +1,7 @@
-package journey.game;
+package citbyu.cit260.journey.model.game;
 
 import java.util.Scanner;
-import journey.characters.Character;
+import citbyu.cit260.journey.model.characters.Character;
 
 public abstract class Game {
     
@@ -17,10 +17,10 @@ public abstract class Game {
                 GameHuman.answerStartQuestions(choice);
                 break;
             case 2:
-                GameElf.start();
+               // GameElf.start();
                 break;
             case 3:
-                 GameWizard.start();
+              //   GameWizard.start();
                 break;
         
         }

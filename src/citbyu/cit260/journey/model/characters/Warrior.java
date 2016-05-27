@@ -1,29 +1,29 @@
 
-package journey.characters;
+package citbyu.cit260.journey.model.characters;
 
 import java.io.Serializable;
 import java.util.Objects;
-import journey.enums.Warriors;
+import citbyu.cit260.journey.model.characters.enums.Warriors;
 
 public class Warrior implements Serializable{
     
     
-    private Warriors war;
+    private Warriors warrrior;
     private int currentHp;
     
     public Warrior(Warriors war, int currentHp){
-    this.war=war;
+    this.warrrior=war;
     this.currentHp=currentHp;    
     }
 
    
     public Warriors getWar() {
-        return war;
+        return warrrior;
     }
 
    
     public void setWar(Warriors war) {
-        this.war = war;
+        this.warrrior = war;
     }
 
    
@@ -44,7 +44,7 @@ public class Warrior implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.war);
+        hash = 89 * hash + Objects.hashCode(this.warrrior);
         hash = 89 * hash + this.currentHp;
         return hash;
     }
@@ -58,7 +58,7 @@ public class Warrior implements Serializable{
             return false;
         }
         final Warrior other = (Warrior) obj;
-        if (this.war != other.war) {
+        if (this.warrrior != other.warrrior) {
             return false;
         }
         if (this.currentHp != other.currentHp) {

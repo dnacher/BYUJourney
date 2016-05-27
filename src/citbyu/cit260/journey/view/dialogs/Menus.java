@@ -1,9 +1,9 @@
-package journey;
+package citbyu.cit260.journey.view.dialogs;
 
 import java.util.Scanner;
-import journey.characters.Character;
-import journey.game.Game;
-import journey.dialogs.Dialog;
+import citbyu.cit260.journey.model.characters.Character;
+import citbyu.cit260.journey.model.game.Game;
+import citbyu.cit260.journey.view.dialogs.Dialog;
 
 public class Menus {
     

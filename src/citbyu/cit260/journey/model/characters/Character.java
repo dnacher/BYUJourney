@@ -1,4 +1,4 @@
-package journey.characters;
+package citbyu.cit260.journey.model.characters;
 
 import java.io.Serializable;
 import java.util.Objects;

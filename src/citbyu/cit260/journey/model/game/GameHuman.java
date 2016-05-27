@@ -1,7 +1,7 @@
-package journey.game;
+package citbyu.cit260.journey.model.game;
 
 import java.util.Scanner;
-import journey.dialogs.Dialog;
+import citbyu.cit260.journey.view.dialogs.Dialog;
 
 public class GameHuman {
       public static void start(){

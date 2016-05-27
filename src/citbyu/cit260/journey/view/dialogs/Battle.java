@@ -1,12 +1,10 @@
 
-package journey.dialogs;
-
-import static java.util.Collections.list;
+package citbyu.cit260.journey.view.dialogs;
 import java.util.Scanner;
-import journey.characters.Character;
-import journey.characters.Warrior;
-import journey.enums.Warriors;
-import journey.game.dice.Dice;
+import citbyu.cit260.journey.model.characters.Character;
+import citbyu.cit260.journey.model.characters.Warrior;
+import citbyu.cit260.journey.model.characters.enums.Warriors;
+import citbyu.cit260.journey.control.Dice;
 
 public class Battle {
     
@@ -107,7 +105,8 @@ public class Battle {
     
     public static void beginBattle(Character c){
         int i=1;
-        c.setMana(Dice.roll(i));
+        //loooook for the variables on this roll function********************************************this is just for test
+        c.setMana(Dice.roll(i,i));
         int ret=creaturesCanAfford(c);
         Scanner inFile= new Scanner(System.in);
         int choice= inFile.nextInt();

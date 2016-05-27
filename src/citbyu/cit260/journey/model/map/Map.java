@@ -1,4 +1,4 @@
-package journey.map;
+package citbyu.cit260.journey.model.map;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Map implements Serializable{
     
     private int id;
-    private List<Place> placesList;
+    private List<Location> placesList;
 
   
     public int getId() {
@@ -18,11 +18,11 @@ public class Map implements Serializable{
         this.id = id;
     }
 
-    public List<Place> getPlacesList() {
+    public List<Location> getPlacesList() {
         return placesList;
     }
 
-    public void setPlacesList(List<Place> placesList) {
+    public void setPlacesList(List<Location> placesList) {
         this.placesList = placesList;
     }
 

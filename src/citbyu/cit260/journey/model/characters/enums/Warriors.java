@@ -1,4 +1,4 @@
-package journey.enums;
+package citbyu.cit260.journey.model.characters.enums;
 
 public enum Warriors {
     

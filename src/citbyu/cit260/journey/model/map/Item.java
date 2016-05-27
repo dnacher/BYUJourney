@@ -1,4 +1,4 @@
-package journey.map;
+package citbyu.cit260.journey.model.map;
 
 import java.io.Serializable;
 import java.util.Objects;
