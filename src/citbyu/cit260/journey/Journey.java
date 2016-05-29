@@ -3,6 +3,7 @@ package citbyu.cit260.journey;
 import java.util.List;
 import citbyu.cit260.journey.model.characters.Character;
 import citbyu.cit260.journey.control.Dice;
+import citbyu.cit260.journey.control.controlPlace;
 import citbyu.cit260.journey.control.controlPlayer;
 import citbyu.cit260.journey.model.Player.Player;
 
@@ -35,7 +36,8 @@ public class Journey {
        //  testMove(c, p);       
          //testHandleWeight(c, p);   
      //    c.lookForItem(4, 0, true);
-           
+           controlPlace cp= new controlPlace();
+          System.out.println(cp.enoughLight(3, 4, 2, 10));
     }
     
     
