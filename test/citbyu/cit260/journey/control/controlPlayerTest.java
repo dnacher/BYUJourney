@@ -269,9 +269,7 @@ public class controlPlayerTest {
         assertEquals(expResult, result, 0.0);       
     }
     
-}
-
-@Test
+    @Test
     public void testAttack2() {
         System.out.println("attack");
         boolean lucky = false;
@@ -283,8 +281,6 @@ public class controlPlayerTest {
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }
-    
-}
 
 @Test
     public void testAttack3() {
@@ -299,7 +295,6 @@ public class controlPlayerTest {
         assertEquals(expResult, result, 0.0);       
     }
     
-}
 
 @Test
     public void testAttack4() {
@@ -313,8 +308,6 @@ public class controlPlayerTest {
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }
-    
-}
 
 @Test
     public void testAttack5() {
@@ -328,8 +321,6 @@ public class controlPlayerTest {
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }
-    
-}
 
 @Test
     public void testAttack6() {
@@ -343,8 +334,6 @@ public class controlPlayerTest {
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }
-    
-}
 
 @Test
     public void testAttack7() {
@@ -358,5 +347,4 @@ public class controlPlayerTest {
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }
-    
 }
