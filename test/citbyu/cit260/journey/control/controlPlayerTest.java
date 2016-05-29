@@ -317,7 +317,7 @@ public class controlPlayerTest {
         int armor = 2;
         int life = 6;
         controlPlayer instance = new controlPlayer();
-        double expResult = -1.0;
+        double expResult = -999.0;
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }
@@ -330,7 +330,7 @@ public class controlPlayerTest {
         int armor = -2;
         int life = 6;
         controlPlayer instance = new controlPlayer();
-        double expResult = -1.0;
+        double expResult = -999.0;
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }
@@ -343,7 +343,7 @@ public class controlPlayerTest {
         int armor = 2;
         int life = -6;
         controlPlayer instance = new controlPlayer();
-        double expResult = -1.0;
+        double expResult = -999.0;
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }

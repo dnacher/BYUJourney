@@ -130,7 +130,7 @@ public class controlPlayer {
        double totalAttack = 0;
        double currentLife=life;
        if(power<0 || armor<0 || life<0){
-           return -1;
+           return -999;
        }
        if (lucky){
            totalAttack=power*1.25;           
