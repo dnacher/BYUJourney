@@ -86,54 +86,8 @@ public class Journey {
     }
     
     
-    //this function test the calculateTime Function
-  /*  public static void testCalculateTime(controlPlayer c){      
-        System.out.println("CalculateTime function:");
-        System.out.println("");
-        System.out.println("valid inputs:");
-        System.out.print("return: " + c.calculateTime(1, 50)); 
-        System.out.println(" expected 10");
-        System.out.print("return: " + c.calculateTime(2, 70));
-        System.out.println(" expected 5");
-        System.out.print("return: " + c.calculateTime(1, 150));
-        System.out.println(" expected 30");
-        System.out.print("return: " + c.calculateTime(2, 180));
-        System.out.println(" expected 12");
-        System.out.println("");
-        System.out.println("invalid inputs:");
-        System.out.print("return: " + c.calculateTime(3, 140));
-        System.out.println(" expected -1");
-        System.out.print("return: " + c.calculateTime(2, -140));
-        System.out.println(" expected -1");
-        System.out.print("return: " + c.calculateTime(0, 0)); 
-        System.out.println(" expected -1");    
-        System.out.println("*************************************");
-    }
-    
-    //this function test the lookForItem Function
-   public static void testlookForItem(controlPlayer c){      
-        System.out.println("LookForItem function:");
-        System.out.println("");
-        System.out.println("valid inputs:");
-        System.out.print("return: " + c.lookForItem(1, 10)); 
-        System.out.println(" expected true");       
-        System.out.print("return: " + c.lookForItem(2, 25)); 
-        System.out.println(" expected true");
-        System.out.print("return: " + c.lookForItem(3, 0)); 
-        System.out.println(" expected false");
-        System.out.print("return: " + c.lookForItem(1, 50)); 
-        System.out.println(" expected true");
-        System.out.println("");
-        System.out.println("invalid inputs:");
-        System.out.print("return: " + c.lookForItem(5, 1)); 
-        System.out.println(" expected false");
-        System.out.print("return: " + c.lookForItem(15, 10)); 
-        System.out.println(" expected false");
-        System.out.print("return: " + c.lookForItem(-2, 5)); 
-        System.out.println(" expected false");  
-        System.out.println("*************************************");
-        
-    }*/
+   
+   
    
    //this function test the Move Function
    public static void testMove(controlPlayer c, Player p){     
@@ -160,28 +114,5 @@ public class Journey {
         
     }
     
-    //this function test the Move Function
-   public static void testHandleWeight(controlPlayer c, Player p){     
-        System.out.print("HandleWeight function:");
-        System.out.println("");
-        System.out.println("valid inputs:");
-         System.out.print(c.handleWeight(20, 0, 0));
-        System.out.println(" expected true");       
-         System.out.print(c.handleWeight(20, 0, 1));
-        System.out.println(" expected true");
-         System.out.print(c.handleWeight(20, 7, 2));
-        System.out.println(" expected false");
-        System.out.print(c.handleWeight(20, 0, 3));
-        System.out.println(" expected true");
-        System.out.println("");
-        System.out.println("invalid inputs:");
-         System.out.print(c.handleWeight(-2, 0, 0));
-        System.out.println(" expected false");  
-         System.out.print(c.handleWeight(20, -4, 0));
-        System.out.println(" expected false");  
-         System.out.print(c.handleWeight(20, 0, -5));
-        System.out.println(" expected false"); 
-        System.out.println("*************************************");
-        
-    }
+   
 }
