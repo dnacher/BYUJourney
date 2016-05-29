@@ -24,16 +24,17 @@ public class Journey {
         
             
        //TEST Dice Class
-         testRollDice();
-         testProbability();
+       //  testRollDice();
+        // testProbability();
         
        //TEST controlPlayer Class 
          Player p= new Player();
          controlPlayer c= new controlPlayer();
-         testCalculateTime(c);
-         testlookForItem(c);     
-         testMove(c, p);       
-         testHandleWeight(c, p);    
+        // testCalculateTime(c);
+        // testlookForItem(c);     
+       //  testMove(c, p);       
+         //testHandleWeight(c, p);   
+     //    c.lookForItem(4, 0, true);
            
     }
     
@@ -86,7 +87,7 @@ public class Journey {
     
     
     //this function test the calculateTime Function
-    public static void testCalculateTime(controlPlayer c){      
+  /*  public static void testCalculateTime(controlPlayer c){      
         System.out.println("CalculateTime function:");
         System.out.println("");
         System.out.println("valid inputs:");
@@ -132,7 +133,7 @@ public class Journey {
         System.out.println(" expected false");  
         System.out.println("*************************************");
         
-    }
+    }*/
    
    //this function test the Move Function
    public static void testMove(controlPlayer c, Player p){     

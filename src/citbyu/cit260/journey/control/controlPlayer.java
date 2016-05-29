@@ -7,12 +7,26 @@ public class controlPlayer {
     
     //this function will calculate the time spend to travel from one place to another
     //the speed of a horse and a man is based on a internet research
-    public int calculateTime(int way, int distance){
+    public double calculateTime(int way, int distance, boolean wounded){
 	int manSpeed=5;
 	int horseSpeed=14;
-	int Total=0;
+	double Total=0;
     if(distance>0){
-	if(way==1){
+        if(wounded){
+            if(way==1){
+		Total=distance/manSpeed;
+                Total=Total*1.2;
+	}
+        else if(way==2){
+		Total=distance/horseSpeed;
+                Total=Total*1.2;
+	}
+	else{
+		Total =-1;
+	}        
+        }
+        else{
+        if(way==1){
 		Total=distance/manSpeed;
 	}
         else if(way==2){
@@ -20,7 +34,9 @@ public class controlPlayer {
 	}
 	else{
 		Total =-1;
-	}
+	}        
+        }
+	
     }
     else{
 	Total =-1;
@@ -37,37 +53,24 @@ public class controlPlayer {
     for level 3 from 27 to 34
     for level 4 from 35 to 42
     */
-    public boolean lookForItem(int Level, int LevelPlayer){
+    public boolean lookForItem(int Level, int LevelPlayer, boolean lucky){
         Boolean found=false;
+        int levelPoints=3;
         int points= rollDice(LevelPlayer);
-        if(LevelPlayer>0){
-        if(Level==0){
-            if (points>3){
-                found=true;
+        if(LevelPlayer>=0){
+            if(Level>=0){               
+                if (points>levelPoints+(8*Level)){                   
+                    found=true;
+                }
+            }            
+            else{
+                return false;
             }
-        }
-        else if(Level==1){
-            if (points>3){
-                found=true;
-	}
-        }
-        else if(Level==2){
-            if (points>11){
-                found=true;
-            }
-        }
-        else if(Level==3){
-            if (points>19){
-                found=true;
-            }
-        }
-        else{
-            return false;
-        }
         }
         else{
              return false;
         }
+        System.out.println(levelPoints+(8*Level));
     return found;
     }
 
@@ -122,5 +125,20 @@ public class controlPlayer {
         return total;
     
     }
+    
+    public double attack(boolean lucky, int power, int armor, int life){
+       double totalAttack = 0;
+       double currentLife=life;
+       if (lucky){
+           totalAttack=power*1.25;           
+       }
+       else{
+           totalAttack=power;
+       }
+       currentLife=life-(totalAttack-armor);      
+       return currentLife;    
+       }
+    
+    
 
 }
