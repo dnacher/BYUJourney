@@ -257,7 +257,7 @@ public class controlPlayerTest {
 
     
     @Test
-    public void testAttack() {
+    public void testAttack1() {
         System.out.println("attack");
         boolean lucky = false;
         int power = 0;
@@ -270,79 +270,80 @@ public class controlPlayerTest {
     }
     
     @Test
-    public void testAttack1() {
-        System.out.println("attack");
-        boolean lucky = false;
-        int power = 1;
-        int armor = 1;
-        int life = 1;
-        controlPlayer instance = new controlPlayer();
-        double expResult = 1.0;
-        double result = instance.attack(lucky, power, armor, life);
-        assertEquals(expResult, result, 0.0);       
-    }
-    
-    @Test
     public void testAttack2() {
         System.out.println("attack");
         boolean lucky = false;
-        int power = -1;
-        int armor = 1;
-        int life = 1;
+        int power = 4;
+        int armor = 2;
+        int life = 6;
         controlPlayer instance = new controlPlayer();
-        double expResult = -1;
+        double expResult = 4.0;
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }
-   
-    @Test
+
+@Test
     public void testAttack3() {
         System.out.println("attack");
         boolean lucky = false;
-        int power = 1;
-        int armor = -1;
-        int life = 1;
+        int power = 5;
+        int armor = 0;
+        int life = 5;
         controlPlayer instance = new controlPlayer();
-        double expResult = -1;
+        double expResult = 0.0;
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }
     
-    @Test
+
+@Test
     public void testAttack4() {
         System.out.println("attack");
-        boolean lucky = false;
-        int power = 1;
-        int armor = 1;
-        int life = -1;
+        boolean lucky = true;
+        int power = 4;
+        int armor = 2;
+        int life = 6;
         controlPlayer instance = new controlPlayer();
-        double expResult = -1;
+        double expResult = 3.0;
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }
-    
-    @Test
+
+@Test
     public void testAttack5() {
         System.out.println("attack");
         boolean lucky = false;
-        int power = 3;
-        int armor = 1;
-        int life = 1;
+        int power = -3;
+        int armor = 2;
+        int life = 6;
         controlPlayer instance = new controlPlayer();
-        double expResult = -1;
+        double expResult = -1.0;
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }
-    
-    @Test
+
+@Test
     public void testAttack6() {
         System.out.println("attack");
         boolean lucky = false;
-        int power = 1;
-        int armor = 1;
-        int life = 5;
+        int power = 3;
+        int armor = -2;
+        int life = 6;
         controlPlayer instance = new controlPlayer();
-        double expResult = 5;
+        double expResult = -1.0;
+        double result = instance.attack(lucky, power, armor, life);
+        assertEquals(expResult, result, 0.0);       
+    }
+
+@Test
+    public void testAttack7() {
+        System.out.println("attack");
+        boolean lucky = false;
+        int power = 3;
+        int armor = 2;
+        int life = -6;
+        controlPlayer instance = new controlPlayer();
+        double expResult = -1.0;
         double result = instance.attack(lucky, power, armor, life);
         assertEquals(expResult, result, 0.0);       
     }
