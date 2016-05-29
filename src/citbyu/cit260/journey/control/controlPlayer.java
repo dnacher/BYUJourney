@@ -73,7 +73,7 @@ public class controlPlayer {
 
     public int move(int newPlace, Player player){
         if(player!= null){
-            if(newPlace>0){
+            if(newPlace>=0){
                 player.setPlace(newPlace);
                 return player.getPlace();
             }
