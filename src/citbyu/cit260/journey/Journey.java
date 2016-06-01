@@ -1,11 +1,13 @@
 package citbyu.cit260.journey;
 
+import citbyu.cit260.journey.control.controlPlace;
 import java.util.List;
 import citbyu.cit260.journey.model.characters.Character;
-import citbyu.cit260.journey.control.Dice;
-import citbyu.cit260.journey.control.controlPlace;
-import citbyu.cit260.journey.control.controlPlayer;
-import citbyu.cit260.journey.model.Player.Player;
+import citbyu.cit260.journey.model.characters.Warrior;
+import citbyu.cit260.journey.model.characters.enums.Warriors;
+import java.util.ArrayList;
+
+import static java.util.Collections.list;
 
 public class Journey {
     
@@ -17,104 +19,47 @@ public class Journey {
        System.out.println(playerInfo);
     }
      
-     
+     public static void test(List<Warrior> l){
+          for(Warrior w: l){
+              if(w!=null){
+              System.out.println(w.toString());
+              }
+              else{
+              System.out.println("null");
+              }
+       
+    }
+        
+    }
     
     private List<Character>PlayerList;
 
     public static void main(String[] args) {
-        
-            
-       //TEST Dice Class
-       //  testRollDice();
-        // testProbability();
-        
-       //TEST controlPlayer Class 
-         Player p= new Player();
-         controlPlayer c= new controlPlayer();
-        // testCalculateTime(c);
-        // testlookForItem(c);     
-       //  testMove(c, p);       
-         //testHandleWeight(c, p);   
-     //    c.lookForItem(4, 0, true);
-           controlPlace cp= new controlPlace();
-          System.out.println(cp.enoughLight(3, 4, 2, 10));
+        List<Warrior> l= new ArrayList<>();
+        Warrior w = new Warrior(Warriors.ORC, 100);
+        l.add(0, w);
+        l.add(1, w);
+        l.add(2, w);
+        controlPlace p= new controlPlace();        
+        List<Warrior> l2= p.moveEnemies(l);
+        test(l2);
+   /* List<Warrior> l= new ArrayList<Warrior>();
+    List<Warrior> l2= new ArrayList<Warrior>();
+    Warrior w=new Warrior(Warriors.ORC, 100);
+    l.add(0, w);
+    l.add(1,w);
+    l.add(2, w);
+    l2.add(0, null);
+    l2.add(1,null);
+    l2.add(2, null);
+    l2.add(3, l.get(0));
+    l2.add(4, l.get(1));
+    l2.add(5, l.get(2));
+        test(l);
+        System.out.println("--------------------------------");
+        test(l2);*/
+    
     }
     
     
-    public static void testRollDice(){
-        System.out.println("RollDice function:");
-        System.out.println("");
-        System.out.println("valid inputs:");
-        System.out.print("return: " + Dice.rollDice(0)); 
-        System.out.println(" expected from 1 to 6");
-        System.out.print("return: " + Dice.rollDice(1)); 
-        System.out.println(" expected from 1 to 12");
-        System.out.print("return: " + Dice.rollDice(2)); 
-        System.out.println(" expected from 1 to 18");
-        System.out.print("return: " + Dice.rollDice(3)); 
-        System.out.println(" expected from 1 to 24");
-        System.out.println("");
-        System.out.println("invalid inputs:");
-        System.out.print("return: " + Dice.rollDice(-5)); 
-        System.out.println(" expected -1");
-        System.out.print("return: " + Dice.rollDice(-10)); 
-        System.out.println(" expected -1");
-        System.out.print("return: " + Dice.rollDice(-6)); 
-        System.out.println(" expected -1");    
-        System.out.println("*************************************");
-    }
-        
-    public static void testProbability(){
-        System.out.println("Probability function:");
-        System.out.println("");
-        System.out.println("valid inputs:");
-        System.out.print("return: " + Dice.probability(100)); 
-        System.out.println(" expected true");
-        System.out.print("return: " + Dice.probability(2)); 
-        System.out.println(" expected false");
-        System.out.print("return: " + Dice.probability(50)); 
-        System.out.println(" expected true or false");     
-        System.out.print("return: " + Dice.probability(0)); 
-        System.out.println(" expected false");     
-        System.out.println("");
-        System.out.println("invalid inputs:");
-        System.out.print("return: " + Dice.probability(150)); 
-        System.out.println(" expected false");
-        System.out.print("return: " + Dice.probability(-10)); 
-        System.out.println(" expected false");
-        System.out.print("return: " + Dice.probability(-25));  
-        System.out.println(" expected false");    
-        System.out.println("*************************************");
-    }
-    
-    
-   
-   
-   
-   //this function test the Move Function
-   public static void testMove(controlPlayer c, Player p){     
-        System.out.println("Move function:");
-        System.out.println("");
-        System.out.println("valid inputs:");
-        System.out.print("return: " + c.move(10, p)); 
-        System.out.println(" expected 10");       
-        System.out.print("return: " + c.move(25, p)); 
-        System.out.println(" expected 25");
-        System.out.print("return: " + c.move(7, p)); 
-        System.out.println(" expected 7");
-        System.out.print("return: " + c.move(14, p)); 
-        System.out.println(" expected 14");
-        System.out.println("");
-        System.out.println("invalid inputs:");
-        System.out.print("return: " + c.move(10, null)); 
-        System.out.println(" expected -1");  
-        System.out.print("return: " + c.move(-5, p)); 
-        System.out.println(" expected -1");  
-        System.out.print("return: " + c.move(-2, null)); 
-        System.out.println(" expected -1"); 
-        System.out.println("*************************************");
-        
-    }
-    
-   
 }
