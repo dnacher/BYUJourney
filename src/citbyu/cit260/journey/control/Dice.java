@@ -13,6 +13,8 @@ public class Dice {
         }
         return 1;
     }*/
+    
+    //example
         
     //this function roll one dice
      public static int rollDice(int level) {
