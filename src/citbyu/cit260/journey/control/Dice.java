@@ -15,6 +15,7 @@ public class Dice {
     }*/
     
     //example
+    //example
         
     //this function roll one dice
      public static int rollDice(int level) {
