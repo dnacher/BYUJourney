@@ -69,8 +69,17 @@ public class Dialog {
     }
     
     public static void HelloWorld(Player p){
-        System.out.println("Welcome to the Journey " + p.getName());
-        System.out.println("Main Menu");
+        System.out.println("Welcome to the Journey " + p.getName());       
+    }
+    
+    public static void MainMenu(){
+     System.out.println("*****************************");
+     System.out.println("Please select an option:");
+     System.out.println("1)- Start/Continue the game");
+     System.out.println("2)- Edit your profile");
+     System.out.println("3)- Help/Instructions");
+     System.out.println("4)- Exit game");    
+     System.out.println("*****************************");
     }
     
     public static void humanChoice(){

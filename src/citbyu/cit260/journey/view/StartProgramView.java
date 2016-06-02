@@ -11,5 +11,6 @@ public class StartProgramView {
         Dialog.description();
         Dialog.choosePlayerName();
         controlGame.createThePlayer();
+        Dialog.MainMenu();
     }
 }
