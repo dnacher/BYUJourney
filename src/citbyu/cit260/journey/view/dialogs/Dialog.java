@@ -2,13 +2,12 @@ package citbyu.cit260.journey.view.dialogs;
 
 import java.util.List;
 import citbyu.cit260.journey.model.characters.Character;
-import citbyu.cit260.journey.model.characters.enums.Warriors;
 
 public class Dialog {
     
     //this is the dialog of the beginning
     //this text was created with the help of this page http://patorjk.com/software/taag/
-    public static void dialog1(){
+    public static void logo(){
         System.out.println("                   _______ _                 _                                              ");
         System.out.println("                  |__   __| |               | |                                             ");
         System.out.println("                     | |  | |__   ___       | | ___  _   _ _ __ _ __   ___ _   _            ");
@@ -24,15 +23,31 @@ public class Dialog {
         System.out.println("                                                   __/ |                                    ");
         System.out.println("                                                  |___/                                    ");
         System.out.println("");
+        System.out.println("");            
+    }
+    
+    public static void description(){
+        System.out.println("A Hero will need to find the light stones");
         System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+    }
+    
+    //this is the dialog of the beginning to choose a Race
+    public static void chooseRace(){
         System.out.println("Please choose your race: ");
         System.out.println("1-Human");
         System.out.println("2-Elf");
-        System.out.println("3-Wizard");    
+        System.out.println("3-Wizard");
     }
     
-    //this is the dialog of the beginning 
-    public static void dialog2(){
+    //this is the dialog of the beginning if you put an incorrect choice
+    public static void chooseRace2(){
         System.out.println("please choose a correct answer(number). it could be:");
         System.out.println("1-Human");
         System.out.println("2-Elf");

@@ -10,12 +10,13 @@ public class Menus {
     private static int choice;
   
      public static void MainMenu(){
-        Dialog.dialog1();       
+        Dialog.logo();       
+        Dialog.chooseRace();
         Scanner inFile;
         inFile= new Scanner(System.in);
         choice= inFile.nextInt();
         while(choice !=1 && choice !=2 && choice !=3){
-        Dialog.dialog2();
+        Dialog.chooseRace2();
         inFile= new Scanner(System.in);
         choice= inFile.nextInt();
         }
