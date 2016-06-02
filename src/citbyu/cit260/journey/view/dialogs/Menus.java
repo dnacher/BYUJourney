@@ -60,7 +60,7 @@ public class Menus {
          c= new Character(80,0,0,"Wizard",3);
          }  
          Dialog.printInformation(c);
-         Game.begin(c);
+        // Game.begin(c);
                  }
         else{
         MainMenu();

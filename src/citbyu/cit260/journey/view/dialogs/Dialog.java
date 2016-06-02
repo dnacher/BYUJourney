@@ -1,6 +1,6 @@
 package citbyu.cit260.journey.view.dialogs;
 
-import java.util.List;
+import citbyu.cit260.journey.model.Player.Player;
 import citbyu.cit260.journey.model.characters.Character;
 
 public class Dialog {
@@ -27,23 +27,37 @@ public class Dialog {
     }
     
     public static void description(){
-        System.out.println("A Hero will need to find the light stones");
+        System.out.println("                           All the races in Edelion are in a big danger");
+        System.out.println("                    since the light stone were stolen from the great wizards.");
         System.out.println("");
+        System.out.println("               The light stone can open a portal to a new world. depending on who is");
+        System.out.println("                owning the stone if the light stone can save all the races or not.");
         System.out.println("");
+        System.out.println("               Your task is to join the allied and enemy races to fight against the ");
+        System.out.println("                                creatures that stole the light stone.");
         System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
+        System.out.println("               Discover where the light stones are and bringing back to the wizards.");
         System.out.println("");
     }
     
+     public static void choosePlayerName(){
+        System.out.println("Please type your name: ");         
+    }
+     
+     public static void choosePlayerName2(){
+      System.out.println("Don´t you have a name? come on, type something..: ");      
+     }
+     
+      public static void choosePlayerName3(){
+      System.out.println("What kind of name is just a space..come on be more creative: ");      
+     }
+     
     //this is the dialog of the beginning to choose a Race
     public static void chooseRace(){
         System.out.println("Please choose your race: ");
         System.out.println("1-Human");
         System.out.println("2-Elf");
-        System.out.println("3-Wizard");
+        System.out.println("3-Wizard");        
     }
     
     //this is the dialog of the beginning if you put an incorrect choice
@@ -52,6 +66,11 @@ public class Dialog {
         System.out.println("1-Human");
         System.out.println("2-Elf");
         System.out.println("3-Wizard");
+    }
+    
+    public static void HelloWorld(Player p){
+        System.out.println("Welcome to the Journey " + p.getName());
+        System.out.println("Main Menu");
     }
     
     public static void humanChoice(){

@@ -1,4 +1,5 @@
 package citbyu.cit260.journey.model.Player;
+import citbyu.cit260.journey.model.characters.Character;
 
 public class Player {
     
@@ -6,6 +7,7 @@ public class Player {
     private String name;
     private int time;
     private int currentPlace;
+    private Character myCharacter;
 
     public int getId() {
         return id;
@@ -29,23 +31,35 @@ public class Player {
 
     public void setTime(int time) {
         this.time = time;
-    }
-
-    public int getPlace() {
+    }  
+    
+    public int getCurrentPlace() {
         return currentPlace;
     }
 
-    public void setPlace(int place) {
-        this.currentPlace = place;
-    }    
+    public void setCurrentPlace(int currentPlace) {
+        this.currentPlace = currentPlace;
+    }
+
+    public Character getMyCharacter() {
+        return myCharacter;
+    }
+
+    public void setMyCharacter(Character myCharacter) {
+        this.myCharacter = myCharacter;
+    }
     
     public Player(){
         
     }
     
-    public Player(int id, String name){
+    public Player(int id, String name, Character myCharacter){
     this.id=id;
     this.name=name;
+    this.time=0;
+    this.currentPlace=0;
+    this.myCharacter=myCharacter;
+        
     }
     
     

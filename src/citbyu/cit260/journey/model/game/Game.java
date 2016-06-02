@@ -1,34 +1,41 @@
 package citbyu.cit260.journey.model.game;
 
-import java.util.Scanner;
-import citbyu.cit260.journey.model.characters.Character;
+import citbyu.cit260.journey.model.Player.Player;
+import java.util.ArrayList;
 
-public abstract class Game {
+public class Game {
     
-    
-    public static void begin(Character user){
-    
-        switch(user.getId()){
-            case 1:
-               GameHuman.start();
-               Scanner inFile;
-                inFile= new Scanner(System.in);
-                int choice= inFile.nextInt();
-                GameHuman.answerStartQuestions(choice);
-                break;
-            case 2:
-               // GameElf.start();
-                break;
-            case 3:
-              //   GameWizard.start();
-                break;
-        
-        }
-        
+     private ArrayList<Player> list= new ArrayList<Player>();
+        private int idPlayer=0;
+
+    public ArrayList<Player> getList() {
+        return list;
+    }
+
+    public void setList(ArrayList<Player> list) {
+        this.list = list;
+    }
+
+    public int getIdPlayer() {
+        return idPlayer;
+    }
+
+    public void setIdPlayer(int idPlayer) {
+        this.idPlayer = idPlayer;
     }
     
+    private static Game instance;
     
+    private Game(){ 
+       
+    }
     
+    public static Game getInstance(){
+        if(instance==null){
+            instance= new Game();
+        }
+        return instance;
+    }  
   
 }
 

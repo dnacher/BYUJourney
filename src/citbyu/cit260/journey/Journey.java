@@ -1,16 +1,16 @@
 package citbyu.cit260.journey;
 
 import citbyu.cit260.journey.control.controlPlace;
+import citbyu.cit260.journey.model.Player.Player;
 import java.util.List;
 import citbyu.cit260.journey.model.characters.Character;
 import citbyu.cit260.journey.model.characters.Warrior;
-import citbyu.cit260.journey.model.characters.enums.Warriors;
 import citbyu.cit260.journey.view.StartProgramView;
 import java.util.ArrayList;
 
-import static java.util.Collections.list;
-
 public class Journey {
+    
+    
     
      public static void createCharacter(){
        Character CharacterOne= new Character();
@@ -37,8 +37,7 @@ public class Journey {
 
     public static void main(String[] args) {
        
-        StartProgramView.displayStartProgramView();
-    
+        StartProgramView.displayStartProgramView();     
     }
     
     
