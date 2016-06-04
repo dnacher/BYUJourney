@@ -24,13 +24,13 @@ public class Menus {
         switch (choice){
            
             case 1:                     
-                Dialog.humanChoice();
+               // Dialog.humanChoice();
                 break;
             case 2:
-                Dialog.elfChoice();
+            //    Dialog.elfChoice();
                 break;
             case 3:
-                Dialog.wizardChoice();
+               // Dialog.wizardChoice();
                 break;            
         }
         areYouSure();
@@ -43,7 +43,7 @@ public class Menus {
         inFile= new Scanner(System.in);
         answer= inFile.nextInt();
         while(answer !=1 && answer !=2){
-            Dialog.youSure();
+         //   Dialog.youSure();
             inFile= new Scanner(System.in);
             answer= inFile.nextInt();
         }

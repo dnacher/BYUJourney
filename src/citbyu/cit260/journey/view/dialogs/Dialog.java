@@ -75,35 +75,16 @@ public class Dialog {
     public static void MainMenu(){
      System.out.println("*****************************");
      System.out.println("Please select an option:");
-     System.out.println("1)- Start/Continue the game");
-     System.out.println("2)- Edit your profile");
-     System.out.println("3)- Help/Instructions");
-     System.out.println("4)- Exit game");    
+     System.out.println("1)- Go to the world of the light stone");
+     System.out.println("2)- Edit your profile");     
+     System.out.println("3)- Exit game");    
      System.out.println("*****************************");
     }
     
-    public static void humanChoice(){
-        System.out.println("you choose a Human. is that correct?");
+    public static void theChoice(Character c){
+        System.out.println("you choose a " + c.getName() + " is that correct?");
         System.out.println("1-Yes");
         System.out.println("2-No. I want to change"); 
-    }
-    
-    public static void elfChoice(){
-        System.out.println("You choose an Elf. is that correct?");
-        System.out.println("1-Yes");
-        System.out.println("2-No. I want to change"); 
-    }
-    
-    public static void wizardChoice(){
-        System.out.println("You choose a Wizard. is that correct?");
-        System.out.println("1-Yes");
-        System.out.println("2-No. I want to change");
-    }
-    
-    public static void youSure(){
-        System.out.println("Do you like your choice?:");
-        System.out.println("1-Yes");
-        System.out.println("2-No. I want to change");  
     }
     
     public static void asterisk(){
@@ -217,6 +198,15 @@ public class Dialog {
         
                //  System.out.println(Dice.rollDice());
                //  System.out.println(Dice.rollDice());
+
+    public static void StartHelp() {
+     System.out.println("*****************************");
+     System.out.println("Please select an option:");
+     System.out.println("1)- Start the game");     
+     System.out.println("2)- Help/Instructions");       
+     System.out.println("*****************************");
+        
+    }
     
     
 }
