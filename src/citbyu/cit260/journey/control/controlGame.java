@@ -20,25 +20,27 @@ public class controlGame {
         Game.getInstance().setIdPlayer(Game.getInstance().getIdPlayer() + 1);
     }
     
-    public static void createThePlayer(){
+    public static Player createThePlayer(){
         Scanner inFile;
         inFile= new Scanner(System.in);
         controlPlayer c= new controlPlayer();
         String choice= inFile.nextLine(); 
         choice=chooseName(choice);     
-        
+        Player p= new Player();
         int option=chooseRace();
             switch(option){
                 case 1:
-                   Player p=c.createPlayer(choice, createCharacter(option));         
+                   p=c.createPlayer(choice, createCharacter(option));         
                    start(p);
                    break;
                 case 2:
                    option=chooseRace();
                    p=c.createPlayer(choice, createCharacter(option));         
                    start(p);
+                   mainMenuChoice(p);
                    break; 
-            }               
+            } 
+            return p;
     }
     
     public static String chooseName(String choice){
@@ -126,11 +128,13 @@ public class controlGame {
         switch(choice){
             case 1:
             Dialog.choosePlayerName();
-            controlGame.createThePlayer();
-            Dialog.MainMenu();           
+            Player p=controlGame.createThePlayer();
+            Dialog.MainMenu(); 
+            mainMenuChoice(p);
             break;
             case 2:
-            System.out.println("");    
+            instructions();   
+            instructionsChoice();
             break;           
         }
     }
@@ -152,5 +156,95 @@ public class controlGame {
     int option=0;
     option=checkint(inFile.nextLine());    
     return option;
+    }
+    
+    public static void instructions(){
+        System.out.println("Instructions");  
+        System.out.println("a. You will be asked to enter you name, to be able to start your profile.");  
+        System.out.println("b. Then you choose from three different races.");  
+        System.out.println("   Depending on which you choose will have different abilities.");  
+        System.out.println("   Races to choose from are:");  
+        System.out.println("                            1. Human");  
+        System.out.println("                            2. Elf");  
+        System.out.println("                            3. Wizard");  
+        System.out.println("c. After you choose your race, you are going to be able to start the game.");  
+        System.out.println("*** Remember all the options must be entered as a number***");  
+        System.out.println("1)- Go back to the game");
+        System.out.println("2)- Exit");
+    }
+    
+    public static void instructionsChoice(){
+        int choice=ChosenOne();
+        choice=checkMenu(2, choice);
+        while(choice==-1){
+         System.out.println("Choose a correct answer:");   
+         System.out.println("1)- Go back to the game");
+         System.out.println("2)- Exit");
+        }
+        switch(choice){
+            case 1:
+                startGame();
+            case 2:
+                
+        }
+    }
+    
+    public static void mainMenuChoice(Player p){    
+        int i=ChosenOne();
+        i=checkMenu(3, i);
+        while(i==-1){
+            System.out.println("please choose a correct option:");
+            Dialog.MainMenu();
+            i=ChosenOne();
+            i=checkMenu(3, i);
+        }
+        switch(i){
+            case 1:
+                System.out.println("this option will start the game");
+                break;
+            case 2:
+                editName(p);
+                editRace(p);
+                 System.out.println("Your new Name is: " + p.getName());
+                 System.out.println("Your new Race is: " + p.getMyCharacter().getName());
+                 Dialog.MainMenu();
+                 mainMenuChoice(p);
+                 break;
+            case 3:  
+                break;
+        }
+    }
+    
+    public static void editName(Player p){
+        System.out.println("Select a new name:");
+                Scanner inFile;
+                inFile= new Scanner(System.in);
+                p.setName(inFile.nextLine());                
+    }
+    
+    public static int editRace(Player p){
+        Dialog.chooseRace(); 
+        Scanner inFile;
+        inFile= new Scanner(System.in);
+        int option=0;
+        option=checkint(inFile.nextLine());
+        while(option==-1){
+            System.out.println("Choose a number as an option");  
+            Dialog.chooseRace();
+            option=checkint(inFile.nextLine());
+        }
+            option=checkMenu(3, option);
+            while(option==-1){
+                Dialog.chooseRace2();                
+                option=checkMenu(3, inFile.nextInt());
+            }
+                Character theCharacter=createCharacter(option);
+                Dialog.theChoice(theCharacter);                
+                option=checkMenu(2, inFile.nextInt());
+            while(option==-1){                                
+                Dialog.theChoice(theCharacter);
+                option=checkMenu(2, inFile.nextInt());
+            } 
+            return option;
     }
 }
