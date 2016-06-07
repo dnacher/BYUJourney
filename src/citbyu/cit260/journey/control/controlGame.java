@@ -1,5 +1,6 @@
 package citbyu.cit260.journey.control;
 
+import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.Player.Player;
 import citbyu.cit260.journey.model.game.Game;
 import citbyu.cit260.journey.model.characters.Character;
@@ -20,8 +21,8 @@ public class controlGame {
         Game.getInstance().setIdPlayer(Game.getInstance().getIdPlayer() + 1);
     }
     
-    public static Player createThePlayer(){
-        Scanner inFile;
+    public static Player createThePlayer(String name){
+      /*  Scanner inFile;
         inFile= new Scanner(System.in);
         controlPlayer c= new controlPlayer();
         String choice= inFile.nextLine(); 
@@ -40,7 +41,16 @@ public class controlGame {
                    mainMenuChoice(p);
                    break; 
             } 
-            return p;
+            return p;*/
+        if(name==null){
+            return null;
+        }
+        Player player= new Player();
+        player.setName(name);
+        System.out.println("\n*** createPlayer() function called ***");
+        Journey.setPlayer(player);
+        return player;
+        
     }
     
     public static String chooseName(String choice){
@@ -128,9 +138,9 @@ public class controlGame {
         switch(choice){
             case 1:
             Dialog.choosePlayerName();
-            Player p=controlGame.createThePlayer();
+         //   Player p=controlGame.createThePlayer();
             Dialog.MainMenu(); 
-            mainMenuChoice(p);
+          //  mainMenuChoice(p);
             break;
             case 2:
             instructions();   
