@@ -27,6 +27,14 @@ private void displayHelpMenu() {
 	System.out.println("*** displayHelpMenu function called ***");
 }
 
+private void startNewGame() {
+			// create a new game
+		GameControl.createNewGame(xxxxxxx());
+		
+		// display the game menu
+		GameMenuView gameMenu = new GameMenuView();
+		gameMenu.displayMenu();
+}
 
 }
     
