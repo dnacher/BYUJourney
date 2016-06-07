@@ -4,22 +4,22 @@ import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
 import java.util.Scanner;
 
-public class MainMenuView {
+public class HelpMenuView {
     
     private String menu;
     
     
-    public MainMenuView(){
+    public HelpMenuView(){
     
         this.menu="\n"
                  +"\n----------------------------------"
                  +"\n----------------------------------"
-                 +"\n|Main Menu                       |"
+                 +"\n|Help Menu                       |"
                  +"\n----------------------------------"
-                 +"\nN Start New Game"
-                 +"\nG Get and Start saved Game"
-                 +"\nH Get help on how to play the Game"
-                 +"\nS Save Game"
+                 +"\nG Goal of the Game"
+                 +"\nP How to play the Game"
+                 +"\nN How to Start a new Game"
+                 +"\nS How to save a Game"
                  +"\nQ Quit Game"
                  +"\n----------------------------------";
     }
@@ -28,9 +28,10 @@ public class MainMenuView {
         boolean done = false;
         do{
             String menuOption=this.getMenuOption();            
-            if(menuOption.toUpperCase().equals("Q"))
-                return;
-            
+            if(menuOption.toUpperCase().equals("Q")){
+               MainMenuView MV=new MainMenuView();
+               MV.displayMainMenuView();
+            }
             done= this.doAction(menuOption);
         }
         while(!done);
@@ -63,21 +64,22 @@ public class MainMenuView {
        menuOption = menuOption.toUpperCase();
 	boolean answer=false;
 	switch (menuOption) {
-		case "N": //create and start new game
-			this.startNewGame();
+		case "G": //create and start new game
+			this.GoalGame();
                         //answer=false;
+			break;		
+		case "P": // display the help menu
+			this.howToPlay();
+                        //answer=true;
 			break;
-		case "G": // get and start an existing game
-			this.startExistingGame();
-                        answer=true;
+                case "N": // display the help menu
+			this.howStartNewGame();
+                        //answer=true;
 			break;
-		case "H": // display the help menu
-			this.displayHelpMenu();
-                        answer=true;
-			break;
+		
 		case "S": // save the current game
-			this.saveGame();
-                        answer=true;
+			this.howStartNewGame();
+                        //answer=true;
 			break;
 		default:
 			System.out.println("\n*** Invalid selection *** Try again");
@@ -86,29 +88,20 @@ public class MainMenuView {
 	return answer;
     }
     
-    private void startNewGame() {
-		// create a new game
-		      controlGame.createNewGame(Journey.getPlayer());
-		
-		// display the game menu
-		//GameMenuView gameMenu = new GameMenuView();
-		//gameMenu.displayMenu();
+     private void GoalGame() {
+        System.out.println("*** You will need to recover the stolen light stones. to do that you will need to travel around the world and talk to creatures in this amazing world ***");
 }
 
-private void startExistingGame() {
-	System.out.println("*** startExistingGame function called ***");
+private void howToPlay() {
+	System.out.println("*** read all the option in every menu and select an option typing a correct letter ***");
 }
 
-private void saveGame() {
-	System.out.println("*** saveGame function called ***");
+private void howStartNewGame() {
+	System.out.println("*** in the Main Menu type 'N' and then Enter ***");
 }
 
-private void displayHelpMenu() {
-	HelpMenuView HV= new HelpMenuView();
-        HV.displayMainMenuView();
+private void howSaveGame() {
+	System.out.println("*** in the Main Menu type 'S' and then Enter ***");
 }
 
 }
-
-    
-    

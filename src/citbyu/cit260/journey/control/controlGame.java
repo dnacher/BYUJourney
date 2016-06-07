@@ -53,6 +53,11 @@ public class controlGame {
         
     }
     
+    public static void createNewGame(Player player){
+        System.out.println("*****createNewGame");
+    }    
+    
+    
     public static String chooseName(String choice){
         Scanner inFile;
         inFile= new Scanner(System.in);
