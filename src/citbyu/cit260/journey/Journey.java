@@ -1,43 +1,20 @@
 package citbyu.cit260.journey;
 
-import citbyu.cit260.journey.control.controlPlace;
-import citbyu.cit260.journey.model.Player.Player;
 import java.util.List;
 import citbyu.cit260.journey.model.characters.Character;
-import citbyu.cit260.journey.model.characters.Warrior;
 import citbyu.cit260.journey.view.StartProgramView;
-import java.util.ArrayList;
 
-public class Journey {
-    
-    
-    
-     public static void createCharacter(){
-       Character CharacterOne= new Character();
-       CharacterOne.setName("Gandalf");
-       CharacterOne.setHp(100);
-       String playerInfo= CharacterOne.toString();
-       System.out.println(playerInfo);
-    }
-     
-     public static void test(List<Warrior> l){
-          for(Warrior w: l){
-              if(w!=null){
-              System.out.println(w.toString());
-              }
-              else{
-              System.out.println("null");
-              }
-       
-    }
-        
-    }
+
+public class Journey {     
     
     private List<Character>PlayerList;
 
     public static void main(String[] args) {
        
-        StartProgramView.displayStartProgramView();     
+        //StartProgramView.displayStartProgramView();     
+        StartProgramView startProgView= new StartProgramView();
+        startProgView.displayStartProgramView();
+        
     }
     
     
