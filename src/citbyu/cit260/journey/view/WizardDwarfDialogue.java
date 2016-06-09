@@ -5,6 +5,7 @@
  */
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.Journey;
 import java.util.Scanner;
 
 /**
@@ -50,6 +51,8 @@ public class WizardDwarfDialogue {
     }
     
     private String getMenuOption(){
+        //System.out.println("**GetMenuOption**");
+        //return "N";
          Scanner keyboard= new Scanner(System.in);
        String value="";
        boolean valid= false;
@@ -70,13 +73,13 @@ public class WizardDwarfDialogue {
     }
     private boolean doAction(String menuOption){
        menuOption = menuOption.toUpperCase();
-	boolean answer=false;
+	boolean answer=true;
 	switch (menuOption) {
 		case "A": //Option A
 			System.out.println("\n I don't want to talk to you!");
 			break;
 		case "B": //Option B
-			System.out.println("\nAs much wood As a woodchuck  would, if a woodchuck  could chuck wood");
+			System.out.println("\nAs much wood As a woodchuck  would, if a woodchuck  could chuck wood.");
 			break;
 		default:
 			System.out.println("\n*** Invalid selection *** Try again");
