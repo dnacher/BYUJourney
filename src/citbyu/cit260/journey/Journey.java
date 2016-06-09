@@ -31,6 +31,12 @@ public class Journey {
        // startProgView.displayStartProgramView();
         AtackMenuView am= new AtackMenuView();
         am.displayMoveMenuView();
+        //StartProgramView.displayStartProgramView();    
+        WizardDwarfDialogue WizardDwarf= new WizardDwarfDialogue();
+        WizardDwarf.displayWizardDwarfDialogue();
+        //StartProgramView startProgView= new StartProgramView();
+        //startProgView.displayStartProgramView();
+        //test
     }
     
     
