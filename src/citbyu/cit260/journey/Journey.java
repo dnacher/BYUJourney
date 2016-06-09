@@ -28,7 +28,7 @@ public class Journey {
         //StartProgramView.displayStartProgramView();     
         StartProgramView startProgView= new StartProgramView();
         startProgView.displayStartProgramView();
-        
+        //test
     }
     
     
