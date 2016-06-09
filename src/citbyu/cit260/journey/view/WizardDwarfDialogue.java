@@ -1,0 +1,82 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package citbyu.cit260.journey.view;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author gus
+ */
+public class WizardDwarfDialogue {
+
+    private final String menu;
+    
+    public WizardDwarfDialogue(){
+    
+        this.menu="\n"
+                 +"\n----------------------------------"
+                 +"\n----------------------------------"
+                 +"\n|Dwarf|"
+                 +"\n----------------------------------"
+                 +"\n              Wizard:             "
+                 +"\nA *** I don't want to talk to you!"
+                 +"\nB *** Hello, Dwarf! Can you tell me How much wood would a woodchuck  chuck, if a woodchuck could chuck wood?"
+                 +"\n"
+                 +"\n"
+                 +"\nQ Return "
+                 +"\n----------------------------------";
+    }
+    
+    void displayWizardDwarfDialogue(){
+        boolean done = false;
+        do{
+            String menuOption=this.getMenuOption();            
+            if(menuOption.toUpperCase().equals("Q"))
+                return;
+            
+            done= this.doAction(menuOption);
+        }
+        while(!done);
+        
+    }
+    
+    private String getMenuOption(){
+         Scanner keyboard= new Scanner(System.in);
+       String value="";
+       boolean valid= false;
+       
+       while(!valid){
+           System.out.println(menu);
+           value=keyboard.nextLine();
+           value=value.trim().toUpperCase();
+           
+           if(value.length()<1){
+               System.out.println("\nInvalid value: value can not be blank");
+               continue;
+           }
+           break;
+       }
+       return value;
+        
+    }
+    private boolean doAction(String menuOption){
+       menuOption = menuOption.toUpperCase();
+	boolean answer=false;
+	switch (menuOption) {
+		case "A": //Option A
+			System.out.println("\n I don't want to talk to you!");
+			break;
+		case "B": //Option B
+			System.out.println("\nAs much wood As a woodchuck  would, if a woodchuck  could chuck wood");
+			break;
+		default:
+			System.out.println("\n*** Invalid selection *** Try again");
+			break;
+	}	
+	return answer;
+    }
+}
