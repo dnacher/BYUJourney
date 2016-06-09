@@ -3,6 +3,9 @@ package citbyu.cit260.journey;
 import citbyu.cit260.journey.model.Player.Player;
 import citbyu.cit260.journey.model.game.Game;
 import citbyu.cit260.journey.view.StartProgramView;
+import citbyu.cit260.journey.view.WizardDwarfDialogue;
+
+
 
 
 public class Journey {     
@@ -25,9 +28,11 @@ public class Journey {
 
     public static void main(String[] args) {
        
-        //StartProgramView.displayStartProgramView();     
-        StartProgramView startProgView= new StartProgramView();
-        startProgView.displayStartProgramView();
+        //StartProgramView.displayStartProgramView();    
+        WizardDwarfDialogue WizardDwarf= new WizardDwarfDialogue();
+        WizardDwarf.displayWizardDwarfDialogue();
+        //StartProgramView startProgView= new StartProgramView();
+        //startProgView.displayStartProgramView();
         //test
     }
     
