@@ -38,9 +38,7 @@ public class MainMenuView {
     }
     
     private String getMenuOption(){
-        //System.out.println("**GetMenuOption**");
-        //return "N";
-         Scanner keyboard= new Scanner(System.in);
+       Scanner keyboard= new Scanner(System.in);
        String value="";
        boolean valid= false;
        

@@ -15,7 +15,7 @@ public class controlPlayer {
     
     //this function will calculate the time spend to travel from one place to another
     //the speed of a horse and a man is based on a internet research
-    public double calculateTime(int way, int distance, boolean wounded){
+    public double calculateTime(int way, double distance, boolean wounded){
 	int manSpeed=5;
 	int horseSpeed=14;
 	double Total=0;
@@ -50,6 +50,18 @@ public class controlPlayer {
 	Total =-1;
     }
     return Total;
+    }
+    
+    public int substractPositive(int num1, int num2){
+        int total=0;
+        if(num1>=num2){
+            total=num1-num2;
+        }
+        else{
+            total= num2-num1;
+        }
+        return total;
+    
     }
     
     //the points are based on a table that we wrote before
@@ -134,7 +146,7 @@ public class controlPlayer {
     
     }
     
-    public double attack(boolean lucky, int power, int armor, int life){
+    public double attack(boolean lucky, int power, int armor, double life){
        double totalAttack = 0;
        double currentLife=life;
        if(power<0 || armor<0 || life<0){
@@ -149,6 +161,11 @@ public class controlPlayer {
        currentLife=life-(totalAttack-armor);      
        return currentLife;    
        }
+    
+    public boolean getLucky(){
+        boolean lucky=Dice.probability(50);
+        return lucky;
+    }
     
     
 }
