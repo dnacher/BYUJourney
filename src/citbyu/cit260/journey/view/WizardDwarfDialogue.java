@@ -76,7 +76,7 @@ public class WizardDwarfDialogue {
 	boolean answer=true;
 	switch (menuOption) {
 		case "A": //Option A
-			System.out.println("\n I don't want to talk to you!");
+			System.out.println("\n Good luck with that");
 			break;
 		case "B": //Option B
 			System.out.println("\nAs much wood As a woodchuck  would, if a woodchuck  could chuck wood.");
