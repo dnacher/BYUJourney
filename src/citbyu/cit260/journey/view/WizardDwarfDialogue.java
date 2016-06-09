@@ -21,17 +21,22 @@ public class WizardDwarfDialogue {
                  +"\n----------------------------------"
                  +"\n----------------------------------"
                  +"\n|Dwarf|"
+                 +"\n Hello fellow stranger, what can I do for you?"
                  +"\n----------------------------------"
+                 +"\n"
+                 +"\n"
                  +"\n              Wizard:             "
-                 +"\nA *** I don't want to talk to you!"
-                 +"\nB *** Hello, Dwarf! Can you tell me How much wood would a woodchuck  chuck, if a woodchuck could chuck wood?"
+                 +"\n"
+                 +"\nA). I don't want to talk to you!"
+                 +"\n"
+                 +"\nB). Hello, Dwarf! Can you tell me How much wood would a woodchuck  chuck, if a woodchuck could chuck wood?"
                  +"\n"
                  +"\n"
                  +"\nQ Return "
                  +"\n----------------------------------";
     }
     
-    void displayWizardDwarfDialogue(){
+    public void displayWizardDwarfDialogue(){
         boolean done = false;
         do{
             String menuOption=this.getMenuOption();            
