@@ -9,10 +9,12 @@ package citbyu.cit260.journey.view;
  *
  * @author gustavomartinez
  */
-public class ViewInterface {
+
+//changed type from class to interface
+public interface ViewInterface {
 
     public void display();
-    public String getImput();
+    public String getInput();
     public boolean doAction(String value);
     
 }

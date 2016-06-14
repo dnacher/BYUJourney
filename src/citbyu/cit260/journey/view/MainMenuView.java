@@ -2,16 +2,13 @@ package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
-import java.util.Scanner;
 
-public class MainMenuView extends View{
-    
-    private String menu;
-    
+public class MainMenuView extends View{ 
     
     public MainMenuView(){
-    
-        this.menu="\n"
+        
+        //changed from menu variable to super to call the view constructor
+        super("\n"
                  +"\n----------------------------------"
                  +"\n----------------------------------"
                  +"\n|Main Menu                       |"
@@ -21,43 +18,11 @@ public class MainMenuView extends View{
                  +"\nH Get help on how to play the Game"
                  +"\nS Save Game"
                  +"\nQ Quit Game"
-                 +"\n----------------------------------";
-    }
+                 +"\n----------------------------------");
+    }    
     
-    void displayMainMenuView(){
-        boolean done = false;
-        do{
-            String menuOption=this.getMenuOption();            
-            if(menuOption.toUpperCase().equals("Q"))
-                return;
-            
-            done= this.doAction(menuOption);
-        }
-        while(!done);
-        
-    }
-    
-   private String getMenuOption(){
-       Scanner keyboard= new Scanner(System.in);
-       String value="";
-       boolean valid= false;
-       
-       while(!valid){
-           System.out.println(menu);
-           value=keyboard.nextLine();
-           value=value.trim().toUpperCase();
-           
-           if(value.length()<1){
-               System.out.println("\nInvalid value: value can not be blank");
-               continue;
-           }
-           break;
-       }
-       return value;
-        
-    }
-    
-    private boolean doAction(String menuOption){
+    @Override
+    public boolean doAction(String menuOption){
        menuOption = menuOption.toUpperCase();
 	boolean answer=false;
 	switch (menuOption) {
@@ -102,8 +67,8 @@ private void saveGame() {
 }
 
 private void displayHelpMenu() {
-	HelpMenuView HV= new HelpMenuView();
-        HV.displayMainMenuView();
+        //****************************************************wrong. must call help display function
+	this.display();
 }
 
 }

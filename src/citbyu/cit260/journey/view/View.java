@@ -5,13 +5,18 @@
  */
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.control.controlPlayer;
+import citbyu.cit260.journey.model.Player.Player;
+import java.util.Scanner;
+
 /**
  *
  * @author gustavomartinez
  */
 public abstract class View implements ViewInterface {
     protected String displayMessage;
-    public Viwe(){
+    
+    public View(){
     }
     
     public View(String message) {
@@ -39,42 +44,20 @@ public abstract class View implements ViewInterface {
         String value = null;
         
         //while a valid name has not been retrived
-        while (!valid) {
-        
+        while (!valid) {        
             //prompt for the playes's name
-            System.out.print("\n" + this.displayMessage);
-            
-         
+            System.out.print("\n" + this.displayMessage);         
             //get the value entered from the keyboard
             value = keyboard.nextLine();
-            value = value.trim();
-            
+            value = value.trim();            
             if(value.length() < 1){
                 System.out.println("\n*** You must enter a value ***");
                 continue;
-            }
-            
-            break;
-            
-            
-        }
-        
+            }            
+            break;             
+        }        
         return value; // return name
-    }
-    
-    @Override
-    public boolean doAction(String value) {
-    
-        value = value.toUpperCase();
-        
-        //Create the player object and save it in the ProgramControl
-        Player player = ProgramControl.createPlayer(playersName);
-        
-        this.displayWelcomeMessage;
-        
-        MainMenuView mainMenuView = MainMenuViwe();
-        mainMenuView.displayMenu();
-    }
+    }   
     
 }
     

@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author Dani-Fla-Mathi
  */
-public class AtackMenuView {
+public class AtackMenuView extends View{
     
     private String menu;
     private int power=30;
@@ -30,7 +30,7 @@ public class AtackMenuView {
     
      public AtackMenuView(){
     
-        this.menu="\n"
+        super("\n"
                  +"\n----------------------------------"
                  +"\n----------------------------------"
                  +"\n|Move Menu                       |"
@@ -39,43 +39,11 @@ public class AtackMenuView {
                  +"\nW Withdraw"
                  +"\nU Use Spell"
                  +"\n----------------------------------"
-                 +"\nQ Return Main Menu";
+                 +"\nQ Return Main Menu");
             }
     
-    public void displayMoveMenuView(){
-        boolean done = false;
-        do{
-            String menuOption=this.getMenuOption();            
-            if(menuOption.toUpperCase().equals("Q"))
-                return;
-            
-            done= this.doAction(menuOption);
-        }
-        while(!done);
-        
-    }
-    
-    private String getMenuOption(){
-       Scanner keyboard= new Scanner(System.in);
-       String value="";
-       boolean valid= false;
-       
-       while(!valid){
-           System.out.println(menu);
-           value=keyboard.nextLine();
-           value=value.trim().toUpperCase();
-           
-           if(value.length()<1){
-               System.out.println("\nInvalid value: value can not be blank");
-               continue;
-           }
-           break;
-       }
-       return value;
-        
-    }
-    
-    private boolean doAction(String menuOption){
+     @Override
+    public boolean doAction(String menuOption){
        menuOption = menuOption.toUpperCase();
 	boolean answer=false;
         if(life<=0){
@@ -163,7 +131,6 @@ private void spell() {
 }
 
 private void displayMainMenuView() {
-	MainMenuView MV= new MainMenuView();
-        MV.displayMainMenuView();
+	this.display();
 }
 }

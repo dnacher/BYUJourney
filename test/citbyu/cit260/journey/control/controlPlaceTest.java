@@ -12,7 +12,7 @@ public class controlPlaceTest {
     public controlPlaceTest() {
     }
 
-    @Test
+  
     public void testEnoughLight1() {
         System.out.println("enoughLight");
         int height = 3;
@@ -25,7 +25,7 @@ public class controlPlaceTest {
         assertEquals(expResult, result);       
     }
     
-     @Test
+    
     public void testEnoughLight2() {
         System.out.println("enoughLight");
         int height = 5;
@@ -39,7 +39,7 @@ public class controlPlaceTest {
        
     }
     
-     @Test
+     
     public void testEnoughLight3() {
         System.out.println("enoughLight");
         int height = 8;
@@ -53,7 +53,7 @@ public class controlPlaceTest {
         
     }
     
-     @Test
+   
     public void testEnoughLight4() {
         System.out.println("enoughLight");
         int height = 0;
@@ -67,7 +67,7 @@ public class controlPlaceTest {
       
     }
     
-     @Test
+    
     public void testEnoughLight5() {
         System.out.println("enoughLight");
         int height = -1;
@@ -81,7 +81,7 @@ public class controlPlaceTest {
       
     }
     
-     @Test
+   
     public void testEnoughLight6() {
         System.out.println("enoughLight");
         int height = 2;
@@ -95,7 +95,7 @@ public class controlPlaceTest {
        
     }
     
-     @Test
+ 
     public void testEnoughLight7() {
         System.out.println("enoughLight");
         int height = 3;
@@ -109,7 +109,7 @@ public class controlPlaceTest {
        
     }
     
-     @Test
+    
     public void testEnoughLight8() {
         System.out.println("enoughLight");
         int height = 2;

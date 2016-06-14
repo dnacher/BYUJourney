@@ -1,17 +1,15 @@
 package citbyu.cit260.journey.view;
 
-import citbyu.cit260.journey.Journey;
-import citbyu.cit260.journey.control.controlGame;
 import java.util.Scanner;
 
-public class HelpMenuView {
+public class HelpMenuView extends View{
     
     private String menu;
     
     
     public HelpMenuView(){
     
-        this.menu="\n"
+        super("\n"
                  +"\n----------------------------------"
                  +"\n----------------------------------"
                  +"\n|Help Menu                       |"
@@ -21,46 +19,11 @@ public class HelpMenuView {
                  +"\nN How to Start a new Game"
                  +"\nS How to save a Game"
                  +"\nQ Quit Game"
-                 +"\n----------------------------------";
-    }
+                 +"\n----------------------------------");
+    }   
     
-    void displayMainMenuView(){
-        boolean done = false;
-        do{
-            String menuOption=this.getMenuOption();            
-            if(menuOption.toUpperCase().equals("Q")){
-               MainMenuView MV=new MainMenuView();
-               MV.displayMainMenuView();
-            }
-            done= this.doAction(menuOption);
-        }
-        while(!done);
-        
-    }
-    
-    private String getMenuOption(){
-        //System.out.println("**GetMenuOption**");
-        //return "N";
-         Scanner keyboard= new Scanner(System.in);
-       String value="";
-       boolean valid= false;
-       
-       while(!valid){
-           System.out.println(menu);
-           value=keyboard.nextLine();
-           value=value.trim().toUpperCase();
-           
-           if(value.length()<1){
-               System.out.println("\nInvalid value: value can not be blank");
-               continue;
-           }
-           break;
-       }
-       return value;
-        
-    }
-    
-    private boolean doAction(String menuOption){
+    @Override
+    public boolean doAction(String menuOption){
        menuOption = menuOption.toUpperCase();
 	boolean answer=false;
 	switch (menuOption) {
