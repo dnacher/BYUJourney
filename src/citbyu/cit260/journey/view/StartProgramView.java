@@ -5,27 +5,11 @@ import citbyu.cit260.journey.model.Player.Player;
 import citbyu.cit260.journey.view.dialogs.Dialog;
 import java.util.Scanner;
 
-public class StartProgramView {
-    
-    private String  promptMessage;
-    
-    public void displayStartProgramView(){
-       
-      boolean done= false;
-      do{
-          String playerName=this.getPlayersName();
-          if(playerName.toUpperCase().equals("Q"))
-              return;
-          done= this.doAction(playerName);
-      }while(!done);
-       // Dialog.logo();
-       // Dialog.description();
-       // controlGame.startGame();        
-    }
-    
+public class StartProgramView extends View{
+                   
     public StartProgramView(){
     
-        this.promptMessage="\n Please enter your Name: ";
+        super("\n Please enter your Name: ");
         this.displayBanner();
     }
     
@@ -40,7 +24,7 @@ public class StartProgramView {
        boolean valid= false;
        
        while(!valid){
-           System.out.println("\n" + this.promptMessage);
+           System.out.println("\n" + this.displayMessage);
            value=keyboard.nextLine();
            value=value.trim();
            
@@ -53,7 +37,8 @@ public class StartProgramView {
        return value;
     }
     
-    private boolean doAction(String playersName){
+    @Override
+    public boolean doAction(String playersName){
        if(playersName.length()<2){
            System.out.println("\nInvalid Players name:" + "The name mus be greater than one Character in lenght");
            return false;
@@ -77,8 +62,7 @@ public class StartProgramView {
         System.out.println("\n ==================================");
         System.out.println("\n ==================================");
         
-        MainMenuView mainMenuView= new MainMenuView();
-        
+        MainMenuView mainMenuView= new MainMenuView();        
         mainMenuView.display();
         
     }
