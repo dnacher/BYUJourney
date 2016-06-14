@@ -5,16 +5,14 @@
  */
 package citbyu.cit260.journey.view;
 
-import citbyu.cit260.journey.control.controlPlayer;
-import citbyu.cit260.journey.model.Player.Player;
 import java.util.Scanner;
 
 /**
  *
  * @author gustavomartinez
  */
-public abstract class View implements ViewInterface {
-    protected String displayMessage;
+    public abstract class View implements ViewInterface {
+        protected String displayMessage;
     
     public View(){
     }
@@ -33,7 +31,7 @@ public abstract class View implements ViewInterface {
                     return;
             // do the requested action and display next view
             done = this.doAction(value);
-        } while (!done); // exit the viwe when done == true
+        } while (!done); // exit the view when done == true
     }
     
     @Override
