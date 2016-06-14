@@ -4,7 +4,7 @@ import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
 import java.util.Scanner;
 
-public class MainMenuView {
+public class MainMenuView extends View{
     
     private String menu;
     
@@ -37,7 +37,7 @@ public class MainMenuView {
         
     }
     
-    private String getMenuOption(){
+   private String getMenuOption(){
        Scanner keyboard= new Scanner(System.in);
        String value="";
        boolean valid= false;
