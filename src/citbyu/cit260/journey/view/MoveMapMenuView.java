@@ -5,6 +5,7 @@
  */
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlPlayer;
 
 /**
@@ -80,6 +81,7 @@ private void northTown() {
     controlPlayer cp= new controlPlayer();
     double timespend=cp.addTime(num1, num2);
     System.out.println("You Spend " + timespend + " hours to travel to North Town");
+    Journey.getPlayer().setCurrentCity(N);
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
     mpv.display();        
 }
@@ -91,6 +93,7 @@ private void dragonLand() {
     controlPlayer cp= new controlPlayer();
     double timespend=cp.addTime(num1, num2);
     System.out.println("You Spend " + timespend + " hours to travel to Dragon Land");
+    Journey.getPlayer().setCurrentCity(D);
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
     mpv.display();
 }
@@ -102,6 +105,7 @@ private void edelion() {
     controlPlayer cp= new controlPlayer();
     double timespend=cp.addTime(num1, num2);
     System.out.println("You Spend " + timespend + " hours to travel to Edelion");
+    Journey.getPlayer().setCurrentCity(E);
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
     mpv.display();
 }
@@ -113,6 +117,7 @@ private void hiddenForest() {
     controlPlayer cp= new controlPlayer();
     double timespend=cp.addTime(num1, num2);
     System.out.println("You Spend " + timespend + " hours to travel to Hidden Forest");
+    Journey.getPlayer().setCurrentCity(H);
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
     mpv.display();
 }
@@ -124,6 +129,7 @@ private void etenTy() {
     controlPlayer cp= new controlPlayer();
     double timespend=cp.addTime(num1, num2);
     System.out.println("You Spend " + timespend + " hours to travel to Eten Ty");
+    Journey.getPlayer().setCurrentCity(T);
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
     mpv.display();
 }
@@ -135,6 +141,7 @@ private void southPort() {
     controlPlayer cp= new controlPlayer();
     double timespend=cp.addTime(num1, num2);
     System.out.println("You Spend " + timespend + " hours to travel to South Port");
+    Journey.getPlayer().setCurrentCity(S);
     MovePlaceMenuView mpv= new MovePlaceMenuView();
     mpv.display();
 }

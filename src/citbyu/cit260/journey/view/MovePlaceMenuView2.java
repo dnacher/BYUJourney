@@ -5,11 +5,19 @@
  */
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.Journey;
+
 /**
  *
  * @author Dani-Fla-Mathi
  */
 public class MovePlaceMenuView2 extends View{
+    
+    private final int I=1;
+    private final int M=2;
+    private final int W=3;
+    private final int F=4;
+    private final int C=5;
     
     public MovePlaceMenuView2(){        
                 super("\n"
@@ -54,22 +62,26 @@ public class MovePlaceMenuView2 extends View{
     }
     
     public void Inn(){
-    
+        setCurrentPlace(I);
     }
     
     public void Market(){
-    
+        setCurrentPlace(M);
     }
     
     public void Wall(){
-    
+        setCurrentPlace(W);
     }
 
     public void Farm(){
-    
+        setCurrentPlace(F);
     }
     
     public void Castle(){
+        setCurrentPlace(C);
+    }
     
+    public void setCurrentPlace(int i){
+         Journey.getPlayer().setCurrentPlace(i);
     }
 }
