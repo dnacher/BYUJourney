@@ -80,7 +80,8 @@ private void northTown() {
     controlPlayer cp= new controlPlayer();
     double timespend=cp.addTime(num1, num2);
     System.out.println("You Spend " + timespend + " hours to travel to North Town");
-        
+    MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
+    mpv.display();        
 }
 
 private void dragonLand() {
@@ -90,6 +91,8 @@ private void dragonLand() {
     controlPlayer cp= new controlPlayer();
     double timespend=cp.addTime(num1, num2);
     System.out.println("You Spend " + timespend + " hours to travel to Dragon Land");
+    MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
+    mpv.display();
 }
 
 private void edelion() {
@@ -99,6 +102,8 @@ private void edelion() {
     controlPlayer cp= new controlPlayer();
     double timespend=cp.addTime(num1, num2);
     System.out.println("You Spend " + timespend + " hours to travel to Edelion");
+    MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
+    mpv.display();
 }
 
 private void hiddenForest() {
@@ -108,6 +113,8 @@ private void hiddenForest() {
     controlPlayer cp= new controlPlayer();
     double timespend=cp.addTime(num1, num2);
     System.out.println("You Spend " + timespend + " hours to travel to Hidden Forest");
+    MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
+    mpv.display();
 }
 
 private void etenTy() {
@@ -117,6 +124,8 @@ private void etenTy() {
     controlPlayer cp= new controlPlayer();
     double timespend=cp.addTime(num1, num2);
     System.out.println("You Spend " + timespend + " hours to travel to Eten Ty");
+    MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
+    mpv.display();
 }
 
 private void southPort() {
@@ -126,6 +135,8 @@ private void southPort() {
     controlPlayer cp= new controlPlayer();
     double timespend=cp.addTime(num1, num2);
     System.out.println("You Spend " + timespend + " hours to travel to South Port");
+    MovePlaceMenuView mpv= new MovePlaceMenuView();
+    mpv.display();
 }
 
 private int returnPlaceId(String current){
