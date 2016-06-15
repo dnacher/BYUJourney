@@ -1,7 +1,7 @@
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
-import citbyu.cit260.journey.model.Player.Player;
 import citbyu.cit260.journey.view.dialogs.Dialog;
 import java.util.Scanner;
 
@@ -42,26 +42,23 @@ public class StartProgramView extends View{
        if(playersName.length()<2){
            System.out.println("\nInvalid Players name:" + "The name mus be greater than one Character in lenght");
            return false;
-       }
-       
-       Player player= controlGame.createThePlayer(playersName);
-       if(player==null){
+       }   
+       //create the Player with the name that the player type
+       controlGame.createThePlayer(playersName);
+       if(Journey.getPlayer()==null){
            System.out.println("\nError creating the player.");
            return false;
-       }
-       
-       this.displayNextView(player);
-       return true;
-       
+       }       
+       this.displayNextView();
+       return true;       
     }
     
-    private void displayNextView(Player player){
+    private void displayNextView(){
         System.out.println("\n ==================================");
-        System.out.println("\n Welcome to the game " + player.getName());
+        System.out.println("\n Welcome to the game " + Journey.getPlayer().getName());
         System.out.println("\n We hope have a lot of fun!");
         System.out.println("\n ==================================");
-        System.out.println("\n ==================================");
-        
+        System.out.println("\n ==================================");        
         MainMenuView mainMenuView= new MainMenuView();        
         mainMenuView.display();
         

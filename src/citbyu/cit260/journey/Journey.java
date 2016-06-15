@@ -2,7 +2,6 @@ package citbyu.cit260.journey;
 
 import citbyu.cit260.journey.model.Player.Player;
 import citbyu.cit260.journey.model.game.Game;
-import citbyu.cit260.journey.view.MainMenuView;
 import citbyu.cit260.journey.view.StartProgramView;
 
 public class Journey {     
@@ -26,24 +25,8 @@ public class Journey {
     public static void main(String[] args) {
        
         StartProgramView spv= new StartProgramView();
-        //spv.displayStartProgramView();
         spv.display();
-       // StartProgramView startProgView= new StartProgramView();
-       // startProgView.displayStartProgramView();
-        //StartProgramView.displayStartProgramView();    
-       // WizardDwarfDialogue WizardDwarf= new WizardDwarfDialogue();
-       // WizardDwarf.displayWizardDwarfDialogue();
-        //StartProgramView startProgView= new StartProgramView();
-        //startProgView.displayStartProgramView();
-        
-        
-        //Daniel classes
-        //AtackMenuView am= new AtackMenuView();
-        //am.displayMoveMenuView();
-        
-        //MoveMenuView MM= new MoveMenuView();
-        //MM.displayMoveMenuView();
-        
+               
     }
     
     

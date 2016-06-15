@@ -1,8 +1,5 @@
 package citbyu.cit260.journey.view;
 
-import citbyu.cit260.journey.Journey;
-import citbyu.cit260.journey.control.controlGame;
-
 public class MainMenuView extends View{ 
     
     public MainMenuView(){
@@ -27,20 +24,16 @@ public class MainMenuView extends View{
 	boolean answer=false;
 	switch (menuOption) {
 		case "N": //create and start new game
-			this.startNewGame();
-                        //answer=false;
+			this.startNewGame();                        
 			break;
 		case "G": // get and start an existing game
-			this.startExistingGame();
-                        answer=true;
+			this.startExistingGame();                        
 			break;
 		case "H": // display the help menu
-			this.displayHelpMenu();
-                        answer=true;
+			this.displayHelpMenu();                        
 			break;
 		case "S": // save the current game
-			this.saveGame();
-                        answer=true;
+			this.saveGame();                        
 			break;
 		default:
 			System.out.println("\n*** Invalid selection *** Try again");
@@ -49,13 +42,9 @@ public class MainMenuView extends View{
 	return answer;
     }
     
-    private void startNewGame() {
-		// create a new game
-		      controlGame.createNewGame(Journey.getPlayer());
-		
-		// display the game menu
-		//GameMenuView gameMenu = new GameMenuView();
-		//gameMenu.displayMenu();
+private void startNewGame() {   
+    GameMenuView gameMenu = new GameMenuView();
+    gameMenu.display();
 }
 
 private void startExistingGame() {
@@ -66,9 +55,9 @@ private void saveGame() {
 	System.out.println("*** saveGame function called ***");
 }
 
-private void displayHelpMenu() {
-        //****************************************************wrong. must call help display function
-	this.display();
+private void displayHelpMenu() {        
+        HelpMenuView hmv= new HelpMenuView();
+	hmv.display();
 }
 
 }

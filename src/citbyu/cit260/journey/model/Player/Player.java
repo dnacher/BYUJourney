@@ -5,8 +5,9 @@ public class Player {
     
     private int id;
     private String name;
-    private int time;
+    private double time;
     private int currentPlace;
+    private int currentCity;    
     private Character myCharacter;
 
     public int getId() {
@@ -25,11 +26,11 @@ public class Player {
         this.name = name;
     }
     
-    public int getTime() {
+    public double getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(double time) {
         this.time = time;
     }  
     
@@ -41,6 +42,14 @@ public class Player {
         this.currentPlace = currentPlace;
     }
 
+    public int getCurrentCity() {
+        return currentCity;
+    }
+
+    public void setCurrentCity(int currentCity) {
+        this.currentCity = currentCity;
+    }
+    
     public Character getMyCharacter() {
         return myCharacter;
     }
@@ -57,7 +66,8 @@ public class Player {
     this.id=id;
     this.name=name;
     this.time=0;
-    this.currentPlace=0;
+    this.currentPlace=1;
+    this.currentCity=1;
     this.myCharacter=myCharacter;
         
     }

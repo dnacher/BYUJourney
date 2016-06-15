@@ -21,35 +21,15 @@ public class controlGame {
         Game.getInstance().setIdPlayer(Game.getInstance().getIdPlayer() + 1);
     }
     
-    public static Player createThePlayer(String name){
-      /*  Scanner inFile;
-        inFile= new Scanner(System.in);
-        controlPlayer c= new controlPlayer();
-        String choice= inFile.nextLine(); 
-        choice=chooseName(choice);     
-        Player p= new Player();
-        int option=chooseRace();
-            switch(option){
-                case 1:
-                   p=c.createPlayer(choice, createCharacter(option));         
-                   start(p);
-                   break;
-                case 2:
-                   option=chooseRace();
-                   p=c.createPlayer(choice, createCharacter(option));         
-                   start(p);
-                   mainMenuChoice(p);
-                   break; 
-            } 
-            return p;*/
+    public static void createThePlayer(String name){      
         if(name==null){
-            return null;
+            System.out.println("The Name cannot be null");
         }
         Player player= new Player();
-        player.setName(name);
-        System.out.println("\n*** createPlayer() function called ***");
-        Journey.setPlayer(player);
-        return player;
+        player.setName(name);  
+        player.setCurrentPlace(3);
+        player.setCurrentPlace(3);
+        Journey.setPlayer(player);       
         
     }
     

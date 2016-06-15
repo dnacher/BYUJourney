@@ -13,10 +13,7 @@ import java.util.Scanner;
  */
     public abstract class View implements ViewInterface {
         protected String displayMessage;
-    
-    public View(){
-    }
-    
+         
     public View(String message) {
         this.displayMessage = message;
     }

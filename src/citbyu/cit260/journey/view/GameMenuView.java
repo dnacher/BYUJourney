@@ -1,18 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package citbyu.cit260.journey.view;
 
-/**
- *
- * @author gustavomartinez
- */
-public class GameMenuView {
+public class GameMenuView extends View{
     
-    void displayMenu() {
-		System.out.println("\n*** displayMenu stub function called ***");
-	}
+    public GameMenuView(){
+        super(    "\n"
+                 +"\n----------------------------------"
+                 +"\n----------------------------------"
+                 +"\n|Game Menu                       |"
+                 +"\n----------------------------------"
+                 +"\nM Map"
+                 +"\nL Look for Items"
+                 +"\nA Atack" 
+                 +"\nS Save Game"
+                 +"\n----------------------------------"
+                 +"\nQ Return Main Menu");
+    }
+    
+    
+    @Override
+    public boolean doAction(String menuOption){
+       menuOption = menuOption.toUpperCase();
+	boolean answer=false;
+	switch (menuOption) {
+		case "M": //create and start new game
+			MoveMapMenuView mmmv= new MoveMapMenuView();
+                        mmmv.display();
+                        break;
+		case "L": // get and start an existing game
+			                       
+			break;
+		case "A": // display the help menu
+			                       
+			break;	
+                case "S": // display the help menu
+			                       
+			break;	
+		default:
+			System.out.println("\n*** Invalid selection *** Try again");
+			break;
+	}	
+	return answer;
+    }
     
 }

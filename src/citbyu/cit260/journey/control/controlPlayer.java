@@ -1,5 +1,6 @@
 package citbyu.cit260.journey.control;
 
+import citbyu.cit260.journey.Journey;
 import static citbyu.cit260.journey.control.Dice.rollDice;
 import citbyu.cit260.journey.model.Player.Player;
 import citbyu.cit260.journey.model.game.Game;
@@ -19,7 +20,7 @@ public class controlPlayer {
 	int manSpeed=5;
 	int horseSpeed=14;
 	double Total=0;
-    if(distance>0){
+    if(distance>=0){
         if(wounded){
             if(way==1){
 		Total=distance/manSpeed;
@@ -167,5 +168,14 @@ public class controlPlayer {
         return lucky;
     }
     
+    public double addTime(int num1, int num2){
+        double distance=substractPositive(num1, num2);
+        //****************************************************************now there is only one way to go "1" and not wounded
+        double time=calculateTime(1, distance, false);
+        double currentTime=Journey.getPlayer().getTime();
+        double totalTime=time+currentTime;
+        Journey.getPlayer().setTime(totalTime);
+        return time;
+    }
     
 }

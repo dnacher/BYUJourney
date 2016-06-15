@@ -6,15 +6,13 @@
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.control.controlPlayer;
-import java.util.Scanner;
 
 /**
  *
  * @author Dani-Fla-Mathi
  */
-public class MoveMenuView extends View{
+public class MoveMapMenuView extends View{    
     
-    private String menu;
     private String currentPlace="E";
     private int num1=0;
     private int num2=0;
@@ -27,21 +25,20 @@ public class MoveMenuView extends View{
    
     
     
-    public MoveMenuView(){
-    
+    public MoveMapMenuView(){          
         super("\n"
                  +"\n----------------------------------"
                  +"\n----------------------------------"
                  +"\n|Move Menu                       |"
                  +"\n----------------------------------"
-                 +"\nN North Town"
-                 +"\nD Dragon Land"
+                 +"\nN North Town" 
+                 +"\nD Dragon Land" 
                  +"\nE Edelion"
                  +"\nT Eten Ty"
                  +"\nH Hidden Forest"
                  +"\nS South Port"                        
                  +"\n----------------------------------"
-                 +"\nQ Return Main Menu");
+                 +"\nQ Return Main Menu");            
             }    
     
     @Override
@@ -49,7 +46,7 @@ public class MoveMenuView extends View{
        menuOption = menuOption.toUpperCase();
 	boolean answer=false;
 	switch (menuOption) {
-		case "N": //create and start new game
+		case "N": //create and start new game                       
 			this.northTown();
                         break;
 		case "D": // get and start an existing game
@@ -71,6 +68,7 @@ public class MoveMenuView extends View{
 			System.out.println("\n*** Invalid selection *** Try again");
 			break;
 	}	
+        
 	return answer;
     }
     
@@ -78,62 +76,56 @@ public class MoveMenuView extends View{
 private void northTown() {
     num1=this.returnPlaceId(currentPlace);
     currentPlace="N";
-    num2=1;
+    num2=N;
     controlPlayer cp= new controlPlayer();
-    double distance=cp.substractPositive(num1, num2);
-    double Time=cp.calculateTime(1, distance, false);
-    System.out.println("You Spend " + Time + " hours to travel to North Town");
+    double timespend=cp.addTime(num1, num2);
+    System.out.println("You Spend " + timespend + " hours to travel to North Town");
         
 }
 
 private void dragonLand() {
     num1=this.returnPlaceId(currentPlace);
     currentPlace="D";
-    num2=2;
+    num2=D;
     controlPlayer cp= new controlPlayer();
-    double distance=cp.substractPositive(num1, num2);
-    double Time=cp.calculateTime(1, distance, false);
-    System.out.println("You Spend " + Time + " hours to travel to Dragon Land");
+    double timespend=cp.addTime(num1, num2);
+    System.out.println("You Spend " + timespend + " hours to travel to Dragon Land");
 }
 
 private void edelion() {
     num1=this.returnPlaceId(currentPlace);
     currentPlace="E";
-    num2=3;
+    num2=E;
     controlPlayer cp= new controlPlayer();
-    double distance=cp.substractPositive(num1, num2);
-    double Time=cp.calculateTime(1, distance, false);
-    System.out.println("You Spend " + Time + " hours to travel to Edelion");
+    double timespend=cp.addTime(num1, num2);
+    System.out.println("You Spend " + timespend + " hours to travel to Edelion");
 }
 
 private void hiddenForest() {
     num1=this.returnPlaceId(currentPlace);
     currentPlace="H";
-    num2=4;
+    num2=H;
     controlPlayer cp= new controlPlayer();
-    double distance=cp.substractPositive(num1, num2);
-    double Time=cp.calculateTime(1, distance, false);
-    System.out.println("You Spend " + Time + " hours to travel to Hidden Forest");
+    double timespend=cp.addTime(num1, num2);
+    System.out.println("You Spend " + timespend + " hours to travel to Hidden Forest");
 }
 
 private void etenTy() {
     num1=this.returnPlaceId(currentPlace);
     currentPlace="T";
-    num2=5;
+    num2=T;
     controlPlayer cp= new controlPlayer();
-    double distance=cp.substractPositive(num1, num2);
-    double Time=cp.calculateTime(1, distance, false);
-    System.out.println("You Spend " + Time + " hours to travel to Eten Ty");
+    double timespend=cp.addTime(num1, num2);
+    System.out.println("You Spend " + timespend + " hours to travel to Eten Ty");
 }
 
 private void southPort() {
     num1=this.returnPlaceId(currentPlace);
     currentPlace="S";
-    num2=6;	
+    num2=S;	
     controlPlayer cp= new controlPlayer();
-    double distance=cp.substractPositive(num1, num2);
-    double Time=cp.calculateTime(1, distance, false);
-    System.out.println("You Spend " + Time + " hours to travel to South Port");
+    double timespend=cp.addTime(num1, num2);
+    System.out.println("You Spend " + timespend + " hours to travel to South Port");
 }
 
 private int returnPlaceId(String current){
@@ -154,10 +146,6 @@ private int returnPlaceId(String current){
             return -1;
     }
     
-}
-
-private void displayMainMenuView() {
-	this.display();
 }
 
 }

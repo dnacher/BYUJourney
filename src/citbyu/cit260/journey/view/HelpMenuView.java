@@ -1,11 +1,6 @@
 package citbyu.cit260.journey.view;
 
-import java.util.Scanner;
-
 public class HelpMenuView extends View{
-    
-    private String menu;
-    
     
     public HelpMenuView(){
     
@@ -18,7 +13,7 @@ public class HelpMenuView extends View{
                  +"\nP How to play the Game"
                  +"\nN How to Start a new Game"
                  +"\nS How to save a Game"
-                 +"\nQ Quit Game"
+                 +"\nQ Quit Menu"
                  +"\n----------------------------------");
     }   
     
@@ -53,18 +48,18 @@ public class HelpMenuView extends View{
     
      private void GoalGame() {
         System.out.println("*** You will need to recover the stolen light stones. to do that you will need to travel around the world and talk to creatures in this amazing world ***");
-}
+    }
 
-private void howToPlay() {
+    private void howToPlay() {
 	System.out.println("*** read all the option in every menu and select an option typing a correct letter ***");
-}
+    }
 
-private void howStartNewGame() {
+    private void howStartNewGame() {
 	System.out.println("*** in the Main Menu type 'N' and then Enter ***");
-}
+    }
 
-private void howSaveGame() {
+    private void howSaveGame() {
 	System.out.println("*** in the Main Menu type 'S' and then Enter ***");
-}
+    }
 
 }
