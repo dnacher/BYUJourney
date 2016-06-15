@@ -63,22 +63,32 @@ public class MovePlaceMenuView extends View{
     
     public void Inn(){
         setCurrentPlace(I);
+        OptionPlaceMenuView opmv= new OptionPlaceMenuView();
+        opmv.display();
     }
     
     public void Market(){
         setCurrentPlace(M);
+        OptionPlaceMenuView opmv= new OptionPlaceMenuView();
+        opmv.display();
     }
     
     public void Gates(){
         setCurrentPlace(G);
+        OptionPlaceMenuView opmv= new OptionPlaceMenuView();
+        opmv.display();
     }
 
     public void Dock(){
         setCurrentPlace(D);
+        OptionPlaceMenuView opmv= new OptionPlaceMenuView();
+        opmv.display();
     }
     
     public void Castle(){
         setCurrentPlace(C);
+        OptionPlaceMenuView opmv= new OptionPlaceMenuView();
+        opmv.display();
     }
     
     public void setCurrentPlace(int i){

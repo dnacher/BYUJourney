@@ -7,7 +7,6 @@ package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.control.Dice;
 import citbyu.cit260.journey.control.controlPlayer;
-import java.util.Scanner;
 
 /**
  *
@@ -23,9 +22,7 @@ public class AtackMenuView extends View{
     private int enemyPower=15;
     private boolean enemyLucky;
     private int enemyArmor=8;
-    private double enemyLife=80;
-    
-    
+    private double enemyLife=80;   
     
     
      public AtackMenuView(){
@@ -58,13 +55,13 @@ public class AtackMenuView extends View{
         else{
 	switch (menuOption) {
 		case "A": //create and start new game
-			this.atack();
+			atack();
                         break;
 		case "W": // get and start an existing game
-			this.withdraw();                        
+			withdraw();                        
 			break;
 		case "U": // display the help menu
-			this.spell();                        
+			spell();                        
 			break;
 		default:
 			System.out.println("\n*** Invalid selection *** Try again");
