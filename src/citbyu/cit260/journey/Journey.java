@@ -8,6 +8,15 @@ public class Journey {
     
     private static Game currentGame= null;
     private static Player player= null;
+    private static String summonCreatures="";
+
+    public static String getSummonCreatures() {
+        return summonCreatures;
+    }
+
+    public static void setSummonCreatures(String summonCreatures) {
+        Journey.summonCreatures = summonCreatures;
+    }
     
     public static void setCurrentGame(Game currentGame){
         Journey.currentGame=currentGame;

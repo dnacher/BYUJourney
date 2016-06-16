@@ -4,6 +4,7 @@ import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.Player;
 import citbyu.cit260.journey.model.game.Game;
 import citbyu.cit260.journey.model.characters.Character;
+import citbyu.cit260.journey.model.characters.enums.Warriors;
 import citbyu.cit260.journey.view.dialogs.Dialog;
 import java.util.Scanner;
 
@@ -32,7 +33,57 @@ public class controlGame {
         player.setCurrentPlace(3);
         player.setCurrentPlace(3);
         Journey.setPlayer(player);       
-        
+        createString(player.getMyCharacter().getId());
+    }
+    
+    public static void createString(int Character){
+        switch(Character){
+            case 1:
+                Journey.setSummonCreatures("\n"
+                 +"\n----------------------------------"
+                 +"\n----------------------------------"
+                 +"\n|Summon Creature Menu            |"
+                 +"\n----------------------------------"
+                 +"\n--Creature            Mana Needed-"
+                 +"\nS Sword Man                   " + Warriors.SWORD_MAN.getMana()
+                 +"\nA Spear Man                   " + Warriors.SPEAR_MAN.getMana()
+                 +"\nW Knight                      " + Warriors.KNIGHT.getMana()
+                 +"\nD Dragon                      " + Warriors.DRAGON.getMana()
+                 +"\n----------------------------------"
+                 +"\nQ Return Main Menu"
+                 +"\n");
+                break;
+            case 2:
+                Journey.setSummonCreatures("\n"
+                 +"\n----------------------------------"
+                 +"\n----------------------------------"
+                 +"\n|Summon Creature Menu            |"
+                 +"\n----------------------------------"
+                 +"\n--Creature            Mana Needed-"
+                 +"\nS Elf bow                     " + Warriors.ELF_BOW.getMana()
+                 +"\nA Spear Elf                   " + Warriors.SPEAR_ELF.getMana()
+                 +"\nW Horse Elf                   " + Warriors.HORSE_ELF.getMana()
+                 +"\nD Dragon                      " + Warriors.DRAGON.getMana()
+                 +"\n----------------------------------"
+                 +"\nQ Return Main Menu"
+                 +"\n");
+                break;
+            case 3:
+                Journey.setSummonCreatures("\n"
+                 +"\n----------------------------------"
+                 +"\n----------------------------------"
+                 +"\n|Summon Creature Menu            |"
+                 +"\n----------------------------------"
+                 +"\n--Creature            Mana Needed-"
+                 +"\nS Wizard                      " + Warriors.WIZARD.getMana()
+                 +"\nA Grey Wizard                 " + Warriors.GREY_WIZARD.getMana()
+                 +"\nW Air Wizard                  " + Warriors.AIR_WIZARD.getMana()
+                 +"\nD Dragon                      " + Warriors.DRAGON.getMana()
+                 +"\n----------------------------------"
+                 +"\nQ Return Main Menu"
+                 +"\n");
+                break;
+        }
     }
     
     public static void createNewGame(Player player){

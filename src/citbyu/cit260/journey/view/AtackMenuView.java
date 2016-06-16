@@ -39,9 +39,10 @@ public class AtackMenuView extends View{
                  +"\n----------------------------------"
                  +"\n|Move Menu                       |"
                  +"\n----------------------------------"
+                 +"\nS Summon Creature"
                  +"\nA Atack"
                  +"\nW Withdraw"
-                 +"\nU Use Spell"
+                 +"\nU Use/add Item"
                  +"\n----------------------------------"
                  +"\nQ Return Main Menu"
                  +"\n");
@@ -65,6 +66,9 @@ public class AtackMenuView extends View{
         }
         else{
 	switch (menuOption) {
+                case "S": //create and start new game
+			Summon();
+                        break;
 		case "A": //create and start new game
 			atack();
                         break;
@@ -121,8 +125,14 @@ private void withdraw() {
 }
 
 private void spell() {   
+   
+}
+
+private void Summon(){
     addMana();
     System.out.println(Journey.getPlayer().getMyCharacter().getMana());
+    SummonCreatureView scv= new SummonCreatureView();
+    scv.display();
 }
 
 public void addMana(){
