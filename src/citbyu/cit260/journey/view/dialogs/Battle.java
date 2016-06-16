@@ -216,8 +216,8 @@ public class Battle {
         
         public static Warrior[] createList(Warriors w, int quantity){
         Warrior [ ] list = new Warrior [9];
-        Warrior enemy= new Warrior(w, 10);
-        Warrior empty= new Warrior(Warriors.EMPTY, -1);
+        Warrior enemy= new Warrior(w);
+        Warrior empty= new Warrior(Warriors.EMPTY);
         for(int i=0; i<9;i++){
             if(i<=quantity){
                 list[i]=enemy;

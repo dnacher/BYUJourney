@@ -46,7 +46,8 @@ public class OptionPlaceMenuView extends View{
     }
     
     public void atack(){
-    
+        AtackMenuView amv= new AtackMenuView();
+        amv.display();
     }
     
     public void talk(){

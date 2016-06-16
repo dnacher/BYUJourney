@@ -25,7 +25,7 @@ public class controlPlace {
     
     public List<Warrior> moveEnemies(List<Warrior> originalList){
         List<Warrior> newList= new ArrayList();
-        Warrior w= new Warrior(Warriors.EMPTY, 0);
+        Warrior w= new Warrior(Warriors.EMPTY);
         for(int i=0; i<originalList.size();i++){
             newList.add(i, w);
             newList.add(i+1, w);

@@ -5,6 +5,7 @@
  */
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.Dice;
 import citbyu.cit260.journey.control.controlPlayer;
 
@@ -37,6 +38,8 @@ public class AtackMenuView extends View{
                  +"\nU Use Spell"
                  +"\n----------------------------------"
                  +"\nQ Return Main Menu");
+        
+         System.out.println("Mana: " + Journey.getPlayer().getMyCharacter().getMana());
             }
     
      @Override

@@ -3,16 +3,8 @@ package citbyu.cit260.journey.control;
 import citbyu.cit260.journey.Journey;
 import static citbyu.cit260.journey.control.Dice.rollDice;
 import citbyu.cit260.journey.model.Player.Player;
-import citbyu.cit260.journey.model.game.Game;
-import citbyu.cit260.journey.model.characters.Character;
 
 public class controlPlayer {
-    
-    public Player createPlayer(String name, Character myCharacter){
-        Player p= new Player(controlGame.bringIdPlayer() , name, myCharacter);
-        Game.getInstance().getList().add(p);        
-        return p;
-    }
     
     //this function will calculate the time spend to travel from one place to another
     //the speed of a horse and a man is based on a internet research
