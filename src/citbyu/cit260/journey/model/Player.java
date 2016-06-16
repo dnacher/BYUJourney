@@ -1,4 +1,4 @@
-package citbyu.cit260.journey.model.Player;
+package citbyu.cit260.journey.model;
 import citbyu.cit260.journey.model.characters.Character;
 
 public class Player {

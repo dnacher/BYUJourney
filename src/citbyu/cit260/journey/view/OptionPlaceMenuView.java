@@ -21,7 +21,8 @@ public class OptionPlaceMenuView extends View{
                  +"\nT Talk"                    
                  +"\nL Look Item"
                  +"\n----------------------------------"
-                 +"\nQ Return Main Menu");
+                 +"\nQ Return Main Menu"
+                 +"\n");
     }
     
     @Override

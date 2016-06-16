@@ -14,7 +14,8 @@ public class HelpMenuView extends View{
                  +"\nN How to Start a new Game"
                  +"\nS How to save a Game"
                  +"\nQ Quit Menu"
-                 +"\n----------------------------------");
+                 +"\n----------------------------------"
+                 +"\n");
     }   
     
     @Override

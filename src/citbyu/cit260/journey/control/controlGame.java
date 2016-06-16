@@ -1,7 +1,7 @@
 package citbyu.cit260.journey.control;
 
 import citbyu.cit260.journey.Journey;
-import citbyu.cit260.journey.model.Player.Player;
+import citbyu.cit260.journey.model.Player;
 import citbyu.cit260.journey.model.game.Game;
 import citbyu.cit260.journey.model.characters.Character;
 import citbyu.cit260.journey.view.dialogs.Dialog;
@@ -26,6 +26,8 @@ public class controlGame {
             System.out.println("The Name cannot be null");
         }
         Player player= new Player();
+        Character ch= new Character(100, 0, 0,"Human", 1);
+        player.setMyCharacter(ch);
         player.setName(name);  
         player.setCurrentPlace(3);
         player.setCurrentPlace(3);

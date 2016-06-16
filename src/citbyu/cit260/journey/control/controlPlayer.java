@@ -1,8 +1,8 @@
 package citbyu.cit260.journey.control;
 
 import citbyu.cit260.journey.Journey;
-import static citbyu.cit260.journey.control.Dice.rollDice;
-import citbyu.cit260.journey.model.Player.Player;
+import citbyu.cit260.journey.model.characters.Warrior;
+import citbyu.cit260.journey.model.characters.enums.Warriors;
 
 public class controlPlayer {
     
@@ -69,7 +69,7 @@ public class controlPlayer {
     public boolean lookForItem(int Level, int LevelPlayer, boolean lucky){
         Boolean found=false;
         int levelPoints=3;
-        int points= rollDice(LevelPlayer);
+        int points= Dice.rollDice(LevelPlayer);
         if(LevelPlayer>=0){
             if(Level>=0){               
                 if (points>levelPoints+(8*Level)){                   
@@ -85,23 +85,6 @@ public class controlPlayer {
         }
         System.out.println(levelPoints+(8*Level));
     return found;
-    }
-
-    public int move(int newPlace, Player player){
-        if(player!= null){
-            if(newPlace>=0){
-                player.setCurrentPlace(newPlace);
-                return player.getCurrentPlace();
-            }
-            else{
-                return -1;
-            }
-            
-        }
-        else{
-            return -1;
-        }
-        
     }
     
     public boolean handleWeight(double totalWeight, double currentWeight, int LevelPlayer){
@@ -162,12 +145,86 @@ public class controlPlayer {
     
     public double addTime(int num1, int num2){
         double distance=substractPositive(num1, num2);
-        //****************************************************************now there is only one way to go "1" and not wounded
-        double time=calculateTime(1, distance, false);
+        //****************************************************************now there is only one way to go "1" 
+        double time=0;
+        if(Journey.getPlayer().getMyCharacter().getcurrentHp()>50){
+            time=calculateTime(1, distance, false);
+        }
+        else{
+            System.out.println("You´re Wounded, find something to improve your health ");
+            time=calculateTime(1, distance, true);
+        }
         double currentTime=Journey.getPlayer().getTime();
         double totalTime=time+currentTime;
         Journey.getPlayer().setTime(totalTime);
         return time;
+    }
+    
+  /*1-North Town 
+    2-Dragon Land 
+    3-Edelion
+    4-Eten Ty
+    5-Hidden Forest
+    6-South Port*/  
+    public Warrior chooseEnemy(int city,int place){
+        Warrior w;
+        if(chooseEnemyPlace(place)){
+            switch(city){
+                case 1:
+                    w= new Warrior(Warriors.SWORD_MAN);
+                    break;
+                case 2:
+                    w= new Warrior(Warriors.DRAGON);
+                    break;
+                case 3:
+                    w= new Warrior(Warriors.SAILOR);
+                    break;
+                case 4:
+                    w= new Warrior(Warriors.ORC);
+                    break;
+                case 5:
+                    w= new Warrior(Warriors.SWORD_MAN);
+                    break;
+                case 6:
+                    w= new Warrior(Warriors.ELF_BOW);
+                    break;
+                default:
+                    w= new Warrior(Warriors.SAILOR);
+                    break;
+            }            
+        }
+        else{
+                    w= new Warrior(Warriors.FRIENDLY);
+        }        
+        return w;
+    }
+    
+  /*1-Inn
+    2-Market
+    3-Gates
+    4-Dock                 
+    5-Castle*/
+    public boolean chooseEnemyPlace(int place){
+        boolean enemy=false;        
+        switch(place){
+            case 1:                
+                    enemy=Dice.probability(5);                              
+                break;
+            case 2:               
+                    enemy=Dice.probability(7);                 
+                break;
+            case 3:                
+                    enemy=Dice.probability(10);                 
+                break;
+            case 4:                
+                    enemy=Dice.probability(40);                  
+                break;
+            case 5:                
+                    enemy=Dice.probability(100);                   
+                break;           
+        }
+        return enemy;
+    
     }
     
 }

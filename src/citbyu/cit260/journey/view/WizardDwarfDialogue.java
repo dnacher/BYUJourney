@@ -5,20 +5,16 @@
  */
 package citbyu.cit260.journey.view;
 
-import citbyu.cit260.journey.Journey;
-import java.util.Scanner;
-
 /**
  *
  * @author gus
  */
-public class WizardDwarfDialogue {
 
-    private final String menu;
+public class WizardDwarfDialogue extends View{
     
     public WizardDwarfDialogue(){
     
-        this.menu="\n"
+        super("\n"
                  +"\n----------------------------------"
                  +"\n----------------------------------"
                  +"\n|Dwarf|"
@@ -34,44 +30,12 @@ public class WizardDwarfDialogue {
                  +"\n"
                  +"\n"
                  +"\nQ Return "
-                 +"\n----------------------------------";
+                 +"\n----------------------------------"
+                 +"\n");
     }
     
-    public void displayWizardDwarfDialogue(){
-        boolean done = false;
-        do{
-            String menuOption=this.getMenuOption();            
-            if(menuOption.toUpperCase().equals("Q"))
-                return;
-            
-            done= this.doAction(menuOption);
-        }
-        while(!done);
-        
-    }
-    
-    private String getMenuOption(){
-        //System.out.println("**GetMenuOption**");
-        //return "N";
-         Scanner keyboard= new Scanner(System.in);
-       String value="";
-       boolean valid= false;
-       
-       while(!valid){
-           System.out.println(menu);
-           value=keyboard.nextLine();
-           value=value.trim().toUpperCase();
-           
-           if(value.length()<1){
-               System.out.println("\nInvalid value: value can not be blank");
-               continue;
-           }
-           break;
-       }
-       return value;
-        
-    }
-    private boolean doAction(String menuOption){
+    @Override
+    public boolean doAction(String menuOption){
        menuOption = menuOption.toUpperCase();
 	boolean answer=true;
 	switch (menuOption) {

@@ -31,7 +31,8 @@ public class MovePlaceMenuView2 extends View{
                  +"\nF Farm"                 
                  +"\nC Castle"                        
                  +"\n----------------------------------"
-                 +"\nQ Return Main Menu");              
+                 +"\nQ Return Main Menu"
+                 +"\n");              
         }
 
     @Override

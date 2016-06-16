@@ -13,7 +13,8 @@ public class GameMenuView extends View{
                  +"\nA Atack" 
                  +"\nS Save Game"
                  +"\n----------------------------------"
-                 +"\nQ Return Main Menu");
+                 +"\nQ Return Main Menu"
+                 +"\n");
     }
     
     

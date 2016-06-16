@@ -17,8 +17,12 @@ public enum Warriors {
         WIZARD("   Wizard  ",100, 1,10,3),
         GREY_WIZARD("Grey Wizard",150, 1,10,3),
        AIR_WIZARD("Air Wizard ",200, 1,10,3),
+       
+       //Enemies
+       DRAGON("Dragon",500,100,500,50),
+       SAILOR("Dragon",50,0,50,5),
     
-          EMPTY("***EMPTY***",-1,-1,-1,-1);
+          FRIENDLY("***Friendly***",-1,-1,5,-1);
     
     private final String name;
     private final int power;

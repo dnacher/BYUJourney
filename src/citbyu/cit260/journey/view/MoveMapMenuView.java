@@ -22,9 +22,7 @@ public class MoveMapMenuView extends View{
     private final int E=3;
     private final int T=4;
     private final int H=5;
-    private final int S=6;
-   
-    
+    private final int S=6;   
     
     public MoveMapMenuView(){          
         super("\n"
@@ -39,7 +37,8 @@ public class MoveMapMenuView extends View{
                  +"\nH Hidden Forest"
                  +"\nS South Port"                        
                  +"\n----------------------------------"
-                 +"\nQ Return Main Menu");            
+                 +"\nQ Return Main Menu"
+                 +"\n");            
             }    
     
     @Override
@@ -162,8 +161,7 @@ private int returnPlaceId(String current){
             return S;
         default:
             return -1;
-    }
-    
+    }    
 }
 
 }

@@ -1,6 +1,6 @@
 package citbyu.cit260.journey.control;
 
-import citbyu.cit260.journey.model.Player.Player;
+import citbyu.cit260.journey.model.Player;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

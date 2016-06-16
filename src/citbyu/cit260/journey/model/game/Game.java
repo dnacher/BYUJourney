@@ -1,6 +1,6 @@
 package citbyu.cit260.journey.model.game;
 
-import citbyu.cit260.journey.model.Player.Player;
+import citbyu.cit260.journey.model.Player;
 import java.util.ArrayList;
 
 public class Game {
