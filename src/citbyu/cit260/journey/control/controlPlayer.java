@@ -3,6 +3,7 @@ package citbyu.cit260.journey.control;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.characters.Warrior;
 import citbyu.cit260.journey.model.characters.enums.Warriors;
+import citbyu.cit260.journey.view.AtackMenuView;
 
 public class controlPlayer {
     
@@ -160,6 +161,62 @@ public class controlPlayer {
         return time;
     }
     
+    public void chooseWarrior(int choice){
+        Warrior w=new Warrior(chooseCharacter(Journey.getPlayer().getMyCharacter().getId(), choice));
+        AtackMenuView.w=w;      
+    }
+    
+    public Warriors chooseCharacter(int id, int choice){
+        switch(id){
+            case 1:
+                return humanChoice(choice);                
+            case 2:
+                return elfChoice(choice);                
+            case 3:
+                return wizardChoice(choice);
+            default:
+                return Warriors.FRIENDLY;
+        }
+    }
+    
+    public Warriors humanChoice(int choice){
+        switch(choice){
+            case 1:
+                return Warriors.SWORD_MAN;                
+            case 2:
+                return Warriors.SPEAR_MAN;
+            case 3:
+                return Warriors.KNIGHT;
+            default:
+                return Warriors.DRAGON;
+        }
+    }
+    
+    public Warriors elfChoice(int choice){
+        switch(choice){
+            case 1:
+                return Warriors.ELF_BOW;                
+            case 2:
+                return Warriors.SPEAR_ELF;
+            case 3:
+                return Warriors.HORSE_ELF;
+            default:
+                return Warriors.DRAGON;
+        }
+    }
+    
+    public Warriors wizardChoice(int choice){
+        switch(choice){
+            case 1:
+                return Warriors.WIZARD;                
+            case 2:
+                return Warriors.GREY_WIZARD;
+            case 3:
+                return Warriors.AIR_WIZARD;
+            default:
+                return Warriors.DRAGON;
+        }
+    }
   /*1-North Town 
     2-Dragon Land 
     3-Edelion
@@ -168,6 +225,7 @@ public class controlPlayer {
     6-South Port*/  
     public Warrior chooseEnemy(int city,int place){
         Warrior w;
+
         if(chooseEnemyPlace(place)){
             switch(city){
                 case 1:
@@ -225,6 +283,12 @@ public class controlPlayer {
         }
         return enemy;
     
+    }
+    
+    public void enemy(){
+        AtackMenuView.enemyWarrior=  chooseEnemy(Journey.getPlayer().getCurrentCity(), Journey.getPlayer().getCurrentPlace()); 
+        System.out.println("Mana: " + Journey.getPlayer().getMyCharacter().getMana());
+        System.out.println(AtackMenuView.enemyWarrior.getWar().getName());
     }
     
 }

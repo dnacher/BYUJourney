@@ -6,12 +6,17 @@
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
+import citbyu.cit260.journey.control.controlPlayer;
+import citbyu.cit260.journey.model.characters.Warrior;
+import citbyu.cit260.journey.model.characters.enums.Warriors;
 
 /**
  *
  * @author Dani-Fla-Mathi
  */
 public class SummonCreatureView extends View{
+    
+    Warrior w;
     
     public SummonCreatureView(){    
         super(Journey.getSummonCreatures());
@@ -23,16 +28,16 @@ public class SummonCreatureView extends View{
         boolean answer=false;
 	switch (menuOption) {
                 case "S": //create and start new game
-			
+			sOption();
                         break;
 		case "A": //create and start new game
-			
+			aOption();
                         break;
 		case "W": // get and start an existing game
-			                       
+			wOption();
 			break;
 		case "D": // display the help menu
-			                     
+			dOption();
 			break;
 		default:
 			System.out.println("\n*** Invalid selection *** Try again");
@@ -42,25 +47,46 @@ public class SummonCreatureView extends View{
     }
     
     public void sOption(){
-        
+       if(canAfford(Warriors.SWORD_MAN.getMana())){
+           controlPlayer cp= new controlPlayer();
+           cp.chooseWarrior(1);
+                   
+           /*AtackMenuView amv= new AtackMenuView();
+           w.setWar(Warriors.ORC);
+           amv.setW(w);*/
+           subtractMana(Warriors.SWORD_MAN.getMana());
+           AtackMenuView amv=new AtackMenuView();
+           amv.display();
+       }       
     }
     
     public void aOption(){
-    
+        if(canAfford(Warriors.SPEAR_MAN.getMana())){
+           controlPlayer cp= new controlPlayer();
+           cp.chooseWarrior(2);
+           subtractMana(Warriors.SWORD_MAN.getMana());
+       }
     }
     
     public void wOption(){
-    
+        if(canAfford(Warriors.KNIGHT.getMana())){
+           controlPlayer cp= new controlPlayer();
+           cp.chooseWarrior(3); 
+           subtractMana(Warriors.SWORD_MAN.getMana());
+       }
     }
     
     public void dOption(){
-    
+        if(canAfford(Warriors.DRAGON.getMana())){
+           subtractMana(Warriors.SWORD_MAN.getMana());
+       }
     }
     
     public boolean canAfford(int manaNeeded){
     boolean answer= false;
     if(Journey.getPlayer().getMyCharacter().getMana()>=manaNeeded){
         subtractMana(manaNeeded);
+        answer=true;
     }
     else{
         System.out.println("you don´t have enough Mana to summon this creature");

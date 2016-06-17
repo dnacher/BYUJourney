@@ -6,6 +6,7 @@
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
+import citbyu.cit260.journey.control.controlPlayer;
 
 /**
  *
@@ -18,6 +19,7 @@ public class MovePlaceMenuView2 extends View{
     private final int W=3;
     private final int F=4;
     private final int C=5;
+    private final controlPlayer cp= new controlPlayer();
     
     public MovePlaceMenuView2(){        
                 super("\n"
@@ -64,30 +66,35 @@ public class MovePlaceMenuView2 extends View{
     
     public void Inn(){
         setCurrentPlace(I);
+        cp.enemy();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
     }
     
     public void Market(){
         setCurrentPlace(M);
+        cp.enemy();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
     }
     
     public void Wall(){
         setCurrentPlace(W);
+        cp.enemy();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
     }
 
     public void Farm(){
         setCurrentPlace(F);
+        cp.enemy();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
     }
     
     public void Castle(){
         setCurrentPlace(C);
+        cp.enemy();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
     }

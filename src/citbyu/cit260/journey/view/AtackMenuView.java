@@ -25,11 +25,8 @@ public class AtackMenuView extends View{
     private int enemyArmor=8;
     private double enemyLife=80;
     
-    private Warrior w;
-    controlPlayer cp= new controlPlayer();    
-    private Warrior enemyWarrior=cp.chooseEnemy(Journey.getPlayer().getCurrentCity(), Journey.getPlayer().getCurrentPlace());
-    
-    
+    public static Warrior w;       
+    public static Warrior enemyWarrior;     
     
     
      public AtackMenuView(){
@@ -45,10 +42,10 @@ public class AtackMenuView extends View{
                  +"\nU Use/add Item"
                  +"\n----------------------------------"
                  +"\nQ Return Main Menu"
-                 +"\n");
-        
-         System.out.println("Mana: " + Journey.getPlayer().getMyCharacter().getMana());
-         System.out.println(enemyWarrior.getWar().getName());
+                 +"\n");         
+         if(w!=null){
+             System.out.println(w.getWar().getName());
+         }
             }
     
      @Override
