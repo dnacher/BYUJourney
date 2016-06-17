@@ -123,9 +123,9 @@ public class controlPlayer {
     
     }
     
-    public double attack(boolean lucky, int power, int armor, double life){
+    public int attack(boolean lucky, int power, int armor, double life){
        double totalAttack = 0;
-       double currentLife=life;
+       int currentLife=(int) life;
        if(power<0 || armor<0 || life<0){
            return -999;
        }
@@ -135,7 +135,7 @@ public class controlPlayer {
        else{
            totalAttack=power;
        }
-       currentLife=life-(totalAttack-armor);      
+       currentLife=(int) (life-(totalAttack-armor));      
        return currentLife;    
        }
     

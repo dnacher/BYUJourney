@@ -49,11 +49,7 @@ public class SummonCreatureView extends View{
     public void sOption(){
        if(canAfford(Warriors.SWORD_MAN.getMana())){
            controlPlayer cp= new controlPlayer();
-           cp.chooseWarrior(1);
-                   
-           /*AtackMenuView amv= new AtackMenuView();
-           w.setWar(Warriors.ORC);
-           amv.setW(w);*/
+           cp.chooseWarrior(1);           
            subtractMana(Warriors.SWORD_MAN.getMana());
            AtackMenuView amv=new AtackMenuView();
            amv.display();
@@ -65,6 +61,8 @@ public class SummonCreatureView extends View{
            controlPlayer cp= new controlPlayer();
            cp.chooseWarrior(2);
            subtractMana(Warriors.SWORD_MAN.getMana());
+           AtackMenuView amv=new AtackMenuView();
+           amv.display();
        }
     }
     
@@ -73,12 +71,16 @@ public class SummonCreatureView extends View{
            controlPlayer cp= new controlPlayer();
            cp.chooseWarrior(3); 
            subtractMana(Warriors.SWORD_MAN.getMana());
+           AtackMenuView amv=new AtackMenuView();
+           amv.display();
        }
     }
     
     public void dOption(){
         if(canAfford(Warriors.DRAGON.getMana())){
            subtractMana(Warriors.SWORD_MAN.getMana());
+           AtackMenuView amv=new AtackMenuView();
+           amv.display();
        }
     }
     

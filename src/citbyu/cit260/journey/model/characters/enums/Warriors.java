@@ -2,27 +2,27 @@ package citbyu.cit260.journey.model.characters.enums;
 
 public enum Warriors {
     
-      SWORD_MAN("Sword Man  ",100, 1,10,3),
-      SPEAR_MAN("Spear Man  ",150, 1,10,3),
-         KNIGHT("  Knight   ",200, 1,10,3),    
+      SWORD_MAN("Sword Man  ",15, 14,50,3),
+      SPEAR_MAN("Spear Man  ",20, 18,70,3),
+         KNIGHT("  Knight   ",25, 20,90,3),    
     
-        ELF_BOW("  Elf bow  ",100, 1,10,3),
-      SPEAR_ELF(" Spear Elf ",150, 1,10,3),
-      HORSE_ELF(" Horse Elf ",200, 1,10,3),
+        ELF_BOW("  Elf bow  ",15, 14,50,3),
+      SPEAR_ELF(" Spear Elf ",20, 18,70,3),
+      HORSE_ELF(" Horse Elf ",25, 20,90,3),
     
-            ORC("   Orc     ",100, 1,10,3),
-        AXE_ORC(" Axe & Orc ",150, 1,10,3),
-       WOLF_ORC(" Wolf & Orc",200, 1,10,3),
+            ORC("   Orc     ",15, 14,50,3),
+        AXE_ORC(" Axe & Orc ",20, 18,70,3),
+       WOLF_ORC(" Wolf & Orc",25, 20,90,3),
        
-        WIZARD("   Wizard  ",100, 1,10,3),
-        GREY_WIZARD("Grey Wizard",150, 1,10,3),
-       AIR_WIZARD("Air Wizard ",200, 1,10,3),
+         WIZARD("   Wizard  ",15, 14,50,3),
+    GREY_WIZARD("Grey Wizard",20, 18,70,3),
+     AIR_WIZARD("Air Wizard ",25, 20,90,3),
        
        //Enemies
-       DRAGON("Dragon",500,100,500,50),
-       SAILOR("Dragon",50,0,50,5),
+         DRAGON("  Dragon   ",50,30,130,50),
+         SAILOR("  Sailor   ",5,0,20,5),
     
-          FRIENDLY("***Friendly***",-1,-1,5,-1);
+       FRIENDLY("***Friendly***",0,0,3,0);
     
     private final String name;
     private final int power;

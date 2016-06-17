@@ -16,18 +16,14 @@ import citbyu.cit260.journey.model.characters.Warrior;
  */
 public class AtackMenuView extends View{
         
-    private int power=30;
-    private boolean lucky;
-    private int armor=10;
-    private double life=100;
-    private int enemyPower=15;
+    
+    private boolean lucky;   
     private boolean enemyLucky;
-    private int enemyArmor=8;
-    private double enemyLife=80;
+    
     
     public static Warrior w;       
     public static Warrior enemyWarrior;     
-    
+    private final controlPlayer cp= new controlPlayer();
     
      public AtackMenuView(){
     
@@ -52,19 +48,28 @@ public class AtackMenuView extends View{
     public boolean doAction(String menuOption){
        menuOption = menuOption.toUpperCase();
 	boolean answer=false;
-        if(life<=0){
+        if(w!=null){
+        if(w.getCurrentHp()<=0){
             System.out.println("you lose");
+            w=null;
             return true;
             
         }
-        else if(enemyLife<0){
+        else if(enemyWarrior.getCurrentHp()<0){
         System.out.println("you win");
+        w=null;
             return true;
+        } 
         }
-        else{
 	switch (menuOption) {
                 case "S": //create and start new game
-			Summon();
+                    if(w==null){
+                        Summon();
+                    }
+                    else{
+                        System.out.println("you already have a creature");
+                    }
+		
                         break;
 		case "A": //create and start new game
 			atack();
@@ -79,46 +84,60 @@ public class AtackMenuView extends View{
 			System.out.println("\n*** Invalid selection *** Try again");
 			break;
 	}	
-	return answer;
-    }
+	return answer;    
     }
    
 private void atack() {
-    controlPlayer cp= new controlPlayer();    
-    lucky=cp.getLucky();
-    enemyLife=cp.attack(lucky, power, armor, enemyLife);
+    if(w!=null){
+        if(w.getCurrentHp()<=0 || enemyWarrior.getCurrentHp()<=0){
+           /* if(w.getCurrentHp()<=0){
+              System.out.println("You lose");  
+            }*/
+        }
+        else{
+    lucky=cp.getLucky();    
+    enemyWarrior.setCurrentHp(cp.attack(lucky, w.getWar().getPower(), w.getWar().getArmor(), enemyWarrior.getCurrentHp()));
     enemyLucky=cp.getLucky();
-    life=cp.attack(enemyLucky, enemyPower, enemyArmor, life);
-    if(life>0){
+    w.setCurrentHp(cp.attack(enemyLucky, enemyWarrior.getWar().getPower(), enemyWarrior.getWar().getArmor(), w.getCurrentHp()));
+    if(w.getCurrentHp()>0){
         System.out.println("You´re still alive");
     }
     else{
         System.out.println("You´re already dead");
     }
     System.out.println("--------------------------------");
-    System.out.println("your life is " + life);
-    System.out.println("the enemy life is " + enemyLife);
+    System.out.println("your life is " + w.getCurrentHp());
+    System.out.println("the enemy life is " + enemyWarrior.getCurrentHp());
     System.out.println("--------------------------------");
-        
+    }
+    }
+    else{
+        System.out.println("You don´t have a creature to atack");
+        System.out.println("Summon a crature with the option");
+    }
 }
 
 private void withdraw() {
-   controlPlayer cp= new controlPlayer();  
+    if(w!=null){
    if(Dice.probability(50)){
        System.out.println("The Enemy got you before you could withdraw");
        enemyLucky=cp.getLucky();
-    life=cp.attack(enemyLucky, enemyPower, enemyArmor, life);
-    if(life>0){
+    w.setCurrentHp(cp.attack(enemyLucky, enemyWarrior.getWar().getPower(), enemyWarrior.getWar().getArmor(), w.getCurrentHp()));
+    if(w.getCurrentHp()>0){
         System.out.println("You´re still alive");
     }
     else{
-        System.out.println("You´re already dead");
+        System.out.println("Luckily you don´t have a creature yet. you can run now");
     }
    }
    System.out.println("--------------------------------");
-    System.out.println("your life is " + life);
-    System.out.println("the enemy life is " + enemyLife);
+    System.out.println("your life is " + w.getCurrentHp());
+    System.out.println("the enemy life is " + enemyWarrior.getCurrentHp());
     System.out.println("--------------------------------");
+    }
+    else{
+        System.out.println("--------------------------------");
+    }
 }
 
 private void spell() {   
