@@ -34,7 +34,7 @@ public class Journey {
     public static void main(String[] args) {
        
         StartProgramView spv= new StartProgramView();
-        spv.display();
+        spv.display();    
                
     }
     
