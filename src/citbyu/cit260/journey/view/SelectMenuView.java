@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package citbyu.cit260.journey.view.dialogs;
+package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.view.View;
@@ -21,7 +21,7 @@ public class SelectMenuView extends View{
         super("\n"
                  +"\n----------------------------------"
                  +"\n----------------------------------"
-                 +"\n|Select Race Menu                |"
+                 +"\n|Select Race                     |"
                  +"\n----------------------------------"
                  +"\nH Human" 
                  +"\nE Elf" 
@@ -39,16 +39,20 @@ public class SelectMenuView extends View{
                         ch.setId(1);
                         ch.setName("Human");
 			Journey.getPlayer().setMyCharacter(ch);
+                        
+                        startGame();
                         break;
 		case "E": // get and start an existing game
                         ch.setId(2);
                         ch.setName("Elf");
-			Journey.getPlayer().setMyCharacter(ch);                    
+			Journey.getPlayer().setMyCharacter(ch);                           
+                        startGame();
 			break;
 		case "W": // display the help menu
                         ch.setId(3);
                         ch.setName("Wizard");
-			Journey.getPlayer().setMyCharacter(ch);                      
+			Journey.getPlayer().setMyCharacter(ch);                         
+                        startGame();
 			break;			
 		default:
 			System.out.println("\n*** Invalid selection *** Try again");
@@ -57,5 +61,10 @@ public class SelectMenuView extends View{
         
 	return answer;
     }    
+    
+    public void startGame(){
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+    }
     
 }

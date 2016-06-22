@@ -38,69 +38,7 @@ public class Dialog {
         System.out.println("");
         System.out.println("               Discover where the light stones are and bringing back to the wizards.");
         System.out.println("");
-    }
-    
-     public static void choosePlayerName(){
-        System.out.println("Please type your name: ");         
-    }
-     
-     public static void choosePlayerName2(){
-      System.out.println("Don´t you have a name? come on, type something..: ");      
-     }
-     
-      public static void choosePlayerName3(){
-      System.out.println("What kind of name is just a space..come on be more creative: ");      
-     }
-     
-    //this is the dialog of the beginning to choose a Race
-    public static void chooseRace(){
-        System.out.println("Please choose your race: ");
-        System.out.println("1-Human");
-        System.out.println("2-Elf");
-        System.out.println("3-Wizard");        
-    }
-    
-    //this is the dialog of the beginning if you put an incorrect choice
-    public static void chooseRace2(){
-        System.out.println("please choose a correct answer(number). it could be:");
-        System.out.println("1-Human");
-        System.out.println("2-Elf");
-        System.out.println("3-Wizard");
-    }
-    
-    public static void HelloWorld(Player p){
-        System.out.println("Welcome to the Journey " + p.getName());       
-    }
-    
-    public static void MainMenu(){
-     System.out.println("*****************************");
-     System.out.println("Please select an option:");
-     System.out.println("1)- Go to the world of the light stone");
-     System.out.println("2)- Edit your profile");     
-     System.out.println("3)- Exit game");    
-     System.out.println("*****************************");
-    }
-    
-    public static void theChoice(Character c){
-        System.out.println("you choose a " + c.getName() + " is that correct?");
-        System.out.println("1-Yes");
-        System.out.println("2-No. I want to change"); 
-    }
-    
-    public static void asterisk(){
-        System.out.println("*****************************");
-        System.out.println("*****************************");
-        System.out.println("*****************************");
-        System.out.println("*****************************");
-        System.out.println("*****************************");
-        System.out.println("*****************************");
-    }
-    
-    public static void printInformation(Character c){
-         System.out.println("Race: " + c.getName());
-         System.out.println("hp: " + c.getcurrentHp());
-         System.out.println("Karma: " + c.getKarma());
-    }
+    }  
     
     public static void HumanStart(){
      System.out.println("**************************************************************");
@@ -165,49 +103,7 @@ public class Dialog {
          System.out.println("                                         ;@@@+` .;+@@@@@@+`                                                ");
          System.out.println("                                             .@@+;.                                                        ");
                    
-    }
-    
-     //Characters a1= new Characters(100, 0, "Sword Man  ", 1);
-        //Dialog.printBoardVoid();
-        //Menus.MainMenu(); 
-       // int dice1=Dice.rollDice();
-        //int dice2=Dice.rollDice();
-       // int total= dice1+ dice2;
-       // System.out.println("Dice 1: " + dice1);
-      //  System.out.println("Dice 2: " + dice2);
-       // System.out.println("Total: " + total);
-       // if(total>=8){
-      //  System.out.println("you can summon a knight");
-      //  }
-      //  else{
-      //  System.out.println("you cannot summon a knight");
-      //  }
-      //  int total= 0;
-      //  for(int i=0; i<5;i++){            siempre
-      //      total +=Dice.roll(i);
-      //      System.out.println("Total: " + total);
-      //       System.out.println("***************");
-     //   }
-        
-       
-      //  Warrior w1= new Warrior(Warriors.ORC,10);
-       // Warrior w2= new Warrior(Warriors.EMPTY,-1);
-      //  Characters c= new Characters(100, 0, 0, "name", -1);
-      //  Warrior w[]=Battle.createList(Warriors.AXE_ORC, 0);
-      //  Battle.printBoardFirst(w, c);
-        
-               //  System.out.println(Dice.rollDice());
-               //  System.out.println(Dice.rollDice());
-
-    public static void StartHelp() {
-     System.out.println("*****************************");
-     System.out.println("Please select an option:");
-     System.out.println("1)- Start the game");     
-     System.out.println("2)- Help/Instructions");       
-     System.out.println("*****************************");
-        
-    }
-    
+    }    
     
 }
 

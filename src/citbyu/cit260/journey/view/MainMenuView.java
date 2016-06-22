@@ -44,8 +44,8 @@ public class MainMenuView extends View{
     }
     
 private void startNewGame() {   
-    GameMenuView gameMenu = new GameMenuView();
-    gameMenu.display();
+   SelectMenuView smv=new SelectMenuView();
+   smv.display();
 }
 
 private void startExistingGame() {
