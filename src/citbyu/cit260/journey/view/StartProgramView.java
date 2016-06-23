@@ -44,7 +44,7 @@ public class StartProgramView extends View{
            return false;
        }   
        //create the Player with the name that the player type
-       controlGame.createThePlayer(playersName);
+       controlGame.createNewGame(playersName);
        if(Journey.getPlayer()==null){
            System.out.println("\nError creating the player.");
            return false;
