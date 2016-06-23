@@ -96,9 +96,9 @@ private void atack() {
         }
         else{
     lucky=cp.getLucky();    
-    enemyWarrior.setCurrentHp(cp.attack(lucky, w.getWar().getPower(), w.getWar().getArmor(), enemyWarrior.getCurrentHp()));
+    enemyWarrior.setCurrentHp(cp.attack(lucky, w.getWar().getPower(), enemyWarrior.getWar().getArmor(), enemyWarrior.getCurrentHp()));
     enemyLucky=cp.getLucky();
-    w.setCurrentHp(cp.attack(enemyLucky, enemyWarrior.getWar().getPower(), enemyWarrior.getWar().getArmor(), w.getCurrentHp()));
+    w.setCurrentHp(cp.attack(enemyLucky, enemyWarrior.getWar().getPower(), w.getWar().getArmor(), w.getCurrentHp()));
     if(w.getCurrentHp()>0){
         System.out.println("You´re still alive");
     }

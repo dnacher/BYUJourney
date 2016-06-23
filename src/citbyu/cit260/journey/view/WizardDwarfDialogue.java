@@ -5,6 +5,8 @@
  */
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.model.characters.enums.Dialogs;
+
 /**
  *
  * @author gus
@@ -40,10 +42,10 @@ public class WizardDwarfDialogue extends View{
 	boolean answer=true;
 	switch (menuOption) {
 		case "A": //Option A
-			System.out.println("\n Good luck with that");
+			System.out.println(Dialogs.dwarf.getSpeach2());
 			break;
 		case "B": //Option B
-			System.out.println("\nAs much wood As a woodchuck  would, if a woodchuck  could chuck wood.");
+			System.out.println(Dialogs.dwarf.getSpeach());
 			break;
 		default:
 			System.out.println("\n*** Invalid selection *** Try again");
