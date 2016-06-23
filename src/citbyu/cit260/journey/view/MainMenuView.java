@@ -44,7 +44,7 @@ public class MainMenuView extends View{
     }
     
 private void startNewGame() {   
-   SelectMenuView smv=new SelectMenuView();
+   SelectRaceMenuView smv=new SelectRaceMenuView();
    smv.display();
 }
 

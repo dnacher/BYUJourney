@@ -1,4 +1,6 @@
 package citbyu.cit260.journey.model;
+import citbyu.cit260.journey.Journey;
+import static citbyu.cit260.journey.control.controlGame.createString;
 import citbyu.cit260.journey.model.characters.Character;
 
 public class Player {
@@ -56,6 +58,12 @@ public class Player {
 
     public void setMyCharacter(Character myCharacter) {
         this.myCharacter = myCharacter;
+        //this if statement check if the object is not null
+        //if is not null then set the String setSummonCreatures in the 
+        //Game object
+        if(Journey.getCurrentGame()!=null){
+            createString(Journey.getPlayer().getMyCharacter().getId());
+        }        
     }
     
     public Player(){

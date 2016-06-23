@@ -12,7 +12,6 @@ public class Journey {
     
     private static Game currentGame= null;
    
-   
     
     public static Game getCurrentGame() {
         return currentGame;
@@ -48,6 +47,8 @@ public class Journey {
     //********end of the getters and setters
     
 
+   
+    
     public static void main(String[] args) {
        
         StartProgramView spv= new StartProgramView();

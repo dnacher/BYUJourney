@@ -13,11 +13,11 @@ import citbyu.cit260.journey.model.characters.Character;
  *
  * @author Dani-Fla-Mathi
  */
-public class SelectMenuView extends View{
+public class SelectRaceMenuView extends View{
     
     private Character ch= new Character(100,0,0,"no name",-1);
     
-    public SelectMenuView(){
+    public SelectRaceMenuView(){
         super("\n"
                  +"\n----------------------------------"
                  +"\n----------------------------------"
@@ -38,8 +38,7 @@ public class SelectMenuView extends View{
 		case "H": //create and start new game  
                         ch.setId(1);
                         ch.setName("Human");
-			Journey.getPlayer().setMyCharacter(ch);
-                        
+			Journey.getPlayer().setMyCharacter(ch);                        
                         startGame();
                         break;
 		case "E": // get and start an existing game

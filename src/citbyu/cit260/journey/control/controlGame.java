@@ -30,8 +30,7 @@ public class controlGame {
         player.setName(name);  
         player.setCurrentPlace(3);
         player.setCurrentPlace(3);
-        Journey.setPlayer(player);               
-        createString(Journey.getPlayer().getMyCharacter().getId());
+        Journey.setPlayer(player);         
     }   
     
     public static void createString(int Character){
