@@ -29,7 +29,13 @@ public class Journey {
     }
     
     public static void setPlayer(Player player){
-        currentGame.setPlayer(player);
+        //this if statement is to verify if the currentGame is null. 
+        //if we don´t have this check the game will crash since cannot set a value in a null object
+       if(currentGame==null){
+           Game game= new Game();
+           currentGame=game;       
+       }
+       currentGame.setPlayer(player);       
     }
     
      public static String getSummonCreatures() {
@@ -46,6 +52,8 @@ public class Journey {
        
         StartProgramView spv= new StartProgramView();
         spv.display();  
+        
+        
         //Array dos dimensiones
     /*   String[][] list= new String[10][10];
        list[2][4]="listblabla";
