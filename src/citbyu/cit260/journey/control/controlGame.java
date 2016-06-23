@@ -2,13 +2,13 @@ package citbyu.cit260.journey.control;
 
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.Player;
-import citbyu.cit260.journey.model.game.Game;
+import citbyu.cit260.journey.model.Game;
 import citbyu.cit260.journey.model.characters.Character;
 import citbyu.cit260.journey.model.characters.enums.Warriors;
 
 public class controlGame {
     
-    public static int bringIdPlayer(){
+   /* public static int bringIdPlayer(){
     
         int ret= Game.getInstance().getIdPlayer();
         updateIdPlayer();
@@ -18,7 +18,7 @@ public class controlGame {
     
     public static void updateIdPlayer(){
         Game.getInstance().setIdPlayer(Game.getInstance().getIdPlayer() + 1);
-    }
+    }*/
     
     public static void createThePlayer(String name){      
         if(name==null){
@@ -102,5 +102,7 @@ public class controlGame {
             i=-1;
         }
         return i;
-    }   
+    }
+    
+    
 }
