@@ -11,30 +11,35 @@ import java.util.List;
 public class Journey {     
     
     private static Game currentGame= null;
-    private static Player player= null;
-    private static String summonCreatures="";
+   
    
     
-
-    public static String getSummonCreatures() {
-        return summonCreatures;
-    }
-
-    public static void setSummonCreatures(String summonCreatures) {
-        Journey.summonCreatures = summonCreatures;
+    public static Game getCurrentGame() {
+        return currentGame;
     }
     
     public static void setCurrentGame(Game currentGame){
         Journey.currentGame=currentGame;
     }
     
+    
+    //***********getters and setters inside the Game object. to be easier
     public static Player getPlayer(){
-        return player;
+        return currentGame.getPlayer();
     }
     
     public static void setPlayer(Player player){
-        Journey.player=player;
+        currentGame.setPlayer(player);
     }
+    
+     public static String getSummonCreatures() {
+        return currentGame.getSummonCreatures();
+    }
+
+    public static void setSummonCreatures(String summonCreatures) {
+        currentGame.setSummonCreatures(summonCreatures);
+    }
+    //********end of the getters and setters
     
 
     public static void main(String[] args) {

@@ -1,26 +1,24 @@
 package citbyu.cit260.journey.model;
 
-import citbyu.cit260.journey.model.Player;
-
 public class Game {
     
-     private static Player player;
-     private static String summonCreatures;
+     private Player player;
+     private String summonCreatures;
 
-    public static Player getPlayer() {
+    public Player getPlayer() {
         return player;
     }
-
-    public static void setPlayer(Player player) {
-        Game.player = player;
-    }
-
-    public static String getSummonCreatures() {
+    
+     public String getSummonCreatures() {
         return summonCreatures;
     }
 
-    public static void setSummonCreatures(String summonCreatures) {
-        Game.summonCreatures = summonCreatures;
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void setSummonCreatures(String summonCreatures) {
+        this.summonCreatures = summonCreatures;
     }
      
      public Game(){
