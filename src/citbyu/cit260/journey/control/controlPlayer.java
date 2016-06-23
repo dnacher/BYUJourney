@@ -290,5 +290,29 @@ public class controlPlayer {
         System.out.println("Mana: " + Journey.getPlayer().getMyCharacter().getMana());
         System.out.println(AtackMenuView.enemyWarrior.getWar().getName());
     }
-    
+package NorthTownItems;
+ 
+import java.util.ArrayList;
+ 
+
+ 
+public class NorthTownItems {
+ 
+	public static void main(String[] argv) {
+ 
+		List<String> NorthTownItemsList = new ArrayList<String>();
+ 
+		NorthTownItemsList.add("Sword");
+		NorthTownItemsList.add("Shield");
+		NorthTownItemsList.add("Peto");
+		NorthTownItemsList.add("Helmet");
+		NorthTownItemsList.add("Great Axe");
+ 
+		System.out.println("==> For Loop Example.");
+		for (int i = 0; i < NorthTownItemsList.size(); i++) {
+			System.out.println(NorthTownItemsList.get(i));
+		}
+ 
+}
+}
 }
