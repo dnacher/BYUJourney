@@ -339,12 +339,18 @@ public class controlPlayer {
 		NorthTownItemsList.add("Helmet");
 		NorthTownItemsList.add("Great Axe");
  
-		System.out.println("==> For Loop Example.");
+		/*System.out.println("==> For Loop Example.");
 		for (int i = 0; i < NorthTownItemsList.size(); i++) {
 			System.out.println(NorthTownItemsList.get(i));
-		}
+		}*/
+                
+                for(int i=0;i<6;i++){
+                    for(int j=0;j<5;j++){
+                        System.out.println(list[i][j].toString());
+                    }
+                }
                 //imprimir lista
-                System.out.println(list[0][1].toString());
+               // System.out.println(list[0][1].toString());
         }
         public static void testMap(){
              String leftIndicator;
