@@ -56,8 +56,15 @@ public class Journey {
       //  spv.display();  
         
        // controlPlayer cp=new controlPlayer();
-      // controlPlayer.testMap();
+       System.out.println("************First Test****************");
+        System.out.println("");
+         System.out.println("");
         controlPlayer.createMap();
+        System.out.println("");
+         System.out.println("");
+          System.out.println("");          
+        System.out.println("***********Second Test***************");
+         controlPlayer.testMap();
         //Array dos dimensiones
     /*   String[][] list= new String[10][10];
        list[2][4]="listblabla";
