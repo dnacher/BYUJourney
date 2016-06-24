@@ -300,8 +300,39 @@ public class controlPlayer {
  
 		List<String> NorthTownItemsList = new ArrayList<String>();
                 
-                String[][] list= new String[10][10];
-                list[0][1]="String";
+                String[][] list= new String[6][5];
+                list[0][0]="Sword";
+                list[0][1]="Great Axe";
+                list[0][2]="Shield";
+                list[0][3]="Helmet";
+                list[0][4]="Peto";
+                list[1][0]="Dimond";
+                list[1][1]="Magic Skull";
+                list[1][2]="Power Tooth";
+                list[1][3]="Hearth";
+                list[1][4]="Light Stone";
+                list[2][0]="Magic Stone";
+                list[2][1]="Oblivian";
+                list[2][2]="Black Stone";
+                list[2][3]="Bright Stone";
+                list[2][4]="Star Stone";
+                list[3][0]="Ring";
+                list[3][1]="Treasure Chest";
+                list[3][2]="Crown";
+                list[3][3]="Bracelet";
+                list[3][4]="Mirror";
+                list[4][0]="Collar";
+                list[4][1]="Green Collar";
+                list[4][2]="Silver Stones Collar";
+                list[4][3]="Gold Stones Collar";
+                list[4][4]="Black Gold Stones Collar";
+                list[5][0]="Baston";
+                list[5][1]="Knowledge of Cartography";
+                list[5][2]="Strength";
+                list[5][3]="Horse";
+                list[5][4]="Great Horse";
+                
+                
 		NorthTownItemsList.add("Sword");
 		NorthTownItemsList.add("Shield");
 		NorthTownItemsList.add("Peto");
@@ -315,7 +346,6 @@ public class controlPlayer {
                 //imprimir lista
                 System.out.println(list[0][1].toString());
         }
-        
         public static void testMap(){
              String leftIndicator;
              String rightIndicator;
