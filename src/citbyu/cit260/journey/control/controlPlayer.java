@@ -4,6 +4,8 @@ import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.characters.Warrior;
 import citbyu.cit260.journey.model.characters.enums.Warriors;
 import citbyu.cit260.journey.view.AtackMenuView;
+import java.util.ArrayList;
+import java.util.List;
 
 public class controlPlayer {
     
@@ -290,18 +292,14 @@ public class controlPlayer {
         System.out.println("Mana: " + Journey.getPlayer().getMyCharacter().getMana());
         System.out.println(AtackMenuView.enemyWarrior.getWar().getName());
     }
-package NorthTownItems;
- 
-import java.util.ArrayList;
- 
 
  
-public class NorthTownItems {
- 
-	public static void main(String[] argv) {
+	public static void createMap() {
  
 		List<String> NorthTownItemsList = new ArrayList<String>();
- 
+                
+                String[][] list= new String[10][10];
+                list[0][1]="String";
 		NorthTownItemsList.add("Sword");
 		NorthTownItemsList.add("Shield");
 		NorthTownItemsList.add("Peto");
@@ -312,7 +310,8 @@ public class NorthTownItems {
 		for (int i = 0; i < NorthTownItemsList.size(); i++) {
 			System.out.println(NorthTownItemsList.get(i));
 		}
- 
-}
-}
+                //imprimir lista
+                System.out.println(list[0][1].toString());
+        }
+        
 }

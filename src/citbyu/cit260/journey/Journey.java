@@ -1,5 +1,6 @@
 package citbyu.cit260.journey;
 
+import citbyu.cit260.journey.control.controlPlayer;
 import citbyu.cit260.journey.model.Player;
 import citbyu.cit260.journey.model.Game;
 import citbyu.cit260.journey.view.StartProgramView;
@@ -51,10 +52,11 @@ public class Journey {
     
     public static void main(String[] args) {
        
-        StartProgramView spv= new StartProgramView();
-        spv.display();  
+       // StartProgramView spv= new StartProgramView();
+      //  spv.display();  
         
-        
+       // controlPlayer cp=new controlPlayer();
+       controlPlayer.createMap();
         //Array dos dimensiones
     /*   String[][] list= new String[10][10];
        list[2][4]="listblabla";
