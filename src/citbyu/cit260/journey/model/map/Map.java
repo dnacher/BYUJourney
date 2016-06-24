@@ -1,14 +1,14 @@
 package citbyu.cit260.journey.model.map;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Objects;
 
 public class Map implements Serializable{
     
     private int id;
-    private List<Location> placesList;
-
+    private Location[][] placesList;
+    private Location currentLocation;
+    
   
     public int getId() {
         return id;
@@ -18,14 +18,26 @@ public class Map implements Serializable{
         this.id = id;
     }
 
-    public List<Location> getPlacesList() {
+    public Location[][] getPlacesList() {
         return placesList;
     }
 
-    public void setPlacesList(List<Location> placesList) {
+    public void setPlacesList(Location[][] placesList) {
         this.placesList = placesList;
     }
 
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
+    }
+
+    
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 7;

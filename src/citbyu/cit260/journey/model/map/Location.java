@@ -9,7 +9,8 @@ public class Location implements Serializable{
     private int id;
     private String name; 
     private ArrayList locationList;
-   
+    private boolean isVisited;
+    private String scene;
     
     public ArrayList getLocationList() {
         return locationList;
@@ -35,6 +36,24 @@ public class Location implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
+    
+    public boolean isVisited() {
+        return isVisited;
+    }
+
+    public void setisVisited(boolean isVisited) {
+        this.isVisited = isVisited;
+    }
+
+    public String getScene() {
+        return scene;
+    }
+
+    public void setScene(String scence) {
+        this.scene = scence;
+    }
+    
+    
 
     @Override
     public int hashCode() {
@@ -68,6 +87,10 @@ public class Location implements Serializable{
     }
     
     public Location(){
+    }
+    
+    public Location(String scene){
+        this.scene=scene;
     }
     
     public Location(int id, String name){
