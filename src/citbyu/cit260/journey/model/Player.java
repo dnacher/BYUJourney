@@ -11,6 +11,7 @@ public class Player {
     private int currentPlace;
     private int currentCity;    
     private Character myCharacter;
+   
 
     public int getId() {
         return id;

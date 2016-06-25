@@ -1,6 +1,7 @@
 package citbyu.cit260.journey.control;
 
 import citbyu.cit260.journey.Journey;
+import citbyu.cit260.journey.model.Game;
 import citbyu.cit260.journey.model.Player;
 import citbyu.cit260.journey.model.characters.Character;
 import citbyu.cit260.journey.model.characters.enums.Warriors;
@@ -24,13 +25,16 @@ public class controlGame {
         if(name==null){
             System.out.println("The Name cannot be null");
         }
+        
         Player player= new Player();
         Character ch= new Character(100, 0, 0,"Human", 1);
         player.setMyCharacter(ch);
         player.setName(name);  
         player.setCurrentPlace(3);
         player.setCurrentPlace(3);
-        Journey.setPlayer(player);         
+        Journey.setPlayer(player);
+        Game game= new Game(player, name);
+        Journey.setCurrentGame(game);
     }   
     
     public static void createString(int Character){

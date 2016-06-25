@@ -1,5 +1,8 @@
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.Journey;
+import citbyu.cit260.journey.control.ControlMap;
+
 public class GameMenuView extends View{
     
     public GameMenuView(){
@@ -8,7 +11,7 @@ public class GameMenuView extends View{
                  +"\n----------------------------------"
                  +"\n|Game Menu                       |"
                  +"\n----------------------------------"
-                 +"\nM Map"
+                 +"\nM Display Map"
                  +"\nL Look for Items"
                  +"\nA Atack" 
                  +"\nS Save Game"
@@ -24,8 +27,9 @@ public class GameMenuView extends View{
 	boolean answer=false;
 	switch (menuOption) {
 		case "M": //create and start new game
-			MoveMapMenuView mmmv= new MoveMapMenuView();
-                        mmmv.display();
+			/*MoveMapMenuView mmmv= new MoveMapMenuView();
+                        mmmv.display();*/
+                        ControlMap.createMap(Journey.getCurrentGame().getLocationList());
                         break;
 		case "L": // get and start an existing game
 			                       

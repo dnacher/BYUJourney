@@ -4,9 +4,6 @@ import citbyu.cit260.journey.control.controlPlayer;
 import citbyu.cit260.journey.model.Player;
 import citbyu.cit260.journey.model.Game;
 import citbyu.cit260.journey.view.StartProgramView;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Journey {     
@@ -52,11 +49,13 @@ public class Journey {
     
     public static void main(String[] args) {
        
-       // StartProgramView spv= new StartProgramView();
-      //  spv.display();  
+        StartProgramView spv= new StartProgramView();
+        spv.display();  
+        
+        
         
        // controlPlayer cp=new controlPlayer();
-       System.out.println("************First Test****************");
+      /* System.out.println("************First Test****************");
         System.out.println("");
          System.out.println("");
         controlPlayer.createMap();
