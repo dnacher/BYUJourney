@@ -7,7 +7,10 @@ public class Item implements Serializable{
     
     private int id;
     private String name;       
-    private boolean inUse;
+    private boolean inUse;   
+    private int Level;
+    private String Description;
+    private int Type;
    
     public int getId() {
         return id;
@@ -31,14 +34,42 @@ public class Item implements Serializable{
 
     public void setInUse(boolean inUse) {
         this.inUse = inUse;
+    }   
+
+    public int getLevel() {
+        return Level;
+    }
+
+    public void setLevel(int Level) {
+        this.Level = Level;
+    }    
+    
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
+    public int getType() {
+        return Type;
+    }
+
+    public void setType(int Type) {
+        this.Type = Type;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 5;
         hash = 59 * hash + this.id;
         hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + (this.inUse ? 1 : 0);
+        hash = 59 * hash + (this.inUse ? 1 : 0);       
+        hash = 59 * hash + this.Level;
+        hash = 59 * hash + Objects.hashCode(this.Description);
+        hash = 59 * hash + this.Type;
         return hash;
     }
 
@@ -59,22 +90,29 @@ public class Item implements Serializable{
         }
         if (this.inUse != other.inUse) {
             return false;
+        }        
+        if (this.Level != other.Level) {
+            return false;
+        }
+        if (!Objects.equals(this.Description, other.Description)) {
+            return false;
+        }
+        if (this.Type != other.Type) {
+            return false;
         }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "Item{" + "id=" + id + ", name=" + name + ", inUse=" + inUse + '}';
-    }
-
+            
     public Item(){
     }
     
-    public Item(int id,String name,boolean inUse){
+    public Item(int id,String name,boolean inUse, int Level, String Description, int Type){        
         this.id=id;
         this.name=name;
-        this.inUse=inUse;
+        this.inUse=inUse;       
+        this.Level=Level;
+        this.Description=Description;
+        this.Type=Type;        
     }
     
     

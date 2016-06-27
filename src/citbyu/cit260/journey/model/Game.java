@@ -1,13 +1,17 @@
 package citbyu.cit260.journey.model;
 
 import citbyu.cit260.journey.control.ControlMap;
+import citbyu.cit260.journey.control.controlGame;
+import citbyu.cit260.journey.model.map.Item;
 import citbyu.cit260.journey.model.map.Location;
+import java.util.ArrayList;
 
 public class Game {
     
      private Player player;
      private String summonCreatures;
      private Location[][] locationList;
+     private ArrayList<Item> Items;
 
     public Player getPlayer() {
         return player;
@@ -33,6 +37,14 @@ public class Game {
         this.locationList = locationList;
     }
 
+    public ArrayList<Item> getItems() {
+        return Items;
+    }
+
+    public void setItems(ArrayList<Item> Items) {
+        this.Items = Items;
+    }
+
       
      
      public Game(){
@@ -44,7 +56,7 @@ public class Game {
          this.player=player;
          this.summonCreatures=summonCreatures;
          this.locationList=ControlMap.createLocationList();
-           
+         this.Items=controlGame.CreateItemList();
      }
   
 }

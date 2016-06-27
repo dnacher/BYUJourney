@@ -77,7 +77,7 @@ public class ControlMap {
              placesList[0][2]=l2;
              Location l3= new  Location("        Helmet          ");
              placesList[0][3]=l3;
-             Location l4= new  Location("         Peto           ");
+             Location l4= new  Location("      breastplate       ");
              placesList[0][4]=l4;
              Location l5= new  Location("        Dimond          ");
              placesList[1][0]=l5;

@@ -3,8 +3,6 @@ package citbyu.cit260.journey.control;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.characters.Warrior;
 import citbyu.cit260.journey.model.characters.enums.Warriors;
-import citbyu.cit260.journey.model.map.Location;
-import citbyu.cit260.journey.model.map.Map;
 import citbyu.cit260.journey.view.AtackMenuView;
 import java.util.ArrayList;
 import java.util.List;
@@ -305,7 +303,7 @@ public class controlPlayer {
                 list[0][1]="Great Axe";
                 list[0][2]="Shield";
                 list[0][3]="Helmet";
-                list[0][4]="Peto";
+                list[0][4]="breastplate";
                 list[1][0]="Dimond";
                 list[1][1]="Magic Skull";
                 list[1][2]="Power Tooth";
