@@ -2,6 +2,8 @@ package citbyu.cit260.journey.model;
 import citbyu.cit260.journey.Journey;
 import static citbyu.cit260.journey.control.controlGame.createString;
 import citbyu.cit260.journey.model.characters.Character;
+import citbyu.cit260.journey.model.map.Item;
+import java.util.ArrayList;
 
 public class Player {
     
@@ -11,7 +13,7 @@ public class Player {
     private int currentPlace;
     private int currentCity;    
     private Character myCharacter;
-   
+    private ArrayList<Item> Inventory;
 
     public int getId() {
         return id;
@@ -66,6 +68,16 @@ public class Player {
             createString(Journey.getPlayer().getMyCharacter().getId());
         }        
     }
+
+    public ArrayList<Item> getInventory() {
+        return Inventory;
+    }
+
+    public void setInventory(ArrayList<Item> Inventory) {
+        this.Inventory = Inventory;
+    }
+    
+    
     
     public Player(){
         
@@ -78,7 +90,7 @@ public class Player {
     this.currentPlace=1;
     this.currentCity=1;
     this.myCharacter=myCharacter;
-        
+    this.Inventory=new ArrayList<>();
     }
     
     

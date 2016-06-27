@@ -6,10 +6,8 @@ import java.util.Objects;
 public class Item implements Serializable{
     
     private int id;
-    private String name;
-    private int quantity;
-    private int type;
-
+    private String name;       
+    private boolean inUse;
    
     public int getId() {
         return id;
@@ -26,35 +24,21 @@ public class Item implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-   
-    public int getQuantity() {
-        return quantity;
-    }
-   
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+
+    public boolean isInUse() {
+        return inUse;
     }
 
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
-    @Override
-    public String toString() {
-        return "Item{" + "id=" + id + ", name=" + name + ", quantity=" + quantity + ", type=" + type + '}';
+    public void setInUse(boolean inUse) {
+        this.inUse = inUse;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + this.id;
-        hash = 79 * hash + Objects.hashCode(this.name);
-        hash = 79 * hash + this.quantity;
-        hash = 79 * hash + this.type;
+        hash = 59 * hash + this.id;
+        hash = 59 * hash + Objects.hashCode(this.name);
+        hash = 59 * hash + (this.inUse ? 1 : 0);
         return hash;
     }
 
@@ -73,13 +57,24 @@ public class Item implements Serializable{
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (this.quantity != other.quantity) {
-            return false;
-        }
-        if (this.type != other.type) {
+        if (this.inUse != other.inUse) {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" + "id=" + id + ", name=" + name + ", inUse=" + inUse + '}';
+    }
+
+    public Item(){
+    }
+    
+    public Item(int id,String name,boolean inUse){
+        this.id=id;
+        this.name=name;
+        this.inUse=inUse;
     }
     
     

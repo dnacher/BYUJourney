@@ -97,7 +97,7 @@ public class controlGame {
     }
     
     public static int checkint(String userInput){
-        int i=0;        
+        int i;        
         try{
             i= Integer.parseInt(userInput);           
         }
