@@ -2,6 +2,8 @@ package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.ControlMap;
+import citbyu.cit260.journey.control.controlGame;
+import java.util.Scanner;
 
 public class GameMenuView extends View{
     
@@ -15,6 +17,7 @@ public class GameMenuView extends View{
                  +"\nL Look for Items"
                  +"\nA Atack" 
                  +"\nS Save Game"
+                 +"\nH Show items "
                  +"\n----------------------------------"
                  +"\nQ Return Main Menu"
                  +"\n");
@@ -40,11 +43,23 @@ public class GameMenuView extends View{
                 case "S": // display the help menu
 			                       
 			break;	
+                case "H": // display the help menu
+			ShowItems();
+			break;    
 		default:
 			System.out.println("\n*** Invalid selection *** Try again");
 			break;
 	}	
 	return answer;
+    }
+    
+    public void ShowItems(){
+    
+        System.out.println("Type a numer from 0 to 4");
+        Scanner keyboard = new Scanner(System.in);
+        int value = keyboard.nextInt();
+        controlGame.ReturnItemsbyLevel(value);
+        
     }
     
 }
