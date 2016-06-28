@@ -8,6 +8,7 @@ import citbyu.cit260.journey.model.characters.enums.ItemDescription;
 import citbyu.cit260.journey.model.characters.enums.Warriors;
 import citbyu.cit260.journey.model.map.Item;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class controlGame {
     
@@ -123,7 +124,7 @@ public class controlGame {
     5 search*/
     public static ArrayList<Item> CreateItemList(){
       ArrayList<Item> list= new ArrayList<>();
-      //               id     desc   inuse lev descrp                                  type
+      //               id     desc   inuse lev descrp                  type
       Item i1=new Item(0, "Diamond", false, 0, ItemDescription.Diamond, 0);
       list.add(i1);
       Item i2=new Item(1, "Stone Dust", false, 1, ItemDescription.StoneDust, 0);
@@ -202,9 +203,42 @@ public class controlGame {
                 total+=1;
             }
         }
-        System.out.println("The total of items with level " + Level +" is " + total);
-    
+        System.out.println("The total of items with level " + Level +" is " + total);    
     }
     
+    public static void returnTotalPercentage(){
+      ArrayList<Item> list= new ArrayList<>();
+      Item i19=new Item(18, "Bracelet", false, 3, ItemDescription.Bracelet, 3);
+      list.add(i19);
+      Item i20=new Item(19, "Diamond Chest", false, 4, ItemDescription.DiamondChest, 3);
+      list.add(i20);
+      Item i21=new Item(20, "Map", false, 0, ItemDescription.Map, 4);
+      list.add(i21);
+      Item i22=new Item(21, "Magic Stone", false, 1, ItemDescription.MagicStone, 4);
+      list.add(i22);
+      Item i5=new Item(4, "Fus Roh Dah", false, 4, ItemDescription.FusRohDah, 0);
+      list.add(i5);
+      Item i6=new Item(5, "Heart", false, 0, ItemDescription.Heart, 1);
+      list.add(i6);
+      Item i7=new Item(6, "Collar", false, 1, ItemDescription.Collar, 1);
+      list.add(i7);
+      Item i23=new Item(22, "Strength", false, 2, ItemDescription.Strength, 4);
+      list.add(i23);
+      Item i24=new Item(23, "Horse", false, 3, ItemDescription.Horse, 4);
+      list.add(i24);
+      Item i25=new Item(24, "Great Horse", false, 4, ItemDescription.GreatHorse, 4);
+      list.add(i25);
+      Item i26=new Item(25, "Obsidian", false, 0, ItemDescription.Obsidian, 5);
+      list.add(i26);
+        int total=0;
+        for(int i=0; i<list.size();i++){
+            total=list.get(i).getDescription().getPercentage() + total;
+        }
+        System.out.println(total);
+    }
+    
+    
+   
+
     
 }

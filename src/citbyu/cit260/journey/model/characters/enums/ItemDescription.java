@@ -11,45 +11,51 @@ package citbyu.cit260.journey.model.characters.enums;
  */
 public enum ItemDescription {
     
-    Diamond(""),
-    StoneDust(""),
-    StarDust(""),
-    Crown(""),
-    FusRohDah(""),
-    Heart(""),
-    Collar(""),
-    GoldStoneCollar(""),
-    BlackGoldCollar(""),
-    WalkingStick(""),
-    knife(""),
-    Sword(""),
-    GreatAxe(""),
-    LongBow(""),
-    WarHammer(""),
-    Helmet(""),
-    BreastPlate(""),
-    Shield(""),
-    Bracelet(""),
-    DiamondChest(""),
-    Map(""),
-    MagicStone(""),
-    Strength(""),
-    Horse(""),
-    GreatHorse(""),
-    Obsidian(""),
-    BlackStone(""),
-    BrightStone(""),
-    Ring(""),    
-    SilverStoneCollar("");
+    Diamond("",5),
+    StoneDust("",10),
+    StarDust("",20),
+    Crown("",25),
+    FusRohDah("",30),
+    Heart("",5),
+    Collar("",10),
+    GoldStoneCollar("",20),
+    BlackGoldCollar("",25),
+    WalkingStick("",30),
+    knife("",5),
+    Sword("",10),
+    GreatAxe("",20),
+    LongBow("",25),
+    WarHammer("",30),
+    Helmet("",5),
+    BreastPlate("",10),
+    Shield("",20),
+    Bracelet("",25),
+    DiamondChest("",30),
+    Map("",5),
+    MagicStone("",10),
+    Strength("",20),
+    Horse("",25),
+    GreatHorse("",30),
+    Obsidian("",5),
+    BlackStone("",10),
+    BrightStone("",20),
+    Ring("",25),    
+    SilverStoneCollar("",30);
     
     private final String description;
+    private final int percentage;
     
-    private ItemDescription(String description){
+    private ItemDescription(String description, int percentage){
         this.description=description;
+        this.percentage=percentage;
     }
 
     public String getDescription(){
         return description;
+    }
+    
+    public int getPercentage(){
+        return percentage;
     }
 
 }

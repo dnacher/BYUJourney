@@ -59,7 +59,8 @@ public class GameMenuView extends View{
         Scanner keyboard = new Scanner(System.in);
         int value = keyboard.nextInt();
         controlGame.ReturnItemsbyLevel(value);   
-        controlGame.ReturnTotalItemsByLevel(value);
+        controlGame.ReturnTotalItemsByLevel(value);        
+        controlGame.returnTotalPercentage();
     }
     
 }
