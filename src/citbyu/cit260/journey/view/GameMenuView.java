@@ -54,10 +54,12 @@ public class GameMenuView extends View{
     }
     
     public void ShowItems(){    
+        System.out.println("This option will show you the total of items in a particular level");
         System.out.println("Type a number from 0 to 4");
         Scanner keyboard = new Scanner(System.in);
         int value = keyboard.nextInt();
-        controlGame.ReturnItemsbyLevel(value);       
+        controlGame.ReturnItemsbyLevel(value);   
+        controlGame.ReturnTotalItemsByLevel(value);
     }
     
 }

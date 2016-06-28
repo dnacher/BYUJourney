@@ -195,5 +195,16 @@ public class controlGame {
         }
     }
     
+    public static void ReturnTotalItemsByLevel(int Level){
+        int total=0;
+        for(Item item: Journey.getCurrentGame().getItems()){
+            if(item.getLevel()==Level){
+                total+=1;
+            }
+        }
+        System.out.println("The total of items with level " + Level +" is " + total);
+    
+    }
+    
     
 }
