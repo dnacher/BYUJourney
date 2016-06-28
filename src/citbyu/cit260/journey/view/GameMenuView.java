@@ -3,8 +3,6 @@ package citbyu.cit260.journey.view;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.ControlMap;
 import citbyu.cit260.journey.control.controlGame;
-import citbyu.cit260.journey.control.controlPlayer;
-import citbyu.cit260.journey.model.map.Item;
 import java.util.Scanner;
 
 public class GameMenuView extends View{
@@ -25,6 +23,7 @@ public class GameMenuView extends View{
                  +"\n");
     }
     
+    private int count=1;
     
     @Override
     public boolean doAction(String menuOption){
@@ -37,7 +36,13 @@ public class GameMenuView extends View{
                         ControlMap.createMap(Journey.getCurrentGame().getLocationList());
                         break;
 		case "L": // get and start an existing game
-			LookForItem();
+                    if(count<3){
+                       	LookForItem();
+                        count+=1;
+                    }
+                    else{
+                        System.out.println("Look for items elsewhere. You´re already look for an item here and you didn´t find anything");
+                    }
 			break;
 		case "A": // display the help menu
 			                       
@@ -66,11 +71,7 @@ public class GameMenuView extends View{
     }
     
     public void LookForItem(){
-        controlGame.StillHaveItemsToFind();
-        if(controlPlayer.lookForItem(Journey.getPlayer().getLevel())){
-            Item item=controlGame.ChooseItem();
-            System.out.println(item.getName());
-        }
+       controlGame.looking();
     }
     
 }

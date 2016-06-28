@@ -260,4 +260,12 @@ public class controlGame {
         return Journey.getCurrentGame().getItems().get(number);        
     }
     
+    public static void looking(){
+        controlGame.StillHaveItemsToFind();
+        if(controlPlayer.lookForItem(Journey.getPlayer().getLevel())){
+            Item item=controlGame.ChooseItem();
+            System.out.println(item.getName());
+        }
+    }
+    
 }

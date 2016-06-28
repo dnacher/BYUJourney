@@ -5,6 +5,8 @@
  */
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.control.controlGame;
+
 /**
  *
  * @author Dani-Fla-Mathi
@@ -37,7 +39,7 @@ public class OptionPlaceMenuView extends View{
 			talk();
 			break;	
                 case "L": // get and start an existing game
-			lookItem();
+			lookForItem();
 			break;	    
 		default:
 			System.out.println("\n*** Invalid selection *** Try again");
@@ -55,6 +57,8 @@ public class OptionPlaceMenuView extends View{
     
     }
     
-    public void lookItem(){}
+     public void lookForItem(){
+       controlGame.looking();
+    }
     
 }
