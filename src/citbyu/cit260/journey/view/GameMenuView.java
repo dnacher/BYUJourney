@@ -53,13 +53,11 @@ public class GameMenuView extends View{
 	return answer;
     }
     
-    public void ShowItems(){
-    
-        System.out.println("Type a numer from 0 to 4");
+    public void ShowItems(){    
+        System.out.println("Type a number from 0 to 4");
         Scanner keyboard = new Scanner(System.in);
         int value = keyboard.nextInt();
-        controlGame.ReturnItemsbyLevel(value);
-        
+        controlGame.ReturnItemsbyLevel(value);       
     }
     
 }

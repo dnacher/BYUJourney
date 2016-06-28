@@ -37,7 +37,10 @@ public class controlGame {
         player.setCurrentPlace(3);
         Journey.setPlayer(player);
         Game game= new Game(player, name);
+        //create a test for the player
+        Journey.getCurrentGame().getPlayer().setInventory(CreateItemList());
         Journey.setCurrentGame(game);
+        
     }   
     
     public static void createString(int Character){
