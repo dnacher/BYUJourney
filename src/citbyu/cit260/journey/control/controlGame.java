@@ -8,7 +8,6 @@ import citbyu.cit260.journey.model.characters.enums.ItemDescription;
 import citbyu.cit260.journey.model.characters.enums.Warriors;
 import citbyu.cit260.journey.model.map.Item;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class controlGame {
     
@@ -212,10 +211,6 @@ public class controlGame {
       list.add(i19);
       Item i20=new Item(19, "Diamond Chest", false, 4, ItemDescription.DiamondChest, 3);
       list.add(i20);
-      Item i21=new Item(20, "Map", false, 0, ItemDescription.Map, 4);
-      list.add(i21);
-      Item i22=new Item(21, "Magic Stone", false, 1, ItemDescription.MagicStone, 4);
-      list.add(i22);
       Item i5=new Item(4, "Fus Roh Dah", false, 4, ItemDescription.FusRohDah, 0);
       list.add(i5);
       Item i6=new Item(5, "Heart", false, 0, ItemDescription.Heart, 1);
@@ -234,7 +229,7 @@ public class controlGame {
         for(int i=0; i<list.size();i++){
             total=list.get(i).getDescription().getPercentage() + total;
         }
-        System.out.println(total);
+        System.out.println("the total percentage is " + total);
     }
     
     
