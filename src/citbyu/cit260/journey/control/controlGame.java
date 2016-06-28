@@ -264,7 +264,10 @@ public class controlGame {
         controlGame.StillHaveItemsToFind();
         if(controlPlayer.lookForItem(Journey.getPlayer().getLevel())){
             Item item=controlGame.ChooseItem();
-            System.out.println(item.getName());
+            System.out.println("you find " + item.getName());
+        }
+        else{
+            System.out.println("You didn´t find anything here...");
         }
     }
     

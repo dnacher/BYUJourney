@@ -31,9 +31,9 @@ public class GameMenuView extends View{
 	boolean answer=false;
 	switch (menuOption) {
 		case "M": //create and start new game
-			/*MoveMapMenuView mmmv= new MoveMapMenuView();
-                        mmmv.display();*/
-                        ControlMap.createMap(Journey.getCurrentGame().getLocationList());
+			MoveMapMenuView mmmv= new MoveMapMenuView();
+                        mmmv.display();
+                        //ControlMap.createMap(Journey.getCurrentGame().getLocationList());
                         break;
 		case "L": // get and start an existing game
                     if(count<3){
@@ -41,7 +41,7 @@ public class GameMenuView extends View{
                         count+=1;
                     }
                     else{
-                        System.out.println("Look for items elsewhere. You´re already look for an item here and you didn´t find anything");
+                        System.out.println("You already search here. Please search somewhere else");
                     }
 			break;
 		case "A": // display the help menu
