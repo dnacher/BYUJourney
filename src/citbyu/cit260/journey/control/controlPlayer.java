@@ -63,30 +63,28 @@ public class controlPlayer {
     //the points are based on a table that we wrote before
     /*
     to return a true the player must have:
-    for level 0  from 3 to 10
-    for level 1 from 11 to 18
-    for level 2 from 19 to 26
-    for level 3 from 27 to 34
-    for level 4 from 35 to 42
+    for level 0  from 3 to 12
+    for level 1  from 8 to 18
+    for level 2 from 13 to 24
+    for level 3 from 19 to 30
+    for level 4 from 27 to 36
+    for level 5 from 35 to 42
     */
-    public boolean lookForItem(int Level, int LevelPlayer, boolean lucky){
+    public static boolean lookForItem(int LevelPlayer){
         Boolean found=false;
-        int levelPoints=3;
-        int points= Dice.rollDice(LevelPlayer);
-        if(LevelPlayer>=0){
-            if(Level>=0){               
-                if (points>levelPoints+(8*Level)){                   
-                    found=true;
-                }
-            }            
-            else{
-                return false;
-            }
+        double levelPoints=25;
+        int points= Dice.rollDices(LevelPlayer);                
+        if(LevelPlayer==1){
+            levelPoints+=20;
         }
-        else{
-             return false;
+        else if(LevelPlayer>1){
+            levelPoints=45+((LevelPlayer-1)*10);
         }
-        System.out.println(levelPoints+(8*Level));
+        levelPoints=levelPoints/100;
+        levelPoints=((LevelPlayer+2)*6)*levelPoints;
+        if(points>=levelPoints){
+            found=true;
+        }
     return found;
     }
     
@@ -351,7 +349,25 @@ public class controlPlayer {
                // System.out.println(list[0][1].toString());
         }
         
-        
+       public static void updateLevel(){
+       
+           int currentLevel=Journey.getPlayer().getLevel();
+           if(currentLevel<5){
+            currentLevel+=1;
+            Journey.getPlayer().setLevel(currentLevel);                   
+                   System.out.println("*****You reach one more level. Congratulation********");
+                   System.out.println("***************Now you´re Level: " + Journey.getPlayer().getLevel() + " ******************");
+                   System.out.println("*****************************************************");
+           }
+           else{
+               if(!Journey.getCurrentGame().isMaximumLevel()){
+                   System.out.println("*****************************************************");
+                   System.out.println("*****You reach the maximum level. Congratulation*****");
+                   System.out.println("*****************************************************");
+                   Journey.getCurrentGame().setMaximumLevel(true);                   
+               }
+           }          
+       } 
   
         
         

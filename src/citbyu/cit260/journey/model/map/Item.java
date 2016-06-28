@@ -12,6 +12,7 @@ public class Item implements Serializable{
     private int Level;
     private ItemDescription Description;
     private int Type;
+    private boolean found;
    
     public int getId() {
         return id;
@@ -62,15 +63,24 @@ public class Item implements Serializable{
         this.Type = Type;
     }
 
+    public boolean isFound() {
+        return found;
+    }
+
+    public void setFound(boolean found) {
+        this.found = found;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 59 * hash + this.id;
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + (this.inUse ? 1 : 0);       
-        hash = 59 * hash + this.Level;
-        hash = 59 * hash + Objects.hashCode(this.Description);
-        hash = 59 * hash + this.Type;
+        hash = 89 * hash + this.id;
+        hash = 89 * hash + Objects.hashCode(this.name);
+        hash = 89 * hash + (this.inUse ? 1 : 0);
+        hash = 89 * hash + this.Level;
+        hash = 89 * hash + Objects.hashCode(this.Description);
+        hash = 89 * hash + this.Type;
+        hash = 89 * hash + (this.found ? 1 : 0);
         return hash;
     }
 
@@ -91,18 +101,21 @@ public class Item implements Serializable{
         }
         if (this.inUse != other.inUse) {
             return false;
-        }        
+        }
         if (this.Level != other.Level) {
             return false;
         }
-        if (!Objects.equals(this.Description, other.Description)) {
+        if (this.Description != other.Description) {
             return false;
         }
         if (this.Type != other.Type) {
             return false;
         }
+        if (this.found != other.found) {
+            return false;
+        }
         return true;
-    }
+    }   
             
     public Item(){
     }
@@ -113,7 +126,8 @@ public class Item implements Serializable{
         this.inUse=inUse;       
         this.Level=Level;
         this.Description=description;
-        this.Type=Type;        
+        this.Type=Type; 
+        this.found=false;
     }
     
     

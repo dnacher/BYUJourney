@@ -14,6 +14,7 @@ public class Player {
     private int currentCity;    
     private Character myCharacter;
     private ArrayList<Item> Inventory;
+    private int level;
 
     public int getId() {
         return id;
@@ -76,6 +77,14 @@ public class Player {
     public void setInventory(ArrayList<Item> Inventory) {
         this.Inventory = Inventory;
     }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
     
     
     
@@ -91,6 +100,7 @@ public class Player {
     this.currentCity=1;
     this.myCharacter=myCharacter;
     this.Inventory=new ArrayList<>();
+    this.level=0;    
     }
     
     

@@ -15,21 +15,24 @@ public class Dice {
     }*/
         
     //this function roll one dice
-     public static int rollDice(int level) {
-         if(level<0){
-             return -1;
-         }
-       double random = Math.random()*((level + 1)*6) ;
+     public static int rollDice() {        
+       double random = Math.random()*6;
        return (int)random + 1; 
     }
      
       //this function will roll 2 dices 
-    public static int roll2Dice(int level) {
-        int dice1 = rollDice(level);
-        System.out.println("Dice 1: " + dice1);
-        int dice2 = rollDice(level);
-        System.out.println("Dice 2: " + dice2);
-        int total = dice1 + dice2;        
+    public static int rollDices(int level) {
+       int total=0;
+       int dice=rollDice();
+       System.out.println("Dice 1: " + dice);
+       total+=dice;
+       for(int i=0;i<=level;i++){
+           dice=rollDice();
+           int num=i+2;
+           System.out.println("Dice " + num + ": " + dice);
+           total+=dice;
+       }        
+        System.out.println("Total: " + total );
         return total;
     }
      
@@ -38,11 +41,11 @@ public class Dice {
         int ret = 0;
         if (time > 0 && time % 2 == 0) {
             if (probability(60)) {
-                ret = roll2Dice(level) - 5;
+                ret = rollDices(level) - 5;
                 System.out.println("you lose 5 points of your mana");
             }
         } else {
-            ret = roll2Dice(level);
+            ret = rollDices(level);
         }
         return ret;
     }   

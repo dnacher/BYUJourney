@@ -152,7 +152,7 @@ private void Summon(){
 }
 
 public void addMana(){
-    int dice=Dice.roll2Dice(0);
+    int dice=Dice.rollDices(Journey.getCurrentGame().getPlayer().getLevel());
     int mana=Journey.getPlayer().getMyCharacter().getMana();
     int total=dice+mana;
     Journey.getPlayer().getMyCharacter().setMana(total);

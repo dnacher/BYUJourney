@@ -3,6 +3,8 @@ package citbyu.cit260.journey.view;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.ControlMap;
 import citbyu.cit260.journey.control.controlGame;
+import citbyu.cit260.journey.control.controlPlayer;
+import citbyu.cit260.journey.model.map.Item;
 import java.util.Scanner;
 
 public class GameMenuView extends View{
@@ -35,7 +37,7 @@ public class GameMenuView extends View{
                         ControlMap.createMap(Journey.getCurrentGame().getLocationList());
                         break;
 		case "L": // get and start an existing game
-			                       
+			LookForItem();
 			break;
 		case "A": // display the help menu
 			                       
@@ -61,6 +63,14 @@ public class GameMenuView extends View{
         controlGame.ReturnItemsbyLevel(value);   
         controlGame.ReturnTotalItemsByLevel(value);        
         controlGame.returnTotalPercentage();
+    }
+    
+    public void LookForItem(){
+        controlGame.StillHaveItemsToFind();
+        if(controlPlayer.lookForItem(Journey.getPlayer().getLevel())){
+            Item item=controlGame.ChooseItem();
+            System.out.println(item.getName());
+        }
     }
     
 }

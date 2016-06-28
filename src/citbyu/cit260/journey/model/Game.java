@@ -12,6 +12,7 @@ public class Game {
      private String summonCreatures;
      private Location[][] locationList;
      private ArrayList<Item> Items;
+     private boolean maximumLevel;
 
     public Player getPlayer() {
         return player;
@@ -45,6 +46,14 @@ public class Game {
         this.Items = Items;
     }
 
+    public boolean isMaximumLevel() {
+        return maximumLevel;
+    }
+
+    public void setMaximumLevel(boolean maximumLevel) {
+        this.maximumLevel = maximumLevel;
+    }
+
       
      
      public Game(){
@@ -57,6 +66,7 @@ public class Game {
          this.summonCreatures=summonCreatures;
          this.locationList=ControlMap.createLocationList();
          this.Items=controlGame.CreateItemList();
+         this.maximumLevel=false;
      }
   
 }

@@ -184,7 +184,7 @@ public class controlPlayerTest {
         boolean lucky = false;
         controlPlayer instance = new controlPlayer();
         boolean expResult = true;
-        boolean result = instance.lookForItem(Level, LevelPlayer, lucky);
+        boolean result = instance.lookForItem(LevelPlayer);
         assertEquals(expResult, result);        
     }
     @Test
@@ -195,7 +195,7 @@ public class controlPlayerTest {
         boolean lucky = true;
         controlPlayer instance = new controlPlayer();
         boolean expResult = true;
-        boolean result = instance.lookForItem(Level, LevelPlayer, lucky);
+        boolean result = instance.lookForItem(LevelPlayer);
         assertEquals(expResult, result);        
     }
     @Test
@@ -206,7 +206,7 @@ public class controlPlayerTest {
         boolean lucky = false;
         controlPlayer instance = new controlPlayer();
         boolean expResult = false;
-        boolean result = instance.lookForItem(Level, LevelPlayer, lucky);
+        boolean result = instance.lookForItem(LevelPlayer);
         assertEquals(expResult, result);        
     }
     @Test
@@ -217,7 +217,7 @@ public class controlPlayerTest {
         boolean lucky = false;
         controlPlayer instance = new controlPlayer();
         boolean expResult = true;
-        boolean result = instance.lookForItem(Level, LevelPlayer, lucky);
+        boolean result = instance.lookForItem(LevelPlayer);
         assertEquals(expResult, result);        
     }
     @Test
@@ -228,7 +228,7 @@ public class controlPlayerTest {
         boolean lucky = true;
         controlPlayer instance = new controlPlayer();
         boolean expResult = false;
-        boolean result = instance.lookForItem(Level, LevelPlayer, lucky);
+        boolean result = instance.lookForItem(LevelPlayer);
         assertEquals(expResult, result);        
     }
     @Test
@@ -239,7 +239,7 @@ public class controlPlayerTest {
         boolean lucky = false;
         controlPlayer instance = new controlPlayer();
         boolean expResult = false;
-        boolean result = instance.lookForItem(Level, LevelPlayer, lucky);
+        boolean result = instance.lookForItem(LevelPlayer);
         assertEquals(expResult, result);        
     }
     @Test
@@ -250,7 +250,7 @@ public class controlPlayerTest {
         boolean lucky = false;
         controlPlayer instance = new controlPlayer();
         boolean expResult = false;
-        boolean result = instance.lookForItem(Level, LevelPlayer, lucky);
+        boolean result = instance.lookForItem(LevelPlayer);
         assertEquals(expResult, result);        
     }
     
