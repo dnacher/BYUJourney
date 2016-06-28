@@ -1,5 +1,6 @@
 package citbyu.cit260.journey.model.map;
 
+import citbyu.cit260.journey.model.characters.enums.ItemDescription;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -9,7 +10,7 @@ public class Item implements Serializable{
     private String name;       
     private boolean inUse;   
     private int Level;
-    private String Description;
+    private ItemDescription Description;
     private int Type;
    
     public int getId() {
@@ -45,11 +46,11 @@ public class Item implements Serializable{
     }    
     
 
-    public String getDescription() {
+    public ItemDescription getDescription() {
         return Description;
     }
 
-    public void setDescription(String Description) {
+    public void setDescription(ItemDescription Description) {
         this.Description = Description;
     }
 
@@ -106,12 +107,12 @@ public class Item implements Serializable{
     public Item(){
     }
     
-    public Item(int id,String name,boolean inUse, int Level, String Description, int Type){        
+    public Item(int id,String name,boolean inUse, int Level, ItemDescription description, int Type){        
         this.id=id;
         this.name=name;
         this.inUse=inUse;       
         this.Level=Level;
-        this.Description=Description;
+        this.Description=description;
         this.Type=Type;        
     }
     
