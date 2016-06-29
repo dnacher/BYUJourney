@@ -8,7 +8,7 @@ package citbyu.cit260.journey.view;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlPlayer;
 import citbyu.cit260.journey.model.characters.Warrior;
-import citbyu.cit260.journey.model.characters.enums.Warriors;
+import citbyu.cit260.journey.enums.Warriors;
 
 /**
  *

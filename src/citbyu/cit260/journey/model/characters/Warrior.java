@@ -3,7 +3,7 @@ package citbyu.cit260.journey.model.characters;
 
 import java.io.Serializable;
 import java.util.Objects;
-import citbyu.cit260.journey.model.characters.enums.Warriors;
+import citbyu.cit260.journey.enums.Warriors;
 
 public class Warrior implements Serializable{
     

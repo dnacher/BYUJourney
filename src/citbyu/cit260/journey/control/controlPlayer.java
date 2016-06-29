@@ -2,7 +2,7 @@ package citbyu.cit260.journey.control;
 
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.characters.Warrior;
-import citbyu.cit260.journey.model.characters.enums.Warriors;
+import citbyu.cit260.journey.enums.Warriors;
 import citbyu.cit260.journey.view.AtackMenuView;
 import java.util.ArrayList;
 import java.util.List;

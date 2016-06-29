@@ -1,6 +1,6 @@
 package citbyu.cit260.journey.model.map;
 
-import citbyu.cit260.journey.model.characters.enums.ItemDescription;
+import citbyu.cit260.journey.enums.ItemDescription;
 import java.io.Serializable;
 import java.util.Objects;
 

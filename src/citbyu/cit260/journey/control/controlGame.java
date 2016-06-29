@@ -4,8 +4,8 @@ import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.Game;
 import citbyu.cit260.journey.model.Player;
 import citbyu.cit260.journey.model.characters.Character;
-import citbyu.cit260.journey.model.characters.enums.ItemDescription;
-import citbyu.cit260.journey.model.characters.enums.Warriors;
+import citbyu.cit260.journey.enums.ItemDescription;
+import citbyu.cit260.journey.enums.Warriors;
 import citbyu.cit260.journey.model.map.Item;
 import java.util.ArrayList;
 

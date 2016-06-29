@@ -5,7 +5,7 @@
  */
 package citbyu.cit260.journey.view;
 
-import citbyu.cit260.journey.model.characters.enums.Dialogs;
+import citbyu.cit260.journey.enums.Dialogs;
 
 /**
  *

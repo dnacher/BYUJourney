@@ -3,7 +3,7 @@ package citbyu.cit260.journey.view.dialogs;
 import java.util.Scanner;
 import citbyu.cit260.journey.model.characters.Character;
 import citbyu.cit260.journey.model.characters.Warrior;
-import citbyu.cit260.journey.model.characters.enums.Warriors;
+import citbyu.cit260.journey.enums.Warriors;
 import citbyu.cit260.journey.control.Dice;
 
 public class Battle {
