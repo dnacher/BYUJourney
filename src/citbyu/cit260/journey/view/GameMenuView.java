@@ -23,6 +23,7 @@ public class GameMenuView extends View{
     
     private int count=1;
     
+    
     @Override
     public boolean doAction(String menuOption){
        menuOption = menuOption.toUpperCase();
