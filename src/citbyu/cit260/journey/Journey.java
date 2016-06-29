@@ -50,7 +50,13 @@ public class Journey {
     public static void main(String[] args) {
        
         StartProgramView spv= new StartProgramView();
-        spv.display();                         
+        try {
+	spv.display();
+        } catch (Throwable te) {
+	System.out.println(te.getMessage());
+	te.printStackTrace();
+	spv.display();
+	}                        
       
     }
     
