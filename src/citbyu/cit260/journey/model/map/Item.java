@@ -118,6 +118,7 @@ public class Item implements Serializable{
     }   
             
     public Item(){
+        this.id=-1;
     }
     
     public Item(int id,String name,boolean inUse, int Level, ItemDescription description, int Type){        

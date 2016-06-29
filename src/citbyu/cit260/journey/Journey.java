@@ -1,6 +1,5 @@
 package citbyu.cit260.journey;
 
-import citbyu.cit260.journey.control.controlPlayer;
 import citbyu.cit260.journey.model.Player;
 import citbyu.cit260.journey.model.Game;
 import citbyu.cit260.journey.view.StartProgramView;

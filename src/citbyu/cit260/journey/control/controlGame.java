@@ -6,6 +6,7 @@ import citbyu.cit260.journey.model.Player;
 import citbyu.cit260.journey.model.characters.Character;
 import citbyu.cit260.journey.enums.ItemDescription;
 import citbyu.cit260.journey.enums.Warriors;
+import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.map.Item;
 import java.util.ArrayList;
 
@@ -126,8 +127,8 @@ public class controlGame {
       //               id     desc   inuse lev descrp                  type
       Item i1=new Item(0, "Diamond", false, 0, ItemDescription.Diamond, 0);
       list.add(i1);
-      //Item i2=new Item(1, "Stone Dust", false, 1, ItemDescription.StoneDust, 0);
-      //list.add(i2);
+      Item i2=new Item(1, "Stone Dust", false, 1, ItemDescription.StoneDust, 0);
+      list.add(i2);
       Item i3=new Item(2, "Star Dust", false, 2, ItemDescription.StarDust, 0);
       list.add(i3);
       Item i4=new Item(3, "Crown", false, 3, ItemDescription.Crown, 0);
@@ -140,8 +141,8 @@ public class controlGame {
       list.add(i7);
       Item i8=new Item(7, "Gold Stone Collar", false, 2, ItemDescription.GoldStoneCollar, 1);
       list.add(i8);
-      //Item i9=new Item(8, "Black Gold Collar", false, 3, ItemDescription.BlackGoldCollar, 1);
-      //list.add(i9);
+      Item i9=new Item(8, "Black Gold Collar", false, 3, ItemDescription.BlackGoldCollar, 1);
+      list.add(i9);
       Item i10=new Item(9, "Walking Stick", false, 4, ItemDescription.WalkingStick, 1);
       list.add(i10);
       Item i11=new Item(10, "knife", false, 0, ItemDescription.knife, 2);
@@ -150,26 +151,26 @@ public class controlGame {
       list.add(i12);      
       Item i13=new Item(12, "Great Axe", false, 2, ItemDescription.GreatAxe, 2);
       list.add(i13);
-      //Item i14=new Item(13, "Long Bow", false, 3, ItemDescription.LongBow, 2);
-      //list.add(i14);
+      Item i14=new Item(13, "Long Bow", false, 3, ItemDescription.LongBow, 2);
+      list.add(i14);
       Item i15=new Item(14, "WarHammer", false, 4, ItemDescription.WarHammer, 2);
       list.add(i15);
       Item i16=new Item(15, "Helmet", false, 0, ItemDescription.Helmet, 3);
       list.add(i16);
       Item i17=new Item(16, "Breast Plate", false, 1, ItemDescription.BreastPlate, 3);
       list.add(i17);
-      //Item i18=new Item(17, "Shield", false, 2, ItemDescription.Shield, 3);
-      //list.add(i18);
-      //Item i19=new Item(18, "Bracelet", false, 3, ItemDescription.Bracelet, 3);
-      //list.add(i19);
+      Item i18=new Item(17, "Shield", false, 2, ItemDescription.Shield, 3);
+      list.add(i18);
+      Item i19=new Item(18, "Bracelet", false, 3, ItemDescription.Bracelet, 3);
+      list.add(i19);
       Item i20=new Item(19, "Diamond Chest", false, 4, ItemDescription.DiamondChest, 3);
       list.add(i20);
       Item i21=new Item(20, "Map", false, 0, ItemDescription.Map, 4);
       list.add(i21);
       Item i22=new Item(21, "Magic Stone", false, 1, ItemDescription.MagicStone, 4);
       list.add(i22);
-      //Item i23=new Item(22, "Strength", false, 2, ItemDescription.Strength, 4);
-      //list.add(i23);
+      Item i23=new Item(22, "Strength", false, 2, ItemDescription.Strength, 4);
+      list.add(i23);
       Item i24=new Item(23, "Horse", false, 3, ItemDescription.Horse, 4);
       list.add(i24);
       Item i25=new Item(24, "Great Horse", false, 4, ItemDescription.GreatHorse, 4);
@@ -232,7 +233,7 @@ public class controlGame {
         System.out.println("the total percentage is " + total);
     }
     
-    public static boolean StillHaveItemsToFind(){
+    public static boolean StillHaveItemsToFind() throws PlayerLevelControlException{
         boolean stillHave=false;
         for(Item item: Journey.getCurrentGame().getItems()){
             if(item.getLevel()==Journey.getPlayer().getLevel()){
@@ -243,36 +244,45 @@ public class controlGame {
             }
         }
         if(!stillHave){
-           controlPlayer.updateLevel();
+            try{
+                controlPlayer.updateLevel();
+            }
+            catch(PlayerLevelControlException pl){
+                System.out.println(pl.getMessage());
+            }
+           
         }
         return stillHave;
     }  
 
-    public static Item ChooseItem(){
+    public static Item ChooseItem() {
         boolean found=true;
         int number=0;
         while(found){
             number=Dice.rollDice() -1;
             number= ((number) * 5) + Journey.getPlayer().getLevel();
             try{
-            found=Journey.getCurrentGame().getItems().get(number).isFound();
+            found=Journey.getCurrentGame().getItems().get(number).isFound();             
+            Journey.getCurrentGame().getItems().get(number).setFound(true); 
             }
             catch(Exception e){
-            System.out.println("error");
-            Item i= new Item();
-            i.setName("error item");
-            return i;            
+                System.out.println("You didn´t find anything here..."); 
+                Item i= new Item();
+                i.setName(" ");
+                return i;
             }
-            Journey.getCurrentGame().getItems().get(number).setFound(true);                     
+           
         }   
              return Journey.getCurrentGame().getItems().get(number);  
     }
     
-    public static void looking(){
+    public static void looking() throws PlayerLevelControlException {
         controlGame.StillHaveItemsToFind();
         if(controlPlayer.lookForItem(Journey.getPlayer().getLevel())){
             Item item=controlGame.ChooseItem();
-            System.out.println("you find " + item.getName());
+            if(item.getId()!=-1){
+                System.out.println("you find " + item.getName());
+            }           
         }
         else{
             System.out.println("You didn´t find anything here...");

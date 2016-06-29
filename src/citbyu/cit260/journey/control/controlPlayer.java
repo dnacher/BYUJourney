@@ -3,6 +3,7 @@ package citbyu.cit260.journey.control;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.characters.Warrior;
 import citbyu.cit260.journey.enums.Warriors;
+import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.view.AtackMenuView;
 import java.util.ArrayList;
 import java.util.List;
@@ -349,7 +350,7 @@ public class controlPlayer {
                // System.out.println(list[0][1].toString());
         }
         
-       public static void updateLevel(){
+       public static void updateLevel() throws PlayerLevelControlException{
        
            int currentLevel=Journey.getPlayer().getLevel();
            if(currentLevel<5){
@@ -360,15 +361,17 @@ public class controlPlayer {
                    System.out.println("*****************************************************");
            }
            else{
-               if(!Journey.getCurrentGame().isMaximumLevel()){
+               /*if(!Journey.getCurrentGame().isMaximumLevel()){
                    System.out.println("*****************************************************");
                    System.out.println("*****You reach the maximum level. Congratulation*****");
-                   System.out.println("*****************************************************");
-                   Journey.getCurrentGame().setMaximumLevel(true);                   
+                   System.out.println("*****************************************************");*/
+               Journey.getCurrentGame().setMaximumLevel(true);    
+               throw new PlayerLevelControlException("\n*****************************************************"
+                                                    +"\n*****You reach the maximum level. Congratulation*****" +
+                                                     "\n*****************************************************");
+                                  
                }
            }          
-       } 
+       
+} 
   
-        
-        
-}
