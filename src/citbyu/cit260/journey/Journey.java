@@ -50,31 +50,8 @@ public class Journey {
     public static void main(String[] args) {
        
         StartProgramView spv= new StartProgramView();
-        spv.display();  
-        
-        
-        
-       // controlPlayer cp=new controlPlayer();
-      /* System.out.println("************First Test****************");
-        System.out.println("");
-         System.out.println("");
-        controlPlayer.createMap();
-        System.out.println("");
-         System.out.println("");
-          System.out.println("");          
-        System.out.println("***********Second Test***************");
-         controlPlayer.testMap();
-        //Array dos dimensiones
-    /*   String[][] list= new String[10][10];
-       list[2][4]="listblabla";
-       String j=list[2][4];
-       System.out.println(j);
-       //List ArrayList
-       List<String> myList= new ArrayList<String>();
-       myList.add("hh");
-       for(String string:myList){
-           System.out.println(string);
-       }*/
+        spv.display();                         
+      
     }
     
     }
