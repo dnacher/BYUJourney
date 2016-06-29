@@ -6,6 +6,9 @@
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.control.controlGame;
+import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -38,9 +41,15 @@ public class OptionPlaceMenuView extends View{
 		case "T": // get and start an existing game
 			talk();
 			break;	
-                case "L": // get and start an existing game
-			lookForItem();
-			break;	    
+                case "L": {
+             try {
+                 // get and start an existing game
+                 lookForItem();
+             } catch (PlayerLevelControlException ex) {
+                 Logger.getLogger(OptionPlaceMenuView.class.getName()).log(Level.SEVERE, null, ex);
+             }
+         }
+			break;	    	    
 		default:
 			System.out.println("\n*** Invalid selection *** Try again");
 			break;
@@ -57,7 +66,7 @@ public class OptionPlaceMenuView extends View{
     
     }
     
-     public void lookForItem(){
+     public void lookForItem() throws PlayerLevelControlException{
        controlGame.looking();
     }
     

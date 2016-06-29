@@ -23,54 +23,31 @@ public class SelectRaceMenuView extends View{
                  +"\n----------------------------------"
                  +"\n|Select Race                     |"
                  +"\n----------------------------------"
-                 +"\n1 Human" 
-                 +"\n2 Elf" 
-                 +"\n3 Wizard"                                   
+                 +"\nH Human" 
+                 +"\nE Elf" 
+                 +"\nW Wizard"                                   
                  +"\n----------------------------------"
                  +"\nQ Return Main Menu");
-    }
-    
-    public Double getDouble(){
-        Double number=null;
-        
-        while(number==null){
-            String value= this.getInput();
-            value= value.trim().toUpperCase();
-            
-            if(value.equals("Q")){
-                break;
-            }
-            try{
-            number = Double.parseDouble(value);
-            }
-            catch(NumberFormatException e){
-                System.out.println("\nYou must enter a valid number." +
-                                   "\nTry again or enter Q to quit");
-            }
-        }
-        
-        return number;
-    }
-    
-     @Override
+    }    
+       
+    @Override
     public boolean doAction(String menuOption){
-      // menuOption = menuOption.toUpperCase();
-      double d=getDouble();
+       menuOption = menuOption.toUpperCase();      
 	boolean answer=false;
-	switch ((int)d) {
-		case 1: //create and start new game  
+	switch (menuOption) {
+		case "H": //create and start new game  
                         ch.setId(1);
                         ch.setName("Human");
 			Journey.getPlayer().setMyCharacter(ch);                        
                         startGame();
                         break;
-		case 2: // get and start an existing game
+		case "E": // get and start an existing game
                         ch.setId(2);
                         ch.setName("Elf");
 			Journey.getPlayer().setMyCharacter(ch);                           
                         startGame();
 			break;
-		case 3: // display the help menu
+		case "W": // display the help menu
                         ch.setId(3);
                         ch.setName("Wizard");
 			Journey.getPlayer().setMyCharacter(ch);                         

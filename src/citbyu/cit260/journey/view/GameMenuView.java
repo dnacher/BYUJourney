@@ -1,7 +1,10 @@
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.control.controlGame;
+import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GameMenuView extends View{
     
@@ -36,7 +39,11 @@ public class GameMenuView extends View{
                         break;
 		case "L": // get and start an existing game
                     if(count<3){
-                       	LookForItem();
+           try {
+               LookForItem();
+           } catch (PlayerLevelControlException ex) {
+               Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+           }
                         count+=1;
                     }
                     else{
@@ -69,7 +76,7 @@ public class GameMenuView extends View{
         controlGame.returnTotalPercentage();
     }
     
-    public void LookForItem(){
+    public void LookForItem() throws PlayerLevelControlException{
        controlGame.looking();
     }
     
