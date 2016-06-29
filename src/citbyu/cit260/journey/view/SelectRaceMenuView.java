@@ -6,7 +6,6 @@
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
-import citbyu.cit260.journey.view.View;
 import citbyu.cit260.journey.model.characters.Character;
 
 /**
