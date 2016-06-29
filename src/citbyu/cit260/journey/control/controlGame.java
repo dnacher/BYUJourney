@@ -254,10 +254,18 @@ public class controlGame {
         while(found){
             number=Dice.rollDice() -1;
             number= ((number) * 5) + Journey.getPlayer().getLevel();
+            try{
             found=Journey.getCurrentGame().getItems().get(number).isFound();
-            Journey.getCurrentGame().getItems().get(number).setFound(true);
-        }        
-        return Journey.getCurrentGame().getItems().get(number);        
+            }
+            catch(Exception e){
+            System.out.println("error");
+            Item i= new Item();
+            i.setName("error item");
+            return i;            
+            }
+            Journey.getCurrentGame().getItems().get(number).setFound(true);                     
+        }   
+             return Journey.getCurrentGame().getItems().get(number);  
     }
     
     public static void looking(){
