@@ -8,6 +8,7 @@ package citbyu.cit260.journey.view;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.Dice;
 import citbyu.cit260.journey.control.controlPlayer;
+import citbyu.cit260.journey.exceptions.NegativeValuesAtackException;
 import citbyu.cit260.journey.model.characters.Warrior;
 
 /**
@@ -96,9 +97,17 @@ private void atack() {
         }
         else{
     lucky=cp.getLucky();    
-    enemyWarrior.setCurrentHp(cp.attack(lucky, w.getWar().getPower(), enemyWarrior.getWar().getArmor(), enemyWarrior.getCurrentHp()));
+            try {
+                enemyWarrior.setCurrentHp(cp.attack(lucky, w.getWar().getPower(), enemyWarrior.getWar().getArmor(), enemyWarrior.getCurrentHp()));
+            } catch (NegativeValuesAtackException ex) {
+                System.out.println(ex.getMessage());
+            }
     enemyLucky=cp.getLucky();
-    w.setCurrentHp(cp.attack(enemyLucky, enemyWarrior.getWar().getPower(), w.getWar().getArmor(), w.getCurrentHp()));
+            try {
+                w.setCurrentHp(cp.attack(enemyLucky, enemyWarrior.getWar().getPower(), w.getWar().getArmor(), w.getCurrentHp()));
+            } catch (NegativeValuesAtackException ex) {
+                System.out.println(ex.getMessage());
+            }
     if(w.getCurrentHp()>0){
         System.out.println("You´re still alive");
     }
@@ -122,7 +131,11 @@ private void withdraw() {
    if(Dice.probability(50)){
        System.out.println("The Enemy got you before you could withdraw");
        enemyLucky=cp.getLucky();
-    w.setCurrentHp(cp.attack(enemyLucky, enemyWarrior.getWar().getPower(), enemyWarrior.getWar().getArmor(), w.getCurrentHp()));
+       try {
+           w.setCurrentHp(cp.attack(enemyLucky, enemyWarrior.getWar().getPower(), enemyWarrior.getWar().getArmor(), w.getCurrentHp()));
+       } catch (NegativeValuesAtackException ex) {
+          System.out.println(ex.getMessage());
+       }
     if(w.getCurrentHp()>0){
         System.out.println("You´re still alive");
     }

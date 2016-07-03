@@ -3,6 +3,8 @@ package citbyu.cit260.journey.control;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.characters.Warrior;
 import citbyu.cit260.journey.enums.Warriors;
+import citbyu.cit260.journey.exceptions.CalculateTimeWayException;
+import citbyu.cit260.journey.exceptions.NegativeValuesAtackException;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.view.AtackMenuView;
 import java.util.ArrayList;
@@ -12,7 +14,7 @@ public class controlPlayer {
     
     //this function will calculate the time spend to travel from one place to another
     //the speed of a horse and a man is based on a internet research
-    public double calculateTime(int way, double distance, boolean wounded){
+    public double calculateTime(int way, double distance, boolean wounded) throws CalculateTimeWayException{
 	int manSpeed=5;
 	int horseSpeed=14;
 	double Total=0;
@@ -21,14 +23,14 @@ public class controlPlayer {
             if(way==1){
 		Total=distance/manSpeed;
                 Total=Total*1.2;
-	}
-        else if(way==2){
+            }
+            else if(way==2){
 		Total=distance/horseSpeed;
                 Total=Total*1.2;
-	}
-	else{
-		Total =-1;
-	}        
+            }
+            else{
+		throw new CalculateTimeWayException("There was a problem with the id of your way to move through the map");
+            }        
         }
         else{
         if(way==1){
@@ -38,7 +40,7 @@ public class controlPlayer {
 		Total=distance/horseSpeed;
 	}
 	else{
-		Total =-1;
+		throw new CalculateTimeWayException("There was a problem with the id of your way to move through the map");
 	}        
         }
 	
@@ -124,11 +126,11 @@ public class controlPlayer {
     
     }
     
-    public int attack(boolean lucky, int power, int armor, double life){
+    public int attack(boolean lucky, int power, int armor, double life) throws NegativeValuesAtackException{
        double totalAttack = 0;
        int currentLife=(int) life;
        if(power<0 || armor<0 || life<0){
-           return -999;
+           throw new NegativeValuesAtackException("\n the power, life or the armor have a negative value.");
        }
        if (lucky){
            totalAttack=power*1.25;           
@@ -145,7 +147,7 @@ public class controlPlayer {
         return lucky;
     }
     
-    public double addTime(int num1, int num2){
+    public double addTime(int num1, int num2) throws CalculateTimeWayException{
         double distance=substractPositive(num1, num2);
         //****************************************************************now there is only one way to go "1" 
         double time=0;

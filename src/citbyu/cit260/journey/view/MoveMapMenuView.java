@@ -7,6 +7,7 @@ package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlPlayer;
+import citbyu.cit260.journey.exceptions.CalculateTimeWayException;
 
 /**
  *
@@ -78,7 +79,12 @@ private void northTown() {
     currentPlace="N";
     num2=N;
     controlPlayer cp= new controlPlayer();
-    double timespend=cp.addTime(num1, num2);
+    double timespend=0;
+        try {
+            timespend = cp.addTime(num1, num2);
+        } catch (CalculateTimeWayException ex) {
+            System.out.println(ex.getMessage());
+        }
     System.out.println("You Spend " + timespend + " hours to travel to North Town");
     Journey.getPlayer().setCurrentCity(N);
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
@@ -90,7 +96,12 @@ private void dragonLand() {
     currentPlace="D";
     num2=D;
     controlPlayer cp= new controlPlayer();
-    double timespend=cp.addTime(num1, num2);
+    double timespend=0;
+        try {
+            timespend = cp.addTime(num1, num2);
+        } catch (CalculateTimeWayException ex) {
+            System.out.println(ex.getMessage());
+        }
     System.out.println("You Spend " + timespend + " hours to travel to Dragon Land");
     Journey.getPlayer().setCurrentCity(D);
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
@@ -102,7 +113,12 @@ private void edelion() {
     currentPlace="E";
     num2=E;
     controlPlayer cp= new controlPlayer();
-    double timespend=cp.addTime(num1, num2);
+    double timespend=0;
+        try {
+            timespend = cp.addTime(num1, num2);
+        } catch (CalculateTimeWayException ex) {
+           System.out.println(ex.getMessage());
+        }
     System.out.println("You Spend " + timespend + " hours to travel to Edelion");
     Journey.getPlayer().setCurrentCity(E);
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
@@ -114,7 +130,12 @@ private void hiddenForest() {
     currentPlace="H";
     num2=H;
     controlPlayer cp= new controlPlayer();
-    double timespend=cp.addTime(num1, num2);
+    double timespend=0;
+        try {
+            timespend = cp.addTime(num1, num2);
+        } catch (CalculateTimeWayException ex) {
+            System.out.println(ex.getMessage());
+        }
     System.out.println("You Spend " + timespend + " hours to travel to Hidden Forest");
     Journey.getPlayer().setCurrentCity(H);
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
@@ -126,7 +147,12 @@ private void etenTy() {
     currentPlace="T";
     num2=T;
     controlPlayer cp= new controlPlayer();
-    double timespend=cp.addTime(num1, num2);
+    double timespend=0;
+        try {
+            timespend = cp.addTime(num1, num2);
+        } catch (CalculateTimeWayException ex) {
+            System.out.println(ex.getMessage());
+        }
     System.out.println("You Spend " + timespend + " hours to travel to Eten Ty");
     Journey.getPlayer().setCurrentCity(T);
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
@@ -138,7 +164,12 @@ private void southPort() {
     currentPlace="S";
     num2=S;	
     controlPlayer cp= new controlPlayer();
-    double timespend=cp.addTime(num1, num2);
+    double timespend=0;
+        try {
+            timespend = cp.addTime(num1, num2);
+        } catch (CalculateTimeWayException ex) {
+            System.out.println(ex.getMessage());
+        }
     System.out.println("You Spend " + timespend + " hours to travel to South Port");
     Journey.getPlayer().setCurrentCity(S);
     MovePlaceMenuView mpv= new MovePlaceMenuView();

@@ -276,10 +276,10 @@ public class controlGame {
              return Journey.getCurrentGame().getItems().get(number);  
     }
     
-    public static void looking() throws PlayerLevelControlException {
+    public static Item looking() throws PlayerLevelControlException {
         controlGame.StillHaveItemsToFind();
-        if(controlPlayer.lookForItem(Journey.getPlayer().getLevel())){
-            Item item=controlGame.ChooseItem();
+        Item item=controlGame.ChooseItem();
+        if(controlPlayer.lookForItem(Journey.getPlayer().getLevel())){            
             if(item.getId()!=-1){
                 System.out.println("you find " + item.getName());
             }           
@@ -287,6 +287,7 @@ public class controlGame {
         else{
             System.out.println("You didn´t find anything here...");
         }
+        return item;
     }
     
 }

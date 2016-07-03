@@ -2,9 +2,8 @@ package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.control.controlGame;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
+import citbyu.cit260.journey.model.map.Item;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class GameMenuView extends View{
     
@@ -42,7 +41,7 @@ public class GameMenuView extends View{
            try {
                LookForItem();
            } catch (PlayerLevelControlException ex) {
-               Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+               System.out.println(ex.getMessage());
            }
                         count+=1;
                     }
@@ -76,8 +75,11 @@ public class GameMenuView extends View{
         controlGame.returnTotalPercentage();
     }
     
-    public void LookForItem() throws PlayerLevelControlException{
-       controlGame.looking();
+    public void LookForItem() throws PlayerLevelControlException{                 
+            Item i= new Item();
+            i=controlGame.looking();
+            OptionItemFoundedVIew OIFV= new OptionItemFoundedVIew(i);
+            OIFV.display();
     }
     
 }

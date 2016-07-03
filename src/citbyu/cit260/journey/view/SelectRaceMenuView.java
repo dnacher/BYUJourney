@@ -31,7 +31,7 @@ public class SelectRaceMenuView extends View{
        
     @Override
     public boolean doAction(String menuOption){
-       menuOption = menuOption.toUpperCase(); 
+        menuOption = menuOption.toUpperCase(); 
         int number=getDoubleNumber(menuOption);        
 	boolean answer=false;
         if(number>3 || number<1 && number!=-999){
