@@ -373,7 +373,8 @@ public class controlPlayer {
        
        public static void PrintInventory(){
            int number=1;
-           for(Item item: Journey.getPlayer().getInventory()){               
+           if(Journey.getPlayer().getInventory().size()>0){
+               for(Item item: Journey.getPlayer().getInventory()){               
                System.out.println("----------------------------");
                System.out.println(number + ") " + item.getName());
                if(item.isInUse()){
@@ -384,7 +385,14 @@ public class controlPlayer {
                }              
                System.out.println("----------------------------");
                number+=1;
+               }
            }
+           else{
+               System.out.println("\nYou don´t have items in your inventory yet." +
+                                  "\nTo have items you´ll need to search items or fight" +
+                                  "\nagainst enemies...");
+           }
+           
        }
        
 } 

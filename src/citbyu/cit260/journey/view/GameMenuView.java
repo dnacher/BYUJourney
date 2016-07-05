@@ -2,7 +2,6 @@ package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
-import citbyu.cit260.journey.control.controlPlayer;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.map.Item;
 import java.util.Scanner;
@@ -20,7 +19,7 @@ public class GameMenuView extends View{
                  +"\nA Atack" 
                  +"\nS Save Game"
                  +"\nH Show items "
-                + "\nI Show my Inventory "
+                + "\nI Show my Inventory and use an item"
                  +"\n----------------------------------"
                  +"\nQ Return Main Menu"
                  +"\n");
@@ -80,14 +79,29 @@ public class GameMenuView extends View{
     
     
     public void ShowMyInventory(){
-        controlPlayer.PrintInventory();
+        if(Journey.getPlayer().getInventory().size()>0){
+            ShowMyInventoryView SMIV= new ShowMyInventoryView();
+            SMIV.display();                        
+        }
+        else{
+            System.out.println("\nYou don´t have items in your inventory yet." +
+                                  "\nTo have items you´ll need to search items " +
+                                  "\nor fight against enemies...");
+            this.display();
+        }       
     }
     
     public void LookForItem() throws PlayerLevelControlException{                 
             Item i= new Item();
+            i.setName("noName");
             i=controlGame.looking();
-            OptionItemFoundedVIew OIFV= new OptionItemFoundedVIew(i);
-            OIFV.display();
+            if (i.getName()!="noName"){
+                OptionItemFoundedVIew OIFV= new OptionItemFoundedVIew(i);
+                OIFV.display();
+            }
+            else{
+                this.display();
+            }            
     }
     
 }

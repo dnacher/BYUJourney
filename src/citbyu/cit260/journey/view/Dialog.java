@@ -117,10 +117,7 @@ public class Dialog {
             case 3:
                 System.out.println("*** Hello " + Journey.getPlayer().getName() + " You´re a Wizard now ***");
                 break;
-         }
-         
-         
-         
+         }         
          System.out.println("***************************************");
          System.out.println("***************************************");
     }
