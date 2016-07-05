@@ -1,7 +1,4 @@
-package citbyu.cit260.journey.view.dialogs;
-
-import citbyu.cit260.journey.model.Player;
-import citbyu.cit260.journey.model.characters.Character;
+package citbyu.cit260.journey.view;
 
 public class Dialog {
     

@@ -2,7 +2,6 @@ package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
-import citbyu.cit260.journey.view.dialogs.Dialog;
 import java.util.Scanner;
 
 public class StartProgramView extends View{
