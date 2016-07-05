@@ -39,7 +39,9 @@ public class controlGame {
         Journey.setPlayer(player);
         Game game= new Game(player, name);
         //create a test for the player
-        Journey.getCurrentGame().getPlayer().setInventory(CreateItemList());
+        ArrayList<Item> list= new ArrayList<>();
+        Journey.getCurrentGame().getPlayer().setInventory(list);
+        Journey.getCurrentGame().setItems(CreateItemList());
         Journey.setCurrentGame(game);
         
     }   
@@ -288,6 +290,17 @@ public class controlGame {
             System.out.println("You didn´t find anything here...");
         }
         return item;
+    }
+    
+    public static void updateCount(){
+    
+        int num=Journey.getCurrentGame().getCount();
+        num+=1;
+        Journey.getCurrentGame().setCount(num);
+    }
+    
+    public static void resetCount(){        
+        Journey.getCurrentGame().setCount(1);
     }
     
 }

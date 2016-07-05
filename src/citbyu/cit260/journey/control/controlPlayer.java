@@ -6,6 +6,7 @@ import citbyu.cit260.journey.enums.Warriors;
 import citbyu.cit260.journey.exceptions.CalculateTimeWayException;
 import citbyu.cit260.journey.exceptions.NegativeValuesAtackException;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
+import citbyu.cit260.journey.model.map.Item;
 import citbyu.cit260.journey.view.AtackMenuView;
 import java.util.ArrayList;
 import java.util.List;
@@ -338,18 +339,13 @@ public class controlPlayer {
 		NorthTownItemsList.add("Helmet");
 		NorthTownItemsList.add("Great Axe");
  
-		/*System.out.println("==> For Loop Example.");
-		for (int i = 0; i < NorthTownItemsList.size(); i++) {
-			System.out.println(NorthTownItemsList.get(i));
-		}*/
-                
+		
                 for(int i=0;i<6;i++){
                     for(int j=0;j<5;j++){
                         System.out.println(list[i][j].toString());
                     }
                 }
-                //imprimir lista
-               // System.out.println(list[0][1].toString());
+               
         }
         
        public static void updateLevel() throws PlayerLevelControlException{
@@ -373,7 +369,23 @@ public class controlPlayer {
                                                      "\n*****************************************************");
                                   
                }
-           }          
+           }
+       
+       public static void PrintInventory(){
+           int number=1;
+           for(Item item: Journey.getPlayer().getInventory()){               
+               System.out.println("----------------------------");
+               System.out.println(number + ") " + item.getName());
+               if(item.isInUse()){
+                System.out.println("   in use");
+               }
+               else{
+                System.out.println("   you´re not using it");
+               }              
+               System.out.println("----------------------------");
+               number+=1;
+           }
+       }
        
 } 
   

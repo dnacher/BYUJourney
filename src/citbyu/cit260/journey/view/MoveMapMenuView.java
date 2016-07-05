@@ -6,6 +6,7 @@
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
+import citbyu.cit260.journey.control.controlGame;
 import citbyu.cit260.journey.control.controlPlayer;
 import citbyu.cit260.journey.exceptions.CalculateTimeWayException;
 
@@ -87,6 +88,7 @@ private void northTown() {
         }
     System.out.println("You Spend " + timespend + " hours to travel to North Town");
     Journey.getPlayer().setCurrentCity(N);
+    controlGame.resetCount();
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
     mpv.display();        
 }
@@ -104,6 +106,7 @@ private void dragonLand() {
         }
     System.out.println("You Spend " + timespend + " hours to travel to Dragon Land");
     Journey.getPlayer().setCurrentCity(D);
+    controlGame.resetCount();
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
     mpv.display();
 }
@@ -121,6 +124,7 @@ private void edelion() {
         }
     System.out.println("You Spend " + timespend + " hours to travel to Edelion");
     Journey.getPlayer().setCurrentCity(E);
+    controlGame.resetCount();
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
     mpv.display();
 }
@@ -138,6 +142,7 @@ private void hiddenForest() {
         }
     System.out.println("You Spend " + timespend + " hours to travel to Hidden Forest");
     Journey.getPlayer().setCurrentCity(H);
+    controlGame.resetCount();
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
     mpv.display();
 }
@@ -155,6 +160,7 @@ private void etenTy() {
         }
     System.out.println("You Spend " + timespend + " hours to travel to Eten Ty");
     Journey.getPlayer().setCurrentCity(T);
+    controlGame.resetCount();
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
     mpv.display();
 }
@@ -172,6 +178,7 @@ private void southPort() {
         }
     System.out.println("You Spend " + timespend + " hours to travel to South Port");
     Journey.getPlayer().setCurrentCity(S);
+    controlGame.resetCount();
     MovePlaceMenuView mpv= new MovePlaceMenuView();
     mpv.display();
 }

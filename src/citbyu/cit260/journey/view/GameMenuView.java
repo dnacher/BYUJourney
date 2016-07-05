@@ -1,6 +1,8 @@
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
+import citbyu.cit260.journey.control.controlPlayer;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.map.Item;
 import java.util.Scanner;
@@ -18,13 +20,11 @@ public class GameMenuView extends View{
                  +"\nA Atack" 
                  +"\nS Save Game"
                  +"\nH Show items "
+                + "\nI Show my Inventory "
                  +"\n----------------------------------"
                  +"\nQ Return Main Menu"
                  +"\n");
-    }
-    
-    private int count=1;
-    
+    }    
     
     @Override
     public boolean doAction(String menuOption){
@@ -37,13 +37,13 @@ public class GameMenuView extends View{
                         //ControlMap.createMap(Journey.getCurrentGame().getLocationList());
                         break;
 		case "L": // get and start an existing game
-                    if(count<3){
+                    if(Journey.getCurrentGame().getCount()<3){
            try {
                LookForItem();
            } catch (PlayerLevelControlException ex) {
                System.out.println(ex.getMessage());
            }
-                        count+=1;
+                       controlGame.updateCount();
                     }
                     else{
                         System.out.println("You already search here. Please search somewhere else");
@@ -57,7 +57,10 @@ public class GameMenuView extends View{
 			break;	
                 case "H": // display the help menu
 			ShowItems();
-			break;    
+			break;   
+                case "I": // display the help menu
+			ShowMyInventory();
+			break;       
 		default:
 			System.out.println("\n*** Invalid selection *** Try again");
 			break;
@@ -73,6 +76,11 @@ public class GameMenuView extends View{
         controlGame.ReturnItemsbyLevel(value);   
         controlGame.ReturnTotalItemsByLevel(value);        
         controlGame.returnTotalPercentage();
+    }
+    
+    
+    public void ShowMyInventory(){
+        controlPlayer.PrintInventory();
     }
     
     public void LookForItem() throws PlayerLevelControlException{                 

@@ -6,6 +6,7 @@
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
+import citbyu.cit260.journey.control.controlGame;
 import citbyu.cit260.journey.control.controlPlayer;
 
 /**
@@ -67,6 +68,7 @@ public class MovePlaceMenuView2 extends View{
     public void Inn(){
         setCurrentPlace(I);
         cp.enemy();
+        controlGame.resetCount();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
     }
@@ -74,6 +76,7 @@ public class MovePlaceMenuView2 extends View{
     public void Market(){
         setCurrentPlace(M);
         cp.enemy();
+        controlGame.resetCount();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
     }
@@ -81,6 +84,7 @@ public class MovePlaceMenuView2 extends View{
     public void Wall(){
         setCurrentPlace(W);
         cp.enemy();
+        controlGame.resetCount();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
     }
@@ -88,6 +92,7 @@ public class MovePlaceMenuView2 extends View{
     public void Farm(){
         setCurrentPlace(F);
         cp.enemy();
+        controlGame.resetCount();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
     }
@@ -95,6 +100,7 @@ public class MovePlaceMenuView2 extends View{
     public void Castle(){
         setCurrentPlace(C);
         cp.enemy();
+        controlGame.resetCount();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
     }

@@ -13,6 +13,7 @@ public class Game {
      private Location[][] locationList;
      private ArrayList<Item> Items;
      private boolean maximumLevel;
+     private int count;
 
     public Player getPlayer() {
         return player;
@@ -54,7 +55,13 @@ public class Game {
         this.maximumLevel = maximumLevel;
     }
 
-      
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }     
      
      public Game(){
          this.locationList=ControlMap.createLocationList();
@@ -67,6 +74,7 @@ public class Game {
          this.locationList=ControlMap.createLocationList();
          this.Items=controlGame.CreateItemList();
          this.maximumLevel=false;
+         this.count=1;
      }
   
 }
