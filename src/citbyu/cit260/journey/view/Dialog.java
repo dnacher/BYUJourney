@@ -1,5 +1,7 @@
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.Journey;
+
 public class Dialog {
     
     //this is the dialog of the beginning
@@ -100,7 +102,28 @@ public class Dialog {
          System.out.println("                                         ;@@@+` .;+@@@@@@+`                                                ");
          System.out.println("                                             .@@+;.                                                        ");
                    
-    }    
+    }  
+    
+    public static void PrintRace(int optionMenu){
+        
+         System.out.println("***************************************");
+         switch(optionMenu){
+            case 1:
+                System.out.println("*** Hello " + Journey.getPlayer().getName() + " You´re a Human now ***");
+                break;
+            case 2:
+                System.out.println("*** Hello " + Journey.getPlayer().getName() + " You´re a Elf now ***");
+                break;
+            case 3:
+                System.out.println("*** Hello " + Journey.getPlayer().getName() + " You´re a Wizard now ***");
+                break;
+         }
+         
+         
+         
+         System.out.println("***************************************");
+         System.out.println("***************************************");
+    }
     
 }
 

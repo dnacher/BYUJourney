@@ -43,18 +43,23 @@ public class SelectRaceMenuView extends View{
 		case 1: //create and start new game  
                         ch.setId(1);
                         ch.setName("Human");
+                        Dialog.PrintRace(number);
 			Journey.getPlayer().setMyCharacter(ch);                        
                         startGame();
                         break;
 		case 2: // get and start an existing game
                         ch.setId(2);
                         ch.setName("Elf");
+                        Dialog.PrintRace(number);
+                        System.out.println("");
 			Journey.getPlayer().setMyCharacter(ch);                           
                         startGame();
 			break;
 		case 3: // display the help menu
                         ch.setId(3);
                         ch.setName("Wizard");
+                        Dialog.PrintRace(number);
+                        System.out.println("");
 			Journey.getPlayer().setMyCharacter(ch);                         
                         startGame();
 			break;                

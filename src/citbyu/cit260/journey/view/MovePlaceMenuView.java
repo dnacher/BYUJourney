@@ -14,11 +14,11 @@ import citbyu.cit260.journey.control.controlPlayer;
  */
 public class MovePlaceMenuView extends View{
     
-    private final int I=1;
-    private final int M=2;
-    private final int G=3;
-    private final int D=4;
-    private final int C=5;
+    private final int I=0;
+    private final int M=1;
+    private final int G=2;
+    private final int D=3;
+    private final int C=4;
     private controlPlayer cp= new controlPlayer(); 
     
     public MovePlaceMenuView(){        

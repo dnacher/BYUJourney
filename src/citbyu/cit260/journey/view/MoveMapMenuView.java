@@ -18,12 +18,12 @@ public class MoveMapMenuView extends View{
     private String currentPlace="E";
     private int num1=0;
     private int num2=0;
-    private final int N=1;
-    private final int D=2;
-    private final int E=3;
-    private final int T=4;
-    private final int H=5;
-    private final int S=6;   
+    private final int N=0;
+    private final int D=1;
+    private final int E=2;
+    private final int T=3;
+    private final int H=4;
+    private final int S=5;   
     
     public MoveMapMenuView(){          
         super("\n"
