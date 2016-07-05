@@ -40,23 +40,23 @@ public class Dialog {
     }  
     
     public static void HumanStart(){
-     System.out.println("**************************************************************");
-     System.out.println("**************************************************************");
-     System.out.println("**************************************************************");
-     System.out.println("You wake up outside of the big wall that protect a great city");     
-     System.out.println("You don´t remember what Happend");    
-     System.out.println("The only things you have is a cape, a sword and an old map");   
-     System.out.println();
-     System.out.println();
-     System.out.println("\"Captain\"");
-     System.out.println("You hear a voice");
-     System.out.println("you turn your head and see a tall and big guy with a great sword in his hands.");
-     System.out.println("Are you going to help us on the bridge or are you going to go with the army to the north?");
-     System.out.println();
-     System.out.println();
-     System.out.println("1- Yes, I will help you, I don´t like the cold weather in the north");
-     System.out.println("2- Wait, I don´t know what happend. please explain to me");
-     System.out.println("3- No, I want to travel to the north. I ´ve never been there");
+     System.out.println("\n**************************************************************" +
+                        "\n**************************************************************" +
+                        "\n**************************************************************" +
+                        "\nYou wake up outside of the big wall that protect a great city" + 
+                        "\nYou don´t remember what Happend" +
+                        "\nThe only things you have is a cape, a sword and an old map" +
+                        "\n" +
+                        "\n" +
+                        "\"Captain\"" +
+                        "\n" +
+                        "\nYou hear a voice" +
+                        "\nyou turn your head and see a tall and big guy with a great sword in his hands." +
+                        "\nAre you going to help us on the bridge or are you going to go with the army to the north?" +
+                        "\n" +
+                        "\n1- Yes, I will help you, I don´t like the cold weather in the north" +                        
+                        "\n2- Wait, I don´t know what happend. please explain to me" +
+                        "\n3- No, I want to travel to the north. I ´ve never been there");     
     }
     
     public static void noTime(){

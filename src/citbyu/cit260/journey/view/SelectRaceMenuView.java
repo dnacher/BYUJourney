@@ -44,7 +44,8 @@ public class SelectRaceMenuView extends View{
                         ch.setId(1);
                         ch.setName("Human");
                         Dialog.PrintRace(number);
-			Journey.getPlayer().setMyCharacter(ch);                        
+			Journey.getPlayer().setMyCharacter(ch); 
+                        Dialog.HumanStart();
                         startGame();
                         break;
 		case 2: // get and start an existing game
