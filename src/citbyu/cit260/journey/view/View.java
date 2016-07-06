@@ -25,7 +25,7 @@ import java.util.Scanner;
             //prompt for and get player name
             String value = this.getInput();
             if (value.toUpperCase().equals("Q")) // user wants to quit
-                    return;
+                    return;            
             // do the requested action and display next view
             done = this.doAction(value);
         } while (!done); // exit the view when done == true
