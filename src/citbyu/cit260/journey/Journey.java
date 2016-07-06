@@ -3,13 +3,47 @@ package citbyu.cit260.journey;
 import citbyu.cit260.journey.model.Player;
 import citbyu.cit260.journey.model.Game;
 import citbyu.cit260.journey.view.StartProgramView;
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 public class Journey {     
     
     private static Game currentGame= null;
-   
     
+    private static PrintWriter outFile=null;
+    private static BufferedReader inFile=null;
+    private static PrintWriter logFile=null;
+
+    //getters and setters for the files of the game
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        Journey.logFile = logFile;
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        Journey.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        Journey.inFile = inFile;
+    }
+   //*******end of getters and setters for the files of the game
+    
+   
+    //getters and setters for the Game
     public static Game getCurrentGame() {
         return currentGame;
     }
@@ -42,21 +76,38 @@ public class Journey {
         currentGame.setSummonCreatures(summonCreatures);
     }
     //********end of the getters and setters
-    
+    //********end of the getters and setters from the game
 
    
     
     public static void main(String[] args) {
-       
-        StartProgramView spv= new StartProgramView();
-        try {
-	spv.display();
-        } catch (Throwable te) {
-	System.out.println(te.getMessage());
-	te.printStackTrace();
-	spv.display();
-	}                        
-      
+        
+        try{
+            Journey.inFile=new BufferedReader(new InputStreamReader(System.in));
+            Journey.outFile=new PrintWriter(System.out, true);
+            StartProgramView spv= new StartProgramView();
+            spv.display();
+            return;
+        }
+        catch(Throwable e){
+        
+            System.out.println("Exception: " + e.toString() +
+                             "\nCause: " + e.getCause() +
+                             "\nMessage: " + e.getMessage());
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                if(Journey.inFile!=null)
+                Journey.inFile.close();
+                if(Journey.outFile!=null)
+                Journey.outFile.close();
+            } catch (IOException ex) {
+                System.out.println("Error closing files");
+                return;
+            }
+            
+        }
     }
     
     }
