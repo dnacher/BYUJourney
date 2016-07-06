@@ -318,9 +318,9 @@ public class controlGame {
     }
     }
     
-    public static void getgetExistingGame(String filepath)
+    public static void getExistingGame(String filepath)
                     throws controlGameException {
-        Game game = null:
+        Game game = null;
         
         try(FileInputStream fips = new FileInputStream(filepath)){
             ObjectInputStream input = new ObjectInputStream(fips);
