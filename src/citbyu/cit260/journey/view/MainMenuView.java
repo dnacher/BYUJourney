@@ -1,5 +1,8 @@
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.Journey;
+import citbyu.cit260.journey.control.controlGame;
+
 public class MainMenuView extends View{ 
     
     public MainMenuView(){
@@ -49,11 +52,31 @@ private void startNewGame() {
 }
 
 private void startExistingGame() {
-	System.out.println("*** startExistingGame function called ***");
+	this.console.println("\n\nEnter the file path for file where the game"
+                                + "is to be saved");
+        String filePath = this.getInput();
+        
+        try {
+            controlGame.getExistingGame(Journey.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
 }
 
 private void saveGame() {
-	System.out.println("*** saveGame function called ***");
+        
+        this.console.println("\n\nEnter the file path for file where the game"
+                                + "is to be saved");
+        String filePath = this.getInput();
+        
+        try {
+            controlGame.saveGame(Journey.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
 }
 
 private void displayHelpMenu() {        

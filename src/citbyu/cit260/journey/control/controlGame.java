@@ -302,5 +302,35 @@ public class controlGame {
     public static void resetCount(){        
         Journey.getCurrentGame().setCount(1);
     }
+
+    public static void saveGame(Game currentGame, String filePath) {
+        throw  controlGameException {
+        
+        try(FileOutputStream fops = new FileOutputStream(filepath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game);
+        }
+        catch(Exception e) {
+            throw new controlGameException(e.getMessage());
+        }
+        
+    }
+    }
+    
+    public static void getgetExistingGame(String filepath)
+                    throws controlGameException {
+        Game game = null:
+        
+        try(FileInputStream fips = new FileInputStream(filepath)){
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game =(Game) input.readObject();   
+        }
+        catch(Exception e) {
+            throw new controlGameException(e.getMessage());
+        }
+        Journey.setCurrentGame(game);
+    }
     
 }
