@@ -57,7 +57,8 @@ private void startExistingGame() {
         String filePath = this.getInput();
         
         try {
-            controlGame.getExistingGame(Journey.getCurrentGame(), filePath);
+            controlGame.getExistingGame(filePath);
+           
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }

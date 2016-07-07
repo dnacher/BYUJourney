@@ -85,6 +85,9 @@ public class Journey {
         try{
             Journey.inFile=new BufferedReader(new InputStreamReader(System.in));
             Journey.outFile=new PrintWriter(System.out, true);
+            // open log file
+            String filePath="log.txt";
+            Journey.logFile= new PrintWriter(filePath);
             StartProgramView spv= new StartProgramView();
             spv.display();
             return;
@@ -102,6 +105,8 @@ public class Journey {
                 Journey.inFile.close();
                 if(Journey.outFile!=null)
                 Journey.outFile.close();
+                if(Journey.logFile!=null)
+                Journey.logFile.close();
             } catch (IOException ex) {
                 System.out.println("Error closing files");
                 return;

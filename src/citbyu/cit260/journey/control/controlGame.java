@@ -6,8 +6,13 @@ import citbyu.cit260.journey.model.Player;
 import citbyu.cit260.journey.model.characters.Character;
 import citbyu.cit260.journey.enums.ItemDescription;
 import citbyu.cit260.journey.enums.Warriors;
+import citbyu.cit260.journey.exceptions.ControlGameException;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.map.Item;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class controlGame {
@@ -303,23 +308,20 @@ public class controlGame {
         Journey.getCurrentGame().setCount(1);
     }
 
-    public static void saveGame(Game currentGame, String filePath) {
-        throw  controlGameException {
-        
-        try(FileOutputStream fops = new FileOutputStream(filepath)){
-            ObjectOutputStream output = new ObjectOutputStream(fops);
-            
+    public static void saveGame(Game game, String filePath) throws ControlGameException {
+                 
+        try(FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);            
             output.writeObject(game);
         }
         catch(Exception e) {
-            throw new controlGameException(e.getMessage());
-        }
-        
-    }
+            throw new ControlGameException(e.getMessage());
+        }        
     }
     
+    
     public static void getExistingGame(String filepath)
-                    throws controlGameException {
+                    throws ControlGameException {
         Game game = null;
         
         try(FileInputStream fips = new FileInputStream(filepath)){
@@ -328,7 +330,7 @@ public class controlGame {
             game =(Game) input.readObject();   
         }
         catch(Exception e) {
-            throw new controlGameException(e.getMessage());
+            throw new ControlGameException(e.getMessage());
         }
         Journey.setCurrentGame(game);
     }

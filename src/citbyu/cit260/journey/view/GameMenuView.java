@@ -4,7 +4,10 @@ import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.map.Item;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GameMenuView extends View{
     
@@ -69,11 +72,15 @@ public class GameMenuView extends View{
     
     public void ShowItems(){    
         System.out.println("This option will show you the total of items in a particular level");
-        System.out.println("Type a number from 0 to 4");
-        Scanner keyboard = new Scanner(System.in);
-        int value = keyboard.nextInt();
-        controlGame.ReturnItemsbyLevel(value);   
-        controlGame.ReturnTotalItemsByLevel(value);        
+        System.out.println("Type a number from 0 to 4");        
+        String value;
+        try {
+            value = keyboard.readLine();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        //controlGame.ReturnItemsbyLevel(value);   
+        //controlGame.ReturnTotalItemsByLevel(value);        
         controlGame.returnTotalPercentage();
     }
     

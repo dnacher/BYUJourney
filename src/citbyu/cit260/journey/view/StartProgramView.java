@@ -2,7 +2,7 @@ package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
-import java.util.Scanner;
+import java.io.IOException;
 
 public class StartProgramView extends View{
                    
@@ -18,13 +18,17 @@ public class StartProgramView extends View{
     }
     
     private String getPlayersName(){
-       Scanner keyboard= new Scanner(System.in);
+       
        String value="";
        boolean valid= false;
        
        while(!valid){
            System.out.println("\n" + this.displayMessage);
-           value=keyboard.nextLine();
+           try {
+               value=keyboard.readLine();
+           } catch (IOException ex) {
+               System.out.println(ex.getMessage());
+           }
            value=value.trim();
            
            if(value.length()<1){

@@ -5,7 +5,10 @@
  */
 package citbyu.cit260.journey.view;
 
-import java.util.Scanner;
+import citbyu.cit260.journey.Journey;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  *
@@ -13,6 +16,9 @@ import java.util.Scanner;
  */
     public abstract class View implements ViewInterface {
         protected String displayMessage;
+        
+        protected final BufferedReader keyboard= Journey.getInFile();
+        protected final PrintWriter console= Journey.getOutFile();
          
     public View(String message) {
         this.displayMessage = message;
@@ -32,9 +38,8 @@ import java.util.Scanner;
     }
     
     @Override
-    public String getInput() {
-    
-        Scanner keyboard = new Scanner(System.in);
+    public String getInput() {    
+        
         boolean valid = false;
         String value = null;
         
@@ -42,8 +47,12 @@ import java.util.Scanner;
         while (!valid) {        
             //prompt for the playes's name
             System.out.print("\n" + this.displayMessage);         
-            //get the value entered from the keyboard
-            value = keyboard.nextLine();
+            try {
+                //get the value entered from the keyboard
+                value = this.keyboard.readLine();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
             value = value.trim();            
             if(value.length() < 1){
                 System.out.println("\n*** You must enter a value ***");
