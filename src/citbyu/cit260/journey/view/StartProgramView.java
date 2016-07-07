@@ -5,6 +5,9 @@ import citbyu.cit260.journey.control.controlGame;
 import java.io.IOException;
 
 public class StartProgramView extends View{
+    
+    Dialog dialog= new Dialog();
+    controlGame cg= new controlGame();
                    
     public StartProgramView(){
     
@@ -13,8 +16,8 @@ public class StartProgramView extends View{
     }
     
     private void displayBanner(){    
-        Dialog.logo();
-        Dialog.description();        
+        dialog.logo();
+        dialog.description();        
     }
     
     private String getPlayersName(){
@@ -23,16 +26,16 @@ public class StartProgramView extends View{
        boolean valid= false;
        
        while(!valid){
-           System.out.println("\n" + this.displayMessage);
+           this.console.println("\n" + this.displayMessage);
            try {
                value=keyboard.readLine();
            } catch (IOException ex) {
-               System.out.println(ex.getMessage());
+               ErrorView.display(this.getClass().getName() + " " ,ex.getMessage());
            }
            value=value.trim();
            
            if(value.length()<1){
-               System.out.println("\nInvalid value: value can not be blank");
+               this.console.println("\nInvalid value: value can not be blank");
                continue;
            }
            break;
@@ -43,13 +46,13 @@ public class StartProgramView extends View{
     @Override
     public boolean doAction(String playersName){
        if(playersName.length()<2){
-           System.out.println("\nInvalid Players name:" + "The name mus be greater than one Character in lenght");
+           this.console.println("\nInvalid Players name:" + "The name mus be greater than one Character in lenght");
            return false;
        }   
        //create the Player with the name that the player type
-       controlGame.createNewGame(playersName);
+       cg.createNewGame(playersName);
        if(Journey.getPlayer()==null){
-           System.out.println("\nError creating the player.");
+           this.console.println("\nError creating the player.");
            return false;
        }       
        this.displayNextView();
@@ -57,11 +60,11 @@ public class StartProgramView extends View{
     }
     
     private void displayNextView(){
-        System.out.println("\n ==================================");
-        System.out.println("\n Welcome to the game " + Journey.getPlayer().getName());
-        System.out.println("\n We hope have a lot of fun!");
-        System.out.println("\n ==================================");
-        System.out.println("\n ==================================");        
+        this.console.println("\n ==================================" + 
+                             "\n Welcome to the game " + Journey.getPlayer().getName() +
+                             "\n We hope have a lot of fun!" +
+                             "\n ==================================" +
+                             "\n ==================================");   
         MainMenuView mainMenuView= new MainMenuView();        
         mainMenuView.display();
         

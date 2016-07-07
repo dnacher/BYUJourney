@@ -1,8 +1,9 @@
 package citbyu.cit260.journey.model.map;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Place {
+public class Place implements Serializable{
     
     private int id;
     private String name;

@@ -5,8 +5,11 @@
  */
 package citbyu.cit260.journey.control;
 
+import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.map.Location;
 import citbyu.cit260.journey.model.map.Map;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 /**
  *
@@ -14,7 +17,10 @@ import citbyu.cit260.journey.model.map.Map;
  */
 public class ControlMap {
     
-    public static void createMap(Location[][] list){
+    protected final BufferedReader keyboard=Journey.getInFile();
+    protected final PrintWriter console=Journey.getOutFile();
+    
+    public void createMap(Location[][] list){
              String leftIndicator;
              String rightIndicator;
              Map map = new Map(); // retreive the map from game
@@ -22,13 +28,13 @@ public class ControlMap {
              map.setPlacesList(placesList);
              Location[][] locations = map.getPlacesList(); // retreive the locations from map
         try { 
-            System.out.print("  |");
+            this.console.print("  |");
                 for( int column = 0; column < locations[0].length; column++){
-                    System.out.print("           " + column + "              |"); // print col numbers to side of map
+                    this.console.print("           " + column + "              |"); // print col numbers to side of map
                 }
-            System.out.println();
+            this.console.println();
                 for( int row = 0; row < locations.length; row++){
-                    System.out.print(row + " "); // print row numbers to side of map
+                    this.console.print(row + " "); // print row numbers to side of map
                     for( int column = 0; column < locations[row].length; column++){
                         leftIndicator = " ";
                         rightIndicator = " ";
@@ -40,17 +46,17 @@ public class ControlMap {
                             leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
                             rightIndicator = "<"; // same as above
                         }
-                        System.out.print("|"); // start map with a |
+                        this.console.print("|"); // start map with a |
                         if(locations[row][column].getScene() == null)
-                            System.out.print(leftIndicator + "??" + rightIndicator);
+                            this.console.print(leftIndicator + "??" + rightIndicator);
                         else
-                            System.out.print(leftIndicator + locations[row][column].getScene() + rightIndicator);
+                            this.console.print(leftIndicator + locations[row][column].getScene() + rightIndicator);
                     }
-                    System.out.println("|");
+                    this.console.println("|");
                 }
         }
         catch (Exception e) {
-            System.out.println("Error");
+            this.console.println("Error");
         }        
         }
     

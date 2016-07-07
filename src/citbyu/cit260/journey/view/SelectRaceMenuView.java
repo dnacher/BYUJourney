@@ -14,6 +14,8 @@ import citbyu.cit260.journey.model.characters.Character;
  */
 public class SelectRaceMenuView extends View{
     
+    Dialog dialog= new Dialog();
+    
     private Character ch= new Character(100,0,0,"no name",-1);
     
     public SelectRaceMenuView(){
@@ -35,7 +37,7 @@ public class SelectRaceMenuView extends View{
         int number=getDoubleNumber(menuOption);        
 	boolean answer=false;
         if(number>3 || number<1 && number!=-999){
-              System.out.println("\nEnter a valid number" 
+              this.console.println("\nEnter a valid number" 
                         + "\nTry again or enter Q to quit");
         }
         else{
@@ -43,24 +45,24 @@ public class SelectRaceMenuView extends View{
 		case 1: //create and start new game  
                         ch.setId(1);
                         ch.setName("Human");
-                        Dialog.PrintRace(number);
+                        dialog.PrintRace(number);
 			Journey.getPlayer().setMyCharacter(ch); 
-                        Dialog.HumanStart();
+                        dialog.HumanStart();
                         startGame();
                         break;
 		case 2: // get and start an existing game
                         ch.setId(2);
                         ch.setName("Elf");
-                        Dialog.PrintRace(number);
-                        System.out.println("");
+                        dialog.PrintRace(number);
+                        this.console.println("");
 			Journey.getPlayer().setMyCharacter(ch);                           
                         startGame();
 			break;
 		case 3: // display the help menu
                         ch.setId(3);
                         ch.setName("Wizard");
-                        Dialog.PrintRace(number);
-                        System.out.println("");
+                        dialog.PrintRace(number);
+                        this.console.println("");
 			Journey.getPlayer().setMyCharacter(ch);                         
                         startGame();
 			break;                
@@ -79,7 +81,7 @@ public class SelectRaceMenuView extends View{
                 
             } catch (NumberFormatException nf) {
                 
-                System.out.println("\nYou must enter a valid number" 
+                this.console.println("\nYou must enter a valid number" 
                         + "\nTry again or enter Q to quit");
                 break;
             }

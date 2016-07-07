@@ -46,16 +46,16 @@ import java.io.PrintWriter;
         //while a valid name has not been retrived
         while (!valid) {        
             //prompt for the playes's name
-            System.out.print("\n" + this.displayMessage);         
+            this.console.print("\n" + this.displayMessage);         
             try {
                 //get the value entered from the keyboard
                 value = this.keyboard.readLine();
             } catch (IOException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName() + " ",ex.getMessage());
             }
             value = value.trim();            
             if(value.length() < 1){
-                System.out.println("\n*** You must enter a value ***");
+                this.console.println("\n*** You must enter a value ***");
                 continue;
             }            
             break;             

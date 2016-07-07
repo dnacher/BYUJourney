@@ -1,6 +1,8 @@
 package citbyu.cit260.journey.control;
 
-import org.junit.Test;
+import citbyu.cit260.journey.Journey;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import static org.junit.Assert.*;
 
 /**
@@ -9,12 +11,15 @@ import static org.junit.Assert.*;
  */
 public class controlPlaceTest {
     
+    protected final BufferedReader keyboard= Journey.getInFile();
+    protected final PrintWriter console= Journey.getOutFile();
+    
     public controlPlaceTest() {
     }
 
   
     public void testEnoughLight1() {
-        System.out.println("enoughLight");
+        this.console.println("enoughLight");
         int height = 3;
         int width = 2;
         int depth = 4;
@@ -27,7 +32,7 @@ public class controlPlaceTest {
     
     
     public void testEnoughLight2() {
-        System.out.println("enoughLight");
+        this.console.println("enoughLight");
         int height = 5;
         int width = 4;
         int depth = 10;
@@ -41,7 +46,7 @@ public class controlPlaceTest {
     
      
     public void testEnoughLight3() {
-        System.out.println("enoughLight");
+        this.console.println("enoughLight");
         int height = 8;
         int width = 1;
         int depth = 1;
@@ -55,7 +60,7 @@ public class controlPlaceTest {
     
    
     public void testEnoughLight4() {
-        System.out.println("enoughLight");
+        this.console.println("enoughLight");
         int height = 0;
         int width = 40;
         int depth = 2;
@@ -69,7 +74,7 @@ public class controlPlaceTest {
     
     
     public void testEnoughLight5() {
-        System.out.println("enoughLight");
+        this.console.println("enoughLight");
         int height = -1;
         int width = 10;
         int depth = 150;
@@ -83,7 +88,7 @@ public class controlPlaceTest {
     
    
     public void testEnoughLight6() {
-        System.out.println("enoughLight");
+        this.console.println("enoughLight");
         int height = 2;
         int width = -5;
         int depth = 8;
@@ -97,7 +102,7 @@ public class controlPlaceTest {
     
  
     public void testEnoughLight7() {
-        System.out.println("enoughLight");
+        this.console.println("enoughLight");
         int height = 3;
         int width = 5;
         int depth = 5;
@@ -111,7 +116,7 @@ public class controlPlaceTest {
     
     
     public void testEnoughLight8() {
-        System.out.println("enoughLight");
+        this.console.println("enoughLight");
         int height = 2;
         int width = 40;
         int depth = -8;

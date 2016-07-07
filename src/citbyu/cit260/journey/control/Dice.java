@@ -1,6 +1,13 @@
 package citbyu.cit260.journey.control;
 
+import citbyu.cit260.journey.Journey;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+
 public class Dice {
+    
+    protected final BufferedReader keyboard=Journey.getInFile();
+    protected final PrintWriter console=Journey.getOutFile();
 
     /*public static int rollDice(int level) {
         double random = Math.random() * 100;
@@ -21,28 +28,28 @@ public class Dice {
     }
      
       //this function will roll 2 dices 
-    public static int rollDices(int level) {
+    public int rollDices(int level) {
        int total=0;
        int dice=rollDice();
-       System.out.println("Dice 1: " + dice);
+       this.console.println("Dice 1: " + dice);
        total+=dice;
        for(int i=0;i<=level;i++){
            dice=rollDice();
            int num=i+2;
-           System.out.println("Dice " + num + ": " + dice);
+           this.console.println("Dice " + num + ": " + dice);
            total+=dice;
        }        
-        System.out.println("Total: " + total );
+        this.console.println("Total: " + total );
         return total;
     }
      
      //this function will control the total mana for each roll of dices
-     public static int roll(int time, int level) {
+     public int roll(int time, int level) {
         int ret = 0;
         if (time > 0 && time % 2 == 0) {
             if (probability(60)) {
                 ret = rollDices(level) - 5;
-                System.out.println("you lose 5 points of your mana");
+                this.console.println("you lose 5 points of your mana");
             }
         } else {
             ret = rollDices(level);

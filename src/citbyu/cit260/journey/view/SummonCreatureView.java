@@ -40,7 +40,7 @@ public class SummonCreatureView extends View{
 			dOption();
 			break;
 		default:
-			System.out.println("\n*** Invalid selection *** Try again");
+			this.console.println("\n*** Invalid selection *** Try again");
 			break;
 	}
         return answer;
@@ -91,8 +91,8 @@ public class SummonCreatureView extends View{
         answer=true;
     }
     else{
-        System.out.println("you don´t have enough Mana to summon this creature");
-        System.out.println("choose another one or roll dices to add Mana");
+        this.console.println("\nyou don´t have enough Mana to summon this creature" +
+                             "choose another one or roll dices to add Mana");       
     }
     return answer;
     }

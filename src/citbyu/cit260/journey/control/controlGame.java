@@ -9,13 +9,19 @@ import citbyu.cit260.journey.enums.Warriors;
 import citbyu.cit260.journey.exceptions.ControlGameException;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.map.Item;
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class controlGame {
+    
+    protected final BufferedReader keyboard=Journey.getInFile();
+    protected final PrintWriter console=Journey.getOutFile();
+    controlPlayer cp= new controlPlayer();
     
    /* public static int bringIdPlayer(){
     
@@ -30,9 +36,9 @@ public class controlGame {
     }*/
     
     
-    public static void createNewGame(String name){      
+    public void createNewGame(String name){      
         if(name==null){
-            System.out.println("The Name cannot be null");
+            this.console.println("The Name cannot be null");
         }
         
         Player player= new Player();
@@ -195,25 +201,25 @@ public class controlGame {
       return list;
     }
     
-    public static void ReturnItemsbyLevel(int Level){
+    public void ReturnItemsbyLevel(int Level){
         for(Item item: Journey.getCurrentGame().getItems()){
             if(item.getLevel()==Level){
-                System.out.println(item.getName());
+                this.console.println(item.getName());
             }
         }
     }
     
-    public static void ReturnTotalItemsByLevel(int Level){
+    public void ReturnTotalItemsByLevel(int Level){
         int total=0;
         for(Item item: Journey.getCurrentGame().getItems()){
             if(item.getLevel()==Level){
                 total+=1;
             }
         }
-        System.out.println("The total of items with level " + Level +" is " + total);    
+        this.console.println("The total of items with level " + Level +" is " + total);    
     }
     
-    public static void returnTotalPercentage(){
+    public void returnTotalPercentage(){
       ArrayList<Item> list= new ArrayList<>();
       Item i19=new Item(18, "Bracelet", false, 3, ItemDescription.Bracelet, 3);
       list.add(i19);
@@ -237,10 +243,10 @@ public class controlGame {
         for(int i=0; i<list.size();i++){
             total=list.get(i).getDescription().getPercentage() + total;
         }
-        System.out.println("the total percentage is " + total);
+        this.console.println("the total percentage is " + total);
     }
     
-    public static boolean StillHaveItemsToFind() throws PlayerLevelControlException{
+    public boolean StillHaveItemsToFind() throws PlayerLevelControlException{
         boolean stillHave=false;
         for(Item item: Journey.getCurrentGame().getItems()){
             if(item.getLevel()==Journey.getPlayer().getLevel()){
@@ -252,17 +258,17 @@ public class controlGame {
         }
         if(!stillHave){
             try{
-                controlPlayer.updateLevel();
+                cp.updateLevel();
             }
             catch(PlayerLevelControlException pl){
-                System.out.println(pl.getMessage());
+                this.console.println(pl.getMessage());
             }
            
         }
         return stillHave;
     }  
 
-    public static Item ChooseItem() {
+    public Item ChooseItem() {
         boolean found=true;
         int number=0;
         while(found){
@@ -273,7 +279,7 @@ public class controlGame {
             Journey.getCurrentGame().getItems().get(number).setFound(true); 
             }
             catch(Exception e){
-                System.out.println("You didn´t find anything here..."); 
+                this.console.println("You didn´t find anything here..."); 
                 Item i= new Item();
                 i.setName(" ");
                 return i;
@@ -283,16 +289,16 @@ public class controlGame {
              return Journey.getCurrentGame().getItems().get(number);  
     }
     
-    public static Item looking() throws PlayerLevelControlException {
-        controlGame.StillHaveItemsToFind();
-        Item item=controlGame.ChooseItem();
-        if(controlPlayer.lookForItem(Journey.getPlayer().getLevel())){            
+    public Item looking() throws PlayerLevelControlException {
+        StillHaveItemsToFind();
+        Item item=ChooseItem();
+        if(cp.lookForItem(Journey.getPlayer().getLevel())){            
             if(item.getId()!=-1){
-                System.out.println("you find " + item.getName());
+                this.console.println("you find " + item.getName());
             }           
         }
         else{
-            System.out.println("You didn´t find anything here...");
+            this.console.println("You didn´t find anything here...");
         }
         return item;
     }

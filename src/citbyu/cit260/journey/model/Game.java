@@ -4,9 +4,10 @@ import citbyu.cit260.journey.control.ControlMap;
 import citbyu.cit260.journey.control.controlGame;
 import citbyu.cit260.journey.model.map.Item;
 import citbyu.cit260.journey.model.map.Location;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Game {
+public class Game implements Serializable{
     
      private Player player;
      private String summonCreatures;

@@ -16,6 +16,8 @@ import java.util.logging.Logger;
  */
 public class OptionPlaceMenuView extends View{
     
+    controlGame cg= new controlGame();
+    
     public OptionPlaceMenuView(){
         super("\n"
                  +"\n----------------------------------"
@@ -51,7 +53,7 @@ public class OptionPlaceMenuView extends View{
          }
 			break;	    	    
 		default:
-			System.out.println("\n*** Invalid selection *** Try again");
+			this.console.println("\n*** Invalid selection *** Try again");
 			break;
 	}        
 	return answer;
@@ -67,7 +69,7 @@ public class OptionPlaceMenuView extends View{
     }
     
      public void lookForItem() throws PlayerLevelControlException{
-       controlGame.looking();
+       cg.looking();
     }
     
 }

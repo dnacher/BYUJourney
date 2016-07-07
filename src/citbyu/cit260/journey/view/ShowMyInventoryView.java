@@ -15,11 +15,12 @@ import citbyu.cit260.journey.model.map.Item;
  */
 public class ShowMyInventoryView extends View{
     
+    controlPlayer cp= new controlPlayer();
     boolean answer=false; 
     
     public ShowMyInventoryView(){
         super("Select the number of the item you want to start using it");
-        controlPlayer.PrintInventory();
+        cp.PrintInventory();
         
     }
     
@@ -29,7 +30,7 @@ public class ShowMyInventoryView extends View{
         int number=getDoubleNumber(menuOption);        
 	       
         if(number>Journey.getPlayer().getInventory().size() || number<0 && number!=-999){
-              System.out.println("\nEnter a valid number" 
+              this.console.println("\nEnter a valid number" 
                         + "\nTry again or enter Q to quit");
         }
         else{
@@ -68,7 +69,7 @@ public class ShowMyInventoryView extends View{
                 
             } catch (NumberFormatException nf) {
                 
-                System.out.println("\nYou must enter a valid number" 
+                this.console.println("\nYou must enter a valid number" 
                         + "\nTry again or enter Q to quit");
                 break;
             }

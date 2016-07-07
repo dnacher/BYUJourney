@@ -9,8 +9,8 @@ public class Dialog {
     
     //this is the dialog of the beginning
     //this text was created with the help of this page http://patorjk.com/software/taag/
-    public static void logo(){
-        System.out.println("\n                   _______ _                 _                                              " +
+    public void logo(){
+        this.console.println("\n                   _______ _                 _                                              " +
                            "\n                  |__   __| |               | |                                             " +
                            "\n                     | |  | |__   ___       | | ___  _   _ _ __ _ __   ___ _   _            " +
                            "\n                     | |  | '_ \\ / _ \\  _   | |/ _ \\| | | | '__| '_ \\ / _ \\ | | |           " +
@@ -29,8 +29,8 @@ public class Dialog {
                 
     }
     
-    public static void description(){
-        System.out.println("\n                           All the races in Edelion are in a big danger" +
+    public void description(){
+        this.console.println("\n                           All the races in Edelion are in a big danger" +
                            "\n                    since the light stone were stolen from the great wizards." +
                            "\n" +
                            "\n               The light stone can open a portal to a new world. depending on who is" +
@@ -44,8 +44,8 @@ public class Dialog {
       
     }  
     
-    public static void HumanStart(){
-     System.out.println("\n**************************************************************" +
+    public void HumanStart(){
+     this.console.println("\n**************************************************************" +
                         "\n**************************************************************" +
                         "\n**************************************************************" +
                         "\nYou wake up outside of the big wall that protect a great city" + 
@@ -64,14 +64,14 @@ public class Dialog {
                         "\n3- No, I want to travel to the north. I ´ve never been there");     
     }
     
-    public static void noTime(){
-     System.out.println("\nwe don´t have time to explain. the orcs are atacking our city, help here or in the bridge in the north"+
+    public void noTime(){
+     this.console.println("\nwe don´t have time to explain. the orcs are atacking our city, help here or in the bridge in the north"+
                         "\n1-Ok, I´ll help you"+
                         "\n2-Well, I will Help People in the north");
     }
     
-    public static void PrintMap(){
-         System.out.println("\n                         @@,                                                                               "+
+    public void PrintMap(){
+         this.console.println("\n                         @@,                                                                               "+
          "\n                       @@` +@@:                                                                            "+
          "\n                     #@.      '@@#@@@@@@@@;.                                                               "+
          "\n                     @                    ,+@@@@@`                                                         "+
@@ -109,23 +109,23 @@ public class Dialog {
                    
     }  
     
-    public static void PrintRace(int optionMenu){
+    public void PrintRace(int optionMenu){
         
-         System.out.println("***************************************");
+         this.console.println("***************************************");
          switch(optionMenu){
             case 1:
               
               // this.console.println("*** Hello " + Journey.getPlayer().getName() + " You´re a Human now ***");
                 break;
             case 2:
-                System.out.println("*** Hello " + Journey.getPlayer().getName() + " You´re a Elf now ***");
+                this.console.println("*** Hello " + Journey.getPlayer().getName() + " You´re a Elf now ***");
                 break;
             case 3:
-                System.out.println("*** Hello " + Journey.getPlayer().getName() + " You´re a Wizard now ***");
+                this.console.println("*** Hello " + Journey.getPlayer().getName() + " You´re a Wizard now ***");
                 break;
          }         
-         System.out.println("\n***************************************"+
-                            "\n***************************************");
+         this.console.println("\n***************************************"+
+                              "\n***************************************");
     }
     
 }

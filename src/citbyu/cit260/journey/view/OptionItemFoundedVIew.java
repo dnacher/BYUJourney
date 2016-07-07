@@ -38,7 +38,7 @@ public class OptionItemFoundedVIew extends View{
         int number=getDoubleNumber(menuOption);        
 	boolean answer=false;
         if(number>3 || number<1 && number!=-999){
-              System.out.println("\nEnter a valid number" 
+              this.console.println("\nEnter a valid number" 
                         + "\nTry again or enter Q to quit");
         }
         else{
@@ -51,7 +51,7 @@ public class OptionItemFoundedVIew extends View{
                         Journey.getPlayer().getInventory().add(it);
 			return true;  
 		case 3: 
-                        System.out.println("you discard the item");
+                        this.console.println("you discard the item");
 			return true;                                      
         }
         }
@@ -68,7 +68,7 @@ public class OptionItemFoundedVIew extends View{
                 
             } catch (NumberFormatException nf) {
                 
-                System.out.println("\nYou must enter a valid option" 
+                this.console.println("\nYou must enter a valid option" 
                                  + "\nType one of the numbers in the menu"
                                  + "\nor enter Q to quit");
                 break;

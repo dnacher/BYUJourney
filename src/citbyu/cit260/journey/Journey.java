@@ -2,6 +2,7 @@ package citbyu.cit260.journey;
 
 import citbyu.cit260.journey.model.Player;
 import citbyu.cit260.journey.model.Game;
+import citbyu.cit260.journey.view.ErrorView;
 import citbyu.cit260.journey.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -94,7 +95,7 @@ public class Journey {
         }
         catch(Throwable e){
         
-            System.out.println("Exception: " + e.toString() +
+            ErrorView.display("", "Exception: " + e.toString() +
                              "\nCause: " + e.getCause() +
                              "\nMessage: " + e.getMessage());
             e.printStackTrace();
@@ -108,7 +109,7 @@ public class Journey {
                 if(Journey.logFile!=null)
                 Journey.logFile.close();
             } catch (IOException ex) {
-                System.out.println("Error closing files");
+                ErrorView.display("","Error closing files");
                 return;
             }
             

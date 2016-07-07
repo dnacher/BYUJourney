@@ -42,13 +42,13 @@ public class WizardDwarfDialogue extends View{
 	boolean answer=true;
 	switch (menuOption) {
 		case "A": //Option A
-			System.out.println(Dialogs.dwarf.getSpeach2());
+			this.console.println(Dialogs.dwarf.getSpeach2());
 			break;
 		case "B": //Option B
-			System.out.println(Dialogs.dwarf.getSpeach());
+			this.console.println(Dialogs.dwarf.getSpeach());
 			break;
 		default:
-			System.out.println("\n*** Invalid selection *** Try again");
+			this.console.println("\n*** Invalid selection *** Try again");
 			break;
 	}	
 	return answer;

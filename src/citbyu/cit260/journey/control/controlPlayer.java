@@ -8,10 +8,16 @@ import citbyu.cit260.journey.exceptions.NegativeValuesAtackException;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.map.Item;
 import citbyu.cit260.journey.view.AtackMenuView;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class controlPlayer {
+    
+     protected final BufferedReader keyboard=Journey.getInFile();
+     protected final PrintWriter console=Journey.getOutFile();
+     Dice dice= new Dice();
     
     //this function will calculate the time spend to travel from one place to another
     //the speed of a horse and a man is based on a internet research
@@ -74,10 +80,10 @@ public class controlPlayer {
     for level 4 from 27 to 36
     for level 5 from 35 to 42
     */
-    public static boolean lookForItem(int LevelPlayer){
+    public boolean lookForItem(int LevelPlayer){
         Boolean found=false;
         double levelPoints=25;
-        int points= Dice.rollDices(LevelPlayer);                
+        int points= dice.rollDices(LevelPlayer);                
         if(LevelPlayer==1){
             levelPoints+=20;
         }
@@ -156,7 +162,7 @@ public class controlPlayer {
             time=calculateTime(1, distance, false);
         }
         else{
-            System.out.println("You´re Wounded, find something to improve your health ");
+            this.console.println("You´re Wounded, find something to improve your health ");
             time=calculateTime(1, distance, true);
         }
         double currentTime=Journey.getPlayer().getTime();
@@ -291,12 +297,12 @@ public class controlPlayer {
     
     public void enemy(){
         AtackMenuView.enemyWarrior=  chooseEnemy(Journey.getPlayer().getCurrentCity(), Journey.getPlayer().getCurrentPlace()); 
-        System.out.println("Mana: " + Journey.getPlayer().getMyCharacter().getMana());
-        System.out.println(AtackMenuView.enemyWarrior.getWar().getName());
+        this.console.println("Mana: " + Journey.getPlayer().getMyCharacter().getMana());
+        this.console.println(AtackMenuView.enemyWarrior.getWar().getName());
     }
 
  
-	public static void createMap() {
+	public void createMap() {
  
 		List<String> NorthTownItemsList = new ArrayList<String>();
                 
@@ -342,27 +348,23 @@ public class controlPlayer {
 		
                 for(int i=0;i<6;i++){
                     for(int j=0;j<5;j++){
-                        System.out.println(list[i][j].toString());
+                        this.console.println(list[i][j].toString());
                     }
                 }
                
         }
         
-       public static void updateLevel() throws PlayerLevelControlException{
+       public void updateLevel() throws PlayerLevelControlException{
        
            int currentLevel=Journey.getPlayer().getLevel();
            if(currentLevel<5){
             currentLevel+=1;
             Journey.getPlayer().setLevel(currentLevel);                   
-                   System.out.println("*****You reach one more level. Congratulation********");
-                   System.out.println("***************Now you´re Level: " + Journey.getPlayer().getLevel() + " ******************");
-                   System.out.println("*****************************************************");
+                   this.console.println("*****You reach one more level. Congratulation********");
+                   this.console.println("***************Now you´re Level: " + Journey.getPlayer().getLevel() + " ******************");
+                   this.console.println("*****************************************************");
            }
-           else{
-               /*if(!Journey.getCurrentGame().isMaximumLevel()){
-                   System.out.println("*****************************************************");
-                   System.out.println("*****You reach the maximum level. Congratulation*****");
-                   System.out.println("*****************************************************");*/
+           else{              
                Journey.getCurrentGame().setMaximumLevel(true);    
                throw new PlayerLevelControlException("\n*****************************************************"
                                                     +"\n*****You reach the maximum level. Congratulation*****" +
@@ -371,24 +373,24 @@ public class controlPlayer {
                }
            }
        
-       public static void PrintInventory(){
+       public void PrintInventory(){
            int number=1;
            if(Journey.getPlayer().getInventory().size()>0){
                for(Item item: Journey.getPlayer().getInventory()){               
-               System.out.println("----------------------------");
-               System.out.println(number + ") " + item.getName());
+               this.console.println("----------------------------");
+               this.console.println(number + ") " + item.getName());
                if(item.isInUse()){
-                System.out.println("   in use");
+                this.console.println("   in use");
                }
                else{
-                System.out.println("   you´re not using it");
+                this.console.println("   you´re not using it");
                }              
-               System.out.println("----------------------------");
+               this.console.println("----------------------------");
                number+=1;
                }
            }
            else{
-               System.out.println("\nYou don´t have items in your inventory yet." +
+               this.console.println("\nYou don´t have items in your inventory yet." +
                                   "\nTo have items you´ll need to search items or fight" +
                                   "\nagainst enemies...");
            }

@@ -5,11 +5,10 @@ import citbyu.cit260.journey.control.controlGame;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.map.Item;
 import java.io.IOException;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class GameMenuView extends View{
+    
+    controlGame cg= new controlGame();
     
     public GameMenuView(){
         super(    "\n"
@@ -43,12 +42,12 @@ public class GameMenuView extends View{
            try {
                LookForItem();
            } catch (PlayerLevelControlException ex) {
-               System.out.println(ex.getMessage());
+               ErrorView.display(this.getClass().getName()+ " " ,ex.getMessage());
            }
                        controlGame.updateCount();
                     }
                     else{
-                        System.out.println("You already search here. Please search somewhere else");
+                        this.console.println("You already search here. Please search somewhere else");
                     }
 			break;
 		case "A": // display the help menu
@@ -64,24 +63,24 @@ public class GameMenuView extends View{
 			ShowMyInventory();
 			break;       
 		default:
-			System.out.println("\n*** Invalid selection *** Try again");
+			this.console.println("\n*** Invalid selection *** Try again");
 			break;
 	}	
 	return answer;
     }
     
     public void ShowItems(){    
-        System.out.println("This option will show you the total of items in a particular level");
-        System.out.println("Type a number from 0 to 4");        
+        this.console.println("\nThis option will show you the total of items in a particular level" +
+                              "\nType a number from 0 to 4");                
         String value;
         try {
             value = keyboard.readLine();
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName() + " ",ex.getMessage());
         }
         //controlGame.ReturnItemsbyLevel(value);   
         //controlGame.ReturnTotalItemsByLevel(value);        
-        controlGame.returnTotalPercentage();
+        cg.returnTotalPercentage();
     }
     
     
@@ -91,7 +90,7 @@ public class GameMenuView extends View{
             SMIV.display();                        
         }
         else{
-            System.out.println("\nYou don´t have items in your inventory yet." +
+            this.console.println("\nYou don´t have items in your inventory yet." +
                                   "\nTo have items you´ll need to search items " +
                                   "\nor fight against enemies...");
             this.display();
@@ -101,7 +100,7 @@ public class GameMenuView extends View{
     public void LookForItem() throws PlayerLevelControlException{                 
             Item i= new Item();
             i.setName("noName");
-            i=controlGame.looking();
+            i=cg.looking();
             if (i.getName()!="noName"){
                 OptionItemFoundedVIew OIFV= new OptionItemFoundedVIew(i);
                 OIFV.display();

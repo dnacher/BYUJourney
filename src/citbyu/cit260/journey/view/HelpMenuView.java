@@ -41,26 +41,26 @@ public class HelpMenuView extends View{
                         //answer=true;
 			break;
 		default:
-			System.out.println("\n*** Invalid selection *** Try again");
+			this.console.println("\n*** Invalid selection *** Try again");
 			break;
 	}	
 	return answer;
     }
     
      private void GoalGame() {
-        System.out.println("*** You will need to recover the stolen light stones. to do that you will need to travel around the world and talk to creatures in this amazing world ***");
+        this.console.println("*** You will need to recover the stolen light stones. to do that you will need to travel around the world and talk to creatures in this amazing world ***");
     }
 
     private void howToPlay() {
-	System.out.println("*** read all the option in every menu and select an option typing a correct letter ***");
+	this.console.println("*** read all the option in every menu and select an option typing a correct letter ***");
     }
 
     private void howStartNewGame() {
-	System.out.println("*** in the Main Menu type 'N' and then Enter ***");
+	this.console.println("*** in the Main Menu type 'N' and then Enter ***");
     }
 
     private void howSaveGame() {
-	System.out.println("*** in the Main Menu type 'S' and then Enter ***");
+	this.console.println("*** in the Main Menu type 'S' and then Enter ***");
     }
 
 }

@@ -59,7 +59,7 @@ public class MovePlaceMenuView2 extends View{
 			Castle();
 			break;				
 		default:
-			System.out.println("\n*** Invalid selection *** Try again");
+			this.console.println("\n*** Invalid selection *** Try again");
 			break;
 	}        
 	return answer;

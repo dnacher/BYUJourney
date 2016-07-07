@@ -67,7 +67,7 @@ public class MoveMapMenuView extends View{
 			this.southPort();                        
 			break;		
 		default:
-			System.out.println("\n*** Invalid selection *** Try again");
+			this.console.println("\n*** Invalid selection *** Try again");
 			break;
 	}	
         
@@ -84,9 +84,9 @@ private void northTown() {
         try {
             timespend = cp.addTime(num1, num2);
         } catch (CalculateTimeWayException ex) {
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName() + " ", ex.getMessage());
         }
-    System.out.println("You Spend " + timespend + " hours to travel to North Town");
+    this.console.println("You Spend " + timespend + " hours to travel to North Town");
     Journey.getPlayer().setCurrentCity(N);
     controlGame.resetCount();
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
@@ -102,9 +102,9 @@ private void dragonLand() {
         try {
             timespend = cp.addTime(num1, num2);
         } catch (CalculateTimeWayException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
         }
-    System.out.println("You Spend " + timespend + " hours to travel to Dragon Land");
+    this.console.println("You Spend " + timespend + " hours to travel to Dragon Land");
     Journey.getPlayer().setCurrentCity(D);
     controlGame.resetCount();
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
@@ -120,9 +120,9 @@ private void edelion() {
         try {
             timespend = cp.addTime(num1, num2);
         } catch (CalculateTimeWayException ex) {
-           System.out.println(ex.getMessage());
+           ErrorView.display(this.getClass().getName()+ " " ,ex.getMessage());
         }
-    System.out.println("You Spend " + timespend + " hours to travel to Edelion");
+    this.console.println("You Spend " + timespend + " hours to travel to Edelion");
     Journey.getPlayer().setCurrentCity(E);
     controlGame.resetCount();
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
@@ -138,9 +138,9 @@ private void hiddenForest() {
         try {
             timespend = cp.addTime(num1, num2);
         } catch (CalculateTimeWayException ex) {
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName()+ " ",ex.getMessage());
         }
-    System.out.println("You Spend " + timespend + " hours to travel to Hidden Forest");
+    this.console.println("You Spend " + timespend + " hours to travel to Hidden Forest");
     Journey.getPlayer().setCurrentCity(H);
     controlGame.resetCount();
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
@@ -156,9 +156,9 @@ private void etenTy() {
         try {
             timespend = cp.addTime(num1, num2);
         } catch (CalculateTimeWayException ex) {
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName() + " " ,ex.getMessage());
         }
-    System.out.println("You Spend " + timespend + " hours to travel to Eten Ty");
+    this.console.println("You Spend " + timespend + " hours to travel to Eten Ty");
     Journey.getPlayer().setCurrentCity(T);
     controlGame.resetCount();
     MovePlaceMenuView2 mpv= new MovePlaceMenuView2();
@@ -174,9 +174,9 @@ private void southPort() {
         try {
             timespend = cp.addTime(num1, num2);
         } catch (CalculateTimeWayException ex) {
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName() + " " ,ex.getMessage());
         }
-    System.out.println("You Spend " + timespend + " hours to travel to South Port");
+    this.console.println("You Spend " + timespend + " hours to travel to South Port");
     Journey.getPlayer().setCurrentCity(S);
     controlGame.resetCount();
     MovePlaceMenuView mpv= new MovePlaceMenuView();

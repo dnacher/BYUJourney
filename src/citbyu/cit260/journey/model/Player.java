@@ -3,9 +3,10 @@ import citbyu.cit260.journey.Journey;
 import static citbyu.cit260.journey.control.controlGame.createString;
 import citbyu.cit260.journey.model.characters.Character;
 import citbyu.cit260.journey.model.map.Item;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Player {
+public class Player implements Serializable{
     
     private int id;
     private String name;
