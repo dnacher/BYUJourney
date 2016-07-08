@@ -1,6 +1,7 @@
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
+import citbyu.cit260.journey.control.ControlMap;
 import citbyu.cit260.journey.control.controlGame;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.map.Item;
@@ -35,6 +36,8 @@ public class GameMenuView extends View{
 		case "M": //create and start new game
 			MoveMapMenuView mmmv= new MoveMapMenuView();
                         mmmv.display();
+                        //ControlMap cm= new ControlMap();
+                       // cm.createMap(Journey.getCurrentGame().getLocationList());
                         //ControlMap.createMap(Journey.getCurrentGame().getLocationList());
                         break;
 		case "L": // get and start an existing game

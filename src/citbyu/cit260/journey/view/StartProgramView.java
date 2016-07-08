@@ -6,12 +6,13 @@ import java.io.IOException;
 
 public class StartProgramView extends View{
     
-    Dialog dialog= new Dialog();
-    controlGame cg= new controlGame();
+    private Dialog dialog;
+    private controlGame cg;
                    
     public StartProgramView(){
-    
-        super("\n Please enter your Name: ");
+        super("Please enter your Name: ");
+        this.dialog= new Dialog();
+        this.cg= new controlGame();
         this.displayBanner();
     }
     
