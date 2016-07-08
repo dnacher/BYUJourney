@@ -46,7 +46,8 @@ import java.io.PrintWriter;
         //while a valid name has not been retrived
         while (!valid) {        
             //prompt for the playes's name
-            this.console.println(this.displayMessage);         
+           
+            this.console.println(this.displayMessage); 
             try {
                 //get the value entered from the keyboard
                 value = this.keyboard.readLine();
