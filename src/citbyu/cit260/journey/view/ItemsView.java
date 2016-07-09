@@ -7,7 +7,10 @@ package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
+import citbyu.cit260.journey.exceptions.ControlGameException;
 import citbyu.cit260.journey.model.map.Item;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -66,13 +69,15 @@ public class ItemsView extends View{
     }
     
     public void printReport(){
-    
-        this.console.println("\n\n        Item Inventory         ");
-        this.console.printf("%n%-20s%5s%8s","Name","Level"," Type ");
-        this.console.printf("%n%-20s%5s%8s","-------------------","-----","------");
-            for(Item i: Journey.getCurrentGame().getItems()){
-                this.console.printf("%n%-20s%5s%8s",i.getName(),i.getLevel(), controlGame.GetTypeName(i.getType()));                
-            }
+        String str="";        
+        try {        
+            str= controlGame.ReportItems();
+        } catch (ControlGameException ex) {
+            ex.getMessage();
+        }
+        
+        
+    this.console.print(str);
     }
     
     public void printAndSave(){

@@ -392,6 +392,21 @@ public class controlGame {
         }
     }
     
+    public static String ReportItems() throws ControlGameException{
+        String str="\n\n        Item Inventory         ";
+        str+= String.format("%n%-20s%5s%8s","Name","Level"," Type ");
+        str+=String.format("%n%-20s%5s%8s","-------------------","-----","------");        
+        try{
+        for(Item i: Journey.getCurrentGame().getItems()){
+                str+=String.format("%n%-20s%5s%8s",i.getName(),i.getLevel(), controlGame.GetTypeName(i.getType()));                
+            }
+        }
+        catch(Exception e){
+            throw new ControlGameException(e.getMessage());
+        }
+        return str;
+    }
+    
      /*
     Types:
     0 magic
