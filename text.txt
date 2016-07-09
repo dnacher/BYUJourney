@@ -1,0 +1,36 @@
+
+
+        Item Inventory         
+
+Name                Level   Type 
+------------------- -----  ------
+Diamond                 0   Magic
+Stone Dust              1   Magic
+Star Dust               2   Magic
+Crown                   3   Magic
+Fus Roh Dah             4   Magic
+Heart                   0   Spell
+Collar                  1   Spell
+Gold Stone Collar       2   Spell
+Black Gold Collar       3   Spell
+Walking Stick           4   Spell
+knife                   0   Power
+Sword                   1   Power
+Great Axe               2   Power
+Long Bow                3   Power
+WarHammer               4   Power
+Helmet                  0   Armor
+Breast Plate            1   Armor
+Shield                  2   Armor
+Bracelet                3   Armor
+Diamond Chest           4   Armor
+Map                     0     Map
+Magic Stone             1     Map
+Strength                2     Map
+Horse                   3     Map
+Great Horse             4     Map
+Obsidian                0  Search
+Black Stone             1  Search
+Bright Stone            2  Search
+Ring                    3  Search
+Silver Stone Collar     4  Search

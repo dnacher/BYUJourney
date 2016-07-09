@@ -134,13 +134,7 @@ public class ControlMap {
              Location l28= new Location("         Horse          ");
              placesList[5][3]=l28;
              Location l29= new Location("      Great Horse       ");
-             placesList[5][4]=l29;
-             for(int x=0; x<placesList.length-1;x++){
-                 for(int y=0; y<placesList.length-1;y++){
-                     Location locs=placesList[x][y];
-                     System.out.println(locs.getScene());
-                 }
-             }
+             placesList[5][4]=l29;             
              return placesList;
         }
       

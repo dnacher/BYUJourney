@@ -16,6 +16,7 @@ public class MainMenuView extends View{
                  +"\nN Start New Game"
                  +"\nG Get and Start saved Game"
                  +"\nH Get help on how to play the Game"
+                 +"\nI Items Reports"
                  +"\nS Save Game"
                  +"\nQ Quit Game"
                  +"\n----------------------------------"
@@ -39,6 +40,10 @@ public class MainMenuView extends View{
 		case "S": // save the current game
 			this.saveGame();                        
 			break;
+                case "I": // save the current game
+			this.saveItems();
+			break;
+		
 		default:
 			this.console.println("\n*** Invalid selection *** Try again");
 			break;
@@ -79,6 +84,12 @@ private void saveGame() {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
 }
+
+private void saveItems() {
+    ItemsView iv= new ItemsView();
+    iv.display();
+}
+
 
 private void displayHelpMenu() {        
         HelpMenuView hmv= new HelpMenuView();

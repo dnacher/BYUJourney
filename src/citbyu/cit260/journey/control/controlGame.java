@@ -12,6 +12,8 @@ import citbyu.cit260.journey.model.map.Item;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
@@ -341,4 +343,86 @@ public class controlGame {
         Journey.setCurrentGame(game);
     }
     
-}
+    public static void saveItems(String filePath) throws ControlGameException {
+                 
+            FileWriter outfile= null;
+            ObjectOutputStream output =null;
+        try{
+            outfile=new FileWriter(filePath);
+            outfile.write("\r\nName" + "           " + "Level");
+            outfile.write("\r\n---------------" + "-----");
+            for(Item i: Journey.getCurrentGame().getItems()){
+                outfile.write("\r\n" + i.getName() + "     " + i.getLevel());                                              
+            }            
+            outfile.flush();            
+        }
+        catch(Exception e) {
+            throw new ControlGameException(e.getMessage());
+        }        
+        finally{
+            if(outfile!=null){
+                try {
+                    outfile.close();
+                    
+                } catch (IOException e) {
+                    throw new ControlGameException(e.getMessage());
+                }
+            }
+        }
+    }
+    
+    public static void printItemsReport(String ouputLocation)throws ControlGameException{
+        PrintWriter out=null;
+        try{
+            out= new PrintWriter(ouputLocation);
+            out.println("\n\n        Item Inventory         ");
+            out.printf("%n%-20s%5s%8s","Name","Level"," Type ");
+            out.printf("%n%-20s%5s%8s","-------------------","-----","------");
+            for(Item i: Journey.getCurrentGame().getItems()){
+                out.printf("%n%-20s%5s%8s",i.getName(),i.getLevel(), GetTypeName(i.getType()));                
+            }            
+        }
+        catch(IOException e){
+            throw new ControlGameException(e.getMessage());
+        }
+        finally{
+            if(out!=null){
+                out.close();
+            }
+        }
+    }
+    
+     /*
+    Types:
+    0 magic
+    1 spell
+    2 power
+    3 armor
+    4 map
+    5 search*/
+    public static String GetTypeName(int type){
+        String Type="";
+        switch(type){
+            case 0:
+                Type="Magic";
+                break;
+            case 1:
+                Type="Spell";
+                break;
+            case 2:
+                Type="Power";
+                break;
+            case 3:
+                Type="Armor";
+                break;
+            case 4:
+                Type="Map";
+                break;
+            case 5:
+                Type="Search";
+                break;
+        }
+        return Type;
+        }
+    }
+    

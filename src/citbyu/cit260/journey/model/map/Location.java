@@ -10,6 +10,8 @@ public class Location implements Serializable{
     private String name; 
     private ArrayList locationList;
     private boolean isVisited;
+
+    
     private String scene;
     
     public ArrayList getLocationList() {
