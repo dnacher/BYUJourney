@@ -349,11 +349,12 @@ public class controlGame {
             ObjectOutputStream output =null;
         try{
             outfile=new FileWriter(filePath);
-            outfile.write("\r\nName" + "           " + "Level");
+            outfile.write(ReportItems());
+          /*  outfile.write("\r\nName" + "           " + "Level");
             outfile.write("\r\n---------------" + "-----");
             for(Item i: Journey.getCurrentGame().getItems()){
                 outfile.write("\r\n" + i.getName() + "     " + i.getLevel());                                              
-            }            
+            }  */          
             outfile.flush();            
         }
         catch(Exception e) {
