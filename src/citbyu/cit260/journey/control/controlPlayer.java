@@ -45,7 +45,7 @@ public class controlPlayer {
     }
     
     public int substractPositive(int num1, int num2){
-        int total=0;
+        int total;
         if(num1>=num2){
             total=num1-num2;
         }
@@ -317,8 +317,6 @@ public class controlPlayer {
 
  
 	public void createMap() {
- 
-		List<String> NorthTownItemsList = new ArrayList<String>();
                 
                 String[][] list= new String[6][5];
                 list[0][0]="Sword";
@@ -351,20 +349,6 @@ public class controlPlayer {
                 list[5][2]="Strength";
                 list[5][3]="Horse";
                 list[5][4]="Great Horse";
-                
-                
-		NorthTownItemsList.add("Sword");
-		NorthTownItemsList.add("Shield");
-		NorthTownItemsList.add("Peto");
-		NorthTownItemsList.add("Helmet");
-		NorthTownItemsList.add("Great Axe");
- 
-		
-                for(int i=0;i<6;i++){
-                    for(int j=0;j<5;j++){
-                        this.console.println(list[i][j].toString());
-                    }
-                }
                
         }
         
