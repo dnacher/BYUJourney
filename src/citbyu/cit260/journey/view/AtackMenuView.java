@@ -8,6 +8,7 @@ package citbyu.cit260.journey.view;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.Dice;
 import citbyu.cit260.journey.control.controlPlayer;
+import citbyu.cit260.journey.enums.Types;
 import citbyu.cit260.journey.exceptions.NegativeValuesAtackException;
 import citbyu.cit260.journey.model.characters.Warrior;
 
@@ -99,7 +100,8 @@ private void atack() {
                 this.console.println(ex.getMessage());
             }   
             try {
-                w.setCurrentHp(cp.attack(enemyWarrior.getWar().getPower(), w.getWar().getArmor(), w.getCurrentHp()));
+                double armor=w.getWar().getArmor()*cp.calculateItems(Types.Armor);
+                w.setCurrentHp(cp.attack(enemyWarrior.getWar().getPower(), (int)armor, w.getCurrentHp()));
             } catch (NegativeValuesAtackException ex) {
                 this.console.println(ex.getMessage());
             }
@@ -126,7 +128,8 @@ private void withdraw() {
    if(Dice.probability(50)){
        this.console.println("The Enemy got you before you could withdraw");
        try {
-           w.setCurrentHp(cp.attack(enemyWarrior.getWar().getPower(), enemyWarrior.getWar().getArmor(), w.getCurrentHp()));
+           double armor=w.getWar().getArmor()*cp.calculateItems(Types.Armor);
+           w.setCurrentHp(cp.attack(enemyWarrior.getWar().getPower(), (int)armor, w.getCurrentHp()));
        } catch (NegativeValuesAtackException ex) {
           this.console.println(ex.getMessage());
        }
