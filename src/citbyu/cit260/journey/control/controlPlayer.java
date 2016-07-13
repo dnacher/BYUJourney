@@ -6,9 +6,13 @@ import citbyu.cit260.journey.enums.Warriors;
 import citbyu.cit260.journey.exceptions.CalculateTimeWayException;
 import citbyu.cit260.journey.exceptions.NegativeValuesAtackException;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
+import citbyu.cit260.journey.exceptions.controlPlayerException;
 import citbyu.cit260.journey.model.map.Item;
 import citbyu.cit260.journey.view.AtackMenuView;
 import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -395,7 +399,72 @@ public class controlPlayer {
                                   "\nagainst enemies...");
            }
            
-       }
-       
+    
+
+
+/*public static void saveEnemies(String filePath) throws controlPlayerException {
+                 
+            FileWriter outfile= null;
+            ObjectOutputStream output =null;
+        try{
+            outfile=new FileWriter(filePath);
+            outfile.write(ReportEnemies());
+          
+            outfile.flush();            
+        }
+        catch(Exception e) {
+            throw new controlPlayerException(e.getMessage());
+        }        
+        finally{
+            if(outfile!=null){
+                try {
+                    outfile.close();
+        //            
+                } catch (IOException e) {
+                    throw new controlPlayerException(e.getMessage());
+                }
+            }
+        }
+    }
+    
+    public static void printEnemiesReport(String ouputLocation)throws controlPlayerException{
+        PrintWriter out=null;
+        try{
+            out= new PrintWriter(ouputLocation);
+            out.println("\n\n        Enemies List         ");
+            out.printf("%n%-20s%4s%4s%4s%4s","Name","Power"," Armor ","Life","Mana");
+            out.printf("%n%-20s%4s%4s%4s%4s","-------------------","-----","------","-----","------");
+            Warriors[]list = Warriors.values();
+            for(Warriors i: list){
+                out.printf("%n%-20s%4s%4s%4s%4s",i.getName(),i.getPower(), i.getArmor(), i.getLife(), i.getMana());                
+            }            
+        }
+        catch(IOException e){
+            throw new controlPlayerException(e.getMessage());
+        }
+        finally{
+            if(out!=null){
+                out.close();
+            }
+        }
+    }
+    
+    public static String ReportEnemies() throws controlPlayerException{
+        String str="\n\n        Enemies List         ";
+        str+= String.format("%n%-20s%4s%4s%4s%4s","Name","Power"," Armor ","Life","Mana");
+        str+=String.format("%n%-20s%4s%4s%4s%4s","-------------------","-----","------","-----","------");        
+        Warriors[]list = Warriors.values();
+        try{
+            for(Warriors i: list){
+                str+=String.format("%n%-20s%4s%4s%4s%4s",i.getName(),i.getPower(), i.getArmor(), i.getLife(), i.getMana());                
+            }
+        }
+        catch(Exception e){
+            throw new controlPlayerException(e.getMessage());
+        }
+        return str;
+    }
+    
+    */   
 } 
   
