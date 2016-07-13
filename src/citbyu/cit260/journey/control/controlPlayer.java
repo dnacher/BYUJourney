@@ -427,35 +427,31 @@ public class controlPlayer {
                this.console.println("\nYou don´t have items in your inventory yet." +
                                   "\nTo have items you´ll need to search items or fight" +
                                   "\nagainst enemies...");
-           }
-           
-    
-
-
-/*public static void saveEnemies(String filePath) throws controlPlayerException {
-                 
-            FileWriter outfile= null;
-            ObjectOutputStream output =null;
-        try{
-            outfile=new FileWriter(filePath);
-            outfile.write(ReportEnemies());
-          
-            outfile.flush();            
-        }
-        catch(Exception e) {
-            throw new controlPlayerException(e.getMessage());
-        }        
-        finally{
-            if(outfile!=null){
-                try {
-                    outfile.close();
-        //            
-                } catch (IOException e) {
-                    throw new controlPlayerException(e.getMessage());
-                }
-            }
-        }
+           } 
     }
+       
+       public static void saveEnemies(String filePath) throws controlPlayerException{
+           FileWriter outfile=null;
+           ObjectOutputStream ouput=null;
+           try{
+               outfile= new FileWriter(filePath);
+               outfile.write(ReportEnemies());
+               outfile.flush();
+           }
+           catch(Exception e){
+               throw new controlPlayerException(e.getMessage());
+           }
+           finally{
+               if(outfile!=null){
+                   try{
+                    outfile.close();
+                   }
+                   catch(IOException e){
+                       throw new controlPlayerException(e.getMessage());
+                   } 
+               }
+           }
+       }
     
     public static void printEnemiesReport(String ouputLocation)throws controlPlayerException{
         PrintWriter out=null;
@@ -495,6 +491,6 @@ public class controlPlayer {
         return str;
     }
     
-    */   
+       
 } 
   
