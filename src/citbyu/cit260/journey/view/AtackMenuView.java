@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
@@ -34,7 +29,7 @@ public class AtackMenuView extends View{
                  +"\nS Summon Creature"
                  +"\nA Atack"
                  +"\nW Withdraw"
-                 +"\nU Use/add Item"
+                 +"\nU Use Item"
                  +"\n----------------------------------"
                  +"\nQ Return Main Menu"
                  +"\n");         
@@ -67,8 +62,7 @@ public class AtackMenuView extends View{
                     }
                     else{
                         this.console.println("you already have a creature");
-                    }
-		
+                    }		
                         break;
 		case "A": //create and start new game
 			atack();
@@ -77,7 +71,7 @@ public class AtackMenuView extends View{
 			withdraw();                        
 			break;
 		case "U": // display the help menu
-			spell();                        
+			ShowMyInventory();                       
 			break;
 		default:
 			this.console.println("\n*** Invalid selection *** Try again");
@@ -150,9 +144,6 @@ private void withdraw() {
     }
 }
 
-private void spell() {   
-   
-}
 
 private void Summon(){
     addMana();
@@ -171,4 +162,17 @@ public void addMana(){
 private void displayMainMenuView() {
 	this.display();
 }
+
+public void ShowMyInventory(){
+        if(Journey.getPlayer().getInventory().size()>0){
+            ShowMyInventoryView SMIV= new ShowMyInventoryView();
+            SMIV.display();                        
+        }
+        else{
+            this.console.println("\nYou don´t have items in your inventory yet." +
+                                  "\nTo have items you´ll need to search items " +
+                                  "\nor fight against enemies...");
+            this.display();
+        }       
+    }
 }

@@ -4,7 +4,6 @@ import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.map.Item;
-import java.io.IOException;
 
 public class GameMenuView extends View{
     
@@ -19,9 +18,8 @@ public class GameMenuView extends View{
                  +"\nM Display Map"
                  +"\nL Look for Items"
                  +"\nA Atack" 
-                 +"\nS Save Game"
-                 +"\nH Show items "
-                + "\nI Show my Inventory and use an item"
+                 +"\nS Save Game"                 
+                + "\nI Show my Inventory and start using an item"
                  +"\n----------------------------------"
                  +"\nQ Return Main Menu"
                  +"\n");
@@ -32,36 +30,31 @@ public class GameMenuView extends View{
        menuOption = menuOption.toUpperCase();
 	boolean answer=false;
 	switch (menuOption) {
-		case "M": //create and start new game
+		case "M":
 			MoveMapMenuView mmmv= new MoveMapMenuView();
-                        mmmv.display();
-                        //ControlMap cm= new ControlMap();
-                       // cm.createMap(Journey.getCurrentGame().getLocationList());
-                        //ControlMap.createMap(Journey.getCurrentGame().getLocationList());
+                        mmmv.display();                       
                         break;
-		case "L": // get and start an existing game
+		case "L": 
                     if(Journey.getCurrentGame().getCount()<3){
-           try {
-               LookForItem();
-           } catch (PlayerLevelControlException ex) {
-               ErrorView.display(this.getClass().getName()+ " " ,ex.getMessage());
-           }
-                       controlGame.updateCount();
+                        try {
+                            LookForItem();
+                        } 
+                        catch (PlayerLevelControlException ex) {
+                            ErrorView.display(this.getClass().getName()+ " " ,ex.getMessage());
+                        }
+                    controlGame.updateCount();
                     }
                     else{
                         this.console.println("You already search here. Please search somewhere else");
                     }
 			break;
-		case "A": // display the help menu
-			                       
+		case "A": 
+			atack();                       
 			break;	
-                case "S": // display the help menu
-			                       
-			break;	
-                case "H": // display the help menu
-			ShowItems();
-			break;   
-                case "I": // display the help menu
+                case "S": 
+			this.saveGame();                       
+			break;
+                case "I": 
 			ShowMyInventory();
 			break;       
 		default:
@@ -70,21 +63,6 @@ public class GameMenuView extends View{
 	}	
 	return answer;
     }
-    
-    public void ShowItems(){    
-        this.console.println("\nThis option will show you the total of items in a particular level" +
-                              "\nType a number from 0 to 4");                
-        String value;
-        try {
-            value = keyboard.readLine();
-        } catch (IOException ex) {
-            ErrorView.display(this.getClass().getName() + " ",ex.getMessage());
-        }
-        //controlGame.ReturnItemsbyLevel(value);   
-        //controlGame.ReturnTotalItemsByLevel(value);        
-        cg.returnTotalPercentage();
-    }
-    
     
     public void ShowMyInventory(){
         if(Journey.getPlayer().getInventory().size()>0){
@@ -110,6 +88,24 @@ public class GameMenuView extends View{
             else{
                 this.display();
             }            
+    }
+    
+    private void saveGame() {
+        
+        this.console.println("\n\nEnter the file path for file where the game"
+                                + "is to be saved");
+        String filePath = this.getInput();
+        
+        try {
+            controlGame.saveGame(Journey.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+    }
+    
+     public void atack(){
+        AtackMenuView amv= new AtackMenuView();
+        amv.display();
     }
     
 }
