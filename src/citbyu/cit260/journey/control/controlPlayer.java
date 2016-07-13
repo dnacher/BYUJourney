@@ -1,6 +1,7 @@
 package citbyu.cit260.journey.control;
 
 import citbyu.cit260.journey.Journey;
+import citbyu.cit260.journey.enums.Types;
 import citbyu.cit260.journey.model.characters.Warrior;
 import citbyu.cit260.journey.enums.Warriors;
 import citbyu.cit260.journey.exceptions.CalculateTimeWayException;
@@ -101,7 +102,7 @@ public class controlPlayer {
     public boolean handleWeight(double totalWeight, double currentWeight, int LevelPlayer){
         boolean enable=false;
         int min=20;
-        double total=0;
+        double total;
         if(currentWeight<0){
             return false;
         }
@@ -133,31 +134,60 @@ public class controlPlayer {
     
     }
     
-    public int attack(boolean lucky, int power, int armor, double life) throws NegativeValuesAtackException{
-       double totalAttack = 0;
-       int currentLife=(int) life;
+    public int attack(int power, int armor, double life) throws NegativeValuesAtackException{
+       double totalAttack;
+       int currentLife;
        if(power<0 || armor<0 || life<0){
            throw new NegativeValuesAtackException("\n the power, life or the armor have a negative value.");
-       }
-       if (lucky){
-           totalAttack=power*1.25;           
-       }
-       else{
-           totalAttack=power;
-       }
+       }       
+           totalAttack=power*calculateItems(Types.Power);       
        currentLife=(int) (life-(totalAttack-armor));      
        return currentLife;    
        }
     
-    public boolean getLucky(){
-        boolean lucky=Dice.probability(50);
-        return lucky;
+    public double calculateItems(Types type){
+    int num=0;
+    for(Item i: Journey.getPlayer().getInventory()){        
+        if(i.getType()==type.getValue()){
+            if(i.isInUse()){
+                num+=1;
+            }            
+        }
+        switch(num){
+            case 1:
+                num=15;
+                console.println("You have 15% more for your items in use");
+                break;
+            case 2:
+                num=25;
+                console.println("You have 25% more for your items in use");
+                break;
+            case 3:
+                num=40;
+                console.println("You have 40% more for your items in use");
+                break;
+            case 4:
+                num=60;
+                console.println("You have 60% more for your items in use");
+                break;
+            case 5:
+                num=75;
+                console.println("You have 75% more for your items in use");
+                break;
+            case 6:
+                num=100;
+                console.println("You have 100% more for your items in use");
+                break;                
+        }
+    }
+    double ret=(num/100)+1;
+    return ret;
     }
     
     public double addTime(int num1, int num2) throws CalculateTimeWayException{
         double distance=substractPositive(num1, num2);
         //****************************************************************now there is only one way to go "1" 
-        double time=0;
+        double time;
         if(Journey.getPlayer().getMyCharacter().getcurrentHp()>50){
             time=calculateTime(1, distance, false);
         }

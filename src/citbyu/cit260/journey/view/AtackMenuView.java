@@ -16,12 +16,7 @@ import citbyu.cit260.journey.model.characters.Warrior;
  * @author Dani-Fla-Mathi
  */
 public class AtackMenuView extends View{
-        
-    
-    private boolean lucky;   
-    private boolean enemyLucky;
-    
-    
+ 
     public static Warrior w;       
     public static Warrior enemyWarrior;     
     private final controlPlayer cp= new controlPlayer();
@@ -97,16 +92,14 @@ private void atack() {
               this.console.println("You lose");  
             }
         }
-        else{
-    lucky=cp.getLucky();    
+        else{     
             try {
-                enemyWarrior.setCurrentHp(cp.attack(lucky, w.getWar().getPower(), enemyWarrior.getWar().getArmor(), enemyWarrior.getCurrentHp()));
+                enemyWarrior.setCurrentHp(cp.attack(w.getWar().getPower(), enemyWarrior.getWar().getArmor(), enemyWarrior.getCurrentHp()));
             } catch (NegativeValuesAtackException ex) {
                 this.console.println(ex.getMessage());
-            }
-    enemyLucky=cp.getLucky();
+            }   
             try {
-                w.setCurrentHp(cp.attack(enemyLucky, enemyWarrior.getWar().getPower(), w.getWar().getArmor(), w.getCurrentHp()));
+                w.setCurrentHp(cp.attack(enemyWarrior.getWar().getPower(), w.getWar().getArmor(), w.getCurrentHp()));
             } catch (NegativeValuesAtackException ex) {
                 this.console.println(ex.getMessage());
             }
@@ -132,9 +125,8 @@ private void withdraw() {
     if(w!=null){
    if(Dice.probability(50)){
        this.console.println("The Enemy got you before you could withdraw");
-       enemyLucky=cp.getLucky();
        try {
-           w.setCurrentHp(cp.attack(enemyLucky, enemyWarrior.getWar().getPower(), enemyWarrior.getWar().getArmor(), w.getCurrentHp()));
+           w.setCurrentHp(cp.attack(enemyWarrior.getWar().getPower(), enemyWarrior.getWar().getArmor(), w.getCurrentHp()));
        } catch (NegativeValuesAtackException ex) {
           this.console.println(ex.getMessage());
        }
