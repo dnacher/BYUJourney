@@ -26,40 +26,21 @@ public class controlPlayer {
     
     //this function will calculate the time spend to travel from one place to another
     //the speed of a horse and a man is based on a internet research
-    public double calculateTime(int way, double distance, boolean wounded) throws CalculateTimeWayException{
-	int manSpeed=5;
-	int horseSpeed=14;
+    public double calculateTime(double distance, boolean wounded) throws CalculateTimeWayException{
+	int Speed=5;	
 	double Total=0;
     if(distance>=0){
-        if(wounded){
-            if(way==1){
-		Total=distance/manSpeed;
+        if(wounded){           
+		Total=distance/Speed*calculateItems(Types.Map);
                 Total=Total*1.2;
-            }
-            else if(way==2){
-		Total=distance/horseSpeed;
-                Total=Total*1.2;
-            }
-            else{
-		throw new CalculateTimeWayException("There was a problem with the id of your way to move through the map");
-            }        
         }
         else{
-        if(way==1){
-		Total=distance/manSpeed;
-	}
-        else if(way==2){
-		Total=distance/horseSpeed;
-	}
-	else{
-		throw new CalculateTimeWayException("There was a problem with the id of your way to move through the map");
-	}        
-        }
-	
+            Total=distance/Speed;
+        }     
     }
     else{
-	Total =-1;
-    }
+	throw new CalculateTimeWayException("There was a problem with the id of your way to move through the map");
+    }	
     return Total;
     }
     
@@ -189,15 +170,14 @@ public class controlPlayer {
     }
     
     public double addTime(int num1, int num2) throws CalculateTimeWayException{
-        double distance=substractPositive(num1, num2);
-        //****************************************************************now there is only one way to go "1" 
+        double distance=substractPositive(num1, num2);         
         double time;
         if(Journey.getPlayer().getMyCharacter().getcurrentHp()>50){
-            time=calculateTime(1, distance, false);
+            time=calculateTime(distance, false);
         }
         else{
             this.console.println("You´re Wounded, find something to improve your health ");
-            time=calculateTime(1, distance, true);
+            time=calculateTime(distance, true);
         }
         double currentTime=Journey.getPlayer().getTime();
         double totalTime=time+currentTime;
