@@ -221,33 +221,6 @@ public class controlGame {
         this.console.println("The total of items with level " + Level +" is " + total);    
     }
     
-    public void returnTotalPercentage(){
-      ArrayList<Item> list= new ArrayList<>();
-      Item i19=new Item(18, "Bracelet", false, 3, ItemDescription.Bracelet, 3);
-      list.add(i19);
-      Item i20=new Item(19, "Diamond Chest", false, 4, ItemDescription.DiamondChest, 3);
-      list.add(i20);
-      Item i5=new Item(4, "Fus Roh Dah", false, 4, ItemDescription.FusRohDah, 0);
-      list.add(i5);
-      Item i6=new Item(5, "Heart", false, 0, ItemDescription.Heart, 1);
-      list.add(i6);
-      Item i7=new Item(6, "Collar", false, 1, ItemDescription.Collar, 1);
-      list.add(i7);
-      Item i23=new Item(22, "Strength", false, 2, ItemDescription.Strength, 4);
-      list.add(i23);
-      Item i24=new Item(23, "Horse", false, 3, ItemDescription.Horse, 4);
-      list.add(i24);
-      Item i25=new Item(24, "Great Horse", false, 4, ItemDescription.GreatHorse, 4);
-      list.add(i25);
-      Item i26=new Item(25, "Obsidian", false, 0, ItemDescription.Obsidian, 5);
-      list.add(i26);
-        int total=0;
-        for(int i=0; i<list.size();i++){
-            total=list.get(i).getDescription().getPercentage() + total;
-        }
-        this.console.println("the total percentage is " + total);
-    }
-    
     public boolean StillHaveItemsToFind() throws PlayerLevelControlException{
         boolean stillHave=false;
         for(Item item: Journey.getCurrentGame().getItems()){
@@ -296,7 +269,8 @@ public class controlGame {
         Item item=ChooseItem();
         if(cp.lookForItem(Journey.getPlayer().getLevel())){            
             if(item.getId()!=-1){
-                this.console.println("you find " + item.getName());
+                this.console.println("you find " + item.getName());               
+                this.console.println(item.getDescription().getDescription());
             }           
         }
         else{
@@ -349,12 +323,7 @@ public class controlGame {
             ObjectOutputStream output =null;
         try{
             outfile=new FileWriter(filePath);
-            outfile.write(ReportItems());
-          /*  outfile.write("\r\nName" + "           " + "Level");
-            outfile.write("\r\n---------------" + "-----");
-            for(Item i: Journey.getCurrentGame().getItems()){
-                outfile.write("\r\n" + i.getName() + "     " + i.getLevel());                                              
-            }  */          
+            outfile.write(ReportItems());         
             outfile.flush();            
         }
         catch(Exception e) {

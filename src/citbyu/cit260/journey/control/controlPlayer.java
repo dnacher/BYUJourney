@@ -1,14 +1,19 @@
 package citbyu.cit260.journey.control;
 
 import citbyu.cit260.journey.Journey;
+import citbyu.cit260.journey.enums.Types;
 import citbyu.cit260.journey.model.characters.Warrior;
 import citbyu.cit260.journey.enums.Warriors;
 import citbyu.cit260.journey.exceptions.CalculateTimeWayException;
 import citbyu.cit260.journey.exceptions.NegativeValuesAtackException;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
+import citbyu.cit260.journey.exceptions.controlPlayerException;
 import citbyu.cit260.journey.model.map.Item;
 import citbyu.cit260.journey.view.AtackMenuView;
 import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,45 +26,26 @@ public class controlPlayer {
     
     //this function will calculate the time spend to travel from one place to another
     //the speed of a horse and a man is based on a internet research
-    public double calculateTime(int way, double distance, boolean wounded) throws CalculateTimeWayException{
-	int manSpeed=5;
-	int horseSpeed=14;
+    public double calculateTime(double distance, boolean wounded) throws CalculateTimeWayException{
+	int Speed=5;	
 	double Total=0;
     if(distance>=0){
-        if(wounded){
-            if(way==1){
-		Total=distance/manSpeed;
+        if(wounded){           
+		Total=distance/Speed*calculateItems(Types.Map);
                 Total=Total*1.2;
-            }
-            else if(way==2){
-		Total=distance/horseSpeed;
-                Total=Total*1.2;
-            }
-            else{
-		throw new CalculateTimeWayException("There was a problem with the id of your way to move through the map");
-            }        
         }
         else{
-        if(way==1){
-		Total=distance/manSpeed;
-	}
-        else if(way==2){
-		Total=distance/horseSpeed;
-	}
-	else{
-		throw new CalculateTimeWayException("There was a problem with the id of your way to move through the map");
-	}        
-        }
-	
+            Total=distance/Speed;
+        }     
     }
     else{
-	Total =-1;
-    }
+	throw new CalculateTimeWayException("There was a problem with the id of your way to move through the map");
+    }	
     return Total;
     }
     
     public int substractPositive(int num1, int num2){
-        int total=0;
+        int total;
         if(num1>=num2){
             total=num1-num2;
         }
@@ -101,7 +87,7 @@ public class controlPlayer {
     public boolean handleWeight(double totalWeight, double currentWeight, int LevelPlayer){
         boolean enable=false;
         int min=20;
-        double total=0;
+        double total;
         if(currentWeight<0){
             return false;
         }
@@ -133,37 +119,65 @@ public class controlPlayer {
     
     }
     
-    public int attack(boolean lucky, int power, int armor, double life) throws NegativeValuesAtackException{
-       double totalAttack = 0;
-       int currentLife=(int) life;
+    public int attack(int power, int armor, double life) throws NegativeValuesAtackException{
+       double totalAttack;
+       int currentLife;
        if(power<0 || armor<0 || life<0){
            throw new NegativeValuesAtackException("\n the power, life or the armor have a negative value.");
-       }
-       if (lucky){
-           totalAttack=power*1.25;           
-       }
-       else{
-           totalAttack=power;
-       }
+       }       
+           totalAttack=power*calculateItems(Types.Power);       
        currentLife=(int) (life-(totalAttack-armor));      
        return currentLife;    
        }
     
-    public boolean getLucky(){
-        boolean lucky=Dice.probability(50);
-        return lucky;
+    public double calculateItems(Types type){
+    int num=0;
+    for(Item i: Journey.getPlayer().getInventory()){        
+        if(i.getType()==type.getValue()){
+            if(i.isInUse()){
+                num+=1;
+            }            
+        }
+        switch(num){
+            case 1:
+                num=15;
+                console.println("You have 15% more for your items in use");
+                break;
+            case 2:
+                num=25;
+                console.println("You have 25% more for your items in use");
+                break;
+            case 3:
+                num=40;
+                console.println("You have 40% more for your items in use");
+                break;
+            case 4:
+                num=60;
+                console.println("You have 60% more for your items in use");
+                break;
+            case 5:
+                num=75;
+                console.println("You have 75% more for your items in use");
+                break;
+            case 6:
+                num=100;
+                console.println("You have 100% more for your items in use");
+                break;                
+        }
+    }
+    double ret=(num/100)+1;
+    return ret;
     }
     
     public double addTime(int num1, int num2) throws CalculateTimeWayException{
-        double distance=substractPositive(num1, num2);
-        //****************************************************************now there is only one way to go "1" 
-        double time=0;
+        double distance=substractPositive(num1, num2);         
+        double time;
         if(Journey.getPlayer().getMyCharacter().getcurrentHp()>50){
-            time=calculateTime(1, distance, false);
+            time=calculateTime(distance, false);
         }
         else{
             this.console.println("You´re Wounded, find something to improve your health ");
-            time=calculateTime(1, distance, true);
+            time=calculateTime(distance, true);
         }
         double currentTime=Journey.getPlayer().getTime();
         double totalTime=time+currentTime;
@@ -303,8 +317,6 @@ public class controlPlayer {
 
  
 	public void createMap() {
- 
-		List<String> NorthTownItemsList = new ArrayList<String>();
                 
                 String[][] list= new String[6][5];
                 list[0][0]="Sword";
@@ -337,20 +349,6 @@ public class controlPlayer {
                 list[5][2]="Strength";
                 list[5][3]="Horse";
                 list[5][4]="Great Horse";
-                
-                
-		NorthTownItemsList.add("Sword");
-		NorthTownItemsList.add("Shield");
-		NorthTownItemsList.add("Peto");
-		NorthTownItemsList.add("Helmet");
-		NorthTownItemsList.add("Great Axe");
- 
-		
-                for(int i=0;i<6;i++){
-                    for(int j=0;j<5;j++){
-                        this.console.println(list[i][j].toString());
-                    }
-                }
                
         }
         
@@ -393,9 +391,70 @@ public class controlPlayer {
                this.console.println("\nYou don´t have items in your inventory yet." +
                                   "\nTo have items you´ll need to search items or fight" +
                                   "\nagainst enemies...");
+           } 
+    }
+       
+       public static void saveEnemies(String filePath) throws controlPlayerException{
+           FileWriter outfile=null;
+           ObjectOutputStream ouput=null;
+           try{
+               outfile= new FileWriter(filePath);
+               outfile.write(ReportEnemies());
+               outfile.flush();
            }
-           
+           catch(Exception e){
+               throw new controlPlayerException(e.getMessage());
+           }
+           finally{
+               if(outfile!=null){
+                   try{
+                    outfile.close();
+                   }
+                   catch(IOException e){
+                       throw new controlPlayerException(e.getMessage());
+                   } 
+               }
+           }
        }
+    
+    public static void printEnemiesReport(String ouputLocation)throws controlPlayerException{
+        PrintWriter out=null;
+        try{
+            out= new PrintWriter(ouputLocation);
+            out.println("\n\n        Enemies List         ");
+            out.printf("%n%-20s%4s%4s%4s%4s","Name","Power"," Armor ","Life","Mana");
+            out.printf("%n%-20s%4s%4s%4s%4s","-------------------","-----","------","-----","------");
+            Warriors[]list = Warriors.values();
+            for(Warriors i: list){
+                out.printf("%n%-20s%4s%4s%4s%4s",i.getName(),i.getPower(), i.getArmor(), i.getLife(), i.getMana());                
+            }            
+        }
+        catch(IOException e){
+            throw new controlPlayerException(e.getMessage());
+        }
+        finally{
+            if(out!=null){
+                out.close();
+            }
+        }
+    }
+    
+    public static String ReportEnemies() throws controlPlayerException{
+        String str="\n\n        Enemies List         ";
+        str+= String.format("%n%-20s%4s%4s%4s%4s","Name","Power"," Armor ","Life","Mana");
+        str+=String.format("%n%-20s%4s%4s%4s%4s","-------------------","-----","------","-----","------");        
+        Warriors[]list = Warriors.values();
+        try{
+            for(Warriors i: list){
+                str+=String.format("%n%-20s%4s%4s%4s%4s",i.getName(),i.getPower(), i.getArmor(), i.getLife(), i.getMana());                
+            }
+        }
+        catch(Exception e){
+            throw new controlPlayerException(e.getMessage());
+        }
+        return str;
+    }
+    
        
 } 
   

@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.Dice;
 import citbyu.cit260.journey.control.controlPlayer;
+import citbyu.cit260.journey.enums.Types;
 import citbyu.cit260.journey.exceptions.NegativeValuesAtackException;
 import citbyu.cit260.journey.model.characters.Warrior;
 
@@ -16,12 +12,7 @@ import citbyu.cit260.journey.model.characters.Warrior;
  * @author Dani-Fla-Mathi
  */
 public class AtackMenuView extends View{
-        
-    
-    private boolean lucky;   
-    private boolean enemyLucky;
-    
-    
+ 
     public static Warrior w;       
     public static Warrior enemyWarrior;     
     private final controlPlayer cp= new controlPlayer();
@@ -38,7 +29,7 @@ public class AtackMenuView extends View{
                  +"\nS Summon Creature"
                  +"\nA Atack"
                  +"\nW Withdraw"
-                 +"\nU Use/add Item"
+                 +"\nU Use Item"
                  +"\n----------------------------------"
                  +"\nQ Return Main Menu"
                  +"\n");         
@@ -71,8 +62,7 @@ public class AtackMenuView extends View{
                     }
                     else{
                         this.console.println("you already have a creature");
-                    }
-		
+                    }		
                         break;
 		case "A": //create and start new game
 			atack();
@@ -81,7 +71,7 @@ public class AtackMenuView extends View{
 			withdraw();                        
 			break;
 		case "U": // display the help menu
-			spell();                        
+			ShowMyInventory();                       
 			break;
 		default:
 			this.console.println("\n*** Invalid selection *** Try again");
@@ -97,16 +87,15 @@ private void atack() {
               this.console.println("You lose");  
             }
         }
-        else{
-    lucky=cp.getLucky();    
+        else{     
             try {
-                enemyWarrior.setCurrentHp(cp.attack(lucky, w.getWar().getPower(), enemyWarrior.getWar().getArmor(), enemyWarrior.getCurrentHp()));
+                enemyWarrior.setCurrentHp(cp.attack(w.getWar().getPower(), enemyWarrior.getWar().getArmor(), enemyWarrior.getCurrentHp()));
             } catch (NegativeValuesAtackException ex) {
                 this.console.println(ex.getMessage());
-            }
-    enemyLucky=cp.getLucky();
+            }   
             try {
-                w.setCurrentHp(cp.attack(enemyLucky, enemyWarrior.getWar().getPower(), w.getWar().getArmor(), w.getCurrentHp()));
+                double armor=w.getWar().getArmor()*cp.calculateItems(Types.Armor);
+                w.setCurrentHp(cp.attack(enemyWarrior.getWar().getPower(), (int)armor, w.getCurrentHp()));
             } catch (NegativeValuesAtackException ex) {
                 this.console.println(ex.getMessage());
             }
@@ -132,9 +121,9 @@ private void withdraw() {
     if(w!=null){
    if(Dice.probability(50)){
        this.console.println("The Enemy got you before you could withdraw");
-       enemyLucky=cp.getLucky();
        try {
-           w.setCurrentHp(cp.attack(enemyLucky, enemyWarrior.getWar().getPower(), enemyWarrior.getWar().getArmor(), w.getCurrentHp()));
+           double armor=w.getWar().getArmor()*cp.calculateItems(Types.Armor);
+           w.setCurrentHp(cp.attack(enemyWarrior.getWar().getPower(), (int)armor, w.getCurrentHp()));
        } catch (NegativeValuesAtackException ex) {
           this.console.println(ex.getMessage());
        }
@@ -155,9 +144,6 @@ private void withdraw() {
     }
 }
 
-private void spell() {   
-   
-}
 
 private void Summon(){
     addMana();
@@ -176,4 +162,17 @@ public void addMana(){
 private void displayMainMenuView() {
 	this.display();
 }
+
+public void ShowMyInventory(){
+        if(Journey.getPlayer().getInventory().size()>0){
+            ShowMyInventoryView SMIV= new ShowMyInventoryView();
+            SMIV.display();                        
+        }
+        else{
+            this.console.println("\nYou don´t have items in your inventory yet." +
+                                  "\nTo have items you´ll need to search items " +
+                                  "\nor fight against enemies...");
+            this.display();
+        }       
+    }
 }
