@@ -47,8 +47,8 @@ public class controlGame {
         Character ch= new Character(100, 0, 0,"Human", 1);
         player.setMyCharacter(ch);
         player.setName(name);  
-        player.setCurrentPlace(3);
-        player.setCurrentPlace(3);
+        player.setCurrentPlace(2);
+        player.setCurrentCity(2);
         Journey.setPlayer(player);
         Game game= new Game(player, name);
         //create a test for the player
