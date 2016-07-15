@@ -50,8 +50,7 @@ public class controlGame {
         player.setCurrentPlace(2);
         player.setCurrentCity(2);
         Journey.setPlayer(player);
-        Game game= new Game(player, name);
-        //create a test for the player
+        Game game= new Game(player, name);        
         ArrayList<Item> list= new ArrayList<>();
         Journey.getCurrentGame().getPlayer().setInventory(list);
         Journey.getCurrentGame().setItems(CreateItemList());

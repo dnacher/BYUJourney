@@ -83,6 +83,7 @@ public class ControlMap {
              placesList=addLocations(placesList, "         Farm           ",3);
              placesList=addLocations(placesList, "        Castle          ",4);            
              Location l= new Location("         Dock           ");
+             
              placesList[2][5]=l;           
              return placesList;
         }
@@ -90,6 +91,9 @@ public class ControlMap {
       public static Location[][] addLocations(Location[][] placesList, String scene, int place){
           for(int x=0;x<6;x++){
               Location l= new Location(scene);
+              if(place==2 && x==2){
+                  l.setisVisited(true);
+              }              
               placesList[place][x]=l;
           }
           return placesList;
@@ -120,6 +124,12 @@ public class ControlMap {
                   str="";
           }
           return str;
+      }
+      
+      public static void updateMap(int place, int city){      
+          Location[][] loc=Journey.getCurrentGame().getLocationList();
+          loc[city][place].setisVisited(true);
+          Journey.getCurrentGame().setLocationList(loc);
       }
       
 }

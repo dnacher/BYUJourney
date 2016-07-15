@@ -6,6 +6,7 @@
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.Journey;
+import citbyu.cit260.journey.control.ControlMap;
 import citbyu.cit260.journey.control.controlGame;
 import citbyu.cit260.journey.control.controlPlayer;
 
@@ -107,5 +108,6 @@ public class MovePlaceMenuView2 extends View{
     
     public void setCurrentPlace(int i){
          Journey.getPlayer().setCurrentPlace(i);
+         ControlMap.updateMap(Journey.getPlayer().getCurrentCity(), Journey.getPlayer().getCurrentPlace());
     }
 }

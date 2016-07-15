@@ -16,7 +16,8 @@ public class GameMenuView extends View{
                  +"\n----------------------------------"
                  +"\n|Game Menu                       |"
                  +"\n----------------------------------"
-                 +"\nM Display Map"
+                 +"\nD Display Map"
+                 +"\nM Move"
                  +"\nL Look for Items"
                  +"\nA Atack" 
                  +"\nS Save Game"                 
@@ -31,9 +32,11 @@ public class GameMenuView extends View{
        menuOption = menuOption.toUpperCase();
 	boolean answer=false;
 	switch (menuOption) {
-		case "M": //create and start new game
-			//MoveMapMenuView mmmv= new MoveMapMenuView();
-                        //mmmv.display();
+                case "M": 
+			MoveMapMenuView mmmv= new MoveMapMenuView();
+                        mmmv.display();                       
+                        break;
+		case "D": 
                         ControlMap cm= new ControlMap();
                         String str=cm.createMap(Journey.getCurrentGame().getLocationList());                        
                         this.console.print(str);
