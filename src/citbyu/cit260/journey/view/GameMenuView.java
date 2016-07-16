@@ -87,7 +87,14 @@ public class GameMenuView extends View{
     public void LookForItem() throws PlayerLevelControlException{                 
             Item i= new Item();
             i.setName("noName");
+            try{
             i=cg.looking();
+            this.console.println("you find " + i.getName());               
+            this.console.println(i.getDescription().getDescription());
+            }
+            catch(Exception ex){
+                ex.getMessage();
+            }
             if (i.getName()!="noName"){
                 OptionItemFoundedVIew OIFV= new OptionItemFoundedVIew(i);
                 OIFV.display();

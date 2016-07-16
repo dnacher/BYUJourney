@@ -8,19 +8,7 @@ public class Dice {
     
     protected final BufferedReader keyboard=Journey.getInFile();
     protected final PrintWriter console=Journey.getOutFile();
-
-    /*public static int rollDice(int level) {
-        double random = Math.random() * 100;
-       level=level+6;
-        int per=100/level;
-        for (int i = 1; i <= level; i++) {
-            if (random >= per && random < (per * i)) {
-                return i;
-            }
-        }
-        return 1;
-    }*/
-        
+       
     //this function roll one dice
      public static int rollDice() {        
        double random = Math.random()*6;
@@ -43,20 +31,6 @@ public class Dice {
         return total;
     }
      
-     //this function will control the total mana for each roll of dices
-     public int roll(int time, int level) {
-        int ret = 0;
-        if (time > 0 && time % 2 == 0) {
-            if (probability(60)) {
-                ret = rollDices(level) - 5;
-                this.console.println("you lose 5 points of your mana");
-            }
-        } else {
-            ret = rollDices(level);
-        }
-        return ret;
-    }   
-
     //this function will return true or false depending on the probability
     public static boolean probability(int percentage) {
         if(percentage>0 && percentage<101){

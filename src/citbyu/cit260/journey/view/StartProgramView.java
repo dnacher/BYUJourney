@@ -52,7 +52,12 @@ public class StartProgramView extends View{
            return false;
        }   
        //create the Player with the name that the player type
-       cg.createNewGame(playersName);
+       try{
+        cg.createNewGame(playersName);
+       }
+       catch(Exception ex){
+        ex.getMessage();
+       }
        if(Journey.getPlayer()==null){
            this.console.println("\nError creating the player.");
            return false;

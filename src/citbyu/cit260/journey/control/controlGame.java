@@ -8,14 +8,13 @@ import citbyu.cit260.journey.enums.ItemDescription;
 import citbyu.cit260.journey.enums.Warriors;
 import citbyu.cit260.journey.exceptions.ControlGameException;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
+import citbyu.cit260.journey.exceptions.controlPlayerException;
 import citbyu.cit260.journey.model.map.Item;
-import citbyu.cit260.journey.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
@@ -25,24 +24,11 @@ public class controlGame {
     
     protected final BufferedReader keyboard=Journey.getInFile();
     protected final PrintWriter console=Journey.getOutFile();
-    controlPlayer cp= new controlPlayer();
+    controlPlayer cp= new controlPlayer();   
     
-   /* public static int bringIdPlayer(){
-    
-        int ret= Game.getInstance().getIdPlayer();
-        updateIdPlayer();
-    
-        return ret;
-    }
-    
-    public static void updateIdPlayer(){
-        Game.getInstance().setIdPlayer(Game.getInstance().getIdPlayer() + 1);
-    }*/
-    
-    
-    public void createNewGame(String name){      
+    public void createNewGame(String name)throws controlPlayerException{      
         if(name==null){
-            this.console.println("The Name cannot be null");
+           throw new controlPlayerException("The Name cannot be null");
         }
         
         Player player= new Player();
@@ -109,27 +95,7 @@ public class controlGame {
                 break;
         }
     }      
-    
-    public static int checkMenu(int size, int menuChoice){
-        if(menuChoice<=size && menuChoice>0){
-            return menuChoice;
-        }
-        else{
-            return -1;
-        }
-    }
-    
-    public static int checkint(String userInput){
-        int i;        
-        try{
-            i= Integer.parseInt(userInput);           
-        }
-        catch(Exception e){
-            i=-1;
-        }
-        return i;
-    }
-    
+         
     /*
     Types:
     0 magic
@@ -204,22 +170,25 @@ public class controlGame {
       return list;
     }
     
-    public void ReturnItemsbyLevel(int Level){
+    public String ReturnItemsbyLevel(int Level){
+        String str="";
         for(Item item: Journey.getCurrentGame().getItems()){
             if(item.getLevel()==Level){
-                this.console.println(item.getName());
+                str+=item.getName();
             }
         }
+        return str;
     }
     
-    public void ReturnTotalItemsByLevel(int Level){
+    public String ReturnTotalItemsByLevel(int Level){       
         int total=0;
         for(Item item: Journey.getCurrentGame().getItems()){
             if(item.getLevel()==Level){
                 total+=1;
             }
         }
-        this.console.println("The total of items with level " + Level +" is " + total);    
+        String str="The total of items with level " + Level +" is " + total;    
+        return str;
     }
     
     public boolean StillHaveItemsToFind() throws PlayerLevelControlException{
@@ -237,14 +206,14 @@ public class controlGame {
                 cp.updateLevel();
             }
             catch(PlayerLevelControlException pl){
-                this.console.println(pl.getMessage());
+                throw new PlayerLevelControlException(pl.getMessage());
             }
            
         }
         return stillHave;
     }  
 
-    public Item ChooseItem() {
+    public Item ChooseItem()throws controlPlayerException {
         boolean found=true;
         int number=0;
         while(found){
@@ -255,10 +224,7 @@ public class controlGame {
             Journey.getCurrentGame().getItems().get(number).setFound(true); 
             }
             catch(Exception e){
-                this.console.println("You didn´t find anything here..."); 
-                Item i= new Item();
-                i.setName(" ");
-                return i;
+                throw new controlPlayerException("You didn´t find anything here..."); 
             }
            
         }   
@@ -267,15 +233,21 @@ public class controlGame {
     
     public Item looking() throws PlayerLevelControlException {
         StillHaveItemsToFind();
-        Item item=ChooseItem();
+        Item item=new Item();
+        try{
+            item=ChooseItem();
+        }
+        catch(Exception ex){
+            throw new PlayerLevelControlException(ex.getMessage());
+        }
+        
         if(cp.lookForItem(Journey.getPlayer().getLevel())){            
             if(item.getId()!=-1){
-                this.console.println("you find " + item.getName());               
-                this.console.println(item.getDescription().getDescription());
+                return item;                
             }           
         }
         else{
-            this.console.println("You didn´t find anything here...");
+            throw new PlayerLevelControlException("You didn´t find anything here...");
         }
         return item;
     }
