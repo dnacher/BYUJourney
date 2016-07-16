@@ -46,7 +46,7 @@ public class SelectRaceMenuView extends View{
 		case 1: //create and start new game  
                         ch.setId(1);
                         ch.setName("Human");
-                        dialog.PrintRace(number);
+                        console.println(dialog.PrintRace(number));
 			Journey.getPlayer().setMyCharacter(ch); 
                         introductionView iv= new introductionView(dialog.HumanStart());
                         iv.display();
@@ -55,7 +55,7 @@ public class SelectRaceMenuView extends View{
 		case 2: // get and start an existing game
                         ch.setId(2);
                         ch.setName("Elf");
-                        dialog.PrintRace(number);
+                        console.println(dialog.PrintRace(number));
                         this.console.println("");
 			Journey.getPlayer().setMyCharacter(ch);                           
                         startGame();
@@ -63,7 +63,7 @@ public class SelectRaceMenuView extends View{
 		case 3: // display the help menu
                         ch.setId(3);
                         ch.setName("Wizard");
-                        dialog.PrintRace(number);
+                        console.println(dialog.PrintRace(number));
                         this.console.println("");
 			Journey.getPlayer().setMyCharacter(ch);                         
                         startGame();

@@ -67,68 +67,31 @@ public class ControlDialog {
      return str;
     }
     
-    public void noTime(){
-     this.console.println("\nwe don´t have time to explain. the orcs are atacking our city, help here or in the bridge in the north"+
+    public String noTime(){
+     String str="\nwe don´t have time to explain. the orcs are atacking our city, help here or in the bridge in the north"+
                         "\n1-Ok, I´ll help you"+
-                        "\n2-Well, I will Help People in the north");
+                        "\n2-Well, I will Help People in the north";
+     return str;
     }
     
-    public void PrintMap(){
-         this.console.println("\n                         @@,                                                                               "+
-         "\n                       @@` +@@:                                                                            "+
-         "\n                     #@.      '@@#@@@@@@@@;.                                                               "+
-         "\n                     @                    ,+@@@@@`                                                         "+
-         "\n                     @@,                        `@@'                                                       "+
-         "\n                       +@@;  @                     ;@@`    :++;;,.   ,+@@@@@`                              "+  
-         "\n                     .@,                        ##                               `@                        "+
-         "\n                     @                           # N-North Town                    @@@@@#                  "+
-         "\n                @@@@@                                                                     0@@              "+
-         "\n               ',          ;##                                                              @              "+
-         "\n               ,'           #    D-Dragon Land                                             @              "+
-         "\n           '@                                                                         ;@@@/                   "+
-         "\n           @                                   ##  E-Edelion                         ;@                    "+
-         "\n           @                                    #                                    @                     "+       
-         "\n            @@                                                                  `@@@@                      "+
-         "\n             @                ##  T-Eten ty                                     @                          "+
-         "\n             @                #                                               @`                          "+
-         "\n            +,                                  @@@@,@                        `#                           "+
-         "\n            +,                                  @@@@,@                        `#                           "+
-         "\n            @                                 @@@@@@@@@      H-hidden forest  @                            "+
-         "\n           @`                         @@@@@@@@@@@@@@@@@@@                   @`                             "+
-         "\n           .#                       @@@@@@@@@@@@@@@@@@@@                 #@                              "+
-         "\n            @                       @@@@@@@@@@@@@@@@@@@@@              ,@`                                "+
-         "\n            ';                         @@@@@@@@@@@@@@@@@@        `@@@@@                                  "+
-         "\n             @                              @@@@@@@@@@@@       `@@                                       "+
-         "\n             @    `@@@`                        @@@@@@@@      `@@                                         "+
-         "\n             @  '@@   @@                                      @@                                           "+
-         "\n             ,@@;      :@,                                    @                                            "+
-         "\n                         @@     ##@ S- South port              @                                            "+
-         "\n                          `@'   #                             @                                            "+
-         "\n                            @@@@@@;@@                         :;                                           "+
-         "\n                                   `@@,                       :#                                           "+
-         "\n                                      #@@;               .#@@@'                                            "+
-         "\n                                         ;@@@+` .;+@@@@@@+`                                                "+
-         "\n                                             .@@+;.                                                        ");
-                   
-    }  
-    
-    public void PrintRace(int optionMenu){
+    public String PrintRace(int optionMenu){
         
-         this.console.println("***************************************");
+         String str="\n***************************************";
          switch(optionMenu){
-            case 1:
-              
-              // this.console.println("*** Hello " + Journey.getPlayer().getName() + " You´re a Human now ***");
+            case 1:              
+               str+="\n*** Hello " + Journey.getPlayer().getName() + " You´re a Human now ***";
                 break;
             case 2:
-                this.console.println("*** Hello " + Journey.getPlayer().getName() + " You´re a Elf now ***");
+                str+="\n*** Hello " + Journey.getPlayer().getName() + " You´re a Elf now ***";
                 break;
             case 3:
-                this.console.println("*** Hello " + Journey.getPlayer().getName() + " You´re a Wizard now ***");
+                str+="\n*** Hello " + Journey.getPlayer().getName() + " You´re a Wizard now ***";
                 break;
          }         
-         this.console.println("\n***************************************"+
-                              "\n***************************************");
+         str+="\n***************************************"+
+              "\n***************************************";
+         
+         return str;
     }
     
 }

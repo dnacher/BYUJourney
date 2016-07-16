@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class StartProgramView extends View{
     
-    private ControlDialog dialog;
-    private controlGame cg;
+    private final ControlDialog dialog;
+    private final controlGame cg;
                    
     public StartProgramView(){
         super("Please enter your Name: ");
