@@ -73,8 +73,11 @@ public class OptionPlaceMenuView extends View{
         this.console.println("\n" + p.getDialog().getSpeach());
         }
         catch(Exception ex){
-            ErrorView.display("", ex.getMessage());
-            controlPlayer.resetListPersonages();
+            this.console.println(ex.getMessage());
+            if(!controlPlayer.stillHavePersonages()){
+                controlPlayer.resetListPersonages();
+            }
+            
         }
     }
     
