@@ -42,7 +42,7 @@ public class WizardDwarfDialogue extends View{
 	boolean answer=true;
 	switch (menuOption) {
 		case "A": //Option A
-			this.console.println(Dialogs.dwarf.getSpeach2());
+			this.console.println(Dialogs.dwarf2.getSpeach());
 			break;
 		case "B": //Option B
 			this.console.println(Dialogs.dwarf.getSpeach());

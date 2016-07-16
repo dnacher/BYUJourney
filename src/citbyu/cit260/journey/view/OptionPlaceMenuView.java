@@ -6,7 +6,9 @@
 package citbyu.cit260.journey.view;
 
 import citbyu.cit260.journey.control.controlGame;
+import citbyu.cit260.journey.control.controlPlayer;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
+import citbyu.cit260.journey.model.characters.Personages;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -64,8 +66,16 @@ public class OptionPlaceMenuView extends View{
         amv.display();
     }
     
-    public void talk(){
-    
+    public void talk() {    
+        try{
+        Personages p=controlPlayer.getPersonages();
+        this.console.println("\n" + p.getName());
+        this.console.println("\n" + p.getDialog().getSpeach());
+        }
+        catch(Exception ex){
+            ErrorView.display("", ex.getMessage());
+            controlPlayer.resetListPersonages();
+        }
     }
     
      public void lookForItem() throws PlayerLevelControlException{

@@ -95,7 +95,7 @@ public class GameMenuView extends View{
             catch(Exception ex){
                 ex.getMessage();
             }
-            if (i.getName()!="noName"){
+            if (!"noName".equals(i.getName())){
                 OptionItemFoundedVIew OIFV= new OptionItemFoundedVIew(i);
                 OIFV.display();
             }

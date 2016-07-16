@@ -8,6 +8,7 @@ import citbyu.cit260.journey.exceptions.CalculateTimeWayException;
 import citbyu.cit260.journey.exceptions.NegativeValuesAtackException;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.exceptions.controlPlayerException;
+import citbyu.cit260.journey.model.characters.Personages;
 import citbyu.cit260.journey.model.map.Item;
 import citbyu.cit260.journey.view.AtackMenuView;
 import java.io.BufferedReader;
@@ -15,6 +16,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.util.Random;
 
 public class controlPlayer {
     
@@ -416,9 +418,7 @@ public class controlPlayer {
        }
     
     public static void printEnemiesReport(String ouputLocation)throws controlPlayerException{
-        PrintWriter out=null;
-        try{
-            out= new PrintWriter(ouputLocation);
+        try(PrintWriter out = new PrintWriter(ouputLocation)) {
             out.println("\n\n        Enemies List         ");
             out.printf("%n%-20s%4s%4s%4s%4s","Name","Power"," Armor ","Life","Mana");
             out.printf("%n%-20s%4s%4s%4s%4s","-------------------","-----","------","-----","------");
@@ -429,11 +429,6 @@ public class controlPlayer {
         }
         catch(IOException e){
             throw new controlPlayerException(e.getMessage());
-        }
-        finally{
-            if(out!=null){
-                out.close();
-            }
         }
     }
     
@@ -453,6 +448,35 @@ public class controlPlayer {
         return str;
     }
     
+    public static Personages getPersonages()throws controlPlayerException{
+        if(!stillHavePersonages()){
+        Random r = new Random();
+        int Low = 10;
+        int High = 100;
+        int Result = r.nextInt(High-Low) + Low;
+        Personages p= Journey.getCurrentGame().getPersonagesList().get(Result);
+        if(p.isDone()){
+            getPersonages();
+        }
+        return p;
+        }
+        throw new controlPlayerException("No more speeches");
+    }
+    
+    public static boolean stillHavePersonages(){
+        boolean done=true;
+        for(Personages p: Journey.getCurrentGame().getPersonagesList()){
+            if(!p.isDone()){
+                done=false;
+                return done;
+            }
+        }
+        return done;
+    }
+    
+    public static void resetListPersonages(){    
+        Journey.getCurrentGame().setPersonagesList(ControlMap.createPersonagesDialogs());    
+    }
        
 } 
   
