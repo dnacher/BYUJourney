@@ -5,6 +5,7 @@
  */
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.control.ControlDialog;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.characters.Character;
 
@@ -14,7 +15,7 @@ import citbyu.cit260.journey.model.characters.Character;
  */
 public class SelectRaceMenuView extends View{
     
-    Dialog dialog= new Dialog();
+    ControlDialog dialog= new ControlDialog();
     
     private Character ch= new Character(100,0,0,"no name",-1);
     

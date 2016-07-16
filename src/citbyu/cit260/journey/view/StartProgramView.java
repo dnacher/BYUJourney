@@ -1,24 +1,25 @@
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.control.ControlDialog;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
 import java.io.IOException;
 
 public class StartProgramView extends View{
     
-    private Dialog dialog;
+    private ControlDialog dialog;
     private controlGame cg;
                    
     public StartProgramView(){
         super("Please enter your Name: ");
-        this.dialog= new Dialog();
+        this.dialog= new ControlDialog();
         this.cg= new controlGame();
         this.displayBanner();
     }
     
     private void displayBanner(){    
-        dialog.logo();
-        dialog.description();        
+        this.console.println(dialog.logo());
+        this.console.println(dialog.description());        
     }
     
     private String getPlayersName(){

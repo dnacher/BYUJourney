@@ -1,36 +1,37 @@
-package citbyu.cit260.journey.view;
+package citbyu.cit260.journey.control;
 
 import citbyu.cit260.journey.Journey;
 import java.io.PrintWriter;
 
-public class Dialog {
+public class ControlDialog {
     
    private PrintWriter console= Journey.getOutFile();
     
     //this is the dialog of the beginning
     //this text was created with the help of this page http://patorjk.com/software/taag/
-    public void logo(){
-        this.console.println("\n                   _______ _                 _                                              " +
-                           "\n                  |__   __| |               | |                                             " +
-                           "\n                     | |  | |__   ___       | | ___  _   _ _ __ _ __   ___ _   _            " +
-                           "\n                     | |  | '_ \\ / _ \\  _   | |/ _ \\| | | | '__| '_ \\ / _ \\ | | |           " +
-                           "\n                     | |  | | | |  __/ | |__| | (_) | |_| | |  | | | |  __/ |_| |           " +
-                           "\n                     |_|  |_| |_|\\___|  \\____/ \\___/ \\__,_|_|  |_| |_|\\___|\\__, |           " +
-                           "\n         __             _   _            _      _       _     _         _   __/ |           " +
-                           "\n        / _|           | | | |          | |    (_)     | |   | |       | | |___/            " +
-                           "\n       | |_ ___  _ __  | |_| |__   ___  | |     _  __ _| |__ | |_   ___| |_ ___  _ __   ___ " +
-                           "\n       |  _/ _ \\| '__| | __| '_ \\ / _ \\ | |    | |/ _` | '_ \\| __| / __| __/ _ \\| '_ \\ / _ \\" +
-                           "\n       | || (_) | |    | |_| | | |  __/ | |____| | (_| | | | | |_  \\__ \\ || (_) | | | |  __/" +
-                           "\n       |_| \\___/|_|     \\__|_| |_|\\___| |______|_|\\__, |_| |_|\\__| |___/\\__\\___/|_| |_|\\___|" +
-                           "\n                                                   __/ |                                    " +
-                           "\n                                                  |___/                                    " +
-                           "\n" +
-                           "\n");     
-                
+    public String logo(){
+      String str="\n                   _______ _                 _                                              " +
+                 "\n                  |__   __| |               | |                                             " +
+                 "\n                     | |  | |__   ___       | | ___  _   _ _ __ _ __   ___ _   _            " +
+                 "\n                     | |  | '_ \\ / _ \\  _   | |/ _ \\| | | | '__| '_ \\ / _ \\ | | |           " +
+                 "\n                     | |  | | | |  __/ | |__| | (_) | |_| | |  | | | |  __/ |_| |           " +
+                 "\n                     |_|  |_| |_|\\___|  \\____/ \\___/ \\__,_|_|  |_| |_|\\___|\\__, |           " +
+                 "\n         __             _   _            _      _       _     _         _   __/ |           " +
+                 "\n        / _|           | | | |          | |    (_)     | |   | |       | | |___/            " +
+                 "\n       | |_ ___  _ __  | |_| |__   ___  | |     _  __ _| |__ | |_   ___| |_ ___  _ __   ___ " +
+                 "\n       |  _/ _ \\| '__| | __| '_ \\ / _ \\ | |    | |/ _` | '_ \\| __| / __| __/ _ \\| '_ \\ / _ \\" +
+                 "\n       | || (_) | |    | |_| | | |  __/ | |____| | (_| | | | | |_  \\__ \\ || (_) | | | |  __/" +
+                 "\n       |_| \\___/|_|     \\__|_| |_|\\___| |______|_|\\__, |_| |_|\\__| |___/\\__\\___/|_| |_|\\___|" +
+                 "\n                                                   __/ |                                    " +
+                 "\n                                                  |___/                                    " +
+                 "\n" +
+                 "\n";   
+        
+       return str;         
     }
     
-    public void description(){
-        this.console.println("\n                           All the races in Edelion are in a big danger" +
+    public String description(){
+        String str="\n                           All the races in Edelion are in a big danger" +
                            "\n                    since the light stone were stolen from the great wizards." +
                            "\n" +
                            "\n               The light stone can open a portal to a new world. depending on who is" +
@@ -40,8 +41,9 @@ public class Dialog {
                            "\n                                creatures that stole the light stone." +
                            "\n" +
                            "\n               Discover where the light stones are and bringing back to the wizards." +
-                           "\n");    
+                           "\n";    
       
+        return str;
     }  
     
     public String HumanStart(){
