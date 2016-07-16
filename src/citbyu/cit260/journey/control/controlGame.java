@@ -9,11 +9,13 @@ import citbyu.cit260.journey.enums.Warriors;
 import citbyu.cit260.journey.exceptions.ControlGameException;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.map.Item;
+import citbyu.cit260.journey.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
@@ -408,5 +410,6 @@ public class controlGame {
         }
         return Type;
         }
+           
     }
     

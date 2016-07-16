@@ -34,7 +34,7 @@ public class SelectRaceMenuView extends View{
     @Override
     public boolean doAction(String menuOption){
         menuOption = menuOption.toUpperCase(); 
-        int number=getDoubleNumber(menuOption);        
+        int number=getIntNumber(menuOption);        
 	boolean answer=false;
         if(number>3 || number<1 && number!=-999){
               this.console.println("\nEnter a valid number" 
@@ -47,7 +47,8 @@ public class SelectRaceMenuView extends View{
                         ch.setName("Human");
                         dialog.PrintRace(number);
 			Journey.getPlayer().setMyCharacter(ch); 
-                        dialog.HumanStart();
+                        introductionView iv= new introductionView(dialog.HumanStart());
+                        iv.display();
                         startGame();
                         break;
 		case 2: // get and start an existing game
@@ -71,7 +72,7 @@ public class SelectRaceMenuView extends View{
         return answer;        
     } 
     
-      public int getDoubleNumber(String menuOption) {
+      public int getIntNumber(String menuOption) {
         int number = -999;
             while (number == -999) {                              
                 if (menuOption.equals("Q"))

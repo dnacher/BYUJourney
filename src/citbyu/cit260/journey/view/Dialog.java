@@ -44,8 +44,8 @@ public class Dialog {
       
     }  
     
-    public void HumanStart(){
-     this.console.println("\n**************************************************************" +
+    public String HumanStart(){
+     String str="\n**************************************************************" +
                         "\n**************************************************************" +
                         "\n**************************************************************" +
                         "\nYou wake up outside of the big wall that protect a great city" + 
@@ -61,7 +61,8 @@ public class Dialog {
                         "\n" +
                         "\n1- Yes, I will help you, I don´t like the cold weather in the north" +                        
                         "\n2- Wait, I don´t know what happend. please explain to me" +
-                        "\n3- No, I want to travel to the north. I ´ve never been there");     
+                        "\n3- No, I want to travel to the north. I ´ve never been there";   
+     return str;
     }
     
     public void noTime(){

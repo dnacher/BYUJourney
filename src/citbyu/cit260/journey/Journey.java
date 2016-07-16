@@ -81,17 +81,20 @@ public class Journey {
 
    
     
-    public static void main(String[] args) {
-        
-        try{
+    public static void main(String[] args) {        
+        startGame();
+    }
+    
+    
+      public static void startGame(){
+         try{
             Journey.inFile=new BufferedReader(new InputStreamReader(System.in));
             Journey.outFile=new PrintWriter(System.out, true);
             // open log file
             String filePath="log.txt";
             Journey.logFile= new PrintWriter(filePath);
             StartProgramView spv= new StartProgramView();
-            spv.display();
-            return;
+            spv.display();           
         }
         catch(Throwable e){
         
@@ -103,19 +106,20 @@ public class Journey {
         finally{
             try {
                 if(Journey.inFile!=null)
-                Journey.inFile.close();
+                    Journey.inFile.close();
                 if(Journey.outFile!=null)
-                Journey.outFile.close();
+                    Journey.outFile.close();
                 if(Journey.logFile!=null)
-                Journey.logFile.close();
+                    Journey.logFile.close();
             } catch (IOException ex) {
                 ErrorView.display("","Error closing files");
                 return;
             }
             
         }
-    }
     
+    }
+      
     }
     
     
