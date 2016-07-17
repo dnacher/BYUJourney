@@ -3,14 +3,12 @@ package citbyu.cit260.journey.control;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.model.theDice;
 import java.io.BufferedReader;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Dice {
     
     protected final BufferedReader keyboard=Journey.getInFile();
-    protected final PrintWriter console=Journey.getOutFile();
-       
+          
     //this function roll one dice
      public static int rollDice() {        
        double random = Math.random()*6;
@@ -21,8 +19,7 @@ public class Dice {
     public ArrayList<theDice> rollDice(int level) {
        int total=0;
        int dice=rollDice();
-       ArrayList<theDice> list = new ArrayList<>();
-       //this.console.println("Dice 1: " + dice);
+       ArrayList<theDice> list = new ArrayList<>();    
        total+=dice;
        for(int i=0;i<=level;i++){
            theDice Dice = new theDice();
@@ -32,9 +29,8 @@ public class Dice {
            String stringDice="Dice " + num + ": " + dice;
            Dice.setStringDice(stringDice);
            list.add(Dice);
-            //total+=dice;
-       }        
-        //this.console.println("Total: " + total );
+          
+       }                
         return list;
     }
     

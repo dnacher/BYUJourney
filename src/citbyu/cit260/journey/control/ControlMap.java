@@ -20,8 +20,7 @@ import java.util.ArrayList;
  */
 public class ControlMap {
     
-    protected final BufferedReader keyboard=Journey.getInFile();
-    protected final PrintWriter console=Journey.getOutFile();
+    protected final BufferedReader keyboard=Journey.getInFile();  
     
     public String createMap(Location[][] list){
              String leftIndicator;

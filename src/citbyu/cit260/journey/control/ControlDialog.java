@@ -1,12 +1,9 @@
 package citbyu.cit260.journey.control;
 
 import citbyu.cit260.journey.Journey;
-import java.io.PrintWriter;
 
 public class ControlDialog {
-    
-   private PrintWriter console= Journey.getOutFile();
-    
+     
     //this is the dialog of the beginning
     //this text was created with the help of this page http://patorjk.com/software/taag/
     public String logo(){

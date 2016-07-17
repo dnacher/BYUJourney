@@ -141,28 +141,22 @@ public class controlPlayer {
         }
         switch(num){
             case 1:
-                num=15;
-                console.println("You have 15% more for your items in use");
+                num=15;                
                 break;
             case 2:
-                num=25;
-                console.println("You have 25% more for your items in use");
+                num=25;                
                 break;
             case 3:
-                num=40;
-                console.println("You have 40% more for your items in use");
+                num=40;               
                 break;
             case 4:
-                num=60;
-                console.println("You have 60% more for your items in use");
+                num=60;                
                 break;
             case 5:
-                num=75;
-                console.println("You have 75% more for your items in use");
+                num=75;                
                 break;
             case 6:
-                num=100;
-                console.println("You have 100% more for your items in use");
+                num=100;                
                 break;                
         }
     }

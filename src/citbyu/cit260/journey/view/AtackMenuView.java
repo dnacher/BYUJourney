@@ -104,6 +104,8 @@ private void atack() {
             }   
             try {
                 double armor=w.getWar().getArmor()*cp.calculateItems(Types.Armor);
+                int percentage=(int) (cp.calculateItems(Types.Armor)-1)/100;
+                this.console.println("You have " + percentage + " more for your items in use");
                 w.setCurrentHp(cp.attack(enemyWarrior.getWar().getPower(), (int)armor, w.getCurrentHp()));
             } catch (NegativeValuesAtackException ex) {
                 this.console.println(ex.getMessage());
@@ -132,6 +134,8 @@ private void withdraw() {
        this.console.println("The Enemy got you before you could withdraw");
        try {
            double armor=w.getWar().getArmor()*cp.calculateItems(Types.Armor);
+           int percentage=(int) (cp.calculateItems(Types.Armor)-1)/100;
+           this.console.println("You have " + percentage + " more for your items in use");
            w.setCurrentHp(cp.attack(enemyWarrior.getWar().getPower(), (int)armor, w.getCurrentHp()));
        } catch (NegativeValuesAtackException ex) {
           this.console.println(ex.getMessage());

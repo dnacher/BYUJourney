@@ -22,8 +22,7 @@ import java.util.ArrayList;
 
 public class controlGame {
     
-    protected final BufferedReader keyboard=Journey.getInFile();
-    protected final PrintWriter console=Journey.getOutFile();
+    protected final BufferedReader keyboard=Journey.getInFile();   
     controlPlayer cp= new controlPlayer();   
     
     public void createNewGame(String name)throws controlPlayerException{      
