@@ -50,6 +50,15 @@ public class AtackMenuView extends View{
             
         }
         else if(enemyWarrior.getCurrentHp()<0){
+            if(Journey.getPlayer().getCurrentCity()==Types.DragonLand.getValue()){
+                this.console.println("\n You finally defeat the dragon. and you see a light inside the cave..." + 
+                                     "\n once you walk into you realize that the Light stone is there." +
+                                     "\n you can have the powerful light stone to go to others worlds..." +
+                                     "\n CONGRATULATION" +
+                                     "\n Game Made by Gustavo Martinez and Daniel Nacher");
+                Journey.setCurrentGame(null);
+                Journey.startGame();
+            }
         this.console.println("you win");
         w=null;
             return true;
@@ -84,7 +93,7 @@ private void atack() {
     if(w!=null){
         if(w.getCurrentHp()<=0 || enemyWarrior.getCurrentHp()<=0){
             if(w.getCurrentHp()<=0){
-              this.console.println("You lose");  
+              this.console.println("You´re too weak for this Enemy. Try next time with items to help you");  
             }
         }
         else{     

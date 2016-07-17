@@ -242,33 +242,33 @@ public class controlPlayer {
                 return Warriors.DRAGON;
         }
     }
-  /*1-North Town 
-    2-Dragon Land 
-    3-Edelion
-    4-Eten Ty
-    5-Hidden Forest
-    6-South Port*/  
+  /*0-North Town 
+    1-Dragon Land 
+    2-Edelion
+    3-Eten Ty
+    4-Hidden Forest
+    5-South Port*/  
     public Warrior chooseEnemy(int city,int place){
         Warrior w;
 
         if(chooseEnemyPlace(place)){
             switch(city){
-                case 1:
+                case 0:
                     w= new Warrior(Warriors.SWORD_MAN);
                     break;
-                case 2:
+                case 1:
                     w= new Warrior(Warriors.DRAGON);
                     break;
-                case 3:
+                case 2:
                     w= new Warrior(Warriors.SAILOR);
                     break;
-                case 4:
+                case 3:
                     w= new Warrior(Warriors.ORC);
                     break;
-                case 5:
+                case 4:
                     w= new Warrior(Warriors.SWORD_MAN);
                     break;
-                case 6:
+                case 5:
                     w= new Warrior(Warriors.ELF_BOW);
                     break;
                 default:
@@ -288,7 +288,11 @@ public class controlPlayer {
     4-Dock                 
     5-Castle*/
     public boolean chooseEnemyPlace(int place){
-        boolean enemy=false;        
+        boolean enemy=false; 
+        if(Journey.getPlayer().getCurrentCity()==Types.DragonLand.getValue()){
+            enemy=true;
+        }
+        else{
         switch(place){
             case 1:                
                     enemy=Dice.probability(5);                              
@@ -305,9 +309,9 @@ public class controlPlayer {
             case 5:                
                     enemy=Dice.probability(100);                   
                 break;           
+        }       
         }
-        return enemy;
-    
+     return enemy;
     }
     
     public void enemy(){
