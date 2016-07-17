@@ -17,6 +17,7 @@ public class MainMenuView extends View{
                  +"\nG Get and Start saved Game"
                  +"\nH Get help on how to play the Game"
                  +"\nI Items Reports"
+                 +"\nE Enemies View"
                  +"\nS Save Game"
                  +"\nQ Quit Game"
                  +"\n----------------------------------"
@@ -42,6 +43,9 @@ public class MainMenuView extends View{
 			break;
                 case "I": // save the current game
 			this.saveItems();
+			break;
+                case "E": // save the current game
+			this.enemies();
 			break;
 		
 		default:
@@ -88,6 +92,11 @@ private void saveGame() {
 private void saveItems() {
     ItemsView iv= new ItemsView();
     iv.display();
+}
+
+private void enemies() {
+    enemiesView ie= new enemiesView();
+    ie.display();
 }
 
 
