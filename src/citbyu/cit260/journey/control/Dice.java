@@ -1,7 +1,7 @@
 package citbyu.cit260.journey.control;
 
 import citbyu.cit260.journey.Journey;
-import citbyu.cit260.journey.view.theDiceView;
+import citbyu.cit260.journey.model.theDice;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -18,14 +18,14 @@ public class Dice {
     }
      
       //this function will roll 2 dices 
-    public ArrayList<theDiceView> rollDice(int level) {
+    public ArrayList<theDice> rollDice(int level) {
        int total=0;
        int dice=rollDice();
-       ArrayList<theDiceView> list = new ArrayList<>();
+       ArrayList<theDice> list = new ArrayList<>();
        //this.console.println("Dice 1: " + dice);
        total+=dice;
        for(int i=0;i<=level;i++){
-           theDiceView Dice = new theDiceView();
+           theDice Dice = new theDice();
            dice=rollDice();
            Dice.setIntDice(dice);
            int num=i+2;
@@ -38,17 +38,17 @@ public class Dice {
         return list;
     }
     
-    public int CalculateTotalDices(ArrayList<theDiceView> list){
+    public int CalculateTotalDices(ArrayList<theDice> list){
         int total=0;
-        for(theDiceView d: list){
+        for(theDice d: list){
             total+=d.getIntDice();
         }
         return total;
     }
     
-    public String createStringDice(ArrayList<theDiceView> list){
+    public String createStringDice(ArrayList<theDice> list){
         String str="";
-         for(theDiceView d: list){
+         for(theDice d: list){
             str+="\n" + d.getStringDice();
         }
          return str;
@@ -69,7 +69,7 @@ public class Dice {
         }
     }
 
-    private theDiceView theDiceView() {
+    private theDice theDiceView() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

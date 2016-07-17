@@ -1,4 +1,4 @@
-package citbyu.cit260.journey.view;
+package citbyu.cit260.journey.model;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import java.io.Serializable;
  *
  * @author gus
  */
-public class theDiceView implements Serializable {
+public class theDice implements Serializable {
   
     private int intDice;
     private String stringDice;
@@ -32,11 +32,11 @@ public class theDiceView implements Serializable {
     }
     
     
-    public theDiceView(){
+    public theDice(){
         
     }
     
-    public theDiceView(int intDice, String stringDice){
+    public theDice(int intDice, String stringDice){
         this.intDice = intDice;
         this.stringDice = stringDice;
     }
