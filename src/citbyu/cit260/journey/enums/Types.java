@@ -25,7 +25,23 @@ public enum Types {
     Power(2),
     Armor(3),
     Map(4),
-    Search(5);
+    Search(5),
+    
+    /*
+    North Town" 
+                 +"\nD Dragon Land" 
+                 +"\nE Edelion"
+                 +"\nT Eten Ty"
+                 +"\nH Hidden Forest"
+                 +"\nS South Port"     
+    */
+    
+    NorthTown(0),
+    DragonLand(1),
+    Edelion(2),
+    EtenTy(3),
+    HiddenForest(4),
+    SouthPort(5);
     
     private int value;
     

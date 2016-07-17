@@ -5,12 +5,14 @@
  */
 package citbyu.cit260.journey.view;
 
+import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.controlGame;
 import citbyu.cit260.journey.control.controlPlayer;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.characters.Personages;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import citbyu.cit260.journey.enums.Types;
 
 /**
  *
@@ -67,6 +69,10 @@ public class OptionPlaceMenuView extends View{
     }
     
     public void talk() {    
+        if(Journey.getPlayer().getCurrentCity()== Types.DragonLand.getValue()){
+            this.console.println("You´re not welcome here....run away. this place is dangerous");
+        }
+        else{
         try{
         Personages p=controlPlayer.getPersonages();
         this.console.println("\n" + p.getName());
@@ -78,6 +84,7 @@ public class OptionPlaceMenuView extends View{
                 controlPlayer.resetListPersonages();
             }
             
+        }
         }
     }
     

@@ -5,6 +5,8 @@
  */
 package citbyu.cit260.journey.enums;
 
+import citbyu.cit260.journey.Journey;
+
 /**
  *
  * @author Dani-Fla-Mathi
@@ -25,7 +27,7 @@ public enum Dialogs {
     BlackSmith2("Metal working territory, what are you think I can do for you?"),
     DragonHunter("So comes snow after fire, and even dragons have their endings."),
     DragonHunter2("Life’s hard; get a helmet"),
-    Farmer(""),
+    Farmer("Luke I´m your father.....oh aren´t you luke? sorry, my bad..."),
     Farmer2("I've always said I want a farmer, not a hunter. Hunters go for the kill and they move on. A farmer nurtures; he watches things grow."),
     Soldier("Bravery is being the only one who knows you're afraid."),
     Soldier2("When I lost my rifle, the Army charged me 85 dollars. That is why in the Navy the Captain goes down with the ship"),
