@@ -37,6 +37,22 @@ public class Dice {
         //this.console.println("Total: " + total );
         return list;
     }
+    
+    public int CalculateTotalDices(ArrayList<theDiceView> list){
+        int total=0;
+        for(theDiceView d: list){
+            total+=d.getIntDice();
+        }
+        return total;
+    }
+    
+    public String createStringDice(ArrayList<theDiceView> list){
+        String str="";
+         for(theDiceView d: list){
+            str+="\n" + d.getStringDice();
+        }
+         return str;
+    }
      
     //this function will return true or false depending on the probability
     public static boolean probability(int percentage) {

@@ -70,7 +70,7 @@ public class controlPlayer {
     public boolean lookForItem(int LevelPlayer){
         Boolean found=false;
         double levelPoints=25;
-        int points= dice.rollDices(LevelPlayer);                
+        int points= dice.CalculateTotalDices(dice.rollDice(LevelPlayer));                
         if(LevelPlayer==1){
             levelPoints+=20;
         }

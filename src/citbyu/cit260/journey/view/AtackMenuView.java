@@ -162,7 +162,9 @@ private void Summon(){
 }
 
 public void addMana(){
-    int dicenum=dice.rollDices(Journey.getCurrentGame().getPlayer().getLevel());
+    this.console.println(dice.createStringDice(dice.rollDice(Journey.getCurrentGame().getPlayer().getLevel())));
+    int dicenum=dice.CalculateTotalDices(dice.rollDice(Journey.getCurrentGame().getPlayer().getLevel()));
+    this.console.println(dicenum);
     int mana=Journey.getPlayer().getMyCharacter().getMana();
     int total=dicenum+mana;
     Journey.getPlayer().getMyCharacter().setMana(total);
