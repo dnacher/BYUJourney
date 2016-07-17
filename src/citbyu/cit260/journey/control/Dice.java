@@ -27,10 +27,11 @@ public class Dice {
        for(int i=0;i<=level;i++){
            theDiceView Dice = new theDiceView();
            dice=rollDice();
-           theDiceView.setDice(dice);
+           Dice.setIntDice(dice);
            int num=i+2;
-           String aDice="Dice " + num + ": " + dice;
-           theDiceView.setDice(aDice);
+           String stringDice="Dice " + num + ": " + dice;
+           Dice.setStringDice(stringDice);
+           list.add(Dice);
             //total+=dice;
        }        
         //this.console.println("Total: " + total );

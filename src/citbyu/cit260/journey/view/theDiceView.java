@@ -6,19 +6,55 @@
 package citbyu.cit260.journey.view;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
  * @author gus
  */
 public class theDiceView implements Serializable {
-
-    public static void setDice(int dice) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
   
-    private int aDice;
-    private String id;
+    private int intDice;
+    private String stringDice;
 
+    /**
+     * @return the intDice
+     */
+    public int getIntDice() {
+        return intDice;
+    }
+
+    /**
+     * @param intDice the intDice to set
+     */
+    public void setIntDice(int intDice) {
+        this.intDice = intDice;
+    }
+
+    /**
+     * @return the stringDice
+     */
+    public String getStringDice() {
+        return stringDice;
+    }
+
+    /**
+     * @param stringDice the stringDice to set
+     */
+    public void setStringDice(String stringDice) {
+        this.stringDice = stringDice;
+    }
+    
+    
+    public theDiceView(){
+        
+    }
+    
+    public theDiceView(int intDice, String stringDice){
+        this.intDice = intDice;
+        this.stringDice = stringDice;
+    }
+    
     
 }
+
