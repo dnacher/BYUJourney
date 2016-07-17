@@ -1,8 +1,10 @@
 package citbyu.cit260.journey.control;
 
 import citbyu.cit260.journey.Journey;
+import citbyu.cit260.journey.view.theDiceView;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 public class Dice {
     
@@ -16,19 +18,23 @@ public class Dice {
     }
      
       //this function will roll 2 dices 
-    public int rollDices(int level) {
+    public ArrayList<theDiceView> rollDice(int level) {
        int total=0;
        int dice=rollDice();
-       this.console.println("Dice 1: " + dice);
+       ArrayList<theDiceView> list = new ArrayList<>();
+       //this.console.println("Dice 1: " + dice);
        total+=dice;
        for(int i=0;i<=level;i++){
+           theDiceView Dice = new theDiceView();
            dice=rollDice();
+           theDiceView.setDice(dice);
            int num=i+2;
-           this.console.println("Dice " + num + ": " + dice);
-           total+=dice;
+           String aDice="Dice " + num + ": " + dice;
+           theDiceView.setDice(aDice);
+            //total+=dice;
        }        
-        this.console.println("Total: " + total );
-        return total;
+        //this.console.println("Total: " + total );
+        return list;
     }
      
     //this function will return true or false depending on the probability
@@ -44,5 +50,9 @@ public class Dice {
         else{
             return false;
         }
+    }
+
+    private theDiceView theDiceView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
