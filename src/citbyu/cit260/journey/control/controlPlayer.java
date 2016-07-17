@@ -16,6 +16,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class controlPlayer {
@@ -449,33 +450,41 @@ public class controlPlayer {
     }
     
     public static Personages getPersonages()throws controlPlayerException{
+        Personages p= new Personages();
         if(!stillHavePersonages()){
-        Random r = new Random();
-        int Low = 10;
-        int High = 100;
-        int Result = r.nextInt(High-Low) + Low;
-        Personages p= Journey.getCurrentGame().getPersonagesList().get(Result);
+        Random r = new Random();        
+        int Result = (int) (Math.random()*28);            
+        p= Journey.getCurrentGame().getPersonagesList().get(Result);         
         if(p.isDone()){
-            getPersonages();
+            throw new controlPlayerException("Nobody wants to talk to you here");
         }
-        return p;
+        else{
+            p.setDone(true);
+            Journey.getCurrentGame().getPersonagesList().set(Result, p);            
+            return p;                
         }
-        throw new controlPlayerException("No more speeches");
+            
+        }
+        else{
+            throw new controlPlayerException("No more speeches");
+        }
+        
+        
     }
     
     public static boolean stillHavePersonages(){
-        boolean done=true;
+        boolean done=true;  
         for(Personages p: Journey.getCurrentGame().getPersonagesList()){
             if(!p.isDone()){
                 done=false;
-                return done;
             }
         }
         return done;
     }
     
-    public static void resetListPersonages(){    
-        Journey.getCurrentGame().setPersonagesList(ControlMap.createPersonagesDialogs());    
+    public static void resetListPersonages(){ 
+        ArrayList<Personages> PersonagesList= ControlMap.createPersonagesDialogs();
+        Journey.getCurrentGame().setPersonagesList(PersonagesList);    
     }
        
 } 
