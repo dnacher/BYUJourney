@@ -80,7 +80,7 @@ public class GameMenuView extends View{
             this.console.println("\nYou don´t have items in your inventory yet." +
                                   "\nTo have items you´ll need to search items " +
                                   "\nor fight against enemies...");
-            this.display();
+          
         }       
     }
     
