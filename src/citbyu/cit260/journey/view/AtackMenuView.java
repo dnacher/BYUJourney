@@ -174,10 +174,6 @@ public void addMana(){
     Journey.getPlayer().getMyCharacter().setMana(total);
 }
 
-private void displayMainMenuView() {
-	this.display();
-}
-
 public void ShowMyInventory(){
         if(Journey.getPlayer().getInventory().size()>0){
             ShowMyInventoryView SMIV= new ShowMyInventoryView();

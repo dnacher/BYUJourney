@@ -98,10 +98,7 @@ public class GameMenuView extends View{
             if (!"noName".equals(i.getName())){
                 OptionItemFoundedVIew OIFV= new OptionItemFoundedVIew(i);
                 OIFV.display();
-            }
-            else{
-                this.display();
-            }            
+            }                  
     }
     
     private void saveGame() {
