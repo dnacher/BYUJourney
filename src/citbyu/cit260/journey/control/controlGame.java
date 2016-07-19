@@ -31,7 +31,7 @@ public class controlGame {
         }
         
         Player player= new Player();
-        Character ch= new Character(100, 0, 0,"Human", 1);
+        Character ch=new Character(100, 0, "Human", 1);        
         player.setMyCharacter(ch);
         player.setName(name);  
         player.setCurrentPlace(2);

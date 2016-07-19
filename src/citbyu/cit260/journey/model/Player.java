@@ -16,6 +16,8 @@ public class Player implements Serializable{
     private Character myCharacter;
     private ArrayList<Item> Inventory;
     private int level;
+    private int karma;
+    
 
     public int getId() {
         return id;
@@ -86,6 +88,15 @@ public class Player implements Serializable{
     public void setLevel(int level) {
         this.level = level;
     }
+
+    public int getKarma() {
+        return karma;
+    }
+
+    public void setKarma(int karma) {
+        this.karma = karma;
+    }
+    
     
     
     
@@ -101,7 +112,8 @@ public class Player implements Serializable{
     this.currentCity=1;
     this.myCharacter=myCharacter;
     this.Inventory=new ArrayList<>();
-    this.level=0;    
+    this.level=0; 
+    this.karma=0;
     }
     
     

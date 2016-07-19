@@ -69,6 +69,7 @@ public class MovePlaceMenuView extends View{
     public void Inn(){
         setCurrentPlace(I);
         cp.enemy();
+        print();
         controlGame.resetCount();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
@@ -77,6 +78,7 @@ public class MovePlaceMenuView extends View{
     public void Market(){
         setCurrentPlace(M);
         cp.enemy();
+        print();
         controlGame.resetCount();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
@@ -85,6 +87,7 @@ public class MovePlaceMenuView extends View{
     public void Gates(){
         setCurrentPlace(G);
         cp.enemy();
+        print();
         controlGame.resetCount();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
@@ -93,6 +96,7 @@ public class MovePlaceMenuView extends View{
     public void Dock(){
         setCurrentPlace(D);
         cp.enemy();
+        print();
         controlGame.resetCount();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
@@ -101,6 +105,7 @@ public class MovePlaceMenuView extends View{
     public void Castle(){
         setCurrentPlace(C);
         cp.enemy();
+        print();
         controlGame.resetCount();
         OptionPlaceMenuView opmv= new OptionPlaceMenuView();
         opmv.display();
@@ -110,6 +115,11 @@ public class MovePlaceMenuView extends View{
          Journey.getPlayer().setCurrentPlace(i);
          ControlMap.updateMap(Journey.getPlayer().getCurrentCity(), Journey.getPlayer().getCurrentPlace());
 
+    }
+    
+    public void print(){
+         this.console.println("\nyou have Mana: " + Journey.getPlayer().getMyCharacter().getMana() +
+                              "\nif you want to fight there are a " + AtackMenuView.enemyWarrior.getWar().getName() + " warrior in this place");
     }
     
     

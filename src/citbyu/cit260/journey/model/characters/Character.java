@@ -11,18 +11,16 @@ public class Character implements Serializable{
        
     private int id;
     private int currentHp;
-    private int mana;
-    private int karma;
+    private int mana;    
     private String name;
     
     public Character(){
     }
     
-    public Character(int currentHp,int mana, int karma,String name, int id){
+    public Character(int currentHp,int mana,String name, int id){
         
     this.currentHp=currentHp;
-    this.mana=mana;
-    this.karma=karma;
+    this.mana=mana;    
     this.name=name;
     this.id=id;            
     }
@@ -33,14 +31,6 @@ public class Character implements Serializable{
   
     public void setHp(int hp) {
         this.currentHp = hp;
-    }
-  
-    public int getKarma() {
-        return karma;
-    }
-
-    public void setKarma(int karma) {
-        this.karma = karma;
     }
 
     public String getName() {
@@ -72,8 +62,7 @@ public class Character implements Serializable{
         int hash = 7;
         hash = 29 * hash + this.id;
         hash = 29 * hash + this.currentHp;
-        hash = 29 * hash + this.mana;
-        hash = 29 * hash + this.karma;
+        hash = 29 * hash + this.mana;        
         hash = 29 * hash + Objects.hashCode(this.name);
         return hash;
     }
@@ -95,10 +84,7 @@ public class Character implements Serializable{
         }
         if (this.mana != other.mana) {
             return false;
-        }
-        if (this.karma != other.karma) {
-            return false;
-        }
+        }        
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -107,7 +93,7 @@ public class Character implements Serializable{
 
     @Override
     public String toString() {
-        return "Character{" + "id=" + id + ", currentHp=" + currentHp + ", mana=" + mana + ", karma=" + karma + ", name=" + name + '}';
+        return "Character{" + "id=" + id + ", currentHp=" + currentHp + ", mana=" + mana + ", name=" + name + '}';
     }
     
    

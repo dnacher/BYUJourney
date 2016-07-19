@@ -310,8 +310,7 @@ public class controlPlayer {
     
     public void enemy(){
         AtackMenuView.enemyWarrior=  chooseEnemy(Journey.getPlayer().getCurrentCity(), Journey.getPlayer().getCurrentPlace()); 
-        this.console.println("Mana: " + Journey.getPlayer().getMyCharacter().getMana());
-        this.console.println(AtackMenuView.enemyWarrior.getWar().getName());
+        
     }
 
  

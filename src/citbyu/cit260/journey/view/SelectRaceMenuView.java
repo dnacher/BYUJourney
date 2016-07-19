@@ -17,7 +17,7 @@ public class SelectRaceMenuView extends View{
     
     ControlDialog dialog= new ControlDialog();
     
-    private Character ch= new Character(100,0,0,"no name",-1);
+    private Character ch= new Character(100,0,"no name",-1);
     
     public SelectRaceMenuView(){
         super("\n"

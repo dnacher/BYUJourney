@@ -9,11 +9,11 @@ public class Warrior implements Serializable{
     
     
     private Warriors warrrior;
-    private int currentHp;
+    private int currentHp;   
     
     public Warrior(Warriors war){
     this.warrrior=war;
-    this.currentHp=war.getLife();    
+    this.currentHp=war.getLife();   
     }
 
    
