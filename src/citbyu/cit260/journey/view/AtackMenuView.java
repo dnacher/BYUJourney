@@ -9,8 +9,6 @@ import citbyu.cit260.journey.exceptions.NegativeValuesAtackException;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.characters.Warrior;
 import citbyu.cit260.journey.model.map.Item;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -47,12 +45,62 @@ public class AtackMenuView extends View{
      @Override
     public boolean doAction(String menuOption){
        menuOption = menuOption.toUpperCase();
-	boolean answer=false;
-        if(playerWarrior!=null){
-        if(playerWarrior.getCurrentHp()<=0){
+	boolean answer=false;        
+	switch (menuOption) {
+                case "S": //create and start new game
+                    if(playerWarrior==null){
+                        Summon();
+                    }
+                    else{
+                        this.console.println("you already have a creature");
+                    }		
+                        break;
+		case "A": //create and start new game
+			if(atack()){
+                            return true;
+                        }
+                        break;
+		case "W": // get and start an existing game
+			withdraw();                        
+			break;
+		case "U": // display the help menu
+			ShowMyInventory();                       
+			break;
+		default:
+			this.console.println("\n*** Invalid selection *** Try again");
+			break;
+	}	
+	return answer;    
+    }
+   
+private boolean atack() {
+    boolean done=false;
+    if(playerWarrior==null){
+         this.console.println("\n You don´t have a crature yet or" + 
+                              "\n your creature is dead. " +
+                              "\n you can summon another creature to try again");
+         return done;
+        }
+        
+    try{
+        this.console.println( "*****Player Warrior*****" 
+                            + "\nName:  " +  playerWarrior.getWar().getName() 
+                            + "\nPower: " + playerWarrior.getWar().getPower()
+                            + "\nArmor: " + playerWarrior.getWar().getArmor()
+                            + "\nLife:  " + playerWarrior.getCurrentHp() +
+                              "\n*****Enemy Warrior*****" 
+                            + "\nName:  " +  enemyWarrior.getWar().getName() 
+                            + "\nPower: " + enemyWarrior.getWar().getPower()
+                            + "\nArmor: " + enemyWarrior.getWar().getArmor()
+                            + "\nLife:  " + enemyWarrior.getCurrentHp());
+   enemyWarrior=cp.atack(playerWarrior, enemyWarrior, false);
+    this.console.println( "Your Enemy has now " + enemyWarrior.getCurrentHp());
+   playerWarrior=cp.atack(enemyWarrior, playerWarrior, true);
+   this.console.println( "Your Warrior has now " + playerWarrior.getCurrentHp());
+   if(playerWarrior.getCurrentHp()<=0){
             this.console.println("you lose");
             playerWarrior=null;
-            return true;
+            done=true;
             
         }
         else if(enemyWarrior.getCurrentHp()<0){
@@ -71,56 +119,15 @@ public class AtackMenuView extends View{
             } catch (PlayerLevelControlException ex) {
                 ErrorView.display("", ex.getMessage());
             }
-        playerWarrior=null;
-        
-            return true;
-        } 
+        playerWarrior=null;        
+        done=true;
         }
-	switch (menuOption) {
-                case "S": //create and start new game
-                    if(playerWarrior==null){
-                        Summon();
-                    }
-                    else{
-                        this.console.println("you already have a creature");
-                    }		
-                        break;
-		case "A": //create and start new game
-			atack();
-                        break;
-		case "W": // get and start an existing game
-			withdraw();                        
-			break;
-		case "U": // display the help menu
-			ShowMyInventory();                       
-			break;
-		default:
-			this.console.println("\n*** Invalid selection *** Try again");
-			break;
-	}	
-	return answer;    
-    }
    
-private void atack() {
-    try{
-        this.console.println( "*****Player Warrior*****" 
-                            + "\nName:  " +  playerWarrior.getWar().getName() 
-                            + "\nPower: " + playerWarrior.getWar().getPower()
-                            + "\nArmor: " + playerWarrior.getWar().getArmor()
-                            + "\nLife:  " + playerWarrior.getCurrentHp() +
-                              "\n*****Enemy Warrior*****" 
-                            + "\nName:  " +  enemyWarrior.getWar().getName() 
-                            + "\nPower: " + enemyWarrior.getWar().getPower()
-                            + "\nArmor: " + enemyWarrior.getWar().getArmor()
-                            + "\nLife:  " + enemyWarrior.getCurrentHp());
-   enemyWarrior=cp.atack(playerWarrior, enemyWarrior, false);
-    this.console.println( "Your Enemy has now " + enemyWarrior.getCurrentHp());
-   playerWarrior=cp.atack(enemyWarrior, playerWarrior, true);
-   this.console.println( "Your Warrior has now " + playerWarrior.getCurrentHp());
     }
     catch(Exception ex){
         ErrorView.display("", ex.getMessage());
     }
+    return done;
 }
 
 private void withdraw() {
