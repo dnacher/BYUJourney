@@ -182,7 +182,7 @@ public class controlPlayer {
     
     public void chooseWarrior(int choice){
         Warrior w=new Warrior(chooseCharacter(Journey.getPlayer().getMyCharacter().getId(), choice));
-        AtackMenuView.w=w;      
+        AtackMenuView.playerWarrior=w;      
     }
     
     public Warriors chooseCharacter(int id, int choice){
@@ -484,6 +484,33 @@ public class controlPlayer {
         ArrayList<Personages> PersonagesList= ControlMap.createPersonagesDialogs();
         Journey.getCurrentGame().setPersonagesList(PersonagesList);    
     }
-       
-} 
+    
+    public Warrior atack(Warrior atacker, Warrior defender, boolean enemy) throws NegativeValuesAtackException{
+        if(atacker!=null && defender!=null){
+        int power;                   
+        int defenderArmor;
+        int defenderLife;
+        if(enemy){
+            defenderArmor=(int) (defender.getWar().getArmor()*calculateItems(Types.Armor));
+            defenderLife=(int)(defender.getCurrentHp()*calculateItems(Types.Magic));
+            int newPower=atacker.getWar().getPower()-defenderArmor;
+            if(newPower>0){
+                defender.setCurrentHp(defender.getCurrentHp()-newPower);
+            }
+        }
+        else{
+            power=(int)(atacker.getWar().getPower()*calculateItems(Types.Power));
+            int newPower=power-defender.getWar().getArmor();
+            if(newPower>0){
+            defender.setCurrentHp(defender.getCurrentHp()-newPower);
+            }
+        }
+        return defender;   
+        }
+        else {
+            throw new NegativeValuesAtackException("one or both warriors are null");
+        }
+        }
+}
+
   

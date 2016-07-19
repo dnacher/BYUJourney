@@ -38,6 +38,7 @@ public class ShowMyInventoryView extends View{
               Item i=Journey.getPlayer().getInventory().get(number);
               i.setInUse(true);
               Journey.getPlayer().getInventory().set(number, i);
+              return true;
         }
         return answer;        
     } 

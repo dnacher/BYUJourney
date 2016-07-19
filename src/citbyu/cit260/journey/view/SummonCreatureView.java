@@ -29,16 +29,16 @@ public class SummonCreatureView extends View{
 	switch (menuOption) {
                 case "S": //create and start new game
 			sOption();
-                        break;
+                        return true;
 		case "A": //create and start new game
 			aOption();
-                        break;
+                        return true;
 		case "W": // get and start an existing game
 			wOption();
-			break;
+			return true;
 		case "D": // display the help menu
 			dOption();
-			break;
+			return true;
 		default:
 			this.console.println("\n*** Invalid selection *** Try again");
 			break;

@@ -13,6 +13,7 @@ import citbyu.cit260.journey.model.characters.Personages;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import citbyu.cit260.journey.enums.Types;
+import citbyu.cit260.journey.model.map.Item;
 
 /**
  *
@@ -89,7 +90,20 @@ public class OptionPlaceMenuView extends View{
     }
     
      public void lookForItem() throws PlayerLevelControlException{
-       cg.looking();
-    }
+            Item i= new Item();
+            i.setName("noName");
+            try{
+            i=cg.looking();
+            this.console.println("you find " + i.getName());               
+            this.console.println(i.getDescription().getDescription());
+            }
+            catch(Exception ex){
+                ex.getMessage();
+            }
+            if (!"noName".equals(i.getName())){
+                OptionItemFoundedVIew OIFV= new OptionItemFoundedVIew(i);
+                OIFV.display();
+            }      
+     }
     
 }
