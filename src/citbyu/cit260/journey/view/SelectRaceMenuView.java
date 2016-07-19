@@ -57,7 +57,9 @@ public class SelectRaceMenuView extends View{
                         ch.setName("Elf");
                         console.println(dialog.PrintRace(number));
                         this.console.println("");
-			Journey.getPlayer().setMyCharacter(ch);                           
+			Journey.getPlayer().setMyCharacter(ch);   
+                        introductionView iv2= new introductionView(dialog.ElfStart());
+                        iv2.display();
                         startGame();
 			break;
 		case 3: // display the help menu
@@ -65,7 +67,9 @@ public class SelectRaceMenuView extends View{
                         ch.setName("Wizard");
                         console.println(dialog.PrintRace(number));
                         this.console.println("");
-			Journey.getPlayer().setMyCharacter(ch);                         
+			Journey.getPlayer().setMyCharacter(ch);  
+                        introductionView iv3= new introductionView(dialog.WizardStart());
+                        iv3.display();
                         startGame();
 			break;                
         }

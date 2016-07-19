@@ -64,10 +64,43 @@ public class ControlDialog {
      return str;
     }
     
-    public String noTime(){
-     String str="\nwe don´t have time to explain. the orcs are atacking our city, help here or in the bridge in the north"+
-                        "\n1-Ok, I´ll help you"+
-                        "\n2-Well, I will Help People in the north";
+    public String ElfStart(){
+            String str= "\n**************************************************************" +
+                        "\n**************************************************************" +
+                        "\n**************************************************************" +
+                        "\nall your race is going to the Valinor -Land of the Valar- " + 
+                        "\nyou are struggling in your mind since the time you hear about" +
+                        "\nan object that could bring the war to all the races" +
+                        "\nnow you need to choose an option" +  
+                        "\n you hear a voice...." +
+                        "\n" +
+                        "\nour kindom is moving now " + Journey.getPlayer().getName() +
+                        "\nWhat are you going to do?" +
+                        "\n" +
+                        "\n1- Go to the land of humans and help them find the Light stones" +                        
+                        "\n2- Wait, I need to think first. it´s a very importan choice..." +
+                        "\n3- No, I want to travel with my king";   
+     return str;
+    }
+    
+    public String WizardStart(){
+             String str="\n**************************************************************" +
+                        "\n**************************************************************" +
+                        "\n**************************************************************" +
+                        "\nYou wake up outside of the big wall that protect a great city" + 
+                        "\nYou don´t remember what Happend" +
+                        "\nThe only things you have is a cape, a sword and an old map" +
+                        "\n" +
+                        "\n" +
+                        "\"Captain\"" +
+                        "\n" +
+                        "\nYou hear a voice" +
+                        "\nyou turn your head and see a tall and big guy with a great sword in his hands." +
+                        "\nAre you going to help us on the bridge or are you going to go with the army to the north?" +
+                        "\n" +
+                        "\n1- Yes, I will help you, I don´t like the cold weather in the north" +                        
+                        "\n2- Wait, I don´t know what happend. please explain to me" +
+                        "\n3- No, I want to travel to the north. I ´ve never been there";   
      return str;
     }
     

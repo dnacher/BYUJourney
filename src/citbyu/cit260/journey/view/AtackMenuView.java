@@ -84,12 +84,12 @@ private boolean atack() {
         
     try{
         this.console.println( "*****Player Warrior*****" 
-                            + "\nName:  " +  playerWarrior.getWar().getName() 
+                            + "\nName:  " + playerWarrior.getWar().getName() 
                             + "\nPower: " + playerWarrior.getWar().getPower()
                             + "\nArmor: " + playerWarrior.getWar().getArmor()
                             + "\nLife:  " + playerWarrior.getCurrentHp() +
                               "\n*****Enemy Warrior*****" 
-                            + "\nName:  " +  enemyWarrior.getWar().getName() 
+                            + "\nName:  " + enemyWarrior.getWar().getName() 
                             + "\nPower: " + enemyWarrior.getWar().getPower()
                             + "\nArmor: " + enemyWarrior.getWar().getArmor()
                             + "\nLife:  " + enemyWarrior.getCurrentHp());

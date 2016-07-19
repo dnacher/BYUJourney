@@ -48,7 +48,7 @@ public class StartProgramView extends View{
     @Override
     public boolean doAction(String playersName){
        if(playersName.length()<2){
-           this.console.println("\nInvalid Players name:" + "The name mus be greater than one Character in lenght");
+           this.console.println("\nInvalid Players name:" + "The name must be greater than one Character in lenght");
            return false;
        }   
        //create the Player with the name that the player type

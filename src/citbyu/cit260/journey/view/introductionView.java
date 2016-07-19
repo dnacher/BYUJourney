@@ -24,9 +24,8 @@ public class introductionView extends View{
 	boolean answer=false;	
 	switch (number) {
 		case 1:                      
-                    this.console.println("\nyou start fighting bravely in the wall and your army win the battle..."+
-                                         "\nThe captain told you about a powerful stones that were stolen."+
-                                         "\nSince you win the battle, you´re call to recover those stones"+
+                    this.console.println("\nyou choose the right option. now you will be able to help all races to" +
+                                         "\nkeep the peace if you succeed in this journey finding the light stones" +
                                          "\nYou can start searching where you are now. (Edelion) or look somewhere else"+
                                          "\n"+
                                          "\nThere will be two ways to find items in the game"+
@@ -36,14 +35,10 @@ public class introductionView extends View{
                     startGame();
                     break;
 		case 2: 
-                    this.console.println("\nYes, but we don´t have much time...you will need to answer quickly."+
-                                         "\nWe are being attacked in the wall and in the north"+
-                                         "\nThere are a big army marching to the north"+
-                                         "\nand we are fighting here in the wall"+
-                                         "\nWhere do you want to fight?");   
+                    this.console.println("\nWe don´t have much time...you will need to answer now.");   
                     break;
                 case 3:
-                    this.console.println("\nIn the north the fight was very hard. sadly you caouldn´t live..."+
+                    this.console.println("\nYou and your company was ambushed.  Unfortunately no one survived"+
                                          "\n*****************************************************************"+
                                          "\n**************************THE END********************************"+
                                          "\n*****************************************************************");
