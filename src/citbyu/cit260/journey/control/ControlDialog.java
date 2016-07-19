@@ -87,20 +87,17 @@ public class ControlDialog {
              String str="\n**************************************************************" +
                         "\n**************************************************************" +
                         "\n**************************************************************" +
-                        "\nYou wake up outside of the big wall that protect a great city" + 
-                        "\nYou don´t remember what Happend" +
-                        "\nThe only things you have is a cape, a sword and an old map" +
+                        "\nthe master must be soon in the castle but you recieved bad news" + 
+                        "\nthe light stones were stolen. the Elf and human are already doing" +
+                        "\ntheir best to recover the light stones" +
                         "\n" +
                         "\n" +
-                        "\"Captain\"" +
-                        "\n" +
-                        "\nYou hear a voice" +
-                        "\nyou turn your head and see a tall and big guy with a great sword in his hands." +
-                        "\nAre you going to help us on the bridge or are you going to go with the army to the north?" +
-                        "\n" +
-                        "\n1- Yes, I will help you, I don´t like the cold weather in the north" +                        
-                        "\n2- Wait, I don´t know what happend. please explain to me" +
-                        "\n3- No, I want to travel to the north. I ´ve never been there";   
+                        Journey.getPlayer().getName() +
+                        " What are we going to do?" +
+                        "\n" +                        
+                        "\n1- Let´s help them recover the light stones now" +                        
+                        "\n2- Wait, we need to wait for the master" +
+                        "\n3- We are going to look for the great book of magic in the mountains";   
      return str;
     }
     
