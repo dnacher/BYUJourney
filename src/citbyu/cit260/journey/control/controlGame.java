@@ -314,9 +314,7 @@ public class controlGame {
     }
     
     public static void printItemsReport(String ouputLocation)throws ControlGameException{
-        PrintWriter out=null;
-        try{
-            out= new PrintWriter(ouputLocation);
+        try(PrintWriter out = new PrintWriter(ouputLocation)) {
             out.println("\n\n        Item Inventory         ");
             out.printf("%n%-20s%5s%8s","Name","Level"," Type ");
             out.printf("%n%-20s%5s%8s","-------------------","-----","------");
@@ -326,11 +324,6 @@ public class controlGame {
         }
         catch(IOException e){
             throw new ControlGameException(e.getMessage());
-        }
-        finally{
-            if(out!=null){
-                out.close();
-            }
         }
     }
     

@@ -20,7 +20,8 @@ public class GameMenuView extends View{
                  +"\nM Move"
                  +"\nL Look for Items"
                  +"\nA Atack" 
-                 +"\nS Save Game"                 
+                 +"\nS Save Game"  
+                 +"\nR Items Reports"
                 + "\nI Show my Inventory and start using an item"
                  +"\n----------------------------------"
                  +"\nQ Return Main Menu"
@@ -63,7 +64,10 @@ public class GameMenuView extends View{
 			break;
                 case "I": 
 			ShowMyInventory();
-			break;       
+			break; 
+                case "R": // save the current game
+			saveItems();
+			break;
 		default:
 			this.console.println("\n*** Invalid selection *** Try again");
 			break;
@@ -117,6 +121,11 @@ public class GameMenuView extends View{
      public void atack(){
         AtackMenuView amv= new AtackMenuView();
         amv.display();
+    }
+     
+     private void saveItems() {
+    ItemsView iv= new ItemsView();
+    iv.display();
     }
     
 }
