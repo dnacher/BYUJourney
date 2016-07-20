@@ -22,8 +22,7 @@ import java.util.Random;
 public class controlPlayer {
     
      protected final BufferedReader keyboard=Journey.getInFile();
-     protected final PrintWriter console=Journey.getOutFile();
-     Dice dice= new Dice();
+     protected final PrintWriter console=Journey.getOutFile();    
     
     //this function will calculate the time spend to travel from one place to another
     //the speed of a horse and a man is based on a internet research
@@ -70,7 +69,7 @@ public class controlPlayer {
     public boolean lookForItem(int LevelPlayer){
         Boolean found=false;
         double levelPoints=25;
-        int points= dice.CalculateTotalDices(dice.rollDice(LevelPlayer));                
+        int points= Dice.CalculateTotalDices(Dice.rollDice(LevelPlayer));                
         if(LevelPlayer==1){
             levelPoints+=20;
         }

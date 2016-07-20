@@ -16,7 +16,7 @@ public class Dice {
     }
      
       //this function will roll 2 dices 
-    public ArrayList<theDice> rollDice(int level) {
+    public static ArrayList<theDice> rollDice(int level) {
        int total=0;
        int dice=rollDice();
        ArrayList<theDice> list = new ArrayList<>();    
@@ -34,7 +34,7 @@ public class Dice {
         return list;
     }
     
-    public int CalculateTotalDices(ArrayList<theDice> list){
+    public static int CalculateTotalDices(ArrayList<theDice> list){
         int total=0;
         for(theDice d: list){
             total+=d.getIntDice();
@@ -42,7 +42,7 @@ public class Dice {
         return total;
     }
     
-    public String createStringDice(ArrayList<theDice> list){
+    public static String createStringDice(ArrayList<theDice> list){
         String str="";
          for(theDice d: list){
             str+="\n" + d.getStringDice();

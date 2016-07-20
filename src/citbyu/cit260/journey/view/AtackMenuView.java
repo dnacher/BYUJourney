@@ -18,8 +18,7 @@ public class AtackMenuView extends View{
  
     public static Warrior playerWarrior;       
     public static Warrior enemyWarrior;     
-    private final controlPlayer cp= new controlPlayer();
-    Dice dice= new Dice();
+    private final controlPlayer cp= new controlPlayer();    
     private final controlGame cg= new controlGame();
     
     
@@ -202,8 +201,8 @@ private void Summon(){
 }
 
 public void addMana(){
-    this.console.println(dice.createStringDice(dice.rollDice(Journey.getCurrentGame().getPlayer().getLevel())));
-    int dicenum=dice.CalculateTotalDices(dice.rollDice(Journey.getCurrentGame().getPlayer().getLevel()));
+    this.console.println(Dice.createStringDice(Dice.rollDice(Journey.getCurrentGame().getPlayer().getLevel())));
+    int dicenum=Dice.CalculateTotalDices(Dice.rollDice(Journey.getCurrentGame().getPlayer().getLevel()));
     this.console.println(dicenum);
     int mana=Journey.getPlayer().getMyCharacter().getMana();
     int total=dicenum+mana;
@@ -240,47 +239,3 @@ public void ShowMyInventory(){
             }      
      }
 }
-
-
-/* if(w!=null){
-        if(w.getCurrentHp()<=0 || enemyWarrior.getCurrentHp()<=0){
-            if(w.getCurrentHp()<=0){
-              this.console.println("You´re too weak for this Enemy. Try next time with items to help you");  
-            }
-        }
-        else{     
-            try {
-                enemyWarrior.setCurrentHp(cp.attack(w.getWar().getPower(), enemyWarrior.getWar().getArmor(), enemyWarrior.getCurrentHp()));
-            } catch (NegativeValuesAtackException ex) {
-                this.console.println(ex.getMessage());
-            }   
-            try {
-                double armor=w.getWar().getArmor()*cp.calculateItems(Types.Armor);
-                int percentage=(int) (cp.calculateItems(Types.Armor)-1)/100;
-                this.console.println("You have " + percentage + " more for your items in use");
-                w.setCurrentHp(cp.attack(enemyWarrior.getWar().getPower(), (int)armor, w.getCurrentHp()));
-            } catch (NegativeValuesAtackException ex) {
-                this.console.println(ex.getMessage());
-            }
-    if(w.getCurrentHp()>0){
-        this.console.println("You´re still alive");
-    }
-    else{
-        this.console.println("You´re already dead");
-    }
-    this.console.println( "\n--------------------------------" +
-                          "\nyour life is      " + w.getCurrentHp() + 
-                          "\nthe enemy life is " + enemyWarrior.getCurrentHp() +
-                          "\n--------------------------------");   
-    }
-    }
-    else{
-        this.console.println("\nYou don´t have a creature to atack" +
-                             "\nSummon a crature with the option");       
-    }
-
-
-  double armor=playerWarrior.getWar().getArmor()*cp.calculateItems(Types.Armor);
-           int percentage=(int) (cp.calculateItems(Types.Armor)-1)/100;
-           this.console.println("You have " + percentage + " more for your items in use");
-           playerWarrior.setCurrentHp(cp.attack(enemyWarrior.getWar().getPower(), (int)armor, playerWarrior.getCurrentHp()));*/
