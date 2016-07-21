@@ -110,7 +110,7 @@ public class GameMenuView extends View{
             this.console.println(i.getDescription().getDescription());
             }
             catch(Exception ex){
-                ex.getMessage();
+               this.console.println(ex.getMessage());
             }
             if (!"noName".equals(i.getName())){
                 OptionItemFoundedVIew OIFV= new OptionItemFoundedVIew(i);

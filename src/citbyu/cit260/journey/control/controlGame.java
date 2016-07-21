@@ -192,14 +192,18 @@ public class controlGame {
     
     public boolean StillHaveItemsToFind() throws PlayerLevelControlException{
         boolean stillHave=false;
-        for(Item item: Journey.getCurrentGame().getItems()){
-            if(item.getLevel()==Journey.getPlayer().getLevel()){
-                if(!item.isFound()){
-                    stillHave=true;
-                    return stillHave;
-                }
+        int num=0;
+        for(Item item: Journey.getPlayer().getInventory()){
+            if(item.getLevel()==Journey.getPlayer().getLevel()){               
+                    num+=1;                
             }
-        }        
+        }
+        if(num<6){
+            stillHave=true;
+        }
+        else{
+            stillHave=false;
+        }
         return stillHave;
     }  
 
@@ -207,38 +211,31 @@ public class controlGame {
         boolean found=true;
         int number=0;
         while(found){
+            //create a number between 0 and 5
             number=Dice.rollDice() -1;
-            number= ((number) * 5) + Journey.getPlayer().getLevel();
-            try{
-            found=Journey.getCurrentGame().getItems().get(number).isFound();             
-            Journey.getCurrentGame().getItems().get(number).setFound(true); 
-            }
-            catch(Exception e){
-                throw new controlPlayerException("You didn´t find anything here..."); 
-            }
-           
+            //the number is multiplying by 5 because 5 is the number that the level are repeated
+            //with this calculation we have a random item depending on the level
+            number= ((number) * 5) + Journey.getPlayer().getLevel();            
+                if(cp.lookForItem(Journey.getPlayer().getLevel())){ 
+                    found=Journey.getCurrentGame().getItems().get(number).isFound();             
+                    Journey.getCurrentGame().getItems().get(number).setFound(true); 
+                }
+                else{
+                    throw new controlPlayerException("You didn´t find anything here...");
+                }                     
         }   
              return Journey.getCurrentGame().getItems().get(number);  
     }
     
-    public Item looking() throws PlayerLevelControlException {        
+    public Item looking() throws controlPlayerException {        
         Item item=new Item();
         try{
             item=ChooseItem();
         }
         catch(Exception ex){
-            throw new PlayerLevelControlException(ex.getMessage());
-        }
-        
-        if(cp.lookForItem(Journey.getPlayer().getLevel())){            
-            if(item.getId()!=-1){
-                return item;                
-            }           
-        }
-        else{
-            throw new PlayerLevelControlException("You didn´t find anything here...");
-        }
-        return item;
+            throw new controlPlayerException(ex.getMessage());
+        }        
+    return item;          
     }
     
     public static void updateCount(){

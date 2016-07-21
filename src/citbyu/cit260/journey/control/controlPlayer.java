@@ -59,17 +59,18 @@ public class controlPlayer {
     //the points are based on a table that we wrote before
     /*
     to return a true the player must have:
-    for level 0  from 3 to 12
-    for level 1  from 8 to 18
-    for level 2 from 13 to 24
-    for level 3 from 19 to 30
-    for level 4 from 27 to 36
-    for level 5 from 35 to 42
+    for level 0  from 3
+    for level 1  from 8
+    for level 2 from 13
+    for level 3 from 19
+    for level 4 from 27
+    for level 5 from 35
     */
     public boolean lookForItem(int LevelPlayer){
         Boolean found=false;
         double levelPoints=25;
-        int points= Dice.CalculateTotalDices(Dice.rollDice(LevelPlayer));                
+        int points= Dice.CalculateTotalDices(Dice.rollDice(LevelPlayer));
+        double morePoints=calculateItems(Types.Search) * points;
         if(LevelPlayer==1){
             levelPoints+=20;
         }
@@ -77,8 +78,9 @@ public class controlPlayer {
             levelPoints=45+((LevelPlayer-1)*10);
         }
         levelPoints=levelPoints/100;
-        levelPoints=((LevelPlayer+2)*6)*levelPoints;
-        if(points>=levelPoints){
+        levelPoints=((LevelPlayer+2)*6)*levelPoints;        
+        int lp=(int)levelPoints;
+        if(points>=lp){
             found=true;
         }
     return found;
@@ -138,6 +140,7 @@ public class controlPlayer {
                 num+=1;
             }            
         }
+    }
         switch(num){
             case 1:
                 num=15;                
@@ -157,8 +160,7 @@ public class controlPlayer {
             case 6:
                 num=100;                
                 break;                
-        }
-    }
+        }   
     double ret=(num/100)+1;
     return ret;
     }
@@ -369,15 +371,15 @@ public class controlPlayer {
            String str="";
            if(Journey.getPlayer().getInventory().size()>0){
                for(Item item: Journey.getPlayer().getInventory()){               
-               str+="----------------------------";
-               str+= number + ") " + item.getName();
+               str+="\n----------------------------";
+               str+="\n" + number + ") " + item.getName();
                if(item.isInUse()){
-                str+="   in use";
+                str+="\n   in use";
                }
                else{
-                str+="   you´re not using it";
+                str+="\n   you´re not using it";
                }              
-               str+="----------------------------";
+               //str+="----------------------------";
                number+=1;
                }
            }

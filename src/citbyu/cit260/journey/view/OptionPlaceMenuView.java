@@ -10,8 +10,6 @@ import citbyu.cit260.journey.control.controlGame;
 import citbyu.cit260.journey.control.controlPlayer;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.characters.Personages;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import citbyu.cit260.journey.enums.Types;
 import citbyu.cit260.journey.model.map.Item;
 
@@ -49,14 +47,8 @@ public class OptionPlaceMenuView extends View{
 		case "T": // get and start an existing game
 			talk();
 			break;	
-                case "L": {
-             try {
-                 // get and start an existing game
-                 lookForItem();
-             } catch (PlayerLevelControlException ex) {
-                 Logger.getLogger(OptionPlaceMenuView.class.getName()).log(Level.SEVERE, null, ex);
-             }
-         }
+                case "L":           
+                        lookForItem();         
 			break;	    	    
 		default:
 			this.console.println("\n*** Invalid selection *** Try again");
@@ -90,7 +82,7 @@ public class OptionPlaceMenuView extends View{
         }
     }
     
-     public void lookForItem() throws PlayerLevelControlException{
+     public void lookForItem(){
             Item i= new Item();
             i.setName("noName");
             try{
@@ -110,7 +102,7 @@ public class OptionPlaceMenuView extends View{
             this.console.println(i.getDescription().getDescription());
             }
             catch(Exception ex){
-                ex.getMessage();
+                this.console.println(ex.getMessage());
             }
             if (!"noName".equals(i.getName())){
                 OptionItemFoundedVIew OIFV= new OptionItemFoundedVIew(i);
