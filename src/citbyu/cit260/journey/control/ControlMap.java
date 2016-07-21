@@ -79,12 +79,12 @@ public class ControlMap {
         //Location [Place][City]
       public static Location[][] createLocationList(){
         Location[][] placesList=new Location[5][6];           
-             placesList=addLocations(placesList, "         Inn            ",0);
-             placesList=addLocations(placesList, "        Market          ",1);             
-             placesList=addLocations(placesList, "        Gates           ",2);
-             placesList=addLocations(placesList, "         Farm           ",3);
-             placesList=addLocations(placesList, "        Castle          ",4);            
-             Location l= new Location("         Dock           ");
+             placesList=addLocations(placesList, "     Inn        ",0);
+             placesList=addLocations(placesList, "    Market      ",1);             
+             placesList=addLocations(placesList, "    Gates       ",2);
+             placesList=addLocations(placesList, "     Farm       ",3);
+             placesList=addLocations(placesList, "    Castle      ",4);            
+             Location l= new Location           ("     Dock       ");
              
              placesList[2][5]=l;           
              return placesList;
@@ -105,22 +105,22 @@ public class ControlMap {
           String str;
           switch(num){
               case 0:
-                  str="       North Town         ";                      
+                  str="   North Town     ";                      
                   break;                  
               case 1:
-                  str="      Dragon Land         ";
+                  str="  Dragon Land     ";
                   break;
               case 2:
-                  str="        Edelion           ";
+                  str="    Edelion       ";
                   break;
               case 3:
-                  str="        Eten Ty           ";
+                  str="    Eten Ty       ";
                   break;
               case 4:
-                  str="     Hidden Forest        ";
+                  str=" Hidden Forest    ";
                   break;
               case 5:
-                  str="       South Port         ";
+                  str="   South Port     ";
                   break;
               default:
                   str="";
