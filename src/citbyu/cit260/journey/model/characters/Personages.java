@@ -6,12 +6,13 @@
 package citbyu.cit260.journey.model.characters;
 
 import citbyu.cit260.journey.enums.Dialogs;
+import java.io.Serializable;
 
 /**
  *
  * @author Dani-Fla-Mathi
  */
-public class Personages {
+public class Personages implements Serializable{
     
     private Dialogs dialog;
     private String name;
