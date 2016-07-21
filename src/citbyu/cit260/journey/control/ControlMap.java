@@ -13,6 +13,7 @@ import citbyu.cit260.journey.model.map.Map;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 
+
 /**
  *
  * @author Dani-Fla-Mathi
