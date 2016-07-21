@@ -70,99 +70,44 @@ public class AtackMenuView extends View{
 			break;
 	}	
 	return answer;    
-    }
+    }  
    
-private boolean atack() {
-    boolean done=false;
-    if(playerWarrior==null){
-         this.console.println("\n You don´t have a crature yet or" + 
-                              "\n your creature is dead. " +
-                              "\n you can summon another creature to try again");
-         return done;
+    private boolean atack() {
+        boolean done=false;
+        if(playerWarrior==null){
+            playerNull();
+            return done;
+        }        
+        try{
+            printWarriorInformation();     
+            enemyWarrior=cp.atack(playerWarrior, enemyWarrior, false);
+            this.console.println( "Your Enemy has now " + enemyWarrior.getCurrentHp());
+            playerWarrior=cp.atack(enemyWarrior, playerWarrior, true);
+            this.console.println( "Your Warrior has now " + playerWarrior.getCurrentHp());
+            if(playerWarrior.getCurrentHp()==0){            
+                done=true;
+                equalzero();                
+            }
+            else if(playerWarrior.getCurrentHp()<0){
+                lessThanZero();      
+            }
+            else if(enemyWarrior.getCurrentHp()<=0){
+                int totalPoints=(int)(Journey.getPlayer().getTime()*15000)/30;
+                enemyDead();
+                try {
+                    lookForItem();
+                } catch (PlayerLevelControlException ex) {
+                    ErrorView.display("", ex.getMessage());
+                }
+                playerWarrior=null;        
+                done=true;
+            }   
         }
-        
-    try{
-        this.console.println( "*****Player Warrior*****" 
-                            + "\nName:  " + playerWarrior.getWar().getName() 
-                            + "\nPower: " + playerWarrior.getWar().getPower()
-                            + "\nArmor: " + playerWarrior.getWar().getArmor()
-                            + "\nLife:  " + playerWarrior.getCurrentHp() +
-                              "\n*****Enemy Warrior*****" 
-                            + "\nName:  " + enemyWarrior.getWar().getName() 
-                            + "\nPower: " + enemyWarrior.getWar().getPower()
-                            + "\nArmor: " + enemyWarrior.getWar().getArmor()
-                            + "\nLife:  " + enemyWarrior.getCurrentHp());
-   enemyWarrior=cp.atack(playerWarrior, enemyWarrior, false);
-    this.console.println( "Your Enemy has now " + enemyWarrior.getCurrentHp());
-   playerWarrior=cp.atack(enemyWarrior, playerWarrior, true);
-   this.console.println( "Your Warrior has now " + playerWarrior.getCurrentHp());
-   if(playerWarrior.getCurrentHp()==0){            
-            done=true;
-            this.console.println("you lose your warrior, but your character wasn´t wounded");
-            playerWarrior=null; 
-            playerWarrior=null;
-            if(Journey.getPlayer().getMyCharacter().getcurrentHp()<=0){       
-            int totalPoints=(int)(Journey.getPlayer().getTime()*15000)/30;
-            this.console.println("\n you lose" +
-                                 "\n Total points " + totalPoints);
-       }
-   }
-   else if(playerWarrior.getCurrentHp()<0){
-       int newHP=Journey.getPlayer().getMyCharacter().getcurrentHp()+ playerWarrior.getCurrentHp();
-       Journey.getPlayer().getMyCharacter().setHp(newHP);       
-       this.console.println("\nyou lose your warrior and your character was wounded" +
-                            "\n your Hp now is: " + Journey.getPlayer().getMyCharacter().getcurrentHp());
-       if(Journey.getPlayer().getMyCharacter().getcurrentHp()<=0){       
-            int totalPoints=(int)(Journey.getPlayer().getTime()*15000)/30;
-            this.console.println("\n you lose" +
-                                 "\n Total points " + totalPoints);
-            Journey.setCurrentGame(null);
-            Journey.startGame();
-       }
-      
-   }
-   else if(enemyWarrior.getCurrentHp()<=0){
-            int totalPoints=(int)(Journey.getPlayer().getTime()*15000)/30;
-            if(Journey.getPlayer().getCurrentCity()==Types.DragonLand.getValue()){
-                this.console.println("\n You finally defeat the dragon. and you see a light inside the cave..." + 
-                                     "\n once you walk into you realize that the Light stone is there." +
-                                     "\n you can have the powerful light stone to go to others worlds..." +
-                                     "\n CONGRATULATION");
-                int newKarma=Journey.getPlayer().getKarma()+enemyWarrior.getWar().getKarma();
-                Journey.getPlayer().setKarma(newKarma);
-                if(Journey.getPlayer().getKarma()>0){     
-                    
-                    this.console.println("\nyou were a good " + Journey.getPlayer().getMyCharacter().getName() +
-                                         "\nyou kill almost all the bad guys only" +
-                                         "\n Total points " + totalPoints);
-                }
-                else{
-                    this.console.println("\nyou weren´t a good " + Journey.getPlayer().getMyCharacter().getName() +
-                                         "\nYou kill everyone regardless of whether they were good people");
-                }
-                this.console.println("\n Game Made by Gustavo Martinez and Daniel Nacher");
-                Journey.setCurrentGame(null);
-                Journey.startGame();
-            }
-    int newKarma=Journey.getPlayer().getKarma()+enemyWarrior.getWar().getKarma();
-    Journey.getPlayer().setKarma(newKarma);
-    this.console.println("\nyou win" +
-                         "\nyou have " + Journey.getPlayer().getKarma() + " Karma");
-            try {
-                lookForItem();
-            } catch (PlayerLevelControlException ex) {
-                ErrorView.display("", ex.getMessage());
-            }
-    playerWarrior=null;        
-    done=true;
-    }
-   
-    }
-    catch(Exception ex){
-        ErrorView.display("", ex.getMessage());
-    }
+        catch(Exception ex){
+            ErrorView.display("", ex.getMessage());
+        }
     return done;
-}
+    }
 
 private void withdraw() {
     if(playerWarrior!=null){
@@ -249,4 +194,76 @@ public void ShowMyInventory(){
                 OIFV.display();
             }      
      }
+ 
+ private void playerNull(){
+        this.console.println("\n You don´t have a crature yet or" + 
+                              "\n your creature is dead. " +
+                              "\n you can summon another creature to try again");
+    }
+    
+    private void printWarriorInformation(){
+        this.console.println( "*****Player Warrior*****" 
+                            + "\nName:  " + playerWarrior.getWar().getName() 
+                            + "\nPower: " + playerWarrior.getWar().getPower()
+                            + "\nArmor: " + playerWarrior.getWar().getArmor()
+                            + "\nLife:  " + playerWarrior.getCurrentHp() +
+                              "\n*****Enemy Warrior*****" 
+                            + "\nName:  " + enemyWarrior.getWar().getName() 
+                            + "\nPower: " + enemyWarrior.getWar().getPower()
+                            + "\nArmor: " + enemyWarrior.getWar().getArmor()
+                            + "\nLife:  " + enemyWarrior.getCurrentHp());
+    }
+    
+    private void equalzero(){
+        this.console.println("you lose your warrior, but your character wasn´t wounded");
+                playerWarrior=null; 
+                playerWarrior=null;
+                if(Journey.getPlayer().getMyCharacter().getcurrentHp()<=0){       
+                    int totalPoints=(int)(Journey.getPlayer().getTime()*15000)/30;
+                    this.console.println("\n you lose" +
+                                         "\n Total points " + totalPoints);
+                }
+    }
+    
+    private void lessThanZero(){
+        int newHP=Journey.getPlayer().getMyCharacter().getcurrentHp()+ playerWarrior.getCurrentHp();
+                Journey.getPlayer().getMyCharacter().setHp(newHP);       
+                this.console.println("\nyou lose your warrior and your character was wounded" +
+                                     "\n your Hp now is: " + Journey.getPlayer().getMyCharacter().getcurrentHp());
+                if(Journey.getPlayer().getMyCharacter().getcurrentHp()<=0){       
+                    int totalPoints=(int)(Journey.getPlayer().getTime()*15000)/30;
+                    this.console.println("\n you lose" +
+                                         "\n Total points " + totalPoints);
+                    Journey.setCurrentGame(null);
+                    Journey.startGame();
+                }
+    }
+    
+    private void enemyDead(){
+        int totalPoints=(int)(Journey.getPlayer().getTime()*15000)/30;
+        if(Journey.getPlayer().getCurrentCity()==Types.DragonLand.getValue()){
+                    this.console.println("\n You finally defeat the dragon. and you see a light inside the cave..." + 
+                                         "\n once you walk into you realize that the Light stone is there." +
+                                         "\n you can have the powerful light stone to go to others worlds..." +
+                                         "\n CONGRATULATION");
+                    int newKarma=Journey.getPlayer().getKarma()+enemyWarrior.getWar().getKarma();
+                    Journey.getPlayer().setKarma(newKarma);
+                    if(Journey.getPlayer().getKarma()>0){                    
+                        this.console.println("\nyou were a good " + Journey.getPlayer().getMyCharacter().getName() +
+                                             "\nyou kill almost all the bad guys only" +
+                                             "\n Total points " + totalPoints);
+                    }
+                    else{
+                        this.console.println("\nyou weren´t a good " + Journey.getPlayer().getMyCharacter().getName() +
+                                             "\nYou kill everyone regardless of whether they were good people");
+                    }
+                    this.console.println("\n Game Made by Gustavo Martinez and Daniel Nacher");
+                    Journey.setCurrentGame(null);
+                    Journey.startGame();
+                }
+                int newKarma=Journey.getPlayer().getKarma()+enemyWarrior.getWar().getKarma();
+                Journey.getPlayer().setKarma(newKarma);
+                this.console.println("\nyou win" +
+                                     "\nyou have " + Journey.getPlayer().getKarma() + " Karma");
+    }
 }
