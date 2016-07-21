@@ -22,6 +22,7 @@ import citbyu.cit260.journey.model.map.Item;
 public class OptionPlaceMenuView extends View{
     
     controlGame cg= new controlGame();
+    controlPlayer cp= new controlPlayer();
     
     public OptionPlaceMenuView(){
         super("\n"
@@ -93,6 +94,17 @@ public class OptionPlaceMenuView extends View{
             Item i= new Item();
             i.setName("noName");
             try{
+                if(!cg.StillHaveItemsToFind()){
+                    try{
+                        cp.updateLevel();   
+                        this.console.println("*****You reach one more level. Congratulation********");
+                        this.console.println("***************Now you´re Level: " + Journey.getPlayer().getLevel() + " ******************");
+                        this.console.println("*****************************************************");
+                    }
+                    catch(PlayerLevelControlException pl){
+                        throw new PlayerLevelControlException(pl.getMessage());
+                    }           
+                }                 
             i=cg.looking();
             this.console.println("you find " + i.getName());               
             this.console.println(i.getDescription().getDescription());
@@ -103,7 +115,7 @@ public class OptionPlaceMenuView extends View{
             if (!"noName".equals(i.getName())){
                 OptionItemFoundedVIew OIFV= new OptionItemFoundedVIew(i);
                 OIFV.display();
-            }      
+            }    
      }
     
 }

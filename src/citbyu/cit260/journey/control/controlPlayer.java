@@ -169,8 +169,7 @@ public class controlPlayer {
         if(Journey.getPlayer().getMyCharacter().getcurrentHp()>50){
             time=calculateTime(distance, false);
         }
-        else{
-            this.console.println("You´re Wounded, find something to improve your health ");
+        else{           
             time=calculateTime(distance, true);
         }
         double currentTime=Journey.getPlayer().getTime();
@@ -354,10 +353,7 @@ public class controlPlayer {
            int currentLevel=Journey.getPlayer().getLevel();
            if(currentLevel<5){
             currentLevel+=1;
-            Journey.getPlayer().setLevel(currentLevel);                   
-                   this.console.println("*****You reach one more level. Congratulation********");
-                   this.console.println("***************Now you´re Level: " + Journey.getPlayer().getLevel() + " ******************");
-                   this.console.println("*****************************************************");
+            Journey.getPlayer().setLevel(currentLevel);                      
            }
            else{              
                Journey.getCurrentGame().setMaximumLevel(true);    
@@ -368,27 +364,29 @@ public class controlPlayer {
                }
            }
        
-       public void PrintInventory(){
+       public String PrintInventory(){
            int number=1;
+           String str="";
            if(Journey.getPlayer().getInventory().size()>0){
                for(Item item: Journey.getPlayer().getInventory()){               
-               this.console.println("----------------------------");
-               this.console.println(number + ") " + item.getName());
+               str+="----------------------------";
+               str+= number + ") " + item.getName();
                if(item.isInUse()){
-                this.console.println("   in use");
+                str+="   in use";
                }
                else{
-                this.console.println("   you´re not using it");
+                str+="   you´re not using it";
                }              
-               this.console.println("----------------------------");
+               str+="----------------------------";
                number+=1;
                }
            }
            else{
-               this.console.println("\nYou don´t have items in your inventory yet." +
+               str+="\nYou don´t have items in your inventory yet." +
                                   "\nTo have items you´ll need to search items or fight" +
-                                  "\nagainst enemies...");
+                                  "\nagainst enemies...";
            } 
+           return str;
     }
        
        public static void saveEnemies(String filePath) throws controlPlayerException{

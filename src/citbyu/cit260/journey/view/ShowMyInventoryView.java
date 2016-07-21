@@ -20,7 +20,8 @@ public class ShowMyInventoryView extends View{
     
     public ShowMyInventoryView(){
         super("Select the number of the item you want to start using it");
-        cp.PrintInventory();
+        String str=cp.PrintInventory();
+        this.console.println(str);
         
     }
     

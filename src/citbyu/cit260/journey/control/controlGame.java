@@ -199,16 +199,7 @@ public class controlGame {
                     return stillHave;
                 }
             }
-        }
-        if(!stillHave){
-            try{
-                cp.updateLevel();
-            }
-            catch(PlayerLevelControlException pl){
-                throw new PlayerLevelControlException(pl.getMessage());
-            }
-           
-        }
+        }        
         return stillHave;
     }  
 
@@ -230,8 +221,7 @@ public class controlGame {
              return Journey.getCurrentGame().getItems().get(number);  
     }
     
-    public Item looking() throws PlayerLevelControlException {
-        StillHaveItemsToFind();
+    public Item looking() throws PlayerLevelControlException {        
         Item item=new Item();
         try{
             item=ChooseItem();

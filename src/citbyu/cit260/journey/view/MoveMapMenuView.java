@@ -82,6 +82,9 @@ private void northTown() {
     controlPlayer cp= new controlPlayer();
     double timespend=0;
         try {
+            if(Journey.getPlayer().getMyCharacter().getcurrentHp()<=50){
+                 this.console.println("You´re Wounded, find something to improve your health ");
+            }
             timespend = cp.addTime(num1, num2);
         } catch (CalculateTimeWayException ex) {
             ErrorView.display(this.getClass().getName() + " ", ex.getMessage());

@@ -3,12 +3,14 @@ package citbyu.cit260.journey.view;
 import citbyu.cit260.journey.Journey;
 import citbyu.cit260.journey.control.ControlMap;
 import citbyu.cit260.journey.control.controlGame;
+import citbyu.cit260.journey.control.controlPlayer;
 import citbyu.cit260.journey.exceptions.PlayerLevelControlException;
 import citbyu.cit260.journey.model.map.Item;
 
 public class GameMenuView extends View{
     
     controlGame cg= new controlGame();
+    controlPlayer cp= new controlPlayer();
     
     public GameMenuView(){
         super(    "\n"
@@ -92,6 +94,17 @@ public class GameMenuView extends View{
             Item i= new Item();
             i.setName("noName");
             try{
+                if(!cg.StillHaveItemsToFind()){
+                    try{
+                        cp.updateLevel();   
+                        this.console.println("*****You reach one more level. Congratulation********");
+                        this.console.println("***************Now you´re Level: " + Journey.getPlayer().getLevel() + " ******************");
+                        this.console.println("*****************************************************");
+                    }
+                    catch(PlayerLevelControlException pl){
+                        throw new PlayerLevelControlException(pl.getMessage());
+                    }           
+                }                 
             i=cg.looking();
             this.console.println("you find " + i.getName());               
             this.console.println(i.getDescription().getDescription());
@@ -102,7 +115,7 @@ public class GameMenuView extends View{
             if (!"noName".equals(i.getName())){
                 OptionItemFoundedVIew OIFV= new OptionItemFoundedVIew(i);
                 OIFV.display();
-            }                  
+            }                 
     }
     
     private void saveGame() {

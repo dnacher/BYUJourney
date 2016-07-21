@@ -226,6 +226,17 @@ public void ShowMyInventory(){
             Item i= new Item();
             i.setName("noName");
             try{
+                if(!cg.StillHaveItemsToFind()){
+                    try{
+                        cp.updateLevel();   
+                        this.console.println("*****You reach one more level. Congratulation********");
+                        this.console.println("***************Now you´re Level: " + Journey.getPlayer().getLevel() + " ******************");
+                        this.console.println("*****************************************************");
+                    }
+                    catch(PlayerLevelControlException pl){
+                        throw new PlayerLevelControlException(pl.getMessage());
+                    }           
+                }                 
             i=cg.looking();
             this.console.println("you find " + i.getName());               
             this.console.println(i.getDescription().getDescription());
